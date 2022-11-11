@@ -1,0 +1,86 @@
+<?php
+    $date = date("Y-m-d H:i:s");
+?>
+<!DOCTYPE html>
+<html land="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jquery 5일차 - 중급 (이벤트 핸들링 + 시간 + bind)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+                var $today = new Date();  // local PC에 있는 시간 날짜를 가져오는 형태
+                console.log($today);
+
+                var $today2 = "<?php echo $date ?>";  // Back-End에서 Sever 시간을 가져오는 형태
+                console.log($today2);
+
+                var $today_y = $today.getFullYear(); // 년도만 출력
+                console.log($today_y);
+
+                var $today_m = $today.getMonth() + 1; // 월만 출력. +1을 안하면 11월까지 밖에 없음. (1 안넣으면 0월~ 11월임)
+                console.log($today_m);
+
+                var $today_d = $today.getDate();  // 날짜만 출력
+                console.log($today_d);
+
+                var $today_w = $today.getDay();  //  주일만 출력 (0:일요일 ~ 6:토요일)
+                console.log($today_w);
+
+                var $today_h = $today.getHours();  //  시간만 출력
+                console.log($today_h);
+
+                var $today_i = $today.getMinutes();  //  분만 출력
+                console.log($today_i);
+
+                var $today_s = $today.getSeconds();  //  초만 출력
+                console.log($today_s);
+
+                $("#btn").bind({
+                    "click":function abc(){
+                        $("#btn").unbind("click");
+                        // unbind 이벤트 핸들링을 해제하는 역할
+                        console.log("clicks");
+                        setTimeout(function(){
+                            
+                            $("#btn").click(function(){
+                                abc();
+                            });
+
+                        },5000);
+                    },
+                    "mouseleave":function bbb(){
+                        console.log("mouseleaves");
+                    }
+                });
+
+                $("#btn2").click(function(){
+                    // $("#btn").unbind("mouseleave");
+                    // 다른 이벤트 핸들링도 적용시킬 수 있다.
+                    $("#btn").unbind();  // 전체 이벤트 핸들링을 모두 작동 불능
+                });
+
+                $("#btn3").click(function abc(){  // abc 함수는 재호출 하기 위해 사용하는 함수명
+                    console.log("abc");
+
+                    $("#btn3").unbind("click");  // click 핸들링 삭제
+                    console.log("진솔")
+                    setTimeout(function(){  // 5초 후에 작동시키기 위한 부분
+
+                        $("#btn3").click(function(){  // unbind된 핸들링을 재구성함
+                            abc();  // 재구성 한 함수를 호출
+                        });
+
+                    },5000);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type="button" value="click" id="btn">
+        <input type="button" value="해제" id="btn2">
+        <input type="button" value="재클릭" id="btn3">
+    </body>
+</html>

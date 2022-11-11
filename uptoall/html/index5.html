@@ -1,0 +1,71 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title>HTML3일차 기본태그 3.0 + CSS 1.0</title>
+    </head>
+
+    <body>
+        <table border="1" width="600" height="120">
+        <!--
+            table에 align 화면 위치에 맞게 정렬 됨
+            table에 width를 정하면 border값까지 합쳐져서 출력 됨
+        -->
+            <tr align="center"> 
+                <!--
+                    align : left, center, right
+                    td align : 해당 칸에만 정렬을 시킴
+                    tr align : 해당 줄에만 정렬을 시킴
+                -->
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td rowspan="2">4</td>
+                <!--
+                    rowspan : 세로 칸을 합칠 때
+                -->
+            </tr>
+            <tr>
+                <td bgcolor="green">5</td>
+                <!--
+                    bgcolor : 배경 색상을 적용할 때, table, tr, td 다 적용 가능(O)
+                -->
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="2">9</td>
+                <td colspan="2">11</td>
+                <!--
+                    colspan : 가로 칸을 합칠 때
+                -->
+            </tr>
+            <tr>
+                <td colspan="2">15</td>
+            </tr>
+        </table>
+        <br><br><br>
+
+        <!--
+            응용문제1.
+        -->
+        <table border="1" width="450" height="90" cellspacing="0" cellpadding="0" bordercolor="blue">
+            <!--
+                cellspacing : 바깥 경계선을 없앨 때 사용함
+                cellpadding : 안쪽 경계선을 없앨 때 사용함
+                bordercolor : 외각선 색상을 적용할 때 사용함, border 속성이 1 이라는 값이 있어야 사용 가능
+            -->
+            <tr>
+                <td width="100">1</td>
+                <td>2</td>
+                <td width="50"rowspan="2">3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td colspan="3">5</td>
+            </tr>
+        </table>
+    </body>
+</html>

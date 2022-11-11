@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 2일차 - Vue 좌우버튼 활용 news 출력 [응용파트]</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+            .news {
+                height: 400px;
+            }
+            .news_box {
+                width: 500px;
+                height: 30px;
+                border: 1px solid black;
+            }
+            .btn {
+                margin-top: 10px;
+                display: inline-block;
+                width: 50px;
+                height: 20px;
+                background-color: cadetblue;
+                border: 1px solid cornflowerblue;
+                text-align: center;
+                line-height: 20px;
+                cursor: pointer;
+            }
+            .btn:hover {
+                background-color: lightskyblue;
+                color: mediumblue;
+            }
+            .ulss {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                width: inherit;
+                height: inherit;
+                overflow: hidden;
+            }
+            .ulss > li {
+                width: inherit;
+                height: inherit;
+                line-height: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>함수 [두 개] 썼을 때</div>
+        <!-- 함수 두 개 썼을 때 -->
+        <section id="news">
+            <div class="news_box">
+                <ul class="ulss">
+                    <li v-if="num==1">{{news1}}</li>
+                    <li v-else-if="num==2">{{news2}}</li>
+                    <li v-else>{{news3}}</li>
+                </ul>
+            </div>
+            <span v-on:click="aaa" class="btn"><</span>
+            <span v-on:click="bbb" class="btn">></span>
+        </section>
+        
+        <!-- 함수 한 개 썼을 때 -->
+        <br><br><br>
+        <div>함수 [한 개] 썼을 때</div>
+        <section id="news2">
+            <div class="news_box">
+                <ul class="ulss">
+                    <li v-if="num==1">{{news1}}</li>
+                    <li v-else-if="num==2">{{news2}}</li>
+                    <li v-else>{{news3}}</li>
+                </ul>
+            </div>
+            <span v-on:click="aaa('prev')" class="btn"><</span>
+            <span v-on:click="aaa('next')" class="btn">></span>
+        </section>
+    </body>
+    <script>
+        // 함수 두 개) 썼을 때
+        let news = new Vue({
+            el:"#news",
+            data:{
+                news1:"[연합뉴스] 북한 사이버 테러 추가 해킹 정황...",
+                news2:"[씨넷코리아] 마이크로소프트 고객 서비스 시스템 해킹 공격 당해...",
+                news3:"[머니투데이] 웹사이트 제작자가 학원 해킹 1.3만명 수강생 정보 빼돌려...",
+                num:1
+            },
+            methods:{
+                aaa:function(){
+                    this.num--;
+                    if(this.num < 0){
+                        this.num = 2;
+                    }
+                },
+                bbb:function(){
+                    this.num++;
+                    if(this.num > 2){
+                        this.num = 0;
+                    }
+                }
+            }
+        });
+
+        // 함수 한 개) 썼을 때
+        let new2 = new Vue({
+            el:"#news2",
+            data:{
+                news1:"[연합뉴스] 북한 사이버 테러 추가 해킹 정황...",
+                news2:"[씨넷코리아] 마이크로소프트 고객 서비스 시스템 해킹 공격 당해...",
+                news3:"[머니투데이] 웹사이트 제작자가 학원 해킹 1.3만명 수강생 정보 빼돌려...",
+                num:1
+            },
+            methods:{
+                aaa:function(part){
+                    if(part=="prev"){
+                        this.num--;
+                        if(this.num < 0){
+                            this.num = 2;
+                        }
+                    }
+                    else{
+                        this.num++;
+                        if(this.num > 2){
+                            this.num = 0;
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</html>

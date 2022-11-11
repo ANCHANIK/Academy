@@ -1,0 +1,115 @@
+@charset "UTF-8";
+@import url("../css/font.css");
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+}
+ul,
+ol,
+dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+span,
+label,
+main {
+  display: block;
+}
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+}
+button {
+  cursor: pointer;
+}
+select {
+  margin: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+}
+/* 타이틀 부분 */
+/* 340 ~ 560 */
+@media screen and (min-width: 340px) and (max-width: 560px) {
+  .title {
+    height: 50px;
+  }
+  .title > p {
+    width: inherit;
+    text-align: center;
+    line-height: 50px;
+    height: inherit;
+    font-size: 6vw;
+    font-weight: 500;
+  }
+  .container {
+    height: auto;
+  }
+  .game_bg {
+    width: 100%;
+    height: 0px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./images/event_bk.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+  }
+  .board {
+    position: absolute;
+    width: 75vw;
+    height: 75vw;
+    max-width: 380px;
+    max-height: 380px;
+    transition: all 3s ease;
+  }
+  .marker {
+    position: absolute;
+    width: 5vw;
+    max-width: 25px;
+    margin-top: -24vh;
+    z-index: 5px;
+  }
+  .start_off {
+    position: absolute;
+    width: 20vw;
+    height: 20vw;
+    max-width: 100px;
+    max-height: 100px;
+    /* left: 50%; */
+    margin-top: 25vw;
+    cursor: pointer;
+  }
+  .msg {
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 3px dashed chocolate;
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    margin-left: -150px;
+    top: 200px;
+    color: brown;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 17px;
+    display: none;
+  }
+}

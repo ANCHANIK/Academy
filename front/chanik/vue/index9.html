@@ -1,0 +1,74 @@
+
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge,chrome=1">
+    <script src="../jq/jquery.js"></script>
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="http://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <title>Vue checkbox</title>
+    <script>
+        var board = [
+            {binx:0,bname:"홍길동",bnick:"hong"},
+            {binx:5,bname:"이순신",bnick:"leess"},
+            {binx:9,bname:"유관순",bnick:"yuks"},
+            {binx:13,bname:"강감찬",bnick:"kang"},    
+        ];
+    </script>
+    </head>
+    <body>
+        <form name="frm" id="frm" method="POST" action="index9.html" enctype="application/x-www-form-urlencoded">
+        <section id="members">
+            {{memberlist}}
+            <input type="checkbox" v-bind:id="all" @click="allck($event)"><br>
+                <div v-for="(mdata,i) in marrays">
+                    <input type="checkbox" name="ck[]" v-model="ck" v-bind:value="mdata.binx" @click="cknum(mdata.binx)"><span>{{mdata.bname}}</span><br>
+                </div>
+            <input type="button" v-model="bt" @click="frm_action">
+        </section>
+        </form>
+    </body>
+    <script>
+        let members=new Vue({
+            el:"#members",
+            data:{
+                marrays:[],
+                all:false,
+                ck:[],
+                ta:"",
+                bt:"전송"
+            },
+            methods:{
+                // allck(e){
+                //    let ea = this.marrays.length;
+                //    this.ta = e.target;
+                //    if(e.target.checked==true){
+                //         this.ck = true;
+                //    }
+                //    else{
+                //         this.ck = false;
+                //         this.ck = [];
+                //    }
+                // },
+                cknum(idx){
+                    if(this.ta.checked==true){
+                        this.ck=[];
+                        for(var i in this.marrays){
+                            this.ck.push(this.marrays[i].binx);
+                        }
+                        // this.ta.checked=false;
+                    }
+                },
+                frm_action(){
+                    frm.submit();
+                }
+            },
+            computed:{
+                memberlist(){
+                    this.marrays = board;
+                }
+            }
+        });
+    </script>
+ </html>

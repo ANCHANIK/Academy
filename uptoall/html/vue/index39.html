@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>7일차 Vue + JavaScript + Jquery 통합 응용</title>
+        <script src="../jq/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="http://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+        <style>
+            .all {
+                width: 500px;
+                height: auto;
+            }
+            .sel_box {
+                display: flex;
+                width: 130px;
+                height: 30px;
+                border: 1px solid black;
+                box-sizing: border-box;
+                margin-bottom: 10px;
+            }
+            .sel_box > label {
+                display: block;
+                height: inherit;
+                text-align: center;
+                line-height: 30px;
+                cursor: pointer;
+            }
+            .sel_box > label:nth-child(1){
+                width: 100px;
+            }
+            .sel_box > label:nth-child(2){
+                width: 30px;
+            }
+            .sel_content {
+                display: block;
+                width: inherit;
+                height: auto;
+                border: 1px solid black;
+                box-sizing: border-box;
+            }
+            .sel_ul {
+                width: 450px;
+                height: inherit;
+                margin: 0;
+            }
+            .sel_ul > li {
+                width: inherit;
+                height: 30px;
+                margin-bottom: 10px;
+                line-height: 30px;
+            }
+            .sel_ul > li:nth-child(1){
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <script>
+        // JS
+        function handle(){
+            var board = [
+                {subject:"졸려요.....",write:"장남혁",upvotes:1},
+                {subject:"다음주 금요일 시험ㅋ",write:"김은진",upvotes:71},
+                {subject:"코로나 1300명 실화?ㅋ",write:"정희조",upvotes:31},
+                {subject:"아 클럽가고 싶다",write:"안찬익",upvotes:112},
+                {subject:"그냥 쭉 자고 싶다",write:"이시우",upvotes:12},
+                {subject:"도대체 쉬운게 HTML 뿐ㅎ",write:"민서현",upvotes:16},
+                {subject:"다음엔 내 셀카로 ㅎㅎ",write:"김은진",upvotes:0}
+            ]
+            return board;
+        }
+
+        // JQ
+        $(function(){
+            
+        })
+    </script>
+    <body>
+        <section id="box">
+            {{abc}}
+            <div class="all">
+                <span class="sel_box">
+                    <label>전체보기</label>
+                    <label>▼</label>
+                </span>
+                <span class="sel_content">
+                    <ul class="sel_ul">
+                        <li v-for="list in selli">{{list.write}} - {{list.subject}} 👍 : {{list.upvotes}}</li>
+                    </ul>
+                </span>
+            </div>
+        </section>
+    </body>
+    <script>
+        // Vue
+        let vues = new Vue({
+            el:"#box",
+            data:{
+                selli:[]
+            },
+            methods:{
+                sel(ldata){
+                    console.log(ldata);
+                    var f;
+                    for(f in ldata){
+                        this.selli.push({
+                            write:ldata[f].write,
+                            subject:ldata[f].subject,
+                            upvotes:ldata[f].upvotes,
+                        });
+                    }
+                }
+            },
+            components:{
+
+            },
+            computed:{
+                abc(){
+                    this.list = handle()
+                    this.sel(this.list);
+                }
+            }
+        });
+    </script>
+</html>

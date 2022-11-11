@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 9일차 - (recall page)</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js?v=4"></script>
+        <link rel="stylesheet" type="text/css" href="./jquery-ui.css?v=3">
+        <script>
+            $(document).ready(function(){
+                
+                
+                //$("#data").val($w[1]);
+                
+                
+                $("#btn").click(function(){
+                    $("#f").submit();
+
+                    
+
+                });
+
+                $("#nbtn").click(function(){
+                    $("#ff").submit();
+                    
+                    
+                });
+
+                $.fn.bbb = function(){
+
+                }
+
+                var $word = location.search; // 파라미터 값 = ?data=abc&bbb=33 등등
+                if($word != ""){
+                    // alert("파라미터가 있당께 ㅋ")
+                var $w = $word.split("?mbox=");
+                var $data = $w[1];
+                console.log($data);
+                $("#box").css("background-color",$data);
+                }
+
+
+                $("#bg_btn").click(function(){
+                    $("#bg").submit();
+                    
+
+                })
+
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            span,label,main { display: block; }
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="f" method="GET" action="./rejquery3.html">
+            <input type="text" name="data" id="data">
+            <input type="button" value="검색" id="btn">
+        </form>
+        <br><br>
+        <form id="ff" method="GET" action="https://search.naver.com/search.naver">
+            <input type="text" name="query" id="q">
+            <input type="button" value="네이버 검색" id="nbtn">
+        </form>
+        <br><br>
+        <!--
+            응용문제. 리콜페이지를 이용하여 다음과 같이 작동되도록 코드를 완성하라.
+            사용자가 영문의 red, blue 등 색상 단어를 입력할 경우
+            div(100*100) 오브젝트에 배경색이 적용되도록 리콜페이지를 제작하라
+        -->
+        <br><br>
+        <form id="bg" method="GET" action="./rejquery3.html">
+            <div class="box" id="box"></div>
+            <input type="text" name="mbox" id="mbox">
+            <input type="button" id="bg_btn" value="확인">
+        </form>
+    </body>
+</html>

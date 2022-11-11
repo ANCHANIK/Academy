@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            ECMA Script 2일차 + class + 확장 함수
+        </title>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: cornflowerblue;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box"></div>
+    </body>
+    <script type="module">
+        import {aaa,bbb} from "./index7.js?v=1";
+        let mid = new aaa("홍길동");
+        if(mid.sign == "ok"){
+            console.log(mid.login());
+        }
+        else {
+            console.log(mid.errors());
+        }
+
+        let zz = new bbb(); // bbb class를 호출함
+    </script>
+</html>

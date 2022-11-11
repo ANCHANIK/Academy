@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 7일차 - 초급코드 오브젝트 연결하기(jquery-ui) - 응용</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js?v=25"></script>
+        <link rel="stylesheet" type="text/css" href="./jquery-ui.css">
+        <!-- 이미지 제공/ jquery-ui  -->
+        <script>
+            $(document).ready(function(){
+
+                $("#cal").datepicker();
+
+
+
+
+                $.fn.color_hex = function($color,$node){
+                    $("#box > li").eq($node).css("background-color",$color);
+                }
+
+                $.fn.color_word = function($color,$node){
+                    $("#box > li").eq($node).css("background-color",$color);
+                    var $ck = $("#box > li").eq($node).css("background-color");
+                    var $ck2 = $ck.match(/rgb/g);
+                    if($ck2 != null){
+                        alert("올바른 컬러 단어가 아닙니다.");
+                        $("#colors").val();
+                    }
+                }
+
+            });
+
+            function bgcolor(node){
+                var c = document.getElementById("colors").value;
+                if(c ==""){
+                    alert("색상 코드를 입력하세요.");
+                    document.getElementById("colors").focus();
+                }
+                else{
+                    var m = c.match(/#/g);
+                    if(m != null){ //헥사코드
+                        $.fn.color_hex(c,node);
+                    }
+                    else{ // 컬러단어
+                        $.fn.color_word(c,node);
+                    }
+                }
+            }
+
+            function wn(){
+                document.getElementById("colors").value = "#";
+            }
+
+
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .box > li {
+                width: 100px;
+                height: 100px;
+                border: 1px solid black;
+                margin-top: 20px;
+                display: inline-block;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="colors" placeholder="색상코드 입력" style="text-indent: 5px;" onclick="wn();">
+        <select id="boxselect" onchange="bgcolor(this.value);">
+            <option value="">[상자선택]</option>
+            <option value="0">[box1]</option>
+            <option value="1">[box2]</option>
+            <option value="2">[box3]</option>
+        </select>
+        <ul class="box" id="box">
+            <li>[box1]</li>
+            <li>[box2]</li>
+            <li>[box3]</li>
+        </ul>
+        <p>달력에 표시할 색상을 선택하시면 됩니다.</p>
+        <span>예시 달력 : <input type="text" id="cal"></span>
+    </body>
+</html>

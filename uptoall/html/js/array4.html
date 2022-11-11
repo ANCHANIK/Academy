@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript (중급) - 배열 총 복습4</title>
+        <script>
+            /*
+            응용문제5.
+            다음 배열 확인 후 console.log로 출력하라.
+            해당 배열 중 각각의 클래스에서 3번째 data만 출력하라
+            */
+            const array = {
+                "aclass":["홍길동","이순신","강감찬"],
+                "bclass":["유관순","안중근","이성계"],
+                "zclass":["손나은","박초롱","정은지"]
+            }
+            var k;
+            for(k in array){
+                console.log(array[k][2])
+                // console.log(array[k].length);
+            }
+
+            Object.keys(array).forEach(function(aa,bb,cc){
+                console.log(array[aa][2])
+                
+            })
+            </script>
+    </head>
+    <body>
+        <select id="corp">
+            <option value="">[통신사를 선택하세요]</option>
+        </select>
+    </body>
+    <script>
+        /*
+        응용문제6.
+        해당 배열을 이용하여 select에 option파트에 통신사를 출력하라
+        단, value값도 배열과 동일하게 나와야 한다.
+        */
+        const tel = {
+            "tel_corp":["SKT","KT","LGT","알뜰폰"]
+        }
+        // console.log(tel.tel_corp)
+        var sel,gg,kk;
+        Object.keys(tel.tel_corp).forEach(function(a1,b1,c1){
+            // console.log(tel.tel_corp[a1])
+            kk = tel.tel_corp[a1];
+            console.log(kk)
+            gg = document.createElement("option");
+            sel = document.getElementById("corp").appendChild(gg);
+            gg.setAttribute("value",kk);
+            gg.innerText = kk;
+        })
+        
+    </script>
+</html>

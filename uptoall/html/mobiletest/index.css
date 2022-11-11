@@ -1,0 +1,102 @@
+@charset "UTF-8";
+img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.notice {
+  max-width: 480px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  background-color: #484848;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.notice > span {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.notice > .notice_text {
+  max-width: 420px;
+  height: 30px;
+  display: block;
+}
+
+.notice > .notice_text > label {
+  max-width: inherit;
+  height: 15px;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  font-family: "돋움체";
+  line-height: 10px;
+}
+
+.notice > .notice_close {
+  max-width: 30px;
+  height: 30px;
+  display: block;
+  line-height: 40px;
+}
+
+.header {
+  max-width: 480px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  background-color: black;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.header > .header_small {
+  max-width: 30px;
+  height: 30px;
+  display: block;
+  margin-top: 3px;
+}
+
+.header > .header_logo {
+  max-width: 210px;
+  height: 30px;
+  display: block;
+}
+/*# sourceMappingURL=index.css.map */

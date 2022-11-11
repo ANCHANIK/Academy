@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            ECMA Script 1일차 + class + 일반함수
+        </title>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <input type="text" id="mid" name="mid">
+        <input type="button" value="로그인" id="btn">
+        <span id="box"></span>
+    </body>
+    <script type="module">
+        import {aaa,login} from "./index5.js?v=2";
+        let a = new aaa(5,20);
+        console.log(a.as);
+        document.querySelector("#btn").addEventListener("click",function(){
+            // 클릭 후 진행할 사항을 적용하게 된다.
+            let l = new login();
+            document.getElementById("box").innerText = l.aws
+            // alert(l.aws)
+        });
+        // let l = new login(); // class로 호출시 위에 처럼 써야 됨
+    </script>
+</html>

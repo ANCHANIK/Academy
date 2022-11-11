@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scaleable=no,minimum-scale=1.0,maximum-scale=1.0">
+    <title>문제5 - Jquery</title>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="./js/jquery-ui.css">
+    <script>
+        $(document).ready(function(){
+            $("#date1").datepicker();
+            $("#date2").datepicker();
+
+            
+            $("#s_btn").click(function(){
+                var $aa = $("#date1").val();
+                var $bb = $("#date2").val();
+                
+                if($aa > $bb){
+                    alert("시작 날짜는 종료 날짜보다 작아야 합니다.");
+                }
+            })
+
+                
+
+            
+        })
+    </script>
+    <!--
+    문제5번
+    sdate, edate 클릭시 달력이 나와야 하며 달력 표기는
+    2021-05-04 형태로 표기가 되어야 합니다.
+    단 검색 버튼 클릭시 시작날짜 보다 종료날짜가 많을 경우 조회가 되지 않도록 합니다.
+    -->
+    <style>
+        
+        body { margin: 0; padding: 0;}
+        .search_div { width:450px; height:100px; border:1px solid #ccc;
+        border-radius: 5px; margin: 0 auto; text-align: center;
+        margin-top: 50px;
+        }
+        p { width:100%; text-align: center; }
+        .inputs { width:130px; height:30px; border:1px solid #ccc;
+        border-radius: 5px; text-indent: 5px;
+        }
+        .search_btns { width:100px; height:35px; border:0;
+        background-color: cornflowerblue; color:darkblue;
+        font-size:14px;  border-radius: 5px; font-weight: bold;
+        cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+<div class="search_div">
+<p>결제내역 조회하기</p>
+<input type="text" name="sdate" id="date1" class="inputs" placeholder="시작일자를 선택해 주세요" readonly> - 
+<input type="text" name="edate" id="date2" class="inputs" placeholder="종료일자를 선택해 주세요" readonly>
+<input type="button" value="검색" class="search_btns" id="s_btn">
+</div>
+</body>
+</html>

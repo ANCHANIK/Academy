@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 8 일차 - 초급코드(함수연결)</title>
+        <script>
+            // 상하, 좌우 별도로 변수값을 생성 해야함
+            var k = 0, kk=0;
+            var j = 10, jj=10;
+            function abc(){
+                // 상:38 , 하:40 , 좌:37 , 우:39
+                var a = event.keyCode;
+                game(a);
+                //console.log(a)
+            }
+            function game(a){ //전역변수와 같으면 안됨
+                switch(a){
+                    case 40:
+                        k = k + j;
+                    document.getElementById("box").style.top = k + "px";
+                    break;
+                    case 38:
+                        k = k - j;
+                    document.getElementById("box").style.top = k + "px";
+                    break;
+                    case 39:
+                        kk = kk + jj;
+                    document.getElementById("box").style.left = kk + "px";
+                    break;
+                    case 37:
+                        kk = kk - jj;
+                    document.getElementById("box").style.left = kk + "px";
+                    break;
+
+                    case 32:
+                    document.getElementById("box").style.backgroundColor = "blue";
+                    // css에서 쓰이는 "-"는 script 에서 알파벳 대문자로 대체한다
+                    break;
+
+                    case 13:
+                    document.getElementById("box").style.display = "none";
+                    break;
+                }
+            }
+        </script>
+        <style>
+            body { margin: 0; padding: 0;}
+            .box {
+                width: 100px;
+                height: 100px;
+                border-radius: 100%;
+                background-color: red;
+                position:absolute;
+            }
+        </style>
+    </head>
+    <body onkeydown="abc();">  <!--오브젝트에는 사용 X-->
+        <div class="box" id="box"></div>
+    </body>
+</html>

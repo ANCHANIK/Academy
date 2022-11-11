@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge,chrome=1">
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <title>vue 4일차 component응용 로그인제작 + prevent</title>
+        <style>
+            *{box-sizing: border-box;}
+            .span{display: block;}
+            .login_box {
+                width: 450px; height: 200px;
+                background-color: thistle;
+                /* display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                align-items: center; */
+                /* padding-top: 10px;
+                margin-top: 50px; */
+                text-align: center;
+            }
+            .idpw{width: 200px; height: auto;}
+            .inputs{width: 200px; height: 40px; border: 1px solid thistle;}
+            .span{display: inline-block; background-color: sandybrown;}
+            .inputs:nth-child(1){margin-bottom: 5px;}
+            .lo_btn{
+                width: 450px;
+                height: 40px;
+                border: none;
+                background-color: rgb(160, 45, 160);
+                font-size: 14px;
+                font-weight: bold;
+                display: block;
+                text-align: center;
+            }
+            .alerts{
+                width: 90%;
+                height: 20px;
+                line-height: 20px;
+                font-size: 12px;
+                color: purple;
+                font-weight: bold;
+            }
+    </style>
+    </head>
+    <body>
+        <!--
+            prevent : submit에만 적용 (return) 단, prevent를 썼을 경우엔 return을 따로 또 쓰면 안된다.
+        -->
+        <form name="frm" ref="form" v-bind:method="z" v-on:submit.prevent="logins" v-bind:action="za" v-bind:enctype="enc">
+        <input type="hidden" name="memails" id="memails">
+        <input type="hidden" name="key" v-model="security">
+        <div id="box2" v-bind:class="c1">
+            <span v-bind:class="c2">
+                <input v-bind:type="in1" v-model="mid" v-bind:class="c3">
+                <span class="span">@</span>
+                <input v-bind:type="in1" v-model="mid1" v-bind:class="c3">
+                <input v-bind:type="in2" name="mpass" v-model="mpass" v-bind:class="c3">
+            </span>
+            <button v-bind:type="btns" v-bind:class="c4">{{lo}}</button>
+            <msg v-bind:class="al">{{alert}}</msg>
+        </div>
+        </form>
+    </body>
+    <script>
+        var m = {
+            template:"<div></div>"
+        }
+        let a = new Vue({
+            el:"#frm",
+            data:{
+                z:"POST",
+                za:"loginok.php",
+                enc:"application/x-www-form-urlencoded",
+                c1:"login_box",
+                c2:"idpw",
+                c3:"inputs",
+                c4:"lo_btn",
+                in1:"text",
+                in2:"password",
+                mid:"",
+                mid1:"",
+                mpass:"",
+                btns:"submit",
+                lo:"로그인",
+                alert:"",
+                al:"alerts",
+                security:"admaster"
+                },
+                methods:{
+                    logins:function(){
+                        if(this.mid=="" || this.mid1=="" ){
+                            this.alert = "정상적인 이메일을 입력하세요.";
+                        }
+                        else if(this.mpass==""){
+                            this.alert = "패스워드를 입력하세요.";
+                        }
+                        else{
+                            // form에 name을 적용했을 경우
+                            // frm.memails.value = this.mid + "@" + this.mid1;
+                            // frm.submit();  (form의 name값).submit();
+                            
+                            // form에 ref로 적용했을 경우
+                            document.getElementById("memails").value = this.mid+"@"+this.mid1;
+                            this.$refs.form.submit();
+                            // form의 name 대신에 ref를 썼을 경우엔 이렇게 쓰면 된다.
+
+
+                            // return; : form에 prevent를 썼을 때 return을 쓰면 안된다.
+                        }
+                    }
+                }
+            })
+    </script>
+</html>

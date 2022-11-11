@@ -1,0 +1,87 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index17_1.css?v=<?=$data?>">
+    <title>Scss 7일차 - 동적 애니메이션 - 응용 쇼핑몰 상품 출력 부분(쌤 풀이)</title>
+    <script src="../jq/jquery.js"></script>
+    <script>
+        /*
+        JS로 제작
+        리뷰확인 버튼을 클릭 naver.com 페이지 이동
+        장바구니 버튼 클릭시 "장바구니에 담겠습니까?" 라는 메세지 출력하고,
+        확인을 누르면 "장바구니에 담겼습니다." 라는 추가 메세지가 출력되도록 하라.
+        */
+        
+        function reviews(){
+            location.href = "http://www.naver.com";
+        }
+        function bucket(){
+            if(confirm("장바구니에 담겠습니까?") == true){
+                alert("장바구니에 담겼습니다.");
+            }
+        }
+    </script>
+</head>
+<body>
+<section class="product">
+    <div class="product_list">
+        <label class="product_label">
+            <!--앞면-->
+            <span class="product_view views">
+                <label class="product_img">
+                    <img src="./product/product1.gif">
+                </label>
+            </span>
+            <!--뒷면-->
+            <span class="product_view views">
+                <div class="blackscreen">
+                    <input type="button" value="REVIEW" class="btn" onclick="reviews()">
+                    <input type="button" value="장바구니" class="btn" onclick="bucket()">
+                </div>
+                <label class="product_img">
+                    <img src="./product/product1.gif">
+                </label>
+            </span>
+        </label>
+        <span class="product_money">
+            <ul class="ulcss">
+                <li>상품명</li>
+                <li>상품가격</li>
+            </ul>
+        </span>
+    </div>
+    <div class="product_list">
+        <label class="product_label">
+            <!--앞면-->
+                <span class="product_view views">
+                    <label class="product_img">
+                        <img src="./product/product2.gif">
+                    </label>
+                </span>
+            <!--뒷면-->
+            <span class="product_view views">
+                <div class="blackscreen">
+                    <input type="button" value="REVIEW" class="btn" onclick="reviews()">
+                    <input type="button" value="장바구니" class="btn" onclick="bucket()">
+                </div>
+                <label class="product_img">
+                    <img src="./product/product2.gif">
+                </label>
+            </span>
+        </label>
+        <span class="product_money">
+            <ul class="ulcss">
+                <li>상품명</li>
+                <li>상품가격</li>
+            </ul>
+        </span>
+    </div>
+</section> 
+</body>
+</html>

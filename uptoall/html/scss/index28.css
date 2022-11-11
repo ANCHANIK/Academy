@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.ulcss {
+  width: 400px;
+  height: 60px;
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -ms-grid-rows: 30px;
+      grid-template-rows: 30px;
+  -ms-grid-columns: (30px)[6];
+      grid-template-columns: repeat(6, 30px);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  grid-gap: 20px;
+}
+
+.ulcss > li {
+  background-color: #b0cdd8;
+  color: #223f49;
+  text-align: center;
+  line-height: 30px;
+}
+
+.ulcss > li:first-of-type {
+  background-color: #49798c;
+  color: white;
+}
+/*# sourceMappingURL=index28.css.map */

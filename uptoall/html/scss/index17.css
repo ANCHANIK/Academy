@@ -1,0 +1,101 @@
+@charset "UTF-8";
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.product_box {
+  width: 100%;
+  height: 500px;
+  display: block;
+  margin: 0 auto;
+}
+
+.product_box > .product_list {
+  width: 300px;
+  height: 500px;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+
+.product_box > .product_list > .product_label {
+  width: 300px;
+  height: 400px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.product_box > .product_list > .product_label > .product_view {
+  width: inherit;
+  height: inherit;
+  display: block;
+  position: absolute;
+}
+
+.product_box > .product_list > .product_label > .product_view > .product_img {
+  width: 300px;
+  height: 400px;
+  display: block;
+}
+
+.product_box > .product_list > .product_label > .product_view:nth-of-type(2) {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.product_box > .product_list > .product_title {
+  width: inherit;
+  height: 100px;
+  display: block;
+}
+
+.product_box > .product_list > .product_title > span {
+  width: inherit;
+  height: 50px;
+  display: block;
+  text-align: center;
+  line-height: 50px;
+  font-size: 14px;
+  font-family: "굴림체";
+}
+
+.product_box > .product_list > .product_title > span:nth-of-type(1):hover {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: "돋움";
+}
+
+.product_box > .product_list > .product_title > span:nth-of-type(2):hover {
+  font-size: 17px;
+  font-weight: bold;
+  font-family: "돋움";
+}
+
+.product_box > .product_list > .product_label:hover {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.blackscreen {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid red;
+}
+
+.views {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+/*# sourceMappingURL=index17.css.map */

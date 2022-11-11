@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 2일차 - 애니메이션3</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#btn").click(function(){
+                    var $w = 1;
+                    var $d = 500;
+                    var $height = "220px,140px,100px,55px,180px";
+                    var $sh = $height.split(",");
+                    while($w <= 5){
+                        var $q = "#a" + $w;
+                        var $at = $d * $w;
+                        $($q).delay($at).animate({"height":$sh[$w-1]},1000);
+                        $w++;
+                    }
+                });
+                
+                /*
+                $("#btn").click(function(){
+                    $("#g_box>li").eq(0).animate({   // [eq : jq NODE]
+                        "height":"220px"
+                    });
+                    });
+                    */
+            });
+        </script>
+        <style>
+            .box {
+                width: 250px;
+                height: 300px;
+                position: relative;
+                border: 1px solid green;
+            }
+            .g_box {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: auto;
+                position: absolute;
+                bottom: 0;
+                border: 1px solid blue;
+            }
+            .g_box > li {
+                width: 30px;
+                position: absolute;
+                bottom: 0;
+                border: 1px solid red;
+            }
+            .g_box > li:nth-child(1){
+                background-color: blue;
+                left: 10px;
+            }
+            .g_box > li:nth-child(2){
+                background-color: violet;
+                left: 60px;
+            }
+            .g_box > li:nth-child(3){
+                background-color: yellow;
+                left: 110px;
+            }
+            .g_box > li:nth-child(4){
+                background-color: black;
+                left: 160px;
+            }
+            .g_box > li:nth-child(5){
+                left: 210px;
+                margin-right: none;
+                background-color: red;
+            }
+            .box > label {
+                display: block;
+                text-align: center;
+                position: relative;
+                top: 100%;
+            }
+            .btn {
+                width: 100px;
+                height: 50px;
+                background-color: gray;
+                color: white;
+                border: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <ul class="g_box">
+                <li id="a1"></li>
+                <li id="a2"></li>
+                <li id="a3"></li>
+                <li id="a4"></li>
+                <li id="a5"></li>
+            </ul>
+            <label>
+                <input type="button" value="결과확인" id="btn" class="btn">
+            </label>
+        </div>
+    </body>
+</html>

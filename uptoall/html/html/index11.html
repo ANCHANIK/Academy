@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML & CSS 3일차 중급 반응형 (transform)</title>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: green;
+                transform: translate(100px,100px);
+                
+                /* transform : 변형을 사용함 css3 전용
+                translate : 오브젝트의 위치를 이동시킬 때 사용 (x축, y축) */
+                
+            }
+            .box:hover {
+                transform: translate(0,100px);
+            }
+            .box2 {
+                width: 100px;
+                height: 100px;
+                background-color: yellow;
+                transform:rotate(30deg);
+                /* rotate : 오브젝트를 시계방향 또는 시계 반대방향으로 각도를 이용해 회전시킴 */
+            }
+            .box3 {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                /* rotate : 오브젝트를 시계방향 또는 시계 반대방향으로 각도를 이용해 회전시킴*/
+            }
+            .box3:hover {
+                transform:scale(1.5,0.5);
+                /* scale : 오브젝트의 크기를 변화시킨다. 0: 최하 단위, 1: 원래 크기 */
+            }
+            .box4 {
+                width: 100px;
+                height: 100px;
+                background-color: skyblue;
+                transform: skew(0,15deg);
+                /* skew : 오브젝트에 기울기를 사용 (deg 사용) */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+    </body>
+</html>

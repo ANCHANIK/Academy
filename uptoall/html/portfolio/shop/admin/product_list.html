@@ -1,0 +1,71 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>상품 관리</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+<article class="product_list_article">
+    <div class="product_list_article_text">상품 관리 리스트</div>
+</article>
+{{productlist}}
+<!-- {{productsearch}} -->
+<form name="cfrm" id="cfrm" @submit.prevent="pro_search">
+    <aside class="product_list_aside">
+        <div class="product_list_search">
+            <span>
+                <input v-bind:type="tx" name="pnm" ref="pnm" v-model="cow_search" autocomplete="off" placeholder="검색란을 입력해주세요">
+            </span>
+            <span>
+                <button v-bind:type="sbtn">{{btn_nm}}</button>
+            </span>
+        </div>
+        <div class="product_list_table">
+            <table>
+                <thead class="product_list_thead">
+                    <tr>
+                        <th>NO</th>
+                        <th>상품코드</th>
+                        <th>상품명</th>
+                        <th>상품가격</th>
+                        <th>할인가격</th>
+                        <th>대표이미지</th>
+                        <th>출력 유/무</th>
+                        <th>삭제</th>
+                    </tr>
+                </thead>
+                {{product_ajax}}
+                <tbody class="product_list_tbody" v-if="p_list_data">
+                    <tr v-for="(data,index) in product_arr">
+                        <td v-bind:value="ea">{{ea-index}}</td>
+                        <td>{{data.goodsno}}</td>
+                        <td align="left" v-bind:value="data.productnm">{{data.productnm}}</td>
+                        <td align="right" v-bind:value="data.product_money">{{data.product_money.toLocaleString()}} 원</td>
+                        <td v-bind:value="data.product_sales" v-if="data.product_sales==''"> - </td>
+                        <td align="right" v-bind:value="data.product_sales" v-else>{{data.product_sales.toLocaleString()}} 원</td>
+                        <td><img v-bind:src="data.product_img" @click="popup_pro(data.product_img)" class="pdimg"></td>
+                        <td v-bind:value="data.product_use">{{data.product_use}}</td>
+                        <td><button type="button" @click="product_del(data.pidx)">삭제</button></td>
+                    </tr>
+                </tbody>
+                <tbody class="product_list_tbody" v-if="p_list_nodata">
+                    <tr>
+                        <td colspan="7">등록된 상품이 없습니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="product_page">
+            <ul>
+                <li v-for="p in paging" @click="gopage(p);">{{p}}</li>
+            </ul>
+        </div>
+        <div class="product_list_btn">
+            <button v-bind:type="cbtn" @click="new_pro">{{pro_sign}}</button>
+        </div>
+    </aside>
+</form>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 7일차 (중급 - 애니메이션(Javascript))</title>
+        <style>
+            .box {
+                width: 500px;
+                height: 500px;
+                background-color: pink;
+                position: relative;
+            }
+            .sbox {
+                display: block;
+                width: 50px;
+                height: 50px;
+                background-color: purple;
+                position: absolute;
+            }
+            .banner {
+                width: 400px;
+                height: 400px;
+                position: relative;
+            }
+            .b1 {
+                width: inherit;
+                height: inherit;
+                display: block;
+                position: absolute;
+                background-color: green;
+                z-index: 1;
+                
+            }
+            .b2 {
+                width: inherit;
+                height: inherit;
+                display: block;
+                position: absolute;
+                background-color: orange;
+                opacity: 0;
+            }
+        </style>
+        <script>
+            // setTimeout : 1 회만 반복함  clearTimeout
+            // setInterval : 계속 작동함  clearInterval
+            var timer;
+            function ani(){
+                var s = document.getElementById("sbox");
+                timer = setInterval(j,1);
+                var t = 0;
+                var f = 1;
+                // timer = setTimeout(j,1000);
+                function j(){
+                    // console.log("test");
+                    // timer = setTimeout(j,1000);
+                    // clearInterval(timer);
+                    t++;
+                    if(t == 450){
+                        clearInterval(timer);
+                    }
+                    else{
+                        f = f - 0.0025;
+                        s.style.top = t + "px";
+                        s.style.left = t + "px";
+                        s.style.opacity = f;
+                    }
+                }
+            }
+
+            var fade;
+            function banner(){
+                var bb = document.getElementById("b1");
+                var bb2 = document.getElementById("b2");
+                fade = setInterval(fa,1);
+                var op = 1;
+                var op2 = 1;
+
+                function fa(){
+                    op = op - 0.0025;
+                    op2 = op2 + 0.0025;
+                    if(op == 0){
+                        clearInterval(fade);
+                    }
+                    else{
+                        bb.style.opacity = op;
+                        bb2.style.opacity = op2;
+                    }
+                }
+
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="box">
+        <span class="sbox" id="sbox" onclick="ani();"></span>
+        </div>
+        <div class="banner" onclick="banner();">
+            <span class="b1" id="b1"></span>
+            <span class="b2" id="b2"></span>
+        </div>
+    </body>
+    <!--
+        배경색상 녹색에서 서서히 오렌지 색상으로 변화되도록 애니메이션을 제작하라
+    -->
+    <script>
+
+    </script>
+</html>

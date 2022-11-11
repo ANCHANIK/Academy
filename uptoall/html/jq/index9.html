@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 2일차 - NODE</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                var $n = 0;
+                // eq() : Jquery 노드 번호를 입력하는 부분
+                $("#node_del").click(function(){
+                    var $node = $(".labelcss").length; //해당 노드 갯수 불변 (숨기기 때문)
+                    console.log($node);
+                    $(".labelcss").eq($n).fadeOut();   //fadeOut : 해당 노드를 숨기는 형태로 진행됨(노드를 숨기는거기 때문에 노드 순서 불변)
+                    $n = $n + 1;
+                    if($n > $node){
+                        alert("삭제할 노드가 없습니다.");
+                    }                                 
+                });
+
+                $("#node_del2").click(function(){
+                    var $node = $(".labelcss").length;
+                    // 해당 노드를 실제 삭제하게 되면 개수가 변하게 되기 때문에 ($node == 0) 으로 두는게 좋음
+                    $(".labelcss").eq($n).remove();   //remove : 해당 노드(태그)를 완전 삭제함.
+                    if($node == 0){                   //첫 번째 노드가 삭제되면 두번째 노드는 첫 번째가 됨
+                        alert("삭제할 노드가 없습니다.");
+                    }                                  
+                });
+
+                $("#node_all").click(function(){
+                    if($n <= 0){
+                        alert("더이상 복원할 노드가 없습니다.");
+                    }
+                    else{
+                        $n = $n - 1;   // 전역변수 노드 값을 먼저 확인 후 수식 계산 후 효과를 적용함
+                        $(".labelcss").eq($n).fadeIn();
+                    }
+                });
+
+
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            span,label,main {display: block;}
+            /*
+            각각의 label 크기는 100*40이다.
+            label 배경색상 순서는 빨, 주, 노, 초, 파 (단, css 노드 형태로 구성)
+            */
+            .labelcss { width: 100px; height: 40px; }
+            /*
+            .labelcss:nth-child(1){ background-color: red;}
+            .labelcss:nth-child(2){ background-color: orange;}
+            .labelcss:nth-child(3){ background-color: yellow;}
+            .labelcss:nth-child(4){ background-color: green;}
+            .labelcss:nth-child(5){ background-color: blue;}
+            */
+            #label0{ background-color: red;}
+            #label1{ background-color: orange;}
+            #label2{ background-color: yellow;}
+            #label3{ background-color: green;}
+            #label4{ background-color: blue;}
+        </style>
+    </head>
+        <body>
+            <label class="labelcss" id="label0"></label>
+            <label class="labelcss" id="label1"></label>
+            <label class="labelcss" id="label2"></label>
+            <label class="labelcss" id="label3"></label>
+            <label class="labelcss" id="label4"></label>
+            <input type="button" value="DOM-노드삭제" id="node_del">
+            <input type="button" value="찐-노드삭제" id="node_del2">
+            <input type="button" value="DOM-노드복원" id="node_all">
+        </body>
+</html>

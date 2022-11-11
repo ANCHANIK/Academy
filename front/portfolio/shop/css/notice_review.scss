@@ -1,0 +1,52 @@
+@charset "UTF-8";
+@import "./config.scss";
+
+.notice_review_aside {
+    @include object(100%, auto, block, "");
+    margin-top: 30px;
+    margin-bottom: 30px;
+    & > div {
+        @include object(1174px, auto, flex, "");
+        margin: 0 auto;
+        justify-content: space-between;
+        & > .notice_box {
+            @include object(370px, 180px, block, "");
+            border: 1px solid #CCCCCC;
+            & > ul {
+                @include object(100%, auto, block, "");
+                & > li {
+                    @include object(inherit, 30px, block, "");
+                    line-height: 30px;
+                }
+            }
+        }
+        & > .review_box {
+            @include object(370px, 180px, block, "");
+            padding-left: 25px;
+            box-sizing: border-box;
+            border: 1px solid #CCCCCC;
+            & > ol {
+                @include object(100%, auto, block, "");
+                & > li {
+                    @include object(inherit, 30px, block, "");
+                    line-height: 30px;
+                }
+            }
+        }
+        & > .info_box {
+            @include object(370px, 180px, block, "");
+            & > img {
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
+.nr_box_title {
+    @include object(90%, 40px, block, "");
+    @include fonts(14px, 600, black, 50px);
+    padding-left: 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #CCCCCC;
+    text-decoration: overline;
+}

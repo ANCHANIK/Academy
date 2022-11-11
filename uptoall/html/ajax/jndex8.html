@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>Ajax (7일차) - CORS + ajax2</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+                // news.json , myinfo.json
+                
+                var $urls = "http://ohellojjo.dothome.co.kr/ajax/data.php";
+
+                $("#btn1").click(function(){
+                    
+                    // getJSON 이 ajax보다 상위모델. 훨씬 빠름
+                    // $.getJSON("http://ohellojjo.dothome.co.kr/ajax/notice_number.php?call=1",function($data){   
+                    //     console.log($data);
+                    // });
+                    
+                    // 앞으로 데이터 가져올 땐 이렇게 가져오고
+                    // $.get("index2.xml",function($data){
+                    //     console.log($data);
+                    // });
+                    // $.get("news.json",function($data){
+                    //     console.log($data);
+                    // });
+                    // });
+
+                // 보낼땐 이렇게 보내라
+                /*
+                $("#btn2").click(function(){
+                    $.ajax({
+                        url:"myinfo.json",
+                        cache:false,
+                        data:"POST",
+                        dataType:"JSON",
+                        success:function($data2){
+                            // console.log($data2);
+                            $("#box").append($data2["myinfo"][0]["id"]);
+                        },
+                        error:function(){
+                            console.log("DATA ERROR");
+                        }
+                    });
+                });
+                */
+
+                // .get, .getJSON 은 CORS에서는 작동 X.
+                // 남의 도메인 데이터는 못 가져오는데 본인꺼는 가져올 수 있음
+                // $("#btn2").click(function(){
+                //     $.ajax({
+                //         url:"http://ohellojjo.dothome.co.kr/ajax/notice_number.php",
+                //         cache:false,
+                //         dataType:"JSON",
+                //         crossDomain:true,  // 추가
+                //         data:"GET",
+                //         success:function($data2){
+                //             // console.log($data2);
+                //             $("#box").append($data2);
+                //         },
+                //         error:function(){
+                //             console.log("DATA ERROR");
+                //         }
+                //     });
+                    
+                    $.ajax({  // 비동기식 CORS 데이터 가져오기
+                        url:$urls,
+                        cache:false,
+                        dataType:"jsonp",  // json으로 가져오면 바로 error. // 즉, jsonp : 외부도메인,   json : 자신의 도메인
+                        type:"GET",
+                        jsonpCallback:"test",  // Back-End가 기본키를 말함
+                        success:function($data){
+                            console.log($data);
+                        }
+                    })
+                });
+
+                $("#btn2").click(function(){
+                    $.ajax({
+                        url:$urls,
+                        type:"GET",
+                        dataType:"jsonp",  // jsonp: CORS 오류를 없애기 위해서 사용
+                        contentType:"javascript/jsonp; charset=UTF-8",
+                        data:{  // 통신코드 - Back-End에서 요청한 통신코드
+                            "mname":"hong"
+                        },
+                        async:false,  // async : true(기본) - 비동시식   or   false - 동기식
+                        jsonp:'callback',  // 동기식으로 값을 요청하였을 때 다시 되받는(응답받는) 형태의 함수
+                        success:function($data2){
+                            var $a = $data2;
+                            console.log($a);
+                            // $("#box").append($data2);
+                        },
+                        error:function(){
+                            console.log("DATA ERROR");
+                        }
+                    });
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <div id="box"></div>
+        <input type="button" value="data1" id="btn1">
+        <input type="button" value="data2" id="btn2">
+    </body>
+</html>

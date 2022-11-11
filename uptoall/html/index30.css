@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+span,
+label,
+main {
+  display: block;
+}
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav_menu {
+  height: 50px;
+  background-color: yellowgreen;
+}
+.menus {
+  width: 1200px;
+  height: 50px;
+  margin: 0 auto;
+}
+.olcss {
+  width: 100%;
+  height: 50px;
+  background-color: green;
+}
+.licss {
+  float: left;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 13px;
+  font-family: "돋움체";
+  color: white;
+  font-weight: bolder;
+}
+
+/* 세로 소매뉴 (세로 drop down menu) */
+.somenu {
+  width: 100%;
+  background-color: green;
+  display: none; /* 서브메뉴는 제작이 모두 끝난 후에는 출력 시키지 않음 */
+}
+.soli {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 13px;
+  color: white;
+  font-family: "돋움체";
+}
+.licss:hover .somenu {
+  display: block;
+}
+
+/* 가로 소메뉴 (가로 slide menu) */
+.somenu2 {
+  width: 800px;
+  height: 40px;
+  background-color: green;
+  display: none;
+}
+.soli2 {
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 13px;
+  color: white;
+  font-family: "돋움체";
+  float: left;
+}
+.licss:hover .somenu2 {
+  display: block;
+}
+/*
+메뉴에 대한 소메뉴는 그 갯수가 다 다르다.
+그러면 ul의 width 값을 계속 바꿔야 된다.
+따라서, 이는 Javascript에서 바꿔준다.
+*/
+
+/* 부모, 자식 클래스(태그)를 사용하면
+보다 간편하게 CSS를 적용할 수 있다. */
+.a {
+  clear: both;
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+}
+.a span {
+  background-color: black;
+  width: 50px;
+  height: 50px;
+}
+.a span div {
+  background-color: yellowgreen;
+  width: 10px;
+  height: 10px;
+}
+
+.a_class {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  padding: 50px;
+}
+.a_class span {
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+.a_class span label {
+  background-color: red;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  position: relative;
+  top: 25px;
+  left: 25px;
+}
+/*
+position: absolute; 만 유일하게
+margin: 0 auto; 적용 안됨*
+position 썼을 때 right, left, center 가능
+position 안쓸 때 margin-right (left) 써야됨
+*/

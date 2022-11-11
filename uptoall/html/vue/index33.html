@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비회원 주문조회 응용파트</title>
+    <style>
+      #login {
+        width: 40%;
+        height: 300px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      form {
+        width: 100%;
+        text-align: center;
+      }
+      ul,
+      li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
+      input {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-indent: 10px;
+        height: 40px;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+      }
+      .title {
+        font-weight: bold;
+        font-size: 30px;
+      }
+      .loginUl {
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
+      .loginLi > span {
+        font-size: 13px;
+        color: teal;
+      }
+      .loginLi > input[type="submit"] {
+        border: none;
+        background-color: steelblue;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <!--안찬익님 주소 http://cksdlr7446.dothome.co.kr/vue/index33.html -->
+  <!-- 주문 번호 20210707, 20210708 -->
+  <body>
+    <section id="login">
+      <div class="title">비회원 배송조회서비스</div>
+      <form id="form" v-bind:method="transfer" ref="form" v-on:submit.prevent="submitFunc">
+        <ul class="loginUl">
+          <li class="loginLi"><ordername ref="name" name="name" v-model="nameval"></ordername></li>
+          <li class="loginLi"><ordernumber ref="number" name="number" v-model="numval"></ordernumber></li>
+          <li class="loginLi"><orderpass ref="pass" name="pass" v-model="passval"></orderpass></li>
+          <li class="loginLi"><span id="notice" style="display: none"></span></li>
+          <li class="loginLi"><btn v-model="text"></btn></li>
+        </ul>
+      </form>
+    </section>
+  </body>
+  <script>
+    let but = {
+      template: "<input type='submit' />",
+    };
+    let vue = new Vue({
+      el: "#login",
+      data: {
+        text: "비회원 주문 조회",
+        ac: "http://cksdlr7446.dothome.co.kr/vue/index33.html",
+        etype: "application/x-www-form-urlencoded",
+        transfer: "GET",
+        nameval: "",
+        numval: "",
+        passval: "",
+      },
+
+      methods: {
+        submitFunc() {
+          let notice = document.getElementById("notice");
+
+          this.nameval = this.$refs.name.$el.value;
+          this.numval = Number(this.$refs.number.$el.value);
+          this.passval = this.$refs.pass.$el.value;
+
+          if (this.nameval == "") {
+            notice.style.display = "block";
+            notice.innerText = "주문자 명을 입력하세요.";
+            this.numval = "";
+            return false;
+          } else if (this.numval == "") {
+            notice.style.display = "block";
+            notice.innerText = "주문번호를 입력하세요.";
+            this.numval = "";
+
+            return false;
+          } else if (this.passval == "") {
+            notice.style.display = "block";
+            notice.innerText = "주문 비밀번호를 입력하세요.";
+            return false;
+          } else {
+            if (Number.isNaN(this.numbers) === true) {
+              notice.style.display = "block";
+              notice.innerText = "주문 번호는 숫자만 입력해주세요.";
+              return false;
+            } else {
+              document.getElementById("name").value;
+              document.getElementById("number").value;
+              document.getElementById("pass").value;
+
+              notice.style.display = "none";
+              this.$refs.form.enctype = this.etype;
+              this.$refs.form.action = this.ac;
+              this.$refs.form.submit();
+            }
+            return false;
+          }
+          return false;
+        },
+      },
+      components: {
+        ordername: { template: "<input type='text' id='name' value='' placeholder='주문자명을 입력하세요.'>" },
+        ordernumber: { template: "<input type='text' id='number' value='' placeholder='주문번호 8자리를 입력하세요' maxlength='8'>" },
+        orderpass: { template: "<input type='password' id='pass' value='' placeholder='비회원 주문 비밀번호를 입력하세요'>" },
+        btn: but,
+      },
+    });
+  </script>
+</html>

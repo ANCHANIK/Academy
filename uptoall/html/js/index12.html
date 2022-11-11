@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 2일차 - 선택문</title>
+        <script>
+            //  switch ~ case (설문조사, 투표, 통신사, 지역번호(위치), 레벨(등급))
+            var aa = "이순신";
+            switch(aa){   // 해당 변수값을 대입
+                case "홍길동":  // 선택값과 비교하여 동일하면 해당 내용을 출력한다.
+                document.write("가입자 고객입니다.");
+                break;  // case와 동일한 값일 경우 더이상 조회하지 않고 정지한다.
+
+                case "이순신":
+                document.write("휴면 고객입니다.");
+                break;
+
+                default:  // case 외에 모든 사항을 default로 정한다.
+                document.write("가입되지 않은 고객입니다.");
+                break;
+            }
+
+            var bb = 1;
+            switch(bb){  // html, css 에서 쓰는 input에서 id, class 관리 잘해야 됨.
+                    case 1:
+                document.write("일반회원 등급입니다.")
+                    break;
+
+                    case 2:
+                document.write("실버회원 등급입니다.")
+                    break;
+
+                    case 3:
+                document.write("골드회원 등급입니다.")
+                    break;
+
+                    case 4:
+                document.write("VIP회원 등급입니다.")
+                    break;
+
+                    default:
+                document.write("비회원 등급입니다.")
+                    break;
+                    //  case 20개 이상은 사용하지 않음
+                }
+
+            var cc = "Card";
+            switch(cc){
+                //  멀티 case 부분이며 문자형태와 숫자 형태가 다르게 표현됩니다.
+                case "card":
+                case "Card":
+                case "CARD":
+                document.write("신용카드로 결제를 선택 하셨습니다.");
+                break;
+
+                case "bank":
+                document.write("계좌이체를 선택 하셨습니다.");
+                break;
+
+                case "hp":
+                document.write("모바일을 선택 하셨습니다.");
+                break;
+
+                default:
+                document.write("무통장 입금을 선택 하셨습니다.");
+                break;
+            }
+
+            var dd = 5;
+            switch(dd){
+                 case 1: case 2: case 3: case 4:  // 문자로 쓸 때는 절대 이렇게 쓰면 안됨. 그리고 중가로 도 없음
+                if(d%2==0){  // case 문에 if도 들어가지만, 변수가 "숫자"여야만 가능. 
+                            //또한 switch -> case -> if는 가능하지만 switch -> if -> case 는 불가능.
+                            //즉 switch -> case 안에서만 if, for 등 존재 가능
+                    document.write("5이하의 숫자이며 짝수입니다.");
+                }
+                else{
+                    document.write("5이상의 숫자이며 홀수입니다.");
+                }
+
+                default:
+                document.write("5이상의 숫자를 입력하셨습니다.");
+                break;
+
+            }
+
+            /*
+            응용문제9. 
+            switch + if문을 결합하라.
+            변수값에 card라는 단어를 입력하라.
+            하위 if 문에 롯데, 현대, 삼성으로 나누어라.
+            단, 사용자가 현대를 선택할 경우
+            "시스템 점검으로 인하여 결제가 되지 않습니다."라는 메세지를 출력하고,
+            롯데, 삼성을 선택할 경우 "결제 진행 하겠습니끼?" 라는 메세지를 출력하라.
+            단, card 외에 다른 단어를 사용할 경우 "올바른 값이 아닙니다."라고 메세지를 출력하라.
+            */
+            var p = "card";
+            var t = "현대";
+            switch(p){
+                case "card":
+                if(t!="현대"){
+                    document.write("결제 진행 하시겠습니까?");
+                }
+                else{
+                    document.write("시스템 점검으로 결제가 되지 않습니다.");
+                }
+                break;
+
+                default:
+                    document.write("올바른 값이 아닙니다.");
+                    break;
+                }
+            
+
+                /*
+                응용문제10.
+                switch 문으로 구구단을 만들어라.(반복문)
+                변수에 문자로 "2단","4단" 입력시
+                2*1=2 부터 2*9=18 까지 출력시켜라
+                */
+                var a = "구구단";
+                var b = "4단";
+                var c = 4;
+                var e;
+                switch(b){
+                    case "2단":
+                    case "4단":
+                        var d = 1;
+                        while(d<=9){
+                        e = c * d;
+                        console.log(c + "*" + d + "=" + e);
+                        d++;
+                    }
+                    break;
+                    }
+                
+                //do while로 해볼것.
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

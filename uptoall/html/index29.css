@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+span,
+label,
+main {
+  display: block;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  background-color: gray;
+  height: 30px;
+}
+.nav {
+  background-color: blue;
+  height: 80px;
+}
+.main {
+  background-color: green;
+  height: 450px;
+}
+.section1 {
+  background-color: pink;
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+.aside {
+  width: 50%;
+  height: 400px;
+  background-color: purple;
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+.article {
+  height: 150px;
+  background-color: black;
+}
+.footer {
+  height: 100px;
+  background-color: gray;
+}

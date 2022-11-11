@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>8일차 Vue + JavaScript + Jquery 통합 응용 + filter(return 무조건) 이용</title>
+        <script src="../jq/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="http://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+        <style>
+            .board_view {
+                width: 400px;
+                height: auto;
+                border: 1px solid black;
+            }
+            .board_view > ul {
+                width: inherit;
+                height: auto;
+                margin: 0;
+            }
+            .board_view > ul > li {
+                width: 350px;
+                height: 30px;
+                position: relative;
+                line-height: 30px;
+                font-size: 13px;
+            }
+            .board_view > ul > li > span {
+                position: absolute;
+                right: 0;
+                text-decoration: overline;
+            }
+            .search {
+                width: 200px;
+                height: 40px;
+            }
+            .board_css {
+                display: block;
+            }
+        </style>
+    </head>
+    <script>
+        // JS
+        function handle(){
+            var board = [
+                {subject:"졸려요.....",write:"장남혁",upvotes:1},
+                {subject:"다음주 금요일 시험ㅋ",write:"김은진",upvotes:71},
+                {subject:"코로나 1300명 실화?ㅋ",write:"정희조",upvotes:31},
+                {subject:"🎢🎪놀이동산 가고싶당🎠🎡",write:"안찬익",upvotes:112},
+                {subject:"그냥 쭉 자고 싶다",write:"이시우",upvotes:12},
+                {subject:"도대체 쉬운게 HTML 뿐ㅎ",write:"민서현",upvotes:16},
+                {subject:"다음엔 내 셀카로 ㅎㅎ",write:"김은진",upvotes:0}
+            ]
+            return board;
+        }
+
+        // JQ
+        $(function(){
+
+        })
+    </script>
+    <body>
+        <section id="box">
+            {{abc}}
+            <select v-model="search" class="search" v-on:change="sh"> <!--v-model을 안썼을 경우 : v-on:change="sh($event.target.value)" 써서 함수로 보낸다-->
+                <option value="">전체보기</option>
+                <option v-for="wr in free2" v-bind:value="wr.write">{{wr.write}}</option>
+            </select>
+            <div class="board_view">
+                <ul class="board_css">
+                    <li v-for="w in arrays" v-if="part==1">{{w.subject}} 👍({{w.upvotes}})<span>{{w.write}}</span></li>
+                    <li v-for="w in sfree" v-if="part==2">{{w.subject}} 👍({{w.upvotes}})<span>{{w.write}}</span></li>
+                </ul>
+            </div>
+        </section>
+    </body>
+    <script>
+        // Vue
+        let vues = new Vue({
+            el:"#box",
+            data:{
+                search:"",
+                arrays:"",
+                free2:[],
+                sfree:[],
+                part:1
+            },
+            methods:{
+                sh(){
+                    if(this.search != ""){
+                        this.part = 2;
+                        var bbb = this.search;
+                        // bbb란? filter에서는 vue 의 가상 변수값을 인식하지 않음.
+                        this.sfree = this.arrays.filter(function(a,b,c){
+                            return a.write == bbb;
+                            /*
+                            * filter *
+                            1) 자기가 알아서 검토 후 값을 리턴해서 보내줌 
+                            2) data에 있는 가상 변수가 아닌 실제 변수를 만들어서 찍으면 출력 가능하다.
+                            3) filter는 무조건 return을 사용해야 한다.
+                            a : 각각의 배열 그룹을 출력
+                            b : 배열 그룹의 노드값을 출력
+                            c : 전체 배열을 출력함
+                            */
+                            // console.log(a.write)
+                        });
+                    }
+                    else{
+                        this.part = 1;
+                    }
+                },
+
+                all_list(jdata){
+                    this.free2 = _.uniqBy(jdata,"write");
+                }
+            },
+            components:{
+
+            },
+            computed:{
+                abc(){
+                    this.arrays = handle();
+                    this.all_list(this.arrays);
+                }
+            }
+        });
+    </script>
+</html>

@@ -1,0 +1,64 @@
+@charset "UTF-8";
+@mixin base($w,$h) {
+    width: $w;
+    height: $h;
+}
+@mixin topmenu {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.top_menus {
+    @include base(1200px, 100px);
+    margin: 0 auto;
+    & > .top1 {
+        @include base(100%, 70px);
+        & > .top_banner {
+            @include base(auto, inherit);
+            cursor: pointer;
+            & > li {
+                @include base(490px, inherit);
+                float: left;
+                
+            }
+            & > li:nth-of-type(3) {
+                width: 220px;
+                position: relative;
+                & > .close {
+                    height: 70px;
+                    position: absolute;
+                    right: 0;
+                    text-align: center;
+                    line-height: 70px;
+                    font-size: 25px;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+    & > .top2 {
+        @include base(100%, 30px);
+        background-color: #ccc;
+        position: relative;
+        & > .topmenu_left {
+            position: absolute;
+            font-size: 12px;
+            & > li {
+                @include topmenu;
+                margin-left: 10px;
+            }
+        }
+        & > .topmenu_right {
+            position: absolute;
+            right: 0;
+            font-size: 12px;
+            & > li {
+                @include topmenu;
+                margin-right: 10px;
+
+            }
+        }
+    }
+}

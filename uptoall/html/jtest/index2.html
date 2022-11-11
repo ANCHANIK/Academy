@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scaleable=no,minimum-scale=1.0,maximum-scale=1.0">
+    <title>문제2 - Jquery</title>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            $("#close").click(function(){
+                $("#top").slideUp();
+            })
+        })
+    </script>
+    <!-- 문제2
+    close를 누르면 아래에서 위로 사라지도록 합니다.
+    단, menu_part 또한 자동으로 위로 올라가도록 합니다.
+    -->
+    <style>
+        body { margin: 0; padding: 0;}
+        .top { height: 100px;}
+        .topbanner { width:700px; height:100px; margin: 0 auto; position: relative; cursor: pointer;}
+        .menu_part { height:160px; }
+        .menus { width:700px; height:160px; background-color: darkblue; margin: 0 auto; }
+        .close { width:30px; height:30px; background-color: black; color: white;
+        font-size: 25px; text-align: center; font-weight: bolder; display: block; line-height: 30px;
+        position: absolute; right: 0;
+        }
+    </style>
+</head>
+
+<body>
+<header class="top" id="top">
+    <div class="topbanner" id="top">
+        <span class="close" id="close">X</span>
+        <img src="./image/top_banner.png">
+    </div>
+</header>
+<section class="menu_part">
+    <div class="menus"></div>
+</section>
+</body>
+</html>

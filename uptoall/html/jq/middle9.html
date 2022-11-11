@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 2일차 - 중급 (Form URL 파라미터)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+
+                let $p = location.search;
+                // console.log($p)
+                var $split = $p.split("?search=");
+                var $decode = decodeURI($split[1]);  // decodeURI : 파라미터 데이터 값 복호화
+                // console.log($decode);
+
+
+                $("#search").val($decode);
+                $("#fm").submit(function(){
+                    return;
+                })
+
+                //연습
+                let $data = "Naver네이버";
+                var $encode = encodeURI($data); //encodeURI : 파라미터 데이터 값 암호화, 영어와 숫자 외에 암호화 가능
+                console.log($encode)
+
+                //상식
+                /*
+                    encode, decode : 암호화 함수
+                    encodeURIComponent
+                    decodeURIComponent
+                    URL : 홈페이지 주소
+                    URI : URL + URN 을 통칭하는 말 (파라미터 값)
+                    URN : 인터넷에 있는 파일 식별번호
+                    식별번호 예시 : %84%25%EC
+                
+                
+                */
+            })
+        </script>
+    </head>
+    <body>
+        <form id="fm" method="GET" action="./middle9.html" enctype="application/x-www-form-urlencoded">
+            <!-- 검색버튼 클릭시 자신의 페이지에 get으로 값을 전달하라 -->
+            <input type="text" name="search" id="search">
+            <input type="submit" value="검색">
+        </form>
+    </body>
+</html>

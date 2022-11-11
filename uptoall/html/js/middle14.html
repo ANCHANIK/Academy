@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 4일차 (중급 - 배열(1차원 배열 - 반복문))</title>
+        <script>
+            const a = { "number1" : "5","number2" : "10","number3" : "15","number4" : "20" };
+            var f;
+            for(f in a){    //for in : 여러 key 값이 있을 경우 사용하는 반복문
+                // f : key 이름 출력
+                // a : 배열 형태로 출력
+                // a[f] : key 이름에 맞춰서 데이터 값이 출력된다.
+                console.log(a[f]);
+            }
+            // for of 는 혼자 공부해보셈 ㅋㅋ;
+            
+            // const array = {
+            //     "myinfo": [
+            //         {
+            //             "mid":"hong",
+            //             "mname":"홍길동",
+            //             "mage":"26",
+            //             "memail":"hong@gmail.com"
+            //         }
+            //     ]
+            // }
+
+        </script>
+        <style>
+            body { margin: 0; padding: 0;}
+            #member { width: 210px; height: auto; list-style: none;
+            margin: 0; padding: 0; }
+            #member > li { float: left;
+            border:1px solid black;
+            line-height: 30px;
+            text-indent: 5px;
+            height: 30px;
+            }
+            #member > li:nth-child(odd) {
+                width:80px;
+            }
+            #member > li:nth-child(even) {
+                width: 120px;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="member">
+            <li>아이디</li>
+            <li id="mid"></li>
+            <li>고객명</li>
+            <li id="mname"></li>
+            <li>나이</li>
+            <li id="mage"></li>
+            <li>이메일</li>
+            <li id="memail"></li>
+        </ul>
+    </body>
+    <script>
+        const array2 = {
+            "my1":["a","b","c"],
+            "my2":["z","k","j"]
+        }
+        console.log(array2.my2[1]);
+
+        const array3 = {
+            "my1":[
+                {
+                    "data":"a"
+                },
+                {
+                    "color":["red","25000"]
+                }
+        ],
+            "my2":[
+                {
+                    "data":"z"
+                },
+                {
+                    "color":["blue","35000"]
+                }
+        ]
+        }
+        // console.log(array3.my1[1].color[1]);
+        var q;
+        var g;
+        for(q=1;q<3;q++){
+            var c = "my" + q;
+            for(g=0;g<2;g++){
+                console.log(array3[c][g]);
+            }
+        }
+        /*응용문제 for문 으로 제작하라 해당 배열의 모든 값을 콘솔로 출력하라.*/
+
+
+        // {}로 시작하면 무조건 key 값이 있는 것.
+        // []만 있을 경우 데이터 값만 있는 사항
+        const array = {  // object key 가 들어갔다면 {}중괄호 먼저 들어간다.
+                "myinfo":
+                [
+                    {
+                        "mid":"hong",
+                        "mname":"홍길동",
+                        "mage":"26",
+                        "memail":"hong@gmail.com"
+                    }
+                ]
+            }
+            //console.log(array.myinfo[0]);
+            
+            /*
+            var j;
+            for(j in array.myinfo[0]){ // 데이터가 한 그룹밖에 없어도 [0]을 꼭 써줘야 값이 뜬다
+                console.log(j);
+                document.getElementById(j).append(array.myinfo[0][j]);
+            }
+            */
+            // Object.keys : 배열 안의 key값을 기준. key가 있을때 쓴다
+            Object.keys(array.myinfo[0]).forEach(function(a1,b1,c1){
+                // console.log(array.myinfo[a1]);
+                document.getElementById(a1).append(array.myinfo[0][a1]);
+                console.log(array.myinfo[0][a1]);
+                // console.log(a1);
+            });
+    </script>
+</html>

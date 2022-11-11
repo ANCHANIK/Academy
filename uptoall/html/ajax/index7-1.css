@@ -1,0 +1,121 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-family: "돋움";
+}
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sbody {
+  height: auto;
+}
+.member_view {
+  width: 800px;
+  height: auto;
+  border-radius: 5px;
+  margin: 0 auto;
+  /*버튼 가운데 위치하기 위해 사용*/
+  /*이렇게 작성하면 버튼이 위아래로 붙는다
+    이를 해결하기 위해서는 button 태그를
+     span으로 묶어주면 떨어진다. */
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+table {
+  width: inherit;
+  height: auto;
+}
+.thead_tr {
+  height: 50px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.tbody_tr > tr {
+  height: 60px;
+  font-size: 14px;
+}
+.tbody_tr > tr:nth-of-type(6) {
+  height: 90px;
+  font-size: 14px;
+}
+.tbody_tr > tr > td:nth-of-type(1) {
+  width: 150px;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.tbody_tr > tr > td:nth-of-type(2) {
+  width: 650px;
+  padding-left: 30px;
+  box-sizing: border-box;
+}
+.tbody_tr > tr,
+td {
+  border-bottom: 1px solid #ccc;
+}
+.btn {
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color: palevioletred;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn:nth-of-type(2) {
+  background-color: gray;
+}
+.td_flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  height: 90px;
+  /* flex를 쓰게 되면 높이가 초기화 되기
+  때문에 높이를 다시 잡아줘야 된다.
+  또한 <br> 도 적용 안됨*/
+}
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  vertical-align: -2px;
+  /* 체크박스랑 텍스트랑 라인을 맞춤.
+  ul,li,dl일 땐 display:table-cell로 맞춰놓고 
+  써야됨. 지금은 table 기반이기 때문에
+  vertical-align을 써서 맞출 수 있다.
+  (무조건 테이블 상태에서만 사용 가능) */
+}
+.input1,
+.input2,
+.input3 {
+  width: 200px;
+  height: 40px;
+  font-size: 14px;
+  font-family: "돋움체";
+  text-indent: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.input2 {
+  width: 450px;
+}
+.idbtn {
+  width: 100px;
+  height: 40px;
+  border: 1px solid rgb(107, 30, 143);
+  background-color: rgb(146, 54, 189);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.idbtn:hover {
+  background-color: rgb(186, 104, 224);
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 1 일차 - 반복문5 (종합응용)</title>
+        <script>
+            /*
+            응용문제 7
+            구구단 3단 ~ 5단 까지 출력해라
+            단, while 문과 for 문을 결합하여 제작하라
+            */
+            var a;
+            var c;
+            for(a=3; a<=5; a++){
+                var b = 1;
+                while( b <= 9 ){
+                    c = a * b;
+                //document.write(a + "*" + b + "=" + c + "<br>")
+                b++
+                }
+            }
+            var g = 3;
+            var z;
+            var x;
+            while (g < 6){
+                for(z=1;z<=9;z++){
+                    x = g * z;
+                    //document.write(g + "*" + z + "=" + x + "<br>")
+                }
+                g++
+            }
+
+            /*
+            응용문제8.
+            do ~ while 문과 for 문 결합하여 다음에 맞는 코드를 작성하라
+            결과는 다음과 같다.
+            345678
+            456789
+            5678910
+            */
+            var p = 3; // 밖에 변수
+            var t;  // 작은 for 문에 들어가는 변수
+            var j;  // 계산하는 변수
+            do{
+                for(t=0;t<=5;t++){
+                j = p + t;
+                document.write(j);
+                }
+                document.write("<br>");
+                p++;
+            }while(p <=5)
+        </script>
+    </head>
+    <body>
+        
+    </body>
+    </html>

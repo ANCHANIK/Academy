@@ -1,0 +1,73 @@
+<?php
+    $data = date("YMDHis");
+?>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="./css/pop_member.css?v=<?=$data?>">
+<form name="non_memform">
+	<input type="hidden" name="order_number" id="order_number" value="">
+	<section class="pop_nonmember_bg_outline" id="pop_nonmember_bg_outline">
+		<div class="pop_nonmember_outline">
+			<div class="d_mno_member">
+				<span id="nomem_close" class="d_closebtn">
+					<img src="./img/close.png">
+				</span>
+				<div class="d_mno_membox">
+					<h2>NON-MEMBER LOGIN</h2>
+					<ul class="d_no_logo">
+						<li>
+							<input type="text" name="order_name" id="d_mno_nm" autocomplete="off" class="d_mno_input" placeholder="주문자이름">
+						</li>
+						<li>
+							<div>
+								<span>
+									<input type="text" id="d_mno_num1" class="d_mno_input2" autocomplete="off" placeholder="주문번호 앞 6자리" maxlength="6">
+								</span>
+								<span>-</span>
+								<span>
+									<input type="text" id="d_mno_num2" class="d_mno_input2" autocomplete="off" placeholder="주문번호 뒤 7자리" maxlength="7">
+								</span>
+							</div>
+						</li>
+						<li>
+							<input type="password" name="order_pass" id="d_mno_pw" class="d_mno_input" placeholder="비밀번호">
+						</li>
+						<li>
+							<button type="submit" id="d_mno_mem" class="d_mno_input3" onclick="return nonbtn();">비회원주문조회</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- 하단 혜택 -->
+			<div class="d_mno_coupon" id="nonmems">
+				<ul id="nonmems">
+					<li id="d_m0">
+						<div>
+							<span class="d_mno_subtitle">회원가입시 쿠폰2장</span><br> 무료배송 + <br> 즉시할인 2,0000원
+						</div>
+					</li>
+					<li id="d_m1">
+						<div>
+							<span class="d_mno_subtitle">무료배송</span><br> 5만원이상 구매시<br> 무료배송 혜택
+						</div>
+					</li>
+					<li id="d_m2">
+						<div>
+							<span class="d_mno_subtitle">포토리뷰 적립금</span><br> 리뷰퀸 10,000원 <br> 2,3등 5,000원 / 3,000원
+						</div>
+					</li>
+					<li id="d_m3">
+						<div>
+							<span class="d_mno_subtitle">배송지연 보상</span><br> 배송지연 2,000원+<br> 품절시 5% 적립
+						</div>
+					</li>
+					<li id="d_m4">
+						<div>
+							<span class="d_mno_subtitle">등급별 회원혜택</span><br> 구매 등급별<br> 커지는 할인 & 적립
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- 비회원 login end-->
+		</div>
+	</section>
+</form>

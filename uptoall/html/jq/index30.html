@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 8일차 - 초급코드 시간(SetTimeout)</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js?v=3"></script>
+        <link rel="stylesheet" type="text/css" href="./jquery-ui.css?v=3">
+        <script>
+            $(document).ready(function(){
+
+                var $time;
+                var $number = 0;
+                $("#start").click(function(){
+                    $.fn.time();
+                });
+                
+                $("#stop").click(function(){
+                    $.fn.stop();
+                });
+                
+                $.fn.time = function(){  // 확장함수
+                    // 해당 노드값을 받은 후 split을 이용한 배열값을
+                    // 적용하여 매 1초마다 그래프가 나오도록 하는 상황
+                //     $number += 1;
+                //     console.log($number);
+                //     $time = setTimeout($.fn.time,1000);  // setTimeout을 쓰면 무조건 콜 백을 써줘야 한다. (js/index33 참고)
+                // },1000;
+                    $("#gul > li").eq($start).animate({
+                        "width":$sw[$start] + "px"
+                    });
+                    $time = setTimeout($.fn.time,1000);
+                    $start += 1;
+                    if($start >= $node){ // 해당 노드 개수보다 크거나 같을 경우
+                        clearTimeout($time); // setTimeout을 정지시킴
+                    }
+                }
+
+                $.fn.stop = function(){
+                    clearTimeout($time);
+                }
+
+
+                var $node = $("#gul > li").length;
+                //console.log($node);
+                var $width = "350,220,290";
+                var $sw = $width.split(",");
+                //console.log($sw[1]);
+                var $start = 0;
+                $("#btn1").click(function(){
+                    $.fn.time();
+                })
+
+                /*
+                $.fn.graph = function($a1,$a2,$a3){
+                    var $w = 0;
+                    while($w  < $node){
+                        console.log($w)
+                        $time = setTimeout($.fn.graph,3000);
+                        $("#gul > li").eq($w).animate({
+                            "width":$bb
+                        })
+                        $w++;
+                    }
+                }
+                */
+
+
+                // 읽기 전용으로 변경하는 방법
+                $("#btn3").click(function(){
+                    $("#h").attr("readonly",true);
+
+                });
+
+            });
+        </script>
+        <style>
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            span,label,main { display: block; }
+            .btn {
+                width: 100px;
+                height: 30px;
+                border-radius: 5px;
+            }
+            .gbox {
+                width: auto;
+                height: auto;
+            }
+            .gul {
+                width: auto;
+                height: auto;
+            }
+            .gul > li {
+                width: 0;
+                height: 35px;
+                margin-bottom: 20px;
+            }
+            .gul > li:nth-child(1) {
+                background-color: navy;
+            }
+            .gul > li:nth-child(2) {
+                background-color: orange;
+            }
+            .gul > li:nth-child(3) {
+                background-color: greenyellow;
+            }
+            .btn1 {
+                width: 80px;
+                height: 40px;
+                text-align: center;
+                line-height: 40px;
+                background-color: gray;
+                color: white;
+                border-radius: 5px;
+                font-size: 12px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="button" value="start" id="start" class="ui-button btn">
+        <input type="button" value="stop" id="stop" class="ui-button btn">
+
+        <br><br>
+
+        <div class="gbox">
+            <ul class="gul" id="gul">
+                <li id="gli0"></li>
+                <li id="gli1"></li>
+                <li id="gli2"></li>
+            </ul>
+            <span class="btn1" id="btn1">확인</span>
+        </div>
+        <br><br>
+        <input type="text" id="h">
+        <input type="button" value="읽기전용" id="btn3">
+    </body>
+</html>

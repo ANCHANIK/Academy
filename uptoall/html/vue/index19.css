@@ -1,0 +1,63 @@
+body, * {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section {
+  width: auto;
+  height: auto;
+}
+
+.title {
+  width: 200px;
+  height: 30px;
+  background-color: coral;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+}
+
+.tlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 500px;
+  height: 30px;
+  background-color: pink;
+}
+
+.tlist > li {
+  float: left;
+  text-align: center;
+  height: inherit;
+  line-height: 30px;
+  border: 1px solid #9e4371;
+}
+
+.tlist > li:nth-child(1) {
+  width: 30%;
+}
+
+.tlist > li:nth-child(2) {
+  width: 30%;
+}
+
+.tlist > li:nth-child(3) {
+  width: 40%;
+}
+
+.tlist2 {
+  background-color: lightcoral;
+}
+
+.bt1 {
+  width: 100px;
+  height: 30px;
+  background-color: indianred;
+  color: white;
+  border: 1px solid lightcoral;
+  margin-top: 10px;
+}
+/*# sourceMappingURL=index19.css.map */

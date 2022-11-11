@@ -1,0 +1,121 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+/* font-family: 'Noto Sans KR', sans-serif; (100,300,400,500,700,900) */
+ul, ol, dl {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+}
+
+ul, ol, dl {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.emptybox {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: "";
+}
+
+body, html, div, span, label, main, section, aside, header, footer, nav, video, table, tr, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
+  -ms-text-size-adjust: 100%;
+  /* IE */
+  -webkit-text-size-adjust: 100%;
+  /* chrome, safari */
+  -o-text-size-adjust: 100%;
+  /* 오페라 */
+  -moz-text-size-adjust: 100%;
+  /* firefox */
+}
+
+a {
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+}
+
+a:active, a:hover {
+  outline: 0;
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+/* img { width: 100px; object-fit: cover; } */
+input {
+  outline: 0;
+}
+
+input:focus, textarea:focus {
+  outline: 0;
+}
+
+button, input[type="button"], input[type="submit"], input[type="reset"], input[type="checkbox"], input[type="radio"] {
+  cursor: pointer;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+address, caption, cite, code, dfn, var {
+  font-style: normal;
+}
+
+ul, ol, dl {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.ui-loader {
+  display: none;
+}
+
+.main {
+  width: 360px;
+  height: auto;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=index.css.map */

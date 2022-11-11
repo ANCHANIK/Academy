@@ -1,0 +1,64 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.maincss {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  /*  IE에서도 grid를 사용하여 표준화를 맞추려면 다음과 같은 코드를 이용해야 한다.
+    position: absolute;
+    height:  800px;
+    left: 50%;
+    margin-left: -600px;
+*/
+  -ms-grid-rows: (200px)[3];
+      grid-template-rows: repeat(3, 200px);
+  -ms-grid-columns: (400px)[3];
+      grid-template-columns: repeat(3, 400px);
+      grid-template-areas: "h h h" "s s a" "f f f";
+}
+
+.maincss > header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: h;
+  background-color: darkseagreen;
+  display: block;
+}
+
+.maincss > section {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: s;
+  background-color: steelblue;
+  display: block;
+}
+
+.maincss > aside {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: a;
+  background-color: teal;
+  display: block;
+}
+
+.maincss > footer {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: f;
+  background-color: tomato;
+  display: block;
+}
+/*# sourceMappingURL=index21.css.map */

@@ -1,0 +1,311 @@
+@font-face {
+  font-family: notoB;
+  src: url(./font/NotoSansKR-Bold.eot#iefix) format("embedded-opentupe"),
+    url(./font/NotoSansKR-Bold.otf) format("opentype"),
+    url(./font/NotoSansKR-Bold.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: notoL;
+  src: url(./font/NotoSansKR-Light.eot#iefix) format("embedded-opentupe"),
+    url(./font/NotoSansKR-Light.otf) format("opentype"),
+    url(./font/NotoSansKR-Light.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: notoL;
+}
+.joinContainer {
+  width: 800px;
+  height: 1000px;
+  margin: 0 auto;
+}
+.joinTit {
+  width: 800px;
+  height: 58px;
+  margin: 0;
+  text-align: center;
+  line-height: 58px;
+  border-bottom: 2px solid #e71e22;
+  margin-bottom: 22px;
+  font-family: notoB;
+}
+.joinWarp {
+  width: 680px;
+  height: 843px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+.joinWarp dl {
+  width: 680px;
+  height: 69px;
+  margin: 0;
+}
+.joinWarp dt {
+  width: 120px;
+  height: 54px;
+  float: left;
+  line-height: 54px;
+  font-size: 16px;
+  color: #333;
+  font-family: notoB;
+}
+.input_st1,
+.input_st2,
+.input_st3 {
+  position: relative;
+  width: 560px;
+  height: 54px;
+  margin: 0;
+  float: right;
+  margin-bottom: 15px;
+}
+.input_st1 input {
+  width: 560px;
+  height: 54px;
+  border-radius: 5px;
+  border: 0;
+  background-color: #f3f3f3;
+  font-size: 15px;
+  padding: 0 60px 0 22px;
+  box-sizing: border-box;
+}
+.input_st1 span {
+  position: absolute;
+  top: 19px;
+  right: 22px;
+  display: block;
+  width: 17px;
+  height: 17px;
+}
+
+.input_st2 input {
+  width: 173px;
+  height: 54px;
+  border-radius: 5px;
+  border: 0;
+  background-color: #f3f3f3;
+  font-size: 15px;
+  padding: 0 22px;
+  box-sizing: border-box;
+}
+.input_st2 span {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  font-size: 26px;
+}
+
+/* 우편번호 */
+.input_st3 input:nth-child(1) {
+  width: 367px;
+  height: 54px;
+  border-radius: 5px;
+  border: 0;
+  background-color: #f3f3f3;
+  font-size: 15px;
+  padding: 0 60px 0 22px;
+  box-sizing: border-box;
+}
+.input_st3 span {
+  position: absolute;
+  top: 19px;
+  right: 215px;
+  display: block;
+  width: 17px;
+  height: 17px;
+}
+.input_st3 input:nth-child(3) {
+  width: 173px;
+  height: 54px;
+  border-radius: 5px;
+  border: 0;
+  background-color: #424242;
+  color: #fff;
+  font-size: 16px;
+  font-family: notoB;
+  text-align: center;
+  line-height: 54px;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-left: 15px;
+}
+.refer input {
+  background-color: #dedede;
+}
+
+/**************아이콘********************/
+.joinID {
+  background-image: url(./ico.png);
+  background-repeat: no-repeat;
+}
+.joinPw1 {
+  background-image: url(./ico.png);
+  background-repeat: no-repeat;
+  background-position: -17px 0;
+}
+.joinPw2 {
+  background-image: url(./ico.png);
+  background-repeat: no-repeat;
+}
+.joinName {
+  background-image: url(./ico.png);
+  background-repeat: no-repeat;
+}
+.joinNic {
+  background-image: url(./ico.png);
+  background-repeat: no-repeat;
+  background-position: -34px 0;
+}
+.joinEmail {
+  background-image: url(./ico.png);
+  background-repeat: no-repeat;
+  background-position: -51px 0;
+}
+.joinHome {
+  background-image: url(./ico.png);
+  background-repeat: no-repeat;
+  background-position: -68px 0;
+}
+/****************************************/
+
+.buttonBox {
+  width: 800px;
+  height: 74px;
+}
+.joinBtn {
+  width: 367px;
+  height: 54px;
+  border-radius: 5px;
+  border: 0;
+  background-color: #e71e22;
+  color: #fff;
+  font-size: 16px;
+  font-family: notoB;
+  text-align: center;
+  line-height: 54px;
+  padding: 0;
+  margin-left: 180px;
+  cursor: pointer;
+}
+.cancelBtn {
+  width: 173px;
+  height: 54px;
+  border-radius: 5px;
+  border: 0;
+  background-color: #424242;
+  color: #fff;
+  font-size: 16px;
+  font-family: notoB;
+  text-align: center;
+  line-height: 54px;
+  padding: 0;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+/* 회원가입 주소 부분 */
+
+/* 팝업 주소 리스트 부분 */
+.list_addr {
+  width: 500px;
+  height: 300px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: 12px;
+  font-family: "돋움체";
+}
+.list_addr > p {
+  width: 460px;
+  height: 30px;
+  background-color: aliceblue;
+  line-height: 30px;
+  text-align: center;
+  border: 2px solid rgb(173, 163, 240);
+}
+.list_header {
+  width: 460px;
+  height: 30px;
+  border: 1px solid #ccc;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list_data {
+  width: 460px;
+  height: 120px;
+  border: 1px solid #ccc;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+.list_header > li,
+.list_data > li {
+  float: left;
+  box-sizing: border-box;
+}
+.list_header > li:nth-child(1) {
+  width: 30%;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-right: 1px solid #ccc;
+}
+.list_header > li:nth-child(2) {
+  width: 70%;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.list_data > li:nth-child(odd) {
+  width: 30%;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+}
+.list_data > li:nth-child(even) {
+  width: 70%;
+  height: 30px;
+  text-align: left;
+  text-indent: 20px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.close_btn {
+  width: 80px;
+  height: 30px;
+  background-color: darkslategray;
+  color: white;
+  font-size: 12px;
+  border: 0;
+  cursor: pointer;
+}
+.search {
+  width: 80px;
+  height: 30px;
+  background-color: darkslategray;
+  color: white;
+  font-size: 12px;
+  border: 0;
+  cursor: pointer;
+}
+.span_css {
+  margin-top: 10px;
+  width: 460px;
+  height: 30px;
+  text-align: right;
+  display: block;
+  margin: 0 auto;
+}

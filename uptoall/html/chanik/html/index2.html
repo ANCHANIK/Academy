@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>test2 오답노트</title>
+        <style>
+            body {margin: 0; padding: 0;}
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            span,label,main { display: block; }
+            .box {
+                width: 1000px;
+                height: 55px;
+                background-color: blue;
+                line-height: 70px;
+                padding-top: 15px;
+            }
+            .box > div {
+                width: 960px;
+                height: 40px;
+                margin: 0 auto;
+                position: relative;
+            }
+            .gbox > span {
+                width: 200px;
+                height: 40px;
+                background-color: gray;
+            }
+            .ul_box > ul {
+                width: 400px;
+                height: 40px;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .ul_box > ul > li{
+                width: 100px;
+                height: 40px;
+                float: left;
+            }
+            .ul_box > ul > li:nth-child(odd){
+                background-color: yellow;
+            }
+            .ul_box > ul > li:nth-child(even){
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="gbox">
+                <span></span>
+                <label class="ul_box">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </label>
+            </div>
+        </div>
+    </body>
+</html>

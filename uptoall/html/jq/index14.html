@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 4일차 - disc 응용</title>
+        <!-- FAQ : 자주하는 질문&답변 , Q&A : 고객이 질문, 관리자가 답변 -->
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#node_del").click(function(){  //
+                    $("#menu > li").eq(2).remove();
+                });
+
+                $("#node_add").click(function(){  // 부모노드 기준으로 제일 마지막 자식노드 밑에 노드 생성
+                    $("#menu").append("<li>메뉴5</li>");
+                });
+
+                $("#node_add2").click(function(){  // 부모노드 기준으로 제일 첫번째 자식노드 위에 노드 생성
+                    $("#menu").prepend("<li>메뉴5</li>");
+                });
+
+                $("#node_add3").click(function(){  // 자식노드 기준으로 지정 노드 다음에 노드 생성
+                    $("<li>메뉴5</li>").insertAfter("#menu > li:eq(1)");
+                });
+
+                $("#node_add4").click(function(){  // 자식노드 기준으로 지정 노드 이전에 노드 생성
+                    $("<li>메뉴5</li>").insertBefore("#menu > li:eq(1)");
+                });
+
+                $("#btn").click(function(){
+                    $("#box").append("<span></span>");
+                });
+
+                
+                var $w = 0;
+                $("#btn2").click(function(){
+                    var $boxs = $("box2 > span").length;
+                    if($boxs < 3){
+                        $("#box2").append("<span class='a"+ $w +"'></span>");
+                        $w = $w + 1
+                    }
+                    else{
+                        alert("더이상 박스를 생성할 수 없습니다.");
+                    }
+                    // while($w < 3){
+                    //     $("#box2").append("<span class='a"+ $w +"'></span>");
+                    //     $w++;
+                    // }
+                });
+
+                $("#btn_del").click(function(){
+                    var $box_ea = $("box2 > span").length;
+                    if($box_ea == 0){
+                        alert("더이상 지울 박스가 없습니다.");
+                    }
+                    else{
+                        $("#box2 > span").eq($box_ea - 1).remove();
+                    }
+                    
+                });
+            })
+        </script>
+        <style>
+            .box {
+                width: 300px;
+                height: 300px;
+                background-color: blue;
+                position: relative;
+            }
+            .box > span {
+                display: block;
+                width: 50px;
+                height: 50px;
+                background-color:black;
+                position:absolute;
+                right: 0;
+                bottom: 0;
+            }
+            .box2 {
+                width: 300px;
+                height: 300px;
+                background-color:blue;
+                position: relative;
+            }
+            .a0 {
+                display: block;
+                width: 250px;
+                height: 250px;
+                background-color: red;
+                position:absolute;
+                margin-top: 25px;
+                margin-left: 25px;
+            }
+            .a1 {
+                display: block;
+                width: 200px;
+                height: 200px;
+                background-color: green;
+                position:absolute;
+                margin-top: 50px;
+                margin-left: 50px;
+            }
+            .a2 {
+                display: block;
+                width: 150px;
+                height: 150px;
+                background-color: orange;
+                position:absolute;
+                margin-top: 75px;
+                margin-left: 75px;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="menu">
+            <li>메뉴1</li>
+            <li>메뉴2</li>
+            <li>메뉴3</li>
+            <li>메뉴4</li>
+        </ul>
+        <input type="button" value="노드삭제" id="node_del">
+        <input type="button" value="노드추가1" id="node_add">
+        <input type="button" value="노드추가2" id="node_add2">
+        <input type="button" value="노드추가3" id="node_add3">
+        <input type="button" value="노드추가4" id="node_add4">
+
+        <br><br>
+
+        <div class="box" id="box">
+            
+
+        </div>
+        <input type="button" value="박스생성" id="btn">
+
+        <br><br><br>
+
+        <div class="box2" id="box2">
+
+        </div>
+        <input type="button" value="박스생성2" id="btn2">
+        <input type="button" value="박스삭제" id="btn_del">
+    </body>
+</html>

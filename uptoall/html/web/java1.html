@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>자바그크립트 기초-응용편1</title>
+        <script>
+            // 값이 없는 경우나 있는 경우나
+            // var = a,b,c,d;  or  var a=1,b=1;
+            /*
+            응용문제.1
+            상품 가격은 29000원입니다.
+            30 % 할인된 가격을 실제 결제를 하며, 추가로 적립은 3680원을 사용한다.
+            최종 결제금액은?
+            */
+            var a = 29000;
+            var b = 0.7;
+            var c = 3680;
+            //console.log((a * b) - c);
+            
+            // if, else if, else
+            /*
+            응용문제2.(조건문)
+            값 1 에는 3과 5 숫자를 더한 후 25를 곱한다.
+            값 2 에는 9과 17 숫자를 곱한 후 47을 뺀다.
+            두 개 결과값을 비교하여 어떤 값이 더 큰 값인지
+            나오도록 제작하시오
+            */
+            var d = (3 + 5) * 25;
+            var e = (8 * 12) - 16;
+            if(d>e){
+                //console.log("d값이 더 큽니다.");
+            }
+            else if(d==e){
+                //console.log("두 값이 같습니다.");
+            }
+            else{"e 값이 더 급니다."}
+
+            /*
+            응용문제3.(조건문)
+            다음 제시한 임의 숫자에 맞춰서 "10보다 크고 50이하 숫자 "
+            또는 "50보다 크고 100이하 숫자",
+            "100 이상 숫자" 3가지 내용이 출력되도록 하라
+            */
+            var f = 5;
+            if(f>10 && f <= 50){
+                console.log("10보다 크고 50이하 숫자");
+            }
+            else if(f>50 && f <= 100){
+                console.log("50보다 크고 100이하인 숫자");
+            }
+            else if(f>100){
+                console.log("100 이상 숫자");
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

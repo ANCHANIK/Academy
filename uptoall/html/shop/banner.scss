@@ -1,0 +1,68 @@
+@charset "UTF-8";
+@mixin base($w,$h) {
+    width: $w;
+    height: $h;
+}
+@mixin uod {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+@mixin btn_disc($w,$h,$position) {
+    width: $w;
+    height: $h;
+    position: $position;
+}
+.banners {
+    @include base(1200px, 500px);
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    &:hover > .ol_banners > span {
+        display: block;
+    }
+}
+/* banner */
+.ol_banners {
+    @include base(2400px, 500px);
+    @include uod;
+    & > span {
+        display: none;
+    }
+    & > .leftbtn {
+        @include btn_disc(37px, 74px, absolute);
+        left: 10px;
+        top: 213px;
+        cursor: pointer;
+    }
+    & > .rightbtn {
+        @include btn_disc(37px, 74px, absolute);
+        right: 10px;
+        top: 213px;
+        cursor: pointer;
+    }
+    & > li {
+        @include base(1200px, inherit);
+        float: left;
+    }
+}
+/* disc */
+.disc {
+    clear: both;
+    @include btn_disc(100%, 30px, absolute);
+    bottom: 10px;
+    line-height: 30px;
+    text-align: center;
+    box-sizing: border-box;
+    & > span {
+        @include base(15px, 15px);
+        background-color: black;
+        border-radius: 100%;
+        display: inline-block;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    & > span:nth-of-type(1) {
+        background-color: red;
+    }
+}

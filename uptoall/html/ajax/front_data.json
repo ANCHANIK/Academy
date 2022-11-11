@@ -1,0 +1,16 @@
+{
+    "datas" : [
+        {"seoul":114,"gyeonggi":32,"allcity":41},
+        {"seoul":74,"gyeonggi":29,"allcity":19},
+        {"seoul":89,"gyeonggi":27,"allcity":11},
+        {"seoul":48,"gyeonggi":12,"allcity":19},
+        {"seoul":39,"gyeonggi":9,"allcity":22},
+        {"seoul":44,"gyeonggi":11,"allcity":21},
+        {"seoul":57,"gyeonggi":29,"allcity":9},
+        {"seoul":59,"gyeonggi":31,"allcity":19},
+        {"seoul":41,"gyeonggi":12,"allcity":8},
+        {"seoul":27,"gyeonggi":8,"allcity":10},
+        {"seoul":34,"gyeonggi":17,"allcity":21},
+        {"seoul":72,"gyeonggi":32,"allcity":11}
+    ]
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 6 일차 - 초급코드(랜덤함수-응용)</title>
+        <script>
+            function abc(){
+                var zz = 45; // 랜던함수에 사용할 최대치 정수값
+                var pp = 6; // 몇개를 출력할 것인지에 대한 값
+                var h = 1; // 초기값;
+                do{
+                    var aa = Math.ceil(Math.random()*zz);
+                    document.getElementById("a" + h).value = aa;
+                    h++;
+                }
+                while(h <= pp)
+
+            }
+        </script>
+    </head>
+    <body>
+        <p>[이번주 로또 복권 예상 숫자]</p>
+        <input type="text" id="a1"><br>
+        <input type="text" id="a2"><br>
+        <input type="text" id="a3"><br>
+        <input type="text" id="a4"><br>
+        <input type="text" id="a5"><br>
+        <input type="text" id="a6"><br>
+        <input type="button" value="숫자 확인" onclick="abc();">
+    </body>
+</html>

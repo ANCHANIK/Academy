@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<apink>
+    <success>
+        <pizza id="pizza">미스터피자</pizza>
+        <chicken>닭다리 윙 2EA</chicken>
+        <pasta>까르보나라</pasta>
+    </success>
+    <success>
+        <pizza id="pizza">파파존스</pizza>
+        <chicken>닭날개 3EA</chicken>
+        <pasta>봉골레</pasta>
+    </success>
+    <success>
+        <pizza id="pizza">라라피자</pizza>
+        <chicken>닭다리</chicken>
+        <pasta>크림파스타</pasta>
+    </success>
+</apink>

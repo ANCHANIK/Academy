@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 8일차 (중급 - 파일로드)</title>
+        <style>
+            .agree {
+                width: 800px;
+                height: 300px;
+                border: 1px solid #ccc;
+                overflow-y: auto;
+                font-size: 12px;
+                color: gray;
+            }
+        </style>
+        <!-- 
+            txt 파일을 로드하여 출력함
+            단, 서버에 charset에 맞춰서 저장해야 된다.
+            회사 서버가 UTF-16 이라면 UTF-16로 저장하고 UTF-8이면 UTF-8로 저장하라.
+            euc-kr 은 ANCI로 저장할 것.
+            LE BE는 인코딩의 차이일 뿐 큰 차이와 문제 없음. 되도록 LE로 저장하고 BE는 지양. 
+            UTF-8(BOM) : 잘 안씀. 옛날에 사용한 형태 
+            
+            *동기화는 데이터 변경시 쿠키값으로 인해 실시간 변경이 안될 수도 있음
+            해당 부분을 변경하고자 할 경우 파라미터 값을 이용해 쿠키를 갱신시키면
+            데이터를 재뱐영하게 된다.*
+        -->
+        <script>
+            /*
+            [통신] : 비동기화 통신, 동기화 통신
+            클라이언트 : 내가 접속하고 있는 PC
+            서버 : 
+            동기화 통신 : 클라이언트 요청(1차) -> 서버에서 응답(2차) ex) 신호전송
+            비동기화 통신 : 서버에서 지속적으로 대기상태의 신호를 발생시킴 ex) 비콘, 내 위치(위성)가 변하면 날씨 정보가 자동으로 바뀌는 것. 단점은 콜이 많아서 delay 걸림.
+            */
+            function abc(){
+                var a = new XMLHttpRequest();
+                // XMLHttpRequest() : data를 요청하는 함수 (동기화)
+                // a.open("GET","agree.txt",true);
+                // a.open("GET","img.html",true);
+                a.open("GET","agree.txt?v=1",true);
+                // open : 파일을 열어서 확인
+                // GET,POST,PUT,DELETE : method 형태, PUT : 데이터 추가, DELETE : 데이터 삭제
+                a.onreadystatechange = function(){
+                    // onreadystatechange : 자동으로 응답 요청을 받도록 함 (서버)
+                    if(a.readyState === XMLHttpRequest.DONE && a.status === 200){
+                        // readyState : 응답 형태
+                        // status : 네트워크 응답형태
+                        // 401 : 권한 없음(접근 불가)
+                        // 403 : 코드 오류
+                        // 404 : 요청한 파일이 없을 때
+                        // 302 : Not Found
+                        // 200 : 정상요청 확인
+                        var b = a.response;
+                        // var b = a.responseText;  : 구버전
+                        document.getElementById("data").innerHTML = b;
+                    }
+                }
+                a.send();
+                // send : 요청. 안쓰면 못 받음
+
+                // 보안상 다른 페이지의 script는 못가져감
+                // 요청한 페이지의 script는 보안상의 문제로 못가져오기 때문에
+                // 해당 페이지에 스크립트를 작성해야 됨
+                var timer;
+        
+                timer = setTimeout(t,5000);
+                function t(){
+                    document.getElementById("box").style.backgroundColor = "blue";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!-- <textarea id="data" cols="100" rows="30"></textarea> -->
+        <div class="agree" id="data"></div>
+        <input type="button" value="텍스트 파일 로드" onclick="abc()">
+        <input type="button" value="HTML 파일 로드" onclick="abc();">
+    </body>
+</html>

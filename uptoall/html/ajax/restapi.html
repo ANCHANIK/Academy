@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카카오톡 로그인 API 연동</title>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <style>
+        .btn {
+            background-color: rgb(255, 255, 12);
+            width: 140px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            transition: all 0.35s ease;
+        }
+        .btn:hover {
+            background-color: rgb(245, 245, 0);
+        }
+        .btn2 {
+            background-color: rgb(0, 0, 0);
+            color: white;
+            width: 140px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            transition: all 0.35s ease;
+        }
+        .btn2:hover {
+            background-color: rgb(58, 58, 58);
+        }
+    </style>
+</head>
+<body>
+    <input type="hidden" name="target_id" value="">
+    <input type="text" name="user_id" value="">
+    <input type="password" name="user_pw" value="">
+    <div class="btn" onclick="kakao_login()">카카오톡 로그인</div>
+    <div class="btn2" onclick="kakao_logout()">카카오톡 로그아웃</div>
+</body>
+<script>
+    Kakao.init('85d130420f6596e33c217646ac987f11');
+    function kakao_login(){
+        Kakao.Auth.login({
+            success:function(r){
+                Kakao.API.request({
+                    url: '/v2/user/me',
+                    success:function(r){
+                        console.log(r)
+                    }
+                })
+            },
+            fail:function(error){
+                console.log("DATA ERROR");
+            }
+        })
+    }
+
+    function kakao_logout(){
+        if(Kakao.Auth.getAccessToken()){
+            Kakao.API.request({
+                url: '/v1/user/unlink',
+                success:function(r){
+                    console.log(r)
+                }
+            })
+            Kakao.Auth.setAccessToken(undefined);
+        }
+    }
+</script>
+</html>

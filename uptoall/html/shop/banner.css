@@ -1,0 +1,76 @@
+.banners {
+  width: 1200px;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.banners:hover > .ol_banners > span {
+  display: block;
+}
+
+/* banner */
+.ol_banners {
+  width: 2400px;
+  height: 500px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ol_banners > span {
+  display: none;
+}
+
+.ol_banners > .leftbtn {
+  width: 37px;
+  height: 74px;
+  position: absolute;
+  left: 10px;
+  top: 213px;
+  cursor: pointer;
+}
+
+.ol_banners > .rightbtn {
+  width: 37px;
+  height: 74px;
+  position: absolute;
+  right: 10px;
+  top: 213px;
+  cursor: pointer;
+}
+
+.ol_banners > li {
+  width: 1200px;
+  height: inherit;
+  float: left;
+}
+
+/* disc */
+.disc {
+  clear: both;
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  bottom: 10px;
+  line-height: 30px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.disc > span {
+  width: 15px;
+  height: 15px;
+  background-color: black;
+  border-radius: 100%;
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.disc > span:nth-of-type(1) {
+  background-color: red;
+}
+/*# sourceMappingURL=banner.css.map */

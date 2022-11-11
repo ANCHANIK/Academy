@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="imagetoolbar" content="ko">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Front-End 개발자 안찬익 입니다.</title>
+        <script src="./JS/jquery.js"></script>
+        <script>
+            function check(){
+                window.close();
+            }
+        </script>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            section {
+                width: 100%;
+                height: 100%;
+            }
+            .warning_div {
+                width: 500px;
+                height: 300px;
+                margin: 0 auto;
+                border: 1px solid #aaa;
+                margin-top: 30px;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .warn_span1 {
+                width: 300px;
+                height: 50px;
+            }
+            .warn_span1 > img {
+                width: 100%;
+                object-fit: contain;
+            }
+            .warn_span2 {
+                font-size: 17px;
+            }
+            .warn_span2 > span {
+                font-size: 19px;
+                font-weight: bold;
+                color: red;
+                text-decoration: underline;
+            }
+            .warn_span3 {
+                font-size: 25px;
+                font-weight: bold;
+                color: red;
+            }
+            .warn_btn {
+                width: 100px;
+                height: 30px;
+                border: none;
+                border: 1px solid #aaa;
+                background-color: crimson;
+                color: white;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <div class="warning_div">
+                <span class="warn_span1">
+                    <img src="./ico/logo.png">
+                </span>
+                <span class="warn_span2">
+                    본 사이트는 실제 사이트가 아닌 <span>포트폴리오 사이트</span> 입니다!
+                </span>
+                <span class="warn_span3">
+                    결제하시면 안됩니다!
+                </span>
+                <span class="warn_span4">
+                    <button type="button" class="warn_btn" onclick="check()">확인</button>
+                </span>
+            </div>
+        </section>
+    </body>
+</html>

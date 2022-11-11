@@ -1,0 +1,45 @@
+@charset "UTF-8";
+@import "./config.scss";
+
+.event_product_aside {
+    @include object(1174px, 510px, flex, "");
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    & > .event_product_ad {
+        @include object(320px, 400px, block, "");
+        & > span {
+            @include object(inherit, inherit, block, "");
+            & > img {
+                height: 100%;
+            }
+        }
+    }
+    // -------------------------------------------------- product banner ---------------------------------------
+    & > .event_product_banner {
+        @include object(530px, auto, block, "");
+        & > span {
+            @include object(inherit, 400px, block, relative);
+            overflow: hidden;
+            & > ul {
+                @include object(2000px, inherit, flex, absolute);
+                @extend %ulol;
+                & > li {
+                    @include object(530px, auto, block, "");
+                    & > img {
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+    & > .event_product_info {
+        @include object(290px, 400px, flex, "");
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        & > span {
+            @include object(290px, 190px, block, "");
+            cursor: pointer;
+        }
+    }
+}

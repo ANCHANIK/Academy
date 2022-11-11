@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 4일차 - 추가 정지함수 및 배너 슬라이드 응용</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                // $("#box").mouseenter(function(){
+                //     $(this).stop().animate({  // stop() : 이 함수는 이벤트 핸들링시 애니메이션 적용 여부를 확인하는 함수이다.
+                //         "width":"600px"
+                //     },1000);
+                // });
+
+                // $("#box").mouseleave(function(){
+                //     $(this).stop().animate({
+                //         "width":"100px"
+                //     },1000);
+                // });
+
+
+                //배너파트
+
+                //총 배너개수
+                var $banner_ea = $("#img_ul > li").length;  //  li 배너 개수 가져옴  = 3개
+                var $banner_width = $("#img_ul > li").width();  //배너 한 개의 이미지 가로 길이 = 2000px
+                var $total_width = $banner_ea * $banner_width  // 배너 개수 * 배너 한 개의 가로 길이
+                console.log($banner_ea);
+                console.log($banner_width);
+
+                $("#img_ul").css("width",$total_width + "px");  // li 개수만큼 부모 ul width 값을 늘려줌
+                
+                    // 오른쪽 배너 이동
+                var $node = 0;
+                $("#r_btn").click(function(){
+                    $node = $node + 1;
+                    if($node > 2){
+                        $node = 0;
+                    }
+                    var $left = $node * $banner_width;
+                    console.log($left)
+                    $("#img_ul").animate({
+                        "left":- $left + "px"
+                    },1000);
+                });
+
+                // 왼쪽 배너 이동
+                $("#l_btn").click(function(){
+                    $node = $node - 1;
+                    if($node == -1){    // 0 ~ 2 번까지의 노드만 있으므로, -1 노드를 가상화 시킨 후 노드를 다시 계산하여 마지막 노드 번호를 애니메이션화 시킨다.
+                        $node = $banner_ea - 1;
+                        console.log($node);
+                    }
+                    var $left = $node * $banner_width;
+                
+                    $("#img_ul").animate({
+                        "left":- $left + "px"
+                    },1000);
+                });
+
+                // disc 파트
+                // right 버튼
+                var $node_disc = 0;
+                $("#r_btn").click(function(){
+                    var $w = 0;  //  black disc 만다는 반복문
+                    while($w < $banner_ea){
+                        $("#disc > li").eq($w).css("background-color","black");
+                        $w++;
+                    }
+                    $node_disc = $node_disc + 1;  //  red disc 만드는 조건문
+                    if($node_disc > 2){
+                            $node_disc = 0;
+                        }
+                    $("#disc > li").eq($node_disc).css("background-color","red");
+                        
+                    });
+                    
+                // left 버튼
+                    $("#l_btn").click(function(){
+                        var $w = 0;
+                        while($w < $banner_ea){
+                            $("#disc > li").eq($w).css("background-color","black");
+                            $w++;
+                        }
+                        $node_disc = $node_disc - 1;
+                        if($node_disc == -1){
+                            $node_disc = 2;
+                        }
+                        $("#disc > li").eq($node_disc).css("background-color","red");
+                        
+                    });
+
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            span,label,main { display: block; }
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            /* .box {
+                width: 100px;
+                height: 30px;
+                background-color: blue;
+            } */
+            .banner_box {
+                width: 1000px;
+                height: 590px;
+                margin: 0 auto;
+            }
+            /*Banner*/
+            .banner {
+                width: 1000px;
+                height: 490px;
+                text-align: center;
+                overflow: hidden;
+            }
+            .banner_img {
+                position: relative;
+            }
+            .banner_img > ul {
+                position: absolute;
+            }
+            .banner_img > ul > li {
+                width: 1000px;
+                height: 490px;
+                float: left;
+            }
+            /*disc*/
+            .disc {
+                margin: 0 auto;
+                width: auto;
+                height: 20px;
+                text-align: center;
+                position: relative;
+                top: 450px;
+                z-index: 10;
+            }
+            .disc > ul > li{
+                width : 20px;
+                height: 20px;
+                background-color: black;
+                border-radius: 100%;
+                display: inline-block;
+                margin-left: 5px;
+                cursor: pointer;
+            }
+            .disc > ul > li:nth-child(1){
+                background-color: red;
+                margin-left: none;
+            }
+            /*R-L button*/
+            .btn {
+                width: 120px;
+                height: 50px;
+                margin: 0 auto;
+                margin-top: 50px;
+            }
+            .btn > span {
+                width: 50px;
+                height: 50px;
+                background-color: cornflowerblue;
+                color: white;
+                font-weight: bold;
+                font-size: 30px;
+                text-align: center;
+                cursor: pointer;
+            }
+            .l_btn {
+                float: left;
+            }
+            .r_btn {
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <div class="box" id="box"></div> -->
+        <div class="banner_box">
+            <label class="banner">
+                <label class="disc">
+                    <ul id="disc">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </label>
+                <label class="banner_img">
+                    <ul id="img_ul">
+                        <li><img src="../js/banners/banner0.png"></li>
+                        <li><img src="../js/banners/banner1.png"></li>
+                        <li><img src="../js/banners/banner2.png"></li>
+                    </ul>
+                </label>
+            </label>
+            <label class="btn">
+                <span class="l_btn" id="l_btn"><</span>
+                <span class="r_btn" id="r_btn">></span>
+            </label>
+        </div>
+    </body>
+</html>

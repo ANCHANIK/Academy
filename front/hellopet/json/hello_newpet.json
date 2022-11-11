@@ -1,0 +1,52 @@
+[
+    {
+     "pet_title":"퍼피 공주님",
+     "pet_img":"./newpets/sample1.jpg",
+     "pet_explanation":"1차 접종 / 종합검진 1회 / 원충 2회 / 구충 3회"
+    },
+    {
+     "pet_title":"소망이 터프가이",
+     "pet_img":"./newpets/sample2.jpg",
+     "pet_explanation":"2차 접종 / 종합검진 2회 / 원충 1회 / 구충 1회"
+    },
+    {
+     "pet_title":"머루 세쌍둥이",
+     "pet_img":"./newpets/sample3.jpg",
+     "pet_explanation":"미접종 / 종합검진 1회 / 원충 1회 / 구충 1회"
+    },
+    {
+     "pet_title":"애교 다롱이",
+     "pet_img":"./newpets/sample4.jpg",
+     "pet_explanation":"미접종 / 종합검진 1회 / 원충 미접종 / 구충 1회"
+    },
+    {
+     "pet_title":"잠꾸러기 몽이",
+     "pet_img":"./newpets/sample5.jpg",
+     "pet_explanation":"3차 접종 / 종합검진 3회 / 원충 3회 / 구충 2회"
+    },
+    {
+     "pet_title":"둥이둥이 흰둥이",
+     "pet_img":"./newpets/sample6.jpg",
+     "pet_explanation":"1차 접종 / 종합검진 1회 / 원충 미접종 / 구충 미접종"
+    },
+    {
+     "pet_title":"까칠한 새롬이",
+     "pet_img":"./newpets/sample7.jpg",
+     "pet_explanation":"2차 접종 / 종합검진 2회 / 원충 2회 / 구충 2회"
+    },
+    {
+     "pet_title":"얌전한 예삐",
+     "pet_img":"./newpets/sample8.jpg",
+     "pet_explanation":"1차 접종 / 종합검진 2회 / 원충 3회 / 구충 3회"
+    },
+    {
+     "pet_title":"블루아이 미키",
+     "pet_img":"./newpets/sample9.jpg",
+     "pet_explanation":"2차 접종 / 종합검진 2회 / 원충 2회 / 구충 3회"
+    },
+    {
+     "pet_title":"귀요미 레오",
+     "pet_img":"./newpets/sample10.jpg",
+     "pet_explanation":"1차 접종 / 종합검진 1회 / 원충 1회 / 구충 1회"
+    }
+]

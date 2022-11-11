@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 7 일차 - 초급코드(Node 개수 확인)</title>
+        <script>
+
+            function abc(){
+            //     var a = document.getElementById("ul_id");
+            //     var nm = a.childNodes; // childNodes는 getElementById,query 외에는 절대 쓸 수 없음
+            //     console.log(nm);
+            //     /*
+            //     console로 출력을 하게 되면, 빈공간이 text로 인식하게 되며
+            //     node 개수 또한 증가하게 된다. html 코드를 한 줄로 인식시키면
+            //     가장 정확한 node 개수가 나오게 된다.
+            //     */
+            //     // li 하위에 span 태그가 있을 경우 확인하지 않음
+            //     // 즉, ul 개념에서 자식은 li 만 확인하게 된다. li의 자식은 확인하지 않음.
+
+            //     var b = document.getElementsByTagName("ul"); //childNodes 사용 불가. 실무에서는 사용 안함
+            //     console.log(b);
+
+            //     var nd = a.children; // children : 빈공간은 자동 삭제. 태그만 확인
+            //     var ea = nd.length;  // 해당 자식 태그가 몇 개 있는지 출력하게 됨.
+            //     console.log(ea);
+            }
+
+            function banner(){
+            var aa = document.getElementById("ol_bn2");
+            var bb = document.getElementById("ul_disc");
+            var ea = aa.childNodes.length;
+            var w = 0;
+            var li = "<li></li>";
+            var disc = "";
+                while(w < ea){
+                    disc = disc + li;
+                    w++;
+                }
+                bb.innerHTML = disc;
+            }
+
+            function mv(){
+                var banner = document.getElementById("ol_bn2");
+                banner.style.left = "-1000px";
+                // style.left : css 속성 중 left라는 속성삾을 이용함.
+                // 단, css에 position을 꼭 확인해야 한다.
+            }
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            ul,ol {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            .banner {
+                width : 1000px;
+                height : 490px;
+                position: relative;
+            }
+            .banner > ol {
+                width : 3000px;
+                height : 490px;
+                position: relative;
+            }
+            .ol_bn > li {
+                width : 1000px;
+                height : 490px;
+                float: left;
+            }
+            .ul_bn {
+                position: relative;
+                text-align: center;
+                bottom: 50px;
+            }
+            .ul_bn > li {
+                width : 25px;
+                height : 25px;
+                border-radius: 100%;
+                background-color: black;
+                display: inline-block;
+                margin-right: 5px;
+            }
+            .ul_bn > li:nth-child(1){
+                background-color: red;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <!--
+        <ul id="ul_id">
+            <li><span>213213</span></li>
+            <li>23425235</li>
+            <li>234234234</li>
+        </ul>
+        <input type="button" value="확인" onclick="abc();">
+        -->
+        <!-- 배너 디스크 생성 및 출력하기 --> <!--1000*490-->
+        <div class="banner">
+            <ol class="ol_bn" id="ol_bn2">
+                <li>
+                    <img src="./banners/banner0.png">
+                </li>
+                <li>
+                    <img src="./banners/banner1.png">
+                </li>
+                <li>
+                    <img src="./banners/banner2.png">
+                </li>
+            </ol>
+            <ul id="ul_disc" class="ul_bn" onclick="mv();">
+            </ul>
+        </div>
+    </body>
+    <script>
+        banner();
+    </script>
+</html>

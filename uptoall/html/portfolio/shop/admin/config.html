@@ -1,0 +1,126 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>환경설정</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+
+<form id="info" name="info" method="POST" action="admin_info_ok.php" onsubmit="return info_ok()" enctype="multipart/form-data">
+    <input type="hidden" id="info_idx" value="">
+    <input type="hidden" id="info_site_ico" value="">
+    <article class="config_aticle">
+        <div class="config_aticle_title">사업자정보</div>
+        <span class="config_aticle_memo">대표전화번호는 SMS 발송번호로 사용되므로 사전등록된 발신번호와 일치해야 합니다.</span>
+        <table class="config_aticle_table">
+            <tr class="config_aticle_table_tr">
+                <th>회사명</th>
+                <td>
+                    <input type="text" class="config_input" id="info_cpname" name="info_cpname" title="회사명을 입력하세요" required>
+                </td>
+                <th>사업자등록번호</th>
+                <td>
+                    <input type="tel" class="config_input" id="info_cpno" name="info_cpno" required autocomplete="off">
+                </td>
+            </tr>
+            <tr class="config_aticle_table_tr">
+                <th>대표자명</th>
+                <td colspan="3">
+                    <input type="text" class="config_input" id="info_ceo" name="info_ceo" required title="대표자명">
+                </td>
+            </tr>
+            <tr class="config_aticle_table_tr">
+                <th>대표전화번호</th>
+                <td>
+                    <input type="tel" class="config_input" id="info_tel" name="info_tel" maxlength="13" required pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" autocomplete="off" title="예시)010-1234-5678">
+                </td>
+                <th>팩스번호</th>
+                <td>
+                    <input type="tel" class="config_input" id="info_fax" name="info_fax" maxlength="13" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" autocomplete="off" title="예시)02-1234-5678">
+                </td>
+            </tr>
+            <tr class="config_aticle_table_tr">
+                <th>통신판매업 신고번호</th>
+                <td>
+                    <input type="text" class="config_input" id="info_cn" name="info_cn" required>
+                </td>
+                <th>부가통신 사업자번호</th>
+                <td>
+                    <input type="text" class="config_input" id="info_cnetc" name="info_cnetc">
+                </td>
+            </tr>
+            <tr class="config_aticle_table_tr">
+                <th>사업장우편번호</th>
+                <td>
+                    <input type="text" class="config_input config_post_number" id="info_addr" name="info_addr" maxlength="5" required pattern="[0-9]{5}" title="우편번호 5자리를 입력하세요">
+                </td>
+                <th>사업장주소</th>
+                <td>
+                    <input type="text" class="config_input" id="info_addrdtc" name="info_addrdtc" required>
+                </td>
+            </tr>
+            <tr class="config_aticle_table_tr bottom_line">
+                <th>정보관리책임자명</th>
+                <td>
+                    <input type="text" class="config_input" id="info_manager" name="info_manager" required>
+                </td>
+                <th>정보책임자 e-mail</th>
+                <td>
+                    <input type="email" class="config_input" id="info_manager_email" name="info_manager_email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,6}">
+                </td>
+            </tr>
+        </table>
+        <div class="config_admin_second_title">쇼핑몰 환경설정</div>
+        <table class="config_aticle_table">
+            <tr class="config_aticle_table_tr">
+                <th>홈페이지 제목</th>
+                <td>
+                    <input type="text" class="config_admin_input" id="info_site_nm" name="info_site_nm" required>
+                </td>
+            </tr>
+            <tr class="config_aticle_table_tr config_admin">
+                <th>홈페이지 아이콘</th>
+                <td id="fimg_on" class="fimg_on">
+                    <div class="fimg" id="fimg"></div><label id="fdel" class="fdel">[삭제]</label>
+                </td>
+                <td id="fimg_off" class="fimg_on">
+                    <input type="file" name="info_site_ico" accept=".png, .jpeg, .jpg, .ico"> ※ 파일 용량은 최대 2MB까지 입니다.
+                </td>
+            </tr>
+            <tr class="config_aticle_table_tr">
+                <th>최고관리자</th>
+                <td>
+                    <select id="info_site_admin" name="info_site_admin">
+                        <option value="admin">admin</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="config_aticle_table_tr config_admin">
+                <th>관리자 메일 주소</th>
+                <td>
+                    <span class="config_memo">관리자가 보내고 받는 용도로 사용하는 메일 주소를 입력합니다. (회원가입, 인증메일, 테스트, 회원메일발송 등에서 사용)</span>
+                    <input type="email" class="config_admin_input" id="info_site_email" name="info_site_email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,6}">
+                </td>
+            </tr>
+            <tr class="config_aticle_table_tr config_admin">
+                <th>관리자 메일 발송이름</th>
+                <td>
+                    <span class="config_memo">관리자가 보내고 받는 용도로 사용하는 메일의 발송 이름을 입력합니다. (회원가입, 인증메일, 테스트, 회원메일발송 등에서 사용)</span>
+                    <input type="text" class="config_admin_input" id="info_site_emailnm" name="info_site_emailnm" required>
+                </td>
+            </tr>
+            <tr class="config_aticle_table_tr bottom_line">
+                <th>포인트 사용</th>
+                <td>
+                    <label><input type="checkbox" id="point_use" name="info_point_use" value="Y" onclick="use_point()"> 사용&nbsp;&nbsp;&nbsp;</label>
+                    포인트 금액 : <input type="text" id="points" class="config_input config_post_number" name="info_point" pattern="[0-9]{3,5}" disabled>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="config_setting_btn">확인</button>
+    </article>
+</form>

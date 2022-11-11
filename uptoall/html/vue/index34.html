@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>
+            Vue 5일차 - Vue 비회원 주문조회 출력파트(B part)
+        </title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .title {
+                width: 200px;
+                height: 50px;
+                border: 1px solid black;
+                text-align: center;
+                line-height: 50px;
+            }
+            .code {
+                width: 300px;
+                height: 50px;
+            }
+            .code > span:nth-child(1) {
+                width: auto;
+                height: 50px;
+                line-height: 50px;
+                display: inline-block;
+                color: red;
+            }
+
+        </style>
+    </head>
+    <body>
+    <!--
+        1) 파라미터로 넘길것.
+        2) 3개의 값을 넘길것
+    -->
+    <section id="product_list">
+        <p>주문내역 리스트</p>
+        <div class="code">
+            <span>주문코드</span>
+            <span>{{ordercode}}</span>
+        </div>
+        <table border="1" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>상품코드</th>
+                    <th>상품명</th>
+                    <th>상품가격</th>
+                    <th>배송상태</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="list in arr">
+                    <star v-bind:ship="list" v-for="list in arr[0]"></star>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    </body>
+    <script>
+        const arrays = [
+            {
+                "numbers":"20210707",
+                "product_nm":"그린 도브비누",
+                "product_code":"1234456",
+                "product_money":34200,
+                "product_process":"배송중"
+            },
+            {
+                "numbers":"20210707",
+                "product_nm":"바디샴푸 1EA",
+                "product_code":"225566",
+                "product_money":12000,
+                "product_process":"배송중"
+            },
+            {
+                "numbers":"20210708",
+                "product_nm":"제로세정티슈 5EA",
+                "product_code":"030101",
+                "product_money":40000,
+                "product_process":"배송준비중"
+            },
+        ];
+
+        let ordlist = {
+            props:["ship"],
+            template:"<td>{{ship}}</td>"
+        }
+
+        let a = new Vue({
+            el:"#order",
+            data:{
+                arr:arrays,
+                ordercode:"",
+                ship:""
+            },
+            methods:{
+                
+            },
+            components:{
+                "star":ordlist
+            }
+        });
+    </script>
+</html>

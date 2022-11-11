@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 1일차 - 중급 (버튼 + bind)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+                $("#btn").bind({
+            "mouseenter":function(){
+                $("#box").animate({
+                    "margin-left":"0px"
+                },800);
+            },
+            "click":function(){
+                let $a = $("#mid").val();
+                if(!$a){
+                    alert("아이디를 입력해 주세요");
+                }
+            }
+        });
+    });
+        </script>
+        <style>
+            body { margin: 0; padding: 0;}
+            .mid {
+                width: 200px;
+                height: 40px;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+            }
+            .mbtn {
+                width: 80px;
+                height: 40px;
+                background-color: turquoise;
+                color: white;
+                border: none;
+                line-height: 20px;
+                margin-top: -1px;
+                /*
+                button은 기본으로 line-height가 적용되어져 있다.
+                따라서 line-height: 를 반으로 줄이고
+                margin-top: -1px 정도 당기면 맞아진다.
+                */
+            }
+            .box {
+                display: inline-block;
+                height: 40px;
+                margin-left: -200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box">
+            <input type="text" id="mid" class="mid">
+            <input type="submit" id="btn" value="로그인" class="mbtn">
+        </div>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML3일차 UI태그 3.0 + CSS 1.0</title>
+    </head>
+    <body>
+        <!-- input : 사용자가 입력하는 부분 -->
+        <input type="text">  <!-- text : 이름, 아이디, 제목 등등 -->
+        <br>
+        <input type="password">  <!-- password : 입력한 내용을 암호화 함 -->
+        <br>
+        <input type="checkbox">  <!-- checkbox : 한 개 이상의 내용을 체크할 때 사용ㅎ마-->
+        <br>
+        <input type="radio">  <!-- radio : 한 가지만 선택을 할 때 사용함-->
+        <br>
+        <input type="button" value="로그인">  <!-- button : 클릭 또는 엔터를 이용함-->
+        <br>
+        <!--
+            cols : 한 줄에 입력 수
+            rows : 한 번에 보여지는 세로 줄
+        -->
+        <textarea cols="30" rows="5"> 
+[이용약관]
+본 이용약관은 ...
+        </textarea>
+        <!--
+            textarea : 많은 내용을 입력할 때 주로 사용함
+            태그 안에 주석 달 경우 보여짐
+        -->
+        <br><br>
+        <!-- 응용 -->
+        <input type="checkbox">동의함
+        <br>
+        <input type="radio" name="a">동의함 <input type="radio" name="a">동의 안함
+        <!--
+            radio 특성 중 한가지 이상 선택사항이 나올 경우 한 가지만 선택하기 위해서는 
+            name이라는 속성을 사용해야만 한다.
+            name 속성은 button에 적용 안 됨
+        -->
+        <br>
+        <input type="text" size="10" maxlength="5">
+        <!--
+            size : 최초 입력할 수 있는 글자 수. 이상으로 쓰면 뒤로 밀림
+            maxlength : 최대 입력 글자 수. 이상으로 쓰면 글자 잘림 (빈 공백도 카운터 됨)
+        -->
+        <br>
+        <input type="password" size="30" maxlength="3">
+        <br>
+        <input type="checkbox" checked>보안 접속
+        <br>
+        <input type="radio" name="b">동의함 <input type="radio" name="b" checked>동의 안함
+        <!--
+            maxlength, size : text, password, textarea(size 포함X)
+            checked : checkbox, radio (페이지 실행 시 미리 체크 됨)
+            동적 웹 : 화면 변화 및 인터페이스 변화가 생김
+            정적 웹 : 화면 변화가 없는 정지된 페이지
+        -->
+        <br><br>
+        <input type="button" value="아이디 중복확인">
+    </body>
+</html>

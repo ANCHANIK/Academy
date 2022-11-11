@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 4일차 - Vue components(전역2) & 확장 이벤트 핸들링</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <snack v-text="btn">
+            </snack>
+        </section>
+    </body>
+    <script>
+        Vue.component("snack",{  // component는 해당 태크 안에서만 작동된다.
+            template:"<button @click='abc'></button>",
+            // component에 있는 abc 이벤트 핸들링 호출
+            methods:{
+                abc:function(){
+                // 실제 abc 핸들링 호출 함수.  단, data에 있는 각종 vue 변수가 없으므로 사용에 한계가 있음
+                    a.bbb("확장함수");
+                    // 실제 vue 엔진에 있는 bbb라는 확장함수로 데이터를 이동시킴
+                }
+            }
+        });
+        let a = new Vue({
+            el:"#box",
+            data:{
+                btn:"클릭"
+            },
+            methods:{
+                bbb:function(db){
+                    alert(db);
+                }
+            }
+        });
+    </script>
+</html>

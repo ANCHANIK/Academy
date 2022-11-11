@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html land="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+<title>Jquery 8일차 - 초급코드 시간(GET 파라미터 값 받아서 처리하기2)</title>
+<script src="./jquery.js"></script>
+<script src="./jquery-ui.js?v=25"></script>
+<script>
+    //setTimeout 써야한다.
+    $(document).ready(function(){
+
+        var $url = location.search;
+        var $data0,$data1,$data2;
+
+        // 첫번째 값
+        var $a = $url.split("?lee=");
+        var $aa = $a[1].split("&");
+        $data0 = Number($aa[0]/10);   //첫번째 text 숫자로 변환해준다.
+
+        // 두번째 값
+        var $b = $url.split("&si=");
+        var $bb = $b[1].split("&");
+        $data1 = Number($bb[0]/10);    //두번째 text
+
+        // 세번째 값
+        var $c = $url.split("&woo=");
+        $data2 = Number($c[1]/10);    //세번째 text
+
+
+        //console.log($a0);
+
+        var $timer;
+        var $start = 0;
+        $.fn.abc = function(){
+            var $node = $("#gr_box > li").length;
+            
+            $("#gr_box > li").eq($start).animate({
+                "height":eval("$data"+$start)+"px"  //eval : $data라는 문자를 변수로 취급하여 가져온다.
+            },500);
+            $timer =setTimeout($.fn.abc,1000);
+            //console.log($start);
+            $start += 1;
+            
+            if($start >= $node){
+                clearTimeout($timer);
+            }
+                
+        };
+        $.fn.abc();
+
+    });
+</script>
+<style>
+body{margin: 0; padding: 0;}
+span, label{display: block;}
+ul, ol {list-style: none; margin: 0; padding: 0;}
+
+img{width: 800px; height: 400px;
+    position: absolute;
+    z-index: 5;
+}
+.box { width: 800px; height: 400px;
+    position: relative;
+}
+.box2 { width: 400px; height: 360px;
+    position: absolute;
+    right: 0;
+    z-index: 7;
+}
+/*
+.gr_box {width: 400px; height: 100%;
+    border: 1px solid red;
+    box-sizing: border-box;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+}
+*//*
+.gr_box {
+}
+*/
+.gr_box > li {width: 70px; height: 0px;
+    position: absolute;
+    background-color: rgb(214, 78, 78);
+    bottom: 0;
+    margin-left: 50px;
+}
+.gr_box > li:nth-child(1) {left: 0px;}
+.gr_box > li:nth-child(2) {left: 112.5px;}
+.gr_box > li:nth-child(3) {left: 225px;}
+</style>
+</head>
+<body>
+    <div class="box">
+            <img src="./chart_bk.png">
+            <div class="box2">
+            <ul class="gr_box" id="gr_box">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            </div>
+    </div>
+</body>
+</html>

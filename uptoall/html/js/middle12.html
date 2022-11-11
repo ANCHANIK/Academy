@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 3일차 (중급 - 메소드 함수)</title>
+        <script src="http://cksdlr7446.dothome.co.kr/js/middle12.js"></script>
+        <script>
+            function project(){
+                var m1 = Number(document.getElementById("money").value);
+                var m2 = Number(document.getElementById("sale").value);
+                var m3 = Number(document.getElementById("reserve").value);
+                const k = pay.abc(m1,m2,m3);
+            
+                console.log(k[0],k[1]);
+
+                document.getElementById("get_reserve").innerHTML = (k[1] + "원")
+                document.getElementById("box").innerHTML = (k[0] + "원");
+        
+        }
+        </script>
+    </head>
+    <body>
+        합계 금액 : <input type="text" id="money" value="56000" readonly><br>
+        할인율 : <input type="text" id="sale" value="20" readonly>% 할인<br>
+        적립금 사용 : <input type="text" id="reserve" value="1500" readonly><br>
+        남은 적립금 : <label id="get_reserve"></label><br>
+        <input type="button" value="결제확인" onclick="project()"><br>
+        <div id="box"> </div>
+    </body>
+</html>

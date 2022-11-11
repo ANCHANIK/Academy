@@ -1,0 +1,64 @@
+@charset "UTF-8";
+@import "./config.scss";
+
+.navi_aside {
+    @include object(100%, 60px, block, "");
+    border-top: 1px solid dimgray;
+    border-bottom: 2px solid dimgray;
+    box-sizing: border-box;
+    background-color: white;
+    & > .navi_div {
+        @include object(1174px, 60px, block, "");
+        margin: 0 auto;
+        & > ul {
+            @include object(500px, 60px, flex, "");
+            @extend %ulol;
+            margin: 0 auto;
+            justify-content: space-between;
+            & > li {
+                @include fonts(14px, 300, black, 60px);
+                cursor: pointer;
+                &:hover {
+                    font-weight: 600;
+                }
+            }
+            & > span {
+                line-height: 60px;
+            }
+        }
+    }
+}
+.copyright {
+    @include object(1174px, 150px, flex, "");
+    background-color: white;
+    margin: 0 auto;
+    font-size: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    & > div {
+        @include object(100%, 25px, flex, "");
+        margin-bottom: 7px;
+        line-height: 25px;
+        justify-content: center;
+        &:nth-of-type(1){
+            margin-bottom: 0px;
+        }
+    }
+}
+.ceo_check {
+    width: 70px;
+    text-align: center;
+    margin-top: 3px;
+    height: 20px;
+    line-height: 20px;
+    background-color: dimgray;
+    color: white;
+    font-weight: 300;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.ceo_check:hover {
+    background-color: gray;
+}

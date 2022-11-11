@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+/* font-family: 'Nanum Gothic', sans-serif; */
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+.top {
+  width: 99.99%;
+  height: 40px;
+  border: 1px solid red;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.top > label {
+  height: 35px;
+  display: block;
+}
+
+.top > label:nth-of-type(1), .top > label:nth-of-type(3) {
+  width: 35px;
+  background-color: blue;
+}
+
+.top > label:nth-of-type(2) {
+  width: 180px;
+  background-color: red;
+}
+
+.main {
+  width: 99.99%;
+  height: 500px;
+  border: 1px solid red;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  position: relative;
+}
+
+.bottom {
+  width: 99.99%;
+  height: 100px;
+  border: 1px solid red;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  position: relative;
+}
+
+.popup {
+  position: absolute;
+  z-index: 100;
+  width: 99.99%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 0 9000px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 0 9000px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.popico {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  left: 85%;
+  top: 1.5%;
+  overflow: hidden;
+  display: block;
+}
+/*# sourceMappingURL=index6.css.map */

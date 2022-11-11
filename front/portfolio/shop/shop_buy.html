@@ -1,0 +1,78 @@
+<?php
+    session_start();
+    $v = date("Ymdhis");
+    include "login_info.php";
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <script>
+            let shop_id = "<?php echo $shop_id ?>";
+            if(shop_id == ""){
+                shop_id = "";
+            }
+        </script>
+        <meta charset="UTF-8">
+        <meta http-equiv="imagetoolbar" content="ko">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="title" content="한우사랑 쇼핑몰">
+        <meta name="description" content="한우,한우사랑,소고기,안찬익,A등급,횡성,장흥,돼지고기,안창살,등심,소태,안심">
+        <meta name="keyword" content="한우,한우사랑,소고기,안찬익,A등급,횡성,장흥,돼지고기,안창살,등심,소태,안심">
+        <meta name="publisher" content="AN CHAN IK">
+        <meta name="robots" content="index,follow">
+        <meta name="twitter:card" content="한우,한우사랑,소고기,안찬익,A등급,횡성,장흥,돼지고기,안창살,등심,소태,안심">
+        <meta name="twitter:description" content="한우,한우사랑,소고기,안찬익,A등급,횡성,장흥,돼지고기,안창살,등심,소태,안심">
+        <meta name="twitter:title" content="한우사랑 쇼핑몰">
+        <meta property="og:locale" content="ko_kr">
+        <meta property="og:title" content="한우사랑 쇼핑몰">
+        <meta property="og:site_name" content="생활의 건강한 먹거리를 드리는 한우사랑 쇼핑몰 입니다.">
+        <meta property="og:author" content="AN CHAN IK">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="http://cksdlr7446.dothome.co.kr/portfolio/shop">
+        <meta property="og:image" content="http://cksdlr7446.dothome.co.kr/portfolio/shop/ico/logo.png">
+        <meta property="al:ios:url" content="http://cksdlr7446.dothome.co.kr/portfolio/shop">
+        <meta property="al:android:url" content="http://cksdlr7446.dothome.co.kr/portfolio/shop">
+        <meta property="al:web:url" content="http://cksdlr7446.dothome.co.kr/portfolio/shop">
+        <link rel="icon" href="./ico/faico.png" sizes="128x128">
+        <link rel="icon" href="./ico/faico64.png" sizes="64x64">
+        <link rel="icon" href="./ico/faico32.png" sizes="32x32">
+        <link rel="icon" href="./ico/faico16.png" sizes="16x16">
+        <link rel="apple-touch-icon-precomposed" href="./ico/faico.png">
+        <link type="text/css" rel="stylesheet" href="./css/index.css?v=<?php echo $v?>">
+        <link type="text/css" rel="stylesheet" href="./css/shop_top.css?v=<?php echo $v?>">
+        <link type="text/css" rel="stylesheet" href="./css/shop_menu.css?v=<?php echo $v?>">
+        <link type="text/css" rel="stylesheet" href="./css/buy.css?v=<?php echo $v?>">
+        <title>생활의 건강한 먹거리를 드리는 한우사랑 쇼핑몰 입니다.</title>
+        <script src="../JS/jquery.js"></script>
+        <script>
+        // let days = new Date();  // 데이터 갱신
+        // var nos = days.getMonth() + '' +  days.getDay() + '' + ('0' + days.getHours()).slice(-2) + '' + ('0' + days.getMinutes()).slice(-2) + '' + ('0' + days.getSeconds()).slice(-2);
+        var nos = "<?php echo $v ?>";
+        </script>
+        <?php
+            if($_POST['goodsno']!=""){
+        ?>
+        <script src="./js/shop_menu.js?v=<?php echo $v?>"></script>
+        <script src="./js/shop_top.js?v=<?php echo $v?>"></script>
+        <script src="./js/shop_buy.js?v=<?php echo $v?>"></script>
+        <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+        <script>
+            function gomain(){
+                location.href = 'index.html';
+            }
+        </script>
+    </head>
+    <body>
+        <header><?php include "shop_top.html"; ?></header>
+        <nav><?php include "shop_menu.html"; ?></nav>
+        <main>
+            <section><?php include "product_buy.html"; ?></section>
+        </main>
+        <footer><?php include "shop_footer.html"; ?></footer>
+        <?php
+            }
+        ?>
+    </body>
+    <script src="./js/shop_main.js?v=<?php echo $v?>"></script>
+</html>

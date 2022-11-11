@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 2일차 초급 (JavaScript & jQuery)</title>
+        <script src="../jq/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#btn").submit(function(){
+                    var $aa = $("#text").val();
+                    if($aa ==""){
+                        alert("내용을 입력해주세요.");
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
+
+                });
+
+
+
+            });
+
+
+            // function abc(){
+            //     var aa = document.getElementById("text").value;
+            //     if(aa==""){
+            //         alert("내용을 입력해주세요.")
+            //         return false;
+            //     }
+            //     else{
+            //         return true;
+            //     }
+            // }
+        </script>
+    </head>
+    <body>
+        <!-- 응용문제1.
+        JS로만 사용하여 해당 값을 입력받은 후 네이버로 get으로 전송하라
+        무조건 값이 입력되어야만 네이버로 get 전송하라 -->
+        <!-- JavaScript -->
+        <!-- <form method="GET" action="http://www.naver.com" onsubmit="return abc()">
+            <input type="text" id="text" name="text" class="text"><input type="submit" value="확인">
+        </form> -->
+
+        <!-- jQuery -->
+        <form method="GET" action="http://www.naver.com" id="btn">
+            <input type="text" id="text" name="text" class="text">
+            <input type="submit" value="확인">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,117 @@
+@charset "UTF-8";
+/* notic */
+.ocn_bottom {
+    height: auto;
+}
+.ocn_bottom_up {
+    width: inherit;
+    height: 55px;
+    line-height: 55px;
+}
+.ocn_notice {
+    width: 620px;
+    height: 55px;
+    line-height: 55px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    overflow: hidden;
+
+}
+.ocn_notice > ul {
+    width: 89%;
+    height: 55px;
+    position: absolute;
+    left: 14%;
+
+}
+.ocn_notice > label, .ocn_notice > ul > li {
+    height: 55px;
+    float: left;
+    line-height: 55px;
+}
+.ocn_notice > label {
+    width: 11%;
+}
+.ocn_notice > ul > li {
+    float: left;
+    width: inherit;
+    font-size: 13px;
+    color: #9F9F9F;
+}
+/* .ocn_notice > ul > li:after {
+    content: attr(datacontent);
+    position: absolute;
+} */
+.ocn_select {
+    width: 350px;
+    height: 55px;
+    line-height: 55px;
+    float: right;
+}
+.ocn_select > div {
+    height: 35px;
+    float: left;
+    text-indent: 10px;
+    margin-top: 10px;
+    position: relative;
+}
+.ocn_select > div:nth-child(2) {
+    margin-left: 10px;
+}
+.ocn_select > div > span {
+    border: 1px solid #ccc;
+    width: 170px;
+    height: 35px;
+    line-height: 35px;
+    color: gray;
+    font-size: 13px;
+    cursor: pointer;
+}
+.ocn_select > div > span:after {
+    content: "  ▼";
+}
+.sel_label {
+    width: 170px;
+    height: auto;
+    position: absolute;
+    bottom: 33px;
+}
+.sel {
+    width: 170px;
+    height: auto;
+    border: 1px solid #cccccc;
+    color: gray;
+    float: left;
+    text-align: left;
+    text-indent: 10px;
+    line-height: 35px;
+    font-size: 13px;
+    box-sizing: border-box;
+    display: none;
+}
+.sel > li {
+    width: inherit;
+    height: 35px;
+    background-color: white;
+    border-right: 1px solid #CCCCCC;
+}
+.sel > li:hover {
+    background-color: #CCCCCC;
+    cursor: pointer;
+}
+/* coypright */
+.ocn_bottom_down {
+    clear: both;
+    width: inherit;
+    height: 100px;
+    background-color: #CCCCCC;
+    text-align: center;
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}

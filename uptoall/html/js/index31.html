@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 6 일차 - 초급코드(div 객체생성)</title>
+        <script>
+            function abc(){
+                // 사용자가 입력한 값
+                var ff = Number(document.getElementById("box").value);
+                if(ff == "" || isNaN(ff) == true){
+                    alert("숫자 값을 입력해 주세요.");
+                }
+                else if(ff > 7){
+                    alert("숫자는 7까지만 가능하다규");
+                }
+                else{
+                    var w = 1;
+                    var html = "<div></div>";
+                    var code = ""; // 지속적으로 HTML 코드가 쌓여 만들어지는 빈공간
+                    while(w <= ff){
+                        code = code + html;
+                        w++;
+                    }
+                    document.getElementById("bb").innerHTML += code;
+                }
+                /*
+                while(a <=8){
+                    var cc = "<div></div>" + "<br>";
+                    v_bb.innerHTML += cc;
+                    a++;
+                }
+                */
+            }
+
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            div { width: 100px; height: 100px; }
+            div:nth-of-type(1) { background-color: red;}
+            div:nth-of-type(2) { background-color: orange;}
+            div:nth-of-type(3) { background-color: yellow;}
+            div:nth-of-type(4) { background-color: green;}
+            div:nth-of-type(5) { background-color: blue;}
+            div:nth-of-type(6) { background-color: navy;}
+            div:nth-of-type(7) { background-color: purple;}
+        </style>
+    </head>
+    <body id="bb">
+        <input type="text" id="box" maxlength="1">
+        <input type="button" value="생선" onclick="abc();">
+    </body>
+</html>

@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  width: 300px;
+  height: auto;
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -ms-grid-rows: 50px 100px 100px 150px;
+      grid-template-rows: 50px 100px 100px 150px;
+  -ms-grid-columns: 100px 200px;
+      grid-template-columns: 100px 200px;
+      grid-template-areas: "h1 h1" "h2 ." "h3 h4" "h5 h5";
+}
+
+.box > label {
+  display: block;
+}
+
+.box > .label1 {
+  background-color: royalblue;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: h1;
+}
+
+.box > .label2 {
+  background-color: #586b9d;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: h2;
+}
+
+.box > .label3 {
+  background-color: red;
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: h3;
+}
+
+.box > .label4 {
+  background-color: yellow;
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: h4;
+}
+
+.box > .label5 {
+  background-color: tomato;
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: h5;
+}
+
+.box2 {
+  width: 300px;
+  height: auto;
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+  border: 1px solid #ccc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+  -ms-grid-rows: 80px 300px 100px;
+      grid-template-rows: 80px 300px 100px;
+  -ms-grid-columns: (100px)[3];
+      grid-template-columns: repeat(3, 100px);
+      grid-template-areas: "lab1 lab2 lab2" "lab3 lab3 lab3" "lab4 lab5 lab6";
+}
+
+.box2 > label {
+  display: block;
+}
+
+.box2 > .la1 {
+  background-color: #193383;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: lab1;
+}
+
+.box2 > .la2 {
+  background-color: #586b9d;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: lab2;
+}
+
+.box2 > .la3 {
+  background-color: #548199;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: lab3;
+}
+
+.box2 > .la4 {
+  background-color: #6fa3bf;
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: lab4;
+}
+
+.box2 > .la5 {
+  background-color: #19587b;
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: lab5;
+}
+
+.box2 > .la6 {
+  background-color: #8dbcd5;
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: lab6;
+}
+
+.box3 {
+  display: -ms-grid;
+  display: grid;
+  max-width: 560px;
+  height: auto;
+  margin: 0 auto;
+  -ms-grid-rows: 80px 300px 100px;
+      grid-template-rows: 80px 300px 100px;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: "gg1 gg2 gg2" "gg3 gg3 gg3" "gk1 gk2 gk3";
+}
+
+.box3 > label {
+  display: block;
+}
+
+.box3 > span {
+  display: block;
+}
+
+.box3 > label:nth-of-type(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: gg1;
+  background-color: skyblue;
+}
+
+.box3 > label:nth-of-type(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: gg2;
+  background-color: yellow;
+}
+
+.box3 > label:nth-of-type(3) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: gg3;
+  background-color: green;
+}
+
+.box3 > span:nth-of-type(1) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: gk1;
+  background-color: red;
+}
+
+.box3 > span:nth-of-type(2) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: gk2;
+  background-color: darkblue;
+}
+
+.box3 > span:nth-of-type(3) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: gk3;
+  background-color: pink;
+}
+/*# sourceMappingURL=index23.css.map */

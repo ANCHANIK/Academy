@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatoble" content="IE=Edge, chrome=2">
+        <title>HTML 5.0 9일차 - 기본태그2(모바일 전용)</title>
+        <link type="text/css" rel="stylesheet" href="./index26.css?v=1">
+    </head>
+    <body>
+        <form oninput="aa.value=parseint(a.value)">
+        <input type="number"><br>  <!-- 숫자만 X 굳이 쓸 필요 없음 -->
+        <input type="color"><br>  <!-- 컬러 선택 -->
+        <input type="date"><br>  <!-- 년,월,일 선택 (달력) -->
+        <input type="time"><br>  <!-- 시간 선택  -->
+        <input type="week"><br>  <!-- 주일 표시 X (잘 안씀) -->
+        <input type="datetime-local"><br>  <!--  년, 월, 일, 시, 분 -->
+        <input type="tel"><br>  <!-- 숫자만 O (전화번호, 수량)-->
+        <input type="email"><br>  <!-- 이메일 X -->
+        1<input type="range" min="1" max="10" id="a">10  <!-- 범위 선택 min: 최소, max: 최대-->
+        <br>
+        <output for="a" name="aa"></output> <!--output 은 form이 있어야됨-->
+            <!-- oputput 태그 : input에 사용된 값을 받아서 보여주는 태그 -->
+        </form>
+        <input type="image" src="./cat.jpg" class="btn">
+        <!-- image : button과 같은 속성을 가지게 되며, 이미지를 버튼 적용할 수 있음 -->
+        <br>
+        <!--
+            video : HTML5 전용 비디오 태그
+            mp4, avi, ogg, mpeg webm (모바일에서 최소화질로 영상을 빠르게 출력)
+            controls : 영상 도구틀 사용
+            muted : 음소거
+            source : 영상을 불러올 태그 src 경로
+            type : video, image, audio
+            poster속성 : 썸네일 이미지
+            track : 자막을 사용할 때 이용 (vtt 많이 사용)
+            loop : 반복재생
+            autoplay : 자동 실행시 주의할 점 (chrome 작동 안됨 - muted 사용해야만 작동 됨)
+        -->
+        <!--
+            <video poster="./cat.jpg" class="v" autoplay controls muted loop>
+            <source src="./CL.mp4" type="video/mp4">
+            <track kind="subtitles" src="./test.vtt" srclang="en" label="English">  (./test.vtt : 자막)
+            </video> 
+            동영상 점 세개 있는 것 이름 : more(더보기) 버튼
+        -->
+    </body>
+</html>

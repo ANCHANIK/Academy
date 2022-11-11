@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>초급 종합 응용2</title>
+        <script>
+            /*
+            응용문제3.
+            사용자가 시작값과 종료값을 입력하게 된다.
+            단, 종료값이 시작값 보다 적으면 안된다.(조건)
+            해당 두 값이 모두 맞을 경우 반복을 통해 시작값~종료값까지
+            모두 더한 반복문을 작성하여 최종 결과값만 출력되도록 하라.
+            * 중요사항 반복문 처리하는 사항은 다른 함수(function)을 이용해서
+            처리되도록 하라
+            (반복문 - for, while, do~while 중 아무거나 사용할 것.)
+            */
+            function aaa(){
+                var aa = Number(document.getElementById("num1").value);
+                var bb = Number(document.getElementById("num2").value);
+                if(aa > bb){
+                    alert("종료값은 시작값보다 커야됩니다.");
+                }
+                else{
+                    bbb(aa,bb)
+                }
+            }
+            function bbb(zz,yy){
+                var c = zz;
+                var d = 0;
+                while(c <= yy){
+                    d = d + c;
+                    c++;
+                }
+                console.log(d);
+            }
+        </script>
+    </head>
+    <body>
+        <!-- min : 최소입력값, max : 최대입력값 -->
+        <input type="number" id="num1" placeholder="시작값" min="0" max="99">
+        <input type="number" id="num2" placeholder="종료값" min="0" max="99">
+        <input type="button" value="계산하기" onclick="aaa();">
+    </body>
+</html>

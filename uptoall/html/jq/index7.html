@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 2일차 - 애니메이션 핸들링</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#box1").animate({
+                    "width":"300px"
+                },1000)
+
+                $("#box2").animate({
+                    "width":"0px"
+                },1000)
+
+                $("#box3").animate({   // 더블 function : animate에 함수를 이용하여 1초 후
+                    "height":"10px"    // 다음 애니메이션에 대한 컨트롤을 적용하는 방식
+                },1000,function(){
+                    $(this).animate({  // this == #box3
+                        "width":"0px"
+                    },1000);
+                })
+
+                $("#box4").animate({
+                    "right":"0px"
+                },1500);
+
+                $("#box5").animate({
+                    "top":"100%"
+                },1500);
+
+                $("#box6").animate({
+                    "right":"0",
+                    "border-radius":"100%"
+                },1500)
+
+                $("#box7").animate({
+                    "width":"500px",
+                    "opacity":"0"
+                },1500)
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            .box1 { 
+                background-color: blue;
+                width: 0;
+                height: 40px; }
+            .box2 {
+                background-color: red;
+                width: 300px;
+                height: 40px;
+            }
+            .box3 {
+                background-color: green;
+                width: 250px;
+                height: 200px;
+            }
+            .box4 {
+                background-color: violet;
+                width: 100px;
+                height: 100px;
+                border-radius: 100%;
+                position: absolute;
+            }
+            .box5 {
+                background-color: black;
+                width: 100px;
+                height: 100px;
+                border-radius: 100%;
+                position: absolute;
+                top: 0;
+            }
+            .box6 {
+                background-color: orange;
+                width: 100px;
+                height: 100px;
+                position: absolute;
+            }
+            .box7 {
+                background-color: gray;
+                width: 0;
+                height: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box1" id="box1"></div>
+        <div class="box2" id="box2"></div>
+        <div class="box3" id="box3"></div>
+        <div class="box4" id="box4"></div>
+        <div class="box5" id="box5"></div>
+        <div class="box6" id="box6"></div>
+        <div class="box7" id="box7"></div>
+    </body>
+</html>

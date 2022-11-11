@@ -1,0 +1,19 @@
+[
+{"company":"(주)헬로우펫"},
+{"owner":"프론트엔드"},
+{"officer":"help@hellopet.co.kr"},
+{"business_no":"211-87-15370"},
+{"mail_order_license":"webmaster@hellopet.co.kr"},
+{"address":"서울시 구로구 디지털 26길 72, 2층"},
+{"cs_center":"070-2021-0611"},
+{"account_bank":[
+   {"bank_name":"KB"},
+   {"bank_name":"IBK"}
+]
+},
+{"account_bankno":[
+    {"bank_no":"317-61334-12-123"},
+    {"bank_no":"313-31334-22-111"}
+ ]
+ }
+]

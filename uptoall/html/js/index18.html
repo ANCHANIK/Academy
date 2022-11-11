@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 3일차 - 함수호출(HTML 결합)</title>
+        <script>
+            function abc(){
+                window.open("./popup.html","","width=500 height=500");
+            }
+            function bbb(){
+                // var a = document.getElementById("a").value;  : 값을 가져와서 a 변수로 가져오는 것.
+
+                // HTML에 a 라는 id 값을 가진 태그에 "홍길동"이라는 값을 입력시킴
+                var bb = "대한민국";
+                document.getElementById("a").value = bb;
+                // document.getElementById("b").value = "이순신";
+                var f = document.getElementById("b");   //html에서 b 라는 아이디를 가져옴
+                f.value = "이순신";  // b 라는 아이디에 값을 강제로 입력시킴
+            }
+            
+        </script>
+    </head>
+    <body>
+        <form onsubmit="bbb()">  <!-- submit에는 onclick 을 안쓰고 form 태그에 onsubmit을 사용해서 JS와 연계함 -->
+            <input type="text" id="a">
+            <input type="text" id="b">
+            <input type="button" value="적용" onclick="bbb()">
+        <input type="button" value="click" onclick="abc();">
+        <input type="submit" value="확인"> 
+    </form>
+    </body>
+</html>

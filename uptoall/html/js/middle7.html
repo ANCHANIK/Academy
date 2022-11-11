@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 2일차 (중급 - LOGIN)</title>
+        <style>
+            * {box-sizing: border-box;}
+            body {margin: 0; padding: 0;}
+            ul,ol,dl { list-style: none; margin: 0; padding: 0;}
+            span,label,main {display: block;}
+            .box {
+                width: 400px;
+                height: 240px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .inbox {
+                width: 400px;
+                height: 200px;
+                border: 1px solid black;
+                border-radius: 15px;
+                text-align: center;
+                padding-top: 10px;
+            }
+            .ulcss > li {margin-top: 20px;}
+            .olcss {
+                width: 350px;
+                height: 35px;
+                margin: 0 auto;
+            }
+            .olcss > li {
+                float: left;
+            }
+            .f_mail {
+                width: 190px;
+                height: 35px;
+                margin-right: 2px;
+                text-indent: 5px;
+                border: 1px solid gray;
+            }
+            .b_mail {
+                width: 140px;
+                height: 35px;
+                margin-left: 2px;
+                text-indent: 5px;
+                border: 1px solid gray;
+            }
+            .li_pw {
+                width: 350px;
+                height: 35px;
+                text-indent: 5px;
+                border: 1px solid gray;
+            }
+            .btn {
+                width: 350px;
+                height: 35px;
+                border: none;
+                background-color: #ccc;
+                margin-top: 20px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="POST" action="./loginok.php" id="login" onsubmit="return login()" enctype="application/x-www-urlencoded">
+            <input type="hidden" name="login_email" id="login_email" value="">
+            <input type="hidden" name="login_data" value="dothome">
+        <div class="box">
+            <p>MEMBER LOGIN</p>
+            <span class="inbox">
+                <ul class="ulcss">
+                    <li>
+                        <ol class="olcss">
+                            <li><input type="text" class="f_mail" id="f_mail" placeholder="이메일 아이디"></li>
+                            <li>@</li>
+                            <li><input type="text"  class="b_mail" id="b_mail" placeholder="이메일 주소"></li>
+                        </ol>
+                    </li>
+                    <li>
+                        <input type="password" class="li_pw" name="login_pw" id="login_pw" placeholder="패스워드를 입력하세요">
+                    </li>
+                </ul>
+                <input type="submit" value="로그인" class="btn">
+            </span>
+        </div>
+    </form>
+    </body>
+    <script>
+        function login(){
+            var f_mail = document.getElementById("f_mail").value;
+            var b_mail = document.getElementById("b_mail").value;
+            var pw = document.getElementById("login_pw").value;
+            document.getElementById("login_email").value = f_email + "@" + b_email;
+            
+            if(f_mail == "" || b_mail == ""){
+                alert("이메일 주소를 입력해 주세요.");
+                return false;
+            }
+            else if(pw == ""){
+                alert("패스워드를 입력해주세요.")
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+    </script>
+</html>

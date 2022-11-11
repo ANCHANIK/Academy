@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 2일차 - Vue if(true,false) & v-if</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <ul style="width:300px; height:40px; border:1px solid black;">
+                <li v-if="m" v-on:click="abc">{{msg1}}</li>
+                <li v-else v-on:click="abc">{{msg2}}</li>
+                <!--
+                    v-if를 사용하는 이유는 함수에 인자값을 사용해 컨트롤한 JS와 달리
+                    인자값이 없어도 컨트롤 할 수 있는 Vue만의 독창적인 형태이다.
+                -->
+            </ul>
+        </section>
+        <section id="box2">
+            <ol style="width:300px; height:40px; border:1px solid red;">
+                <li v-if="views && z==1" v-on:click="ccc">{{data1}}</li>
+                <li v-else-if="views && z==2" v-on:click="ccc">{{data2}}</li>
+                <li v-else v-on:click="ccc">{{data3}}</li>
+                <!--
+                    &&, || 를 이용해 추가적으로 확장성 있는 v-if 조건을 제작할 수 있다.
+                -->
+            </ol>
+        </section>
+    </body>
+    <script>
+        let b = new Vue({
+            el:"#box2",
+            data:{
+                data1:"서울에 산이 없어? 왜?",
+                data2:"서울산업대가 있으니깐...",
+                data3:"🙂",
+                views:true,
+                z:1 // v-if문에 대한 추가 조건 익명변수 값
+            },
+            methods:{
+                ccc:function(){
+                    this.z++;
+                    if(this.z > 3){
+                        this.z = 1;
+                    }
+                }
+            }
+        });
+
+
+        let a = new Vue({
+            el:"#box",
+            data:{
+                msg1:"Vue 기초를 배우고 있어요...",
+                msg2:"Vue는 또 어려워요...",
+                m:true
+            },
+            methods:{
+                abc:function(){
+                    if(this.m==true){
+                        this.m=false;
+                    }
+                    else{
+                        this.m=true;
+                    }
+                }
+            }
+        });
+    </script>
+</html>

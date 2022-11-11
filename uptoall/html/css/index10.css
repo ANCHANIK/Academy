@@ -1,0 +1,78 @@
+@charset "UTF-8";
+@viewport {
+  width:device-width;
+}
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap");
+/* font-family: 'Noto Sans KR', sans-serif; (100,400,700,900) */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
+/* font-family: 'Nanum Myeongjo', serif; */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nanum Myeongjo', serif;
+  /* font-size: 14px; */ /* 14px이 모바일 최소 사이즈임 외워 새캬 */
+  font-size: 100%;
+  font:inherit; /* 부모 기준의 폰트 크기를 상속받아 사용함 */
+}
+span,
+label,
+main {
+  display: block;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+:root {
+  /* CSS 기본 형태를 특정문자로 저장시키도록 함 */
+  --box-width: 100px; /* -- : 특정문자 시작 */
+  --box-height: 100px;
+  --box-color: red;
+  --aa: 2px solid blue;
+}
+.box {
+  width: var(--box-width); /* root에서 지정된 특정 문자를 호출함 */
+  height: var(--box-height);
+  background-color: var(--box-color);
+  border: var(--aa);
+}
+/* 모바일 css 기초 */
+/* 각 분류별 제목 부분 높이 최소 height:40px; */
+/* 모바일에선 float: left; 를 지양하는 편임 (거의 안씀) */
+.top {
+  height:60px; background-color: gray;
+  position: relative;
+  box-sizing: border-box;
+  padding: 5px;
+}
+.btn1 {
+  width: 50px; height: 50px; background-color: yellow;
+  position: absolute;
+}
+.btn2 {
+  width: 150px; height: 50px; background-color: green;
+  position: relative;
+  margin:0 auto;
+}
+.btn3 { 
+  width: 50px; height: 50px; background-color: black; 
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+.cs {
+  font-size: 3vh; 
+  /*
+  1vh = 9px (세로길이 : 900px)
+  1vw = 3.2px (가로길이 : 320px)
+  vmin
+  vmax
+  vh : 세로길이 : 디바이스 세로길이
+  hw : 가로길이 : 디바이스 가로길이
+  */
+}

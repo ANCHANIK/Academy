@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scaleable=no,minimum-scale=1.0,maximum-scale=1.0">
+    <title>문제3 - Jquery</title>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            // over가 아닌 enter로 수정할 것
+            $("#sm1").mouseover(function(){
+                $("#menu1").slideDown(1000);
+            })
+            $("#sm1").mouseleave(function(){
+                $("#menu1").slideUp(1000);
+            })
+
+            $("#sm2").mouseover(function(){
+                $("#menu2").slideDown(1000);
+            })
+            $("#sm2").mouseleave(function(){
+                $("#menu2").slideUp(1000);
+            })
+
+            $("#sm3").mouseover(function(){
+                $("#menu3").slideDown(1000);
+            })
+            $("#sm3").mouseleave(function(){
+                $("#menu3").slideUp(1000);
+            })
+
+            $("#sm4").mouseover(function(){
+                $("#menu4").slideDown(1000);
+            })
+            $("#sm4").mouseleave(function(){
+                $("#menu4").slideUp(1000);
+            })
+        })
+    </script>
+    <!--
+        문제3 
+        메뉴에 마우스 오버시 드롭메뉴 형태로 나오도록 합니다.
+    -->
+    <style>
+        body, ul, li {
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+a {
+    color:inherit;
+    text-decoration:inherit;
+}
+
+.top-menu ul ul {
+    display:block;
+    position:absolute;
+    top:100%;
+    left:0;
+}
+
+.top-menu > ul > li {
+    float:left;
+}
+
+
+.top-menu {
+    text-align:center;
+}
+
+.top-menu > ul {
+    display:inline-block;
+    padding:0 10px;
+    border-radius:10px;
+}
+
+.top-menu li > a {
+    display:block;
+    padding:10px;
+}
+
+.top-menu li:hover > a {
+    background-color:black;
+    color:white;
+}
+
+.top-menu li {
+    position:relative;
+}
+
+.top-menu ul {
+    background-color:#dfdfdf;
+}
+
+#menu1,#menu2,#menu3,#menu4 { display: none;}
+    </style>
+</head>
+
+<body>
+    <nav class="top-menu">
+        <ul>
+            <li>
+                <a href="#" id="sm1">메뉴아이템1</a>
+                <ul id="menu1">
+                    <li><a href="#">메뉴아이템1</a></li>
+                    <li><a href="#">메뉴아이템2</a></li>
+                    <li><a href="#">메뉴아이템3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" id="sm2">메뉴아이템2</a>
+                <ul id="menu2">
+                    <li><a href="#">메뉴아이템1</a></li>
+                    <li><a href="#">메뉴아이템2</a></li>
+                    <li><a href="#">메뉴아이템4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" id="sm3">메뉴아이템3</a>
+                <ul id="menu3">
+                    <li><a href="#">메뉴아이템1</a></li>
+                    <li><a href="#">메뉴아이템2</a></li>
+                    <li><a href="#">메뉴아이템3</a></li>
+                    <li><a href="#">메뉴아이템4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"  id="sm4">메뉴아이템4</a>
+                <ul id="menu4">
+                    <li><a href="#">메뉴아이템1</a></li>
+                    <li><a href="#">메뉴아이템2</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>

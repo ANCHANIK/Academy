@@ -1,0 +1,157 @@
+@charset "UTF-8";
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// font-family: 'Exo 2', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+//  font-family: 'Montserrat', sans-serif;
+
+@mixin base {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin object($w,$h,$display,$p) {
+    width: $w;
+    height: $h;
+    display: $display;
+    position: $p;
+}
+@mixin fonts($part,$fs,$fw,$color,$lh) {
+    @if ($part == 0){
+        font-family: 'Exo 2', sans-serif;
+    }
+    @else {
+        font-family: 'Montserrat', sans-serif;
+    }
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+    line-height: $lh;
+}
+%ulol {
+    list-style: none;
+    @include base;
+}
+span,label,main {
+    display: block;
+}
+a {
+    text-decoration: none;
+}
+body {
+    @include base;
+}
+.Screen {
+    @include object(1680px, 1536px, block, "");
+    background-color: #fff;
+    padding-top: 120px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    // title
+    & > .Snap_photos_title {
+        @include object(700px, 144px, block, "");
+        @include fonts(0, 48px, 500, #000, 1.5);
+        font-stretch: normal;
+        letter-spacing: -0.72px;
+        text-align: left;
+        margin: 0 277px 70px 80px;
+    }
+    // profile_card
+    & > .Section_card {
+        @include object(1520px, 352px, flex, "");
+        flex-flow: row nowarp;
+        justify-content: flex-start;
+        gap: 20px;
+        margin: 70px 80px 110px;
+        & > div {
+            @include object(494px, 352px, block, "");
+            & > img {
+                @include object(108px, 108px, block, "");
+                margin: 0 385px 40px 0;
+                object-fit: contain;
+            }
+            & > span:nth-of-type(1){
+                @include object(493px, 36px, block, "");
+                @include fonts(1, 24px, 600, #000, 36px);
+                text-align: left;
+                letter-spacing: -0.36px;
+                font-stretch: normal;
+                font-style: normal;
+                flex-grow: 0;
+            }
+            & > span:nth-of-type(2){
+                @include object(493px, 90px, block, "");
+                @include fonts(1, 18px, 500, rgba(0,0,0,0.8), 30px);
+                text-align: left;
+                letter-spacing: -0.27px;
+                font-stretch: normal;
+                font-style: normal;
+                margin: 24px 0;
+                flex-grow: 0;
+            }
+            & > span:nth-of-type(3){
+                @include object(493px, 30px, block, "");
+                @include fonts(0, 18px, 600, #18a0fb, 30px);
+                text-align: left;
+                letter-spacing: -0.27px;
+                font-stretch: normal;
+                font-style: normal;
+                margin: 24px 0 0;
+                flex-grow: 0;
+            }
+        }
+    }
+    // background_img
+    & > .Section_img {
+        @include object(1680px, 740px, block, relative);
+        margin: 110px 0 0;
+        & > .Section_background_img {
+            @include object(1680px, 740px, block, absolute);
+            & > img {
+                @include object(1680px, 740px, block, "");
+                object-fit: cover;
+            }
+        }
+        & > .Section_img_text {
+            @include object(1680px, 740px, block, absolute);
+            padding: 243px 80px 241px;
+            box-sizing: border-box;
+            background-color: rgba(0,0,0,0.5);
+            & > .Section_img_title {
+                @include object(1520px, 36px, block, "");
+                @include fonts(0, 24px, 600, #fff, 36px);
+                text-align: center;
+                letter-spacing: -0.36px;
+                font-stretch: normal;
+                font-style: normal;
+                margin: 0 0 23px;
+                flex-grow: 0;
+            }
+            & > .Section_img_content {
+                @include object(1520px, 89px, block, "");
+                @include fonts(1, 18px, 500, rgba(255, 255, 255, 0.8), 30px);
+                text-align: center;
+                letter-spacing: -0.27px;
+                font-stretch: normal;
+                font-style: normal;
+                margin: 23px 0 32px;
+                flex-grow: 0;
+            }
+            & > .Section_img_line {
+                @include object(1520px, 1px, block, "");
+                margin: 32px 0;
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            & > .Section_img_bottom {
+                @include object(1520px, 43px, block, "");
+                @include fonts(1, 14px, 500, rgba(255, 255, 255, 0.6), 22px);
+                text-align: center;
+                letter-spacing: -0.21px;
+                font-stretch: normal;
+                font-style: normal;
+                margin: 32px 0 0 2px;
+                flex-grow: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="index23.css?v=<?=$data?>">
+        <title>
+            Scss 8일차 - Grid 응용 3 + 배열 정렬
+            grid-template-rows, grid-template-columns
+        </title>
+        <script>
+            var number_data = [6,23,9,11,1,7];
+            let abc = number_data.sort(function(a,b){   
+                // sort : 배열값을 비교해서 정렬하는 정렬함수 (거의 배열에서만 사용한다. ex) 상품 가격)
+                // a : 앞자리 수
+                // b : 그 다음 수
+                // return a-b; // a-b : a와 b 두 수를 비교 검토를 통해 재정렬해서 오름차순으로 정렬된다.
+                return b-a; // 이렇게 하면 마찬가지로 두 수를 비교 검토해 내림차순으로 정렬된다.
+                     // 6-23 이면 -숫자가 되니까 뒤 숫자가 높다고 판단(비교)하는 것.
+                //return a-b;   :   (오름차순)
+                //return b-a;   :   거꾸로하면 (내림차순)이 된다.
+                //return a;     :   앞 자리 6
+                //return b;     :   두번째 자리 23
+            });
+            console.log(abc);
+        </script>
+    </head>
+    <body>
+        <div class="box">
+            <label class="label1">상품1</label>
+            <label class="label2">상품2</label>
+            <label class="label3">상품3</label>
+            <label class="label4">상품4</label>
+            <label class="label5">상품5</label>
+        </div>
+        <br><br><br>
+        <!--잉용문제(모바일 전용)-->
+        <div class="box2">
+            <label class="la1"></label>
+            <label class="la2"></label>
+            <label class="la3"></label>
+            <label class="la4"></label>
+            <label class="la5"></label>
+            <label class="la6"></label>
+        </div>
+        <br><br><br>
+        <div class="box3">
+            <label></label>
+            <label></label>
+            <label></label>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </body>
+</html>

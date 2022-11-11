@@ -1,0 +1,48 @@
+@charset "UTF-8";
+.box1 {
+  width: 300px;
+  height: 50px;
+  background-color: hotpink;
+}
+
+.box2 {
+  width: 500px;
+  height: 50px;
+  background-color: green;
+}
+
+.olcss {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  height: 30px;
+}
+
+.olcss > li {
+  float: left;
+  /*
+        * 계산 수식 주의할 점
+        1) 현재는 200px/10 적용되며, 200/10px 컴파일 오류가 발생함 (프로그램 버그)
+        2) 200/10 적용됨. 단, 해당 값은 숫자만 적용하므로 아래에  +px 단위를 붙여야 함.
+        */
+  width: 20px;
+  height: 20px;
+  background-color: black;
+}
+
+.olcss > li:nth-of-type(2) {
+  background-color: orange;
+}
+
+.olcss > li:nth-of-type(3) {
+  background-color: red;
+}
+
+.spanbox {
+  display: block;
+  width: 100px;
+  height: 250px;
+  background-color: orange;
+}
+/*# sourceMappingURL=index3.css.map */

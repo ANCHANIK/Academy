@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript - 팝업창 middle29 연동</title>
+        <style>
+        </style>
+        <script>
+            function closes(){
+                // 쿠키를 굽는 파트
+                // 응용문제
+                // checkbox true,fales 콘솔로 출력
+                let ck = document.getElementById("popck").checked;
+                if(ck == true){
+                    cookie_set("popups","N",1);  // 쿠키명, 쿠키값, 만료일자
+                    // popups=N;path=/;expires=2020-06-01;
+                }
+            }
+
+            function cookie_set(data,value,day){
+                var days = new Date();
+                days.setTime(days.getTime() + (day*24*60*60*1000));  // 하루동안
+
+                document.cookie = data + "=" + escape(value) + "; expires=" + days.toGMTString();  // 쿠키를 브라우저에 저장
+                self.close();
+                // console.log(day.toGMTString());
+                // toGMTString() : 한국표기식, toUTCString(+9) : 미국표기식
+                // path : 컨텐츠 저장 위치
+                // expires : 만료일자를 설정하는 문구
+            }
+        </script>
+    </head>
+    <body>
+        <input type="checkbox" value="Y" id="popck" onclick="closes()">오늘 그만보기
+    </body>
+</html>

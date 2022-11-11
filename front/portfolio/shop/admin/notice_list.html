@@ -1,0 +1,70 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>공지사항</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+<article class="notice_list_article">
+    <div class="notice_list_article_text">NOTICE List</div>
+</article>
+<form name="nfrm" @submit.prevent="notice_search">
+    {{noticeinput}}
+    <aside class="notice_list_aside">
+        <div class="notice_list_search">
+            <span>
+                <input v-bind:type="tx" name="nnm" v-model="nword" ref="lnnm" autocomplete="off" placeholder="검색할 내용을 입력하세요">
+            </span>
+            <span>
+                <button v-bide:type="sb">검색</button>
+                <button v-bind:type="bt" @click="notice_alllist">전체목록</button>
+            </span>
+        </div>
+        <div class="notice_list_table">
+            <table>
+                <thead class="notice_list_thead">
+                    <tr>
+                        <th>
+                            <input v-bind:type="ch" name="notice_fidx[]" id="chall" @click="chbox">
+                        </th>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>글쓴이</th>
+                        <th>날짜</th>
+                        <th>조회</th>
+                    </tr>
+                </thead>
+                <tbody class="notice_list_tbody" v-for="(ndata,index) in narray" v-if="nif==1">
+                    <tr>
+                        <td>
+                            <input v-bind:type="ch" class="solck" name="notice_fidx[]" v-bind:value="ndata.sidx" @click="checks(index)">
+                        </td>
+                        <td>{{nea-index}}</td>
+                        <td @click="modi(ndata.sidx)">{{ndata.subject}}</td>
+                        <td>{{ndata.name}}</td>
+                        <td>{{ndata.windate.substring(0,10)}}</td>
+                        <td>{{ndata.wcount}}</td>
+                    </tr>
+                </tbody>
+                <tbody class="notice_list_notbody" v-if="nif==2">
+                    <tr>
+                        <td colspan="6">등록된 게시들이 없습니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="notice_page">
+            <ul>
+                <li v-for="n in npaging" @click="npagego(n)">{{n}}</li>
+            </ul>
+        </div>
+        <div class="notice_list_btn">
+            <button v-bind:type="bt" @click="notice_insert">NOTICE 등록</button>
+            <button v-bind:type="bt" @click="notice_del">NOTICE 삭제</button>
+        </div>
+    </aside>
+</form>

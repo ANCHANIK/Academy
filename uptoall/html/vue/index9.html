@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 2일차 - Vue image 출력</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+            .ulcss {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                width: 100px;
+                height: 45px;
+            }
+            .ulcss > li {
+                float: left;
+                width: 100px;
+                width: 45px;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <ul class="ulcss">
+                <li v-if="a==1" v-on:click="aaa">
+                    <img v-bind:src="img1">
+                </li>
+                <li v-else-if="a==2" v-on:click="aaa">
+                    <img v-bind:src="img2">
+                </li>
+                <li v-else v-on:click="aaa">
+                    <img v-bind:src="img3">
+                </li>
+            </ul>
+        </section>
+    </body>
+    <script>
+        let a = new Vue({
+            el:"#box",
+            data:{
+                img1:"../images/logo_quick_01.png",
+                img2:"../images/logo_quick_02.png",
+                img3:"../images/logo_quick_03.png",
+                a:1
+            },
+            methods:{
+                aaa:function(){
+                    this.a++;
+                    if(this.a > 2){
+                        this.a = 0;
+                    }
+                }
+            }
+        });
+    </script>
+</html>

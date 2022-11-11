@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 2일차 - 중급 (배열 - each & map)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+                var $li = "";
+                const $array = ["손나은","윤보미","박초롱","정은지","오하영","김남주"];
+                // each (JQ) = forEach (JS) 와 동일한 형태의 함수
+                /*
+                $.each($array,function($a,$b){ // $a : 콜백함수(node 값), $b : 데이터 값
+                    // 작은 데이터를 가져올 때 사용. return 함수 사용 권장 X 버벅거림
+                    console.log($b);
+                    var $li = "<li>"+ $b +"</li>"
+                    $("#ul_data").append($li);
+                });
+                */
+                /*
+                $.each($array,function($a,$b){
+                    $li = $li + "<li>" + $b + "</li>";
+                })
+                $("#ul_data").html($li);
+                */
+                /*
+                $.map($array,function($a,$b){  // $a : 배열 데이터 , $b : 콜백 함수  
+                    //대형 데이터를 가져올 때 사용. return함수 사용 권장 O. 오히려 잘 맞음
+                    console.log($b)
+                })
+                */
+                
+                // key값이 있는 1차 배열
+                const $array2 = {
+                    "apink_members": ["손나은","윤보미","박초롱","정은지","오하영","김남주"]
+                };
+                // console.log($array2.apink_members)
+
+                //응용문제1. 데이터 로드 버튼 클릭시 배열에 있는 값을 ul_data안에 출력시켜라
+                $("#btn").click(function(){
+                    $($array2["apink_members"]).each(function($a,$b){
+                        $("#ul_data").append("<li>"+ $b +"</li>");
+                        console.log($b)
+                    });
+                    // var $li2 = "";
+                    // $($array2["apink_members"]).map(function($aa,$bb){
+                    //     console.log($bb)
+                    //     var $li2 = $li2 + "<li>" + $bb + "</li>"
+                    //     $("#ul_data").html($li2);
+                    // })
+
+                })
+            });
+        </script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <ul id="ul_data">
+
+        </ul>
+        <button type="button" id="btn">데이터 로드</button>
+    </body>
+</html>

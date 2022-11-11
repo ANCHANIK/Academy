@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 2일차 - 중급 (2차 배열 - each & map)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+                // 기본 key가 없는 배열 상태
+                const $array = [
+                    {"name":"이시우","blood":"O형"},
+                    {"name":"김리우","blood":"B형"},
+                    {"name":"김은진","blood":"O형"},
+                    {"name":"이은미","blood":"O형"},
+                    {"name":"장남혁","blood":"AB형"},
+                    {"name":"정아름","blood":"A형"}
+                ]
+                // console.log($array[4].blood);  // 기본 key가 있냐 없냐에 따라 each의 위치가 달라짐
+                // console.log($array[4]["blood"]);
+                // each 함수 두 가지 모두 사용 가능함
+                console.log($array.length)
+                $($array).each(function($a,$b){  // $b : 배열을 가지며, 세부 key 값을 가지고 있다.
+                    var $names = $b["name"];
+                    var $bloods = $b["blood"];
+                    var $htmls = "<li><ol class='olcss bg'><li>"+$names+"</li><li>"+$bloods+"</li></ol></li>";
+                    $("#ulcss").append($htmls);
+                })
+                $.each($array,function($a,$b){
+                    // console.log($b);
+                })
+            })
+        </script>
+        <style>
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .ulcss {
+                width: 200px;
+                height: auto;
+            }
+            .ulcss > li {
+                width: inherit;
+                height: 30px;
+                border: 1px solid orange;
+            }
+            .olcss {
+                width: inherit;
+                height: inherit;
+            }
+            .olcss > li {
+                float: left;
+                width: 50%;
+                height: inherit;
+                line-height: 30px;
+                background-color: pink;
+                text-align: center;
+            }
+            .bg > li {
+                background-color: khaki;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="ulcss" id="ulcss">
+            <li>
+                <ol class="olcss">
+                    <li>고객명</li>
+                    <li>혈액형</li>
+                </ol>
+            </li>
+            <!-- <li>
+                <ol class="olcss bg">
+                    <li>홍길동</li>
+                    <li>B형</li>
+                </ol>
+            </li> -->
+        </ul>
+    </body>
+</html>

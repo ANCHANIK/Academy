@@ -1,0 +1,473 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@mixin base {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin p_fonts($fs,$fw,$color) {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+}
+@mixin p_object($w,$h,$d,$p) {
+    width: $w;
+    height: $h;
+    display: $d;
+    position: $p;
+}
+%ulol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+img {
+    // width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+ul,ol,dl {
+    @extend %ulol;
+}
+body {
+    @include base;
+    @include p_fonts("14px", "300", "balck");
+}
+.product_list_article {
+    @include p_object(100%, 40px, block, "");
+    @include p_fonts(110%, 400, black);
+    background-color: #f2f2f2;
+    & > .product_list_article_text {
+        @include p_object(1200px, inherit, block, "");
+        line-height: 40px;
+        margin: 0 auto;
+    }
+}
+.product_list_aside {
+    @include p_object(1200px, auto, block, "");
+    margin: 0 auto;
+    // 검색파트
+    & > .product_list_search {
+        @include p_object(inherit, 70px, flex, "");
+        align-items: center;
+        & > span:nth-of-type(1) {
+            @include p_object(280px, 30px, block, "");
+            & > input {
+                @include p_object(inherit, inherit, block, "");
+                text-indent: 5px;
+                border: none;
+                border-bottom: 1px solid dimgray;
+            }
+        }
+        & > span:nth-of-type(2){
+            @include p_object(260px, 30px, flex, "");
+            & > button {
+                @include p_object(120px, inherit, block, "");
+                @include p_fonts(15px, 300, white);
+                background-color: tomato;
+                border: none;
+                border-radius: 3px;
+                margin-left: 20px;
+            }
+            & > button:hover {
+                background-color: rgb(255, 75, 44);
+            }
+        }
+    }
+    // 테이블
+    & > .product_list_table {
+        @include p_object(inherit, auto, block, "");
+        & > table {
+            @include p_object(inherit, auto, block, "");
+            & > .product_list_thead > tr {
+                width: 100%;
+                height: 30px;
+                & > th {
+                    border: 1px solid #aaa;
+                    background-color: #cccccc;
+                }
+                & > th:nth-of-type(1) {
+                    width: 5%;
+                    border: 1px solid #aaa;
+                }
+                & > th:nth-of-type(2) {
+                    width: 10%;
+                    border: 1px solid #aaa;
+                }
+                & > th:nth-of-type(3) {
+                    width: 30%;
+                    border: 1px solid #aaa;
+                }
+                & > th:nth-of-type(4) {
+                    width: 10%;
+                    border: 1px solid #aaa;
+                }
+                & > th:nth-of-type(5) {
+                    width: 8%;
+                    border: 1px solid #aaa;
+                }
+                & > th:nth-of-type(6) {
+                    width: 10%;
+                    border: 1px solid #aaa;
+                }
+                & > th:nth-of-type(7) {
+                    width: 5%;
+                    border: 1px solid #aaa;
+                }
+                & > th:nth-of-type(8) {
+                    width: 5%;
+                    border: 1px solid #aaa;
+                }
+            }
+            & > .product_list_tbody > tr {
+                & > td {
+                    border: 1px solid #aaa;
+                    height: 35px;
+                }
+                & > td:nth-of-type(2) {
+                    cursor: pointer;
+                }
+                & > td:nth-of-type(2):hover {
+                    font-weight: 700;
+                }
+                & > td:nth-of-type(3) {
+                    text-indent: 5px;
+                    cursor: pointer;
+                }
+                & > td:nth-of-type(3):hover {
+                    font-weight: 700;
+                }
+                & > td:nth-of-type(4) {
+                    padding-right: 5px;
+                    box-sizing: border-box;
+                }
+                & > td:nth-of-type(5) {
+                    padding-right: 5px;
+                    box-sizing: border-box;
+                }
+                & > td:nth-of-type(6) {
+                    cursor: pointer;
+                    vertical-align: middle;
+                }
+                & > td:nth-of-type(8) > button {
+                    width: 90%;
+                    height: 90%;
+                    border: none;
+                    border: 2px solid white;
+                    box-sizing: border-box;
+                    background-color: #cccccc;
+                    &:hover {
+                        background-color: dimgray;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    & > .product_list_btn {
+        @include p_object(inherit, 80px, block, relative);
+        & > button {
+            @include p_object(120px, 30px, block, absolute);
+            @include p_fonts(15px, 300, white);
+            line-height: 30px;
+            background-color: crimson;
+            border: none;
+            border-radius: 3px;
+            right: 0;
+            top: 25px;
+        }
+        & > button:hover {
+            background-color: rgb(186, 8, 44);
+        }
+    }
+}
+.pdimg {
+    width: 100%;
+    height: 30px;
+    object-fit: cover;
+    margin-top: 2.5px;
+    box-sizing: border-box;
+}
+//------------------------------------------- pageing 번호 ----------------------------------------
+.product_page {
+    @include p_object(1200px, 30px, block, "");
+    margin: 0 auto;
+    margin-top: 30px;
+    & > ul {
+        @include p_object(100%, inherit, flex, "");
+        flex-flow: row wrap;
+        justify-content: center;
+        & > li {
+            @include p_object(30px, 30px, block, "");
+            @include p_fonts(13px, 400, rgb(46, 46, 46));
+            background-color: #ccc;
+            line-height: 30px;
+            text-align: center;
+            margin-right: 7px;
+            cursor: pointer;
+        }
+        & > li:hover {
+            background-color: gray;
+            color: white;
+        }
+    }
+}
+
+// -----------------------------------------------상품 등록--------------------------------------------
+.warnnig_msg {
+    @include p_object(1200px, auto, block, "");
+    @include p_fonts(14px, 500, crimson);
+    line-height: 60px;
+}
+.new_product_aside {
+    @include p_object(1200px, auto, block, "");
+    margin: 0 auto;
+    & > table {
+        @include p_object(inherit, auto, block, "");
+        // margin-top: 30px;
+        & > .new_product_table {
+            @include p_object(inherit, auto, block, "");
+            & > tr {
+                @include p_object(100%, 50px, block, "");
+                & > td {
+                    height: 50px;
+                    border-bottom: 1px solid #ccc;
+                }
+                & > td:nth-of-type(1) {
+                    width: 200px;
+                    text-align: left;
+                    text-decoration: overline;
+                    text-indent: 10px;
+                }
+                & > td:nth-of-type(2) {
+                    width: 1000px;
+                    text-align: left;
+                }
+            }
+            & > .new_product_code { // 상품 코드
+                height: 50px;
+                & > td:nth-of-type(2) {
+                    & > input {
+                        width: 80px;
+                        height: 30px;
+                        text-align: center;
+                    }
+                    & > span {
+                        margin-left: 20px;
+                    }
+                }
+            }
+            & > .new_product_name { // 상품명
+                height: 50px;
+                & > td:nth-of-type(2) {
+                    & > input {
+                        width: 300px;
+                        height: 30px;
+                        text-indent: 5px;
+                    }
+                    & > span {
+                        margin-left: 20px;
+                    }
+                }
+            }
+            & > .new_product_ex { // 간편설명
+                height: 50px;
+                & > td:nth-of-type(2) {
+                    & > input {
+                        width: 600px;
+                        height: 30px;
+                        text-indent: 5px;
+                    }
+                    & > span {
+                        margin-left: 20px;
+                    }
+                }
+            }
+            & > tr:nth-of-type(4) { // 소비자 가격
+                height: 50px;
+                & > td:nth-of-type(2) {
+                    & > input {
+                        width: 200px;
+                        height: 30px;
+                        text-align: right;
+                        padding-right: 5px;
+                        box-sizing: border-box;
+                    }
+                    & > span {
+                        margin-left: 20px;
+                    }
+                }
+            }
+            & > .new_product_sale {  // 상품 할인 유무
+                height: 50px;
+                & > td:nth-of-type(2) > label{
+                    margin-right: 25px;
+                }
+            }
+            & > .new_product_sale_per {  // 상품 할인율
+                height: 50px;
+                & > td:nth-of-type(2) {
+                    & > label {
+                        margin-right: 25px;
+                    }
+                    & > span {
+                        margin-right: 30px;
+                        & > input {
+                            width: 200px;
+                            height: 30px;
+                            text-align: right;
+                            padding-right: 5px;
+                            box-sizing: border-box;
+                        }
+                    }
+                    & > span:nth-of-type(1) > input {
+                        width: 100px;
+                    }
+                    & > span:nth-of-type(3) > input {
+                        width: 130px;
+                    }
+                }
+            }
+            & > .new_product_ea {  // 상품 제한 수량
+                height: 50px;
+                & > td:nth-of-type(2) {
+                    & > input {
+                        width: 150px;
+                        height: 30px;
+                        text-align: right;
+                        padding-right: 5px;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+            & > .new_product_img {  // 상품 대표 이미지
+                height: auto;
+            }
+            & > .new_product_op {  // 상품 옵션명
+                height: 50px;
+                & > td:nth-of-type(2) > span {
+                    margin-right: 40px;
+                }
+            }
+            & > .new_product_URL {  // 상품 상세보기 URL
+                height: 50px;
+                & > td:nth-of-type(2) {
+                    & > input {
+                        width: 600px;
+                        height: 30px;
+                        text-indent: 5px;
+                    }
+                }
+            }
+            & > .new_product_add_img {  // 상품 추가 이미지
+                height: 120px;
+                & > td:nth-of-type(2) {
+                    height: inherit;
+                    & > div {
+                        height: inherit;
+                        display: flex;
+                        flex-flow: column nowrap;
+                        justify-content: space-around;
+                    }
+                }
+            }
+            & > .new_product_mody_img {  // 상품 수정 이미지
+                height: auto;
+                & > td:nth-of-type(2) {
+                    height: inherit;
+                    & > div {
+                        height: inherit;
+                        display: flex;
+                        flex-flow: column nowrap;
+                        justify-content: space-around;
+                    }
+                }
+            }
+            & > .new_product_detail {  // 상품 상세 설명
+                height: auto;
+                border-bottom: none;
+                & > td:nth-of-type(2) {
+                    height: auto;
+                    & > textarea {
+                        width: 100%;
+                        height: 300px;
+                        resize: none;
+                        padding: 7px;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+    }
+}
+.new_product_btn {
+    @include p_object(100%, 80px, flex, "");
+    justify-content: flex-end;
+    margin-top: 20px;
+    & > .npb {
+        @include p_object(120px, 30px, block, "");
+        @include p_fonts(13px, 300, white);
+        background-color: tomato;
+        border: none;
+        border-radius: 3px;
+        &:nth-of-type(1) {
+            margin-right: 20px;
+            background-color: crimson;
+        }
+        &:nth-of-type(1):hover {
+            background-color: rgb(186, 8, 44);
+        }
+        &:nth-of-type(2):hover {
+            background-color: rgb(255, 75, 44);
+        }
+    }
+}
+.in0 {
+    width: 130px;
+    height: 30px;
+    text-indent: 5px;
+}
+.np_memo {
+    width: auto;
+    height: auto;
+    @include p_fonts(13px, 300, dimgray);
+    margin-left: 20px;
+}
+.img_content {
+    @include p_object(100%, 60px, flex, "");
+    align-items: center;
+    line-height: 60px;
+    border-bottom: 1px solid #dfdfdf;
+    & > .preview_img {
+        @include p_object(120px, 50px, block, "");
+        & > .upfile {
+            display: inline-block;
+            line-height: 50px;
+        }
+    }
+    & > .prebtnspan {
+        @include p_object(auto, 50px, flex, "");
+        align-items: center;
+        & > img {
+            height: 100%;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        & > button {
+            @include p_object(70px, 30px, block, "");
+            margin-left: 20px;
+            background-color:rgb(46, 46, 46);
+            color: white;
+            border: 1px solid dimgray;
+        }
+    }
+    & > .img_memo {
+        @include p_fonts(13px, 300, dimgray);
+        margin-left: 80px;
+    }
+}

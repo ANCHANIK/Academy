@@ -1,0 +1,373 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+ul, ol, dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.clear {
+  clear: both;
+}
+a {
+  text-decoration: none;
+}
+img {
+  /* width: 100%; */
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.banner_list_article {
+  width: 100%;
+  height: 40px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 110%;
+  font-weight: 400;
+  color: black;
+  background-color: #f2f2f2;
+}
+
+.banner_list_article > .banner_list_article_text {
+  width: 1200px;
+  height: inherit;
+  display: block;
+  position: "";
+  line-height: 40px;
+  margin: 0 auto;
+}
+
+.banner_list_aside {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: "";
+}
+
+.banner_list_aside > .banner_check {
+  width: 1200px;
+  height: 80px;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+.banner_list_aside > .banner_check > span {
+  width: 170px;
+  height: inherit;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 125%;
+  font-weight: 400;
+  color: black;
+  float: left;
+  line-height: 80px;
+  text-align: left;
+}
+
+.banner_list_aside > .banner_check > span > .banner_check_btn {
+  width: 110px;
+  height: 30px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 90%;
+  font-weight: 300;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  background-color: tomato;
+  margin-top: 25px;
+}
+
+.banner_list_aside > .banner_list {
+  width: 1200px;
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+.banner_list_aside > .banner_list > table {
+  width: inherit;
+  height: auto;
+  display: "";
+  position: "";
+  border: 1px solid #aaa;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_thead > tr > td:nth-of-type(1) {
+  width: 50px;
+  height: 35px;
+  text-align: center;
+  border: 1px solid #aaa;
+  background-color: #cccccc;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_thead > tr > td:nth-of-type(2) {
+  width: 130px;
+  height: 35px;
+  text-align: center;
+  border: 1px solid #aaa;
+  background-color: #cccccc;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_thead > tr > td:nth-of-type(3) {
+  width: 390px;
+  height: 35px;
+  text-align: center;
+  border: 1px solid #aaa;
+  background-color: #cccccc;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_thead > tr > td:nth-of-type(4) {
+  width: 260px;
+  height: 35px;
+  text-align: center;
+  border: 1px solid #aaa;
+  background-color: #cccccc;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_thead > tr > td:nth-of-type(5) {
+  width: 100px;
+  height: 35px;
+  text-align: center;
+  border: 1px solid #aaa;
+  background-color: #cccccc;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_thead > tr > td:nth-of-type(6) {
+  width: 160px;
+  height: 35px;
+  text-align: center;
+  border: 1px solid #aaa;
+  background-color: #cccccc;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_thead > tr > td:nth-of-type(7) {
+  width: 110px;
+  height: 35px;
+  text-align: center;
+  border: 1px solid #aaa;
+  background-color: #cccccc;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_tbody > tr > td {
+  height: 35px;
+  border: 1px solid #aaa;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_tbody > tr > td:nth-of-type(2) {
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_tbody > tr > td:nth-of-type(2)> img {
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_tbody > tr > td:nth-of-type(3) {
+  text-indent: 10px;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_tbody > tr > td:nth-of-type(3) > a {
+  color: black;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_tbody > tr > td:nth-of-type(7) > span {
+  width: 100%;
+  height: 100%;
+  line-height: 35px;
+  display: block;
+  border: 2px solid white;
+  background-color: #CCCCCC;
+  color: black;
+  cursor: pointer;
+}
+.banner_list_aside > .banner_list > table > .banner_list_table_tbody > tr > td:nth-of-type(7) > span:hover {
+  background-color: dimgray;
+  color: white;
+}
+
+.banner_list_aside > .banner_list > table > .banner_list_table_nodata > tr > td {
+  text-align: center;
+  line-height: 35px;
+  width: 1200px;
+  height: 35px;
+  border: 1px solid #aaa;
+}
+
+.banner_btn_span {
+  width: 100%;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.banner_btn_span > .banner_btn {
+  width: 110px;
+  height: 30px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 100%;
+  font-weight: 300;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  background-color: tomato;
+}
+
+.banner_new_register {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: "";
+}
+
+.banner_new_register > .banner_new_register_div {
+  width: 1200px;
+  height: 300px;
+  display: block;
+  position: "";
+  padding-top: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.banner_new_register > .banner_new_register_div > .banner_new_register_span {
+  width: 700px;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  margin: 0 auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.banner_new_register > .banner_new_register_div > .banner_new_register_span > ul {
+  width: 100%;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+}
+
+.banner_new_register > .banner_new_register_div > .banner_new_register_span > ul > li {
+  line-height: 40px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+}
+
+.banner_new_register > .banner_new_register_div > .banner_new_register_span > ul > li:first-child {
+  width: 200px;
+  height: inherit;
+  display: block;
+  position: "";
+  text-decoration: overline;
+}
+
+.banner_new_register > .banner_new_register_div > .banner_new_register_span > ul > li:last-child {
+  width: 500px;
+  height: inherit;
+  display: block;
+  position: "";
+}
+
+.banner_new_register > .banner_new_register_div > .banner_new_register_span > .banner_new_register_btn {
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.banner_new_register > .banner_new_register_div > .banner_new_register_span > .banner_new_register_btn > .register_btn {
+  width: 120px;
+  height: 40px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: white;
+  background-color: tomato;
+  border: none;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+
+.banner_new_register_title {
+  width: 200px;
+  height: 30px;
+  display: block;
+  position: "";
+  text-indent: 5px;
+  margin-top: 5px;
+}
+
+.banner_new_register_link {
+  width: 400px;
+  height: 30px;
+  display: block;
+  position: "";
+  text-indent: 5px;
+  margin-top: 5px;
+}
+
+.upload_memo {
+  width: auto;
+  display: inline-block;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: red;
+}
+
+.link_urls {
+  width: 390px;
+  height: 30px;
+  border: none;
+}
+
+.output {
+  width: 50px;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid rgb(162, 162, 162);
+  text-align: center;
+}
+/*# sourceMappingURL=banner.css.map */

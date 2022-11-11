@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>CSS3 1일차 추가속성 + Table</title>
+        <link type="text/css" rel="stylesheet" href="./index5.css?v=1">
+    </head>
+    <body>
+        <table border="1" cellpadding="0" cellspacing="0" width="400">
+            <caption>2021년도 월별 취업현황</caption>  <!-- 테이블 타이틀 -->
+            <thead>  <!-- 테이블 각 파트별 제목 -->
+                <tr>
+                    <th>1월</th>  <!-- td : 칸, th : 제목 칸 (bold, center 자동 적용) -->
+                    <th>2월</th>
+                    <th>3월</th>
+                </tr>
+            </thead>
+            <tbody>  <!-- 테이블 데이텨 내용 -->
+                <tr>
+                    <td>45%</td>
+                    <td>37%</td>
+                    <td>집계중</td>
+                </tr>
+            </tbody>
+            <tfoot>  <!-- 테이블 결과 파트 -->
+                <tr>
+                    <th colspan="3">해당 정보는 000 서치 기업에서 제공합니다.</th>
+                </tr>
+            </tfoot>
+        </table>
+        <br><br><br>
+
+        <!-- 테이블 추가 옵션 -->
+        <table border="1" cellpadding="0" cellspacing="0" width="400" height="200">
+            <caption>행, 열 개수 셋팅법</caption>
+            <colgroup> <!-- 테이블 넓이를 보다 쉽게 적용하기 위해 나온 HTML5 태그 -->
+            <!-- col : td 갯수에 맞춰서 컨트롤 할 수 있는 태그 -->
+            <col style="background-color: yellow;">
+            <col style="background-color: green; width:150px;">
+            <col style="background-color: greenyellow;">
+            <col style="background-color: gray;">
+            <!-- td 갯수만큼 col도 써야 적용됨 -->
+            <!-- span="2" 칸의 범위를 설정함 -->
+            </colgroup>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </body>
+</html>

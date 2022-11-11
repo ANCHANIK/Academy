@@ -1,0 +1,38 @@
+<?php
+    $date = date("Ymdhis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="./member.css?v=<?php echo $date?>">
+        <title>자비스 회원가입</title>
+        <script src="./member.js?v=<?php echo $date?>" charset="UTF-8"></script>
+    </head>
+    <body>
+        <section class="member">
+            <div class="view">
+                <p>간편 회원가입</p>
+                <ul class="ul_member">
+                    <li>
+                        <input type="text" id="cp" class="input1" placeholder="회사명">
+                    </li>
+                    <li>
+                        <input type="text" id="email" class="input1" placeholder="이메일">
+                    </li>
+                    <li>
+                        <input type="text" id="pw" class="input1" placeholder="비밀번호">
+                    </li>
+                    <li>
+                        <input type="text" id="hp" class="input1" placeholder="휴대폰 번호" onkeyup="telcheck(this.value)">
+                    </li>
+                    <li>
+                        <div class="btn" onclick="member();">가입 완료</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </body>
+</html>

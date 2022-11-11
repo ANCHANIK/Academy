@@ -1,0 +1,111 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+span,
+label,
+main {
+  display: block;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  padding-left: 50px;
+  padding-top: 50px;
+  box-sizing: border-box;
+}
+.olcss {
+  width: 300px;
+  height: 30px;
+}
+.olcss li {
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  list-style: 30px;
+  border: 1px solid black;
+  float: left;
+  box-sizing: border-box;
+}
+/*
+box-sizing : 오브젝트의 가로, 세로를 계산하여 화면에 표시 함
+border-box : 테두리를 기준으로 크기를 정한다.
+content-box : 오브젝트 영역을 기준으로 크기를 정한다.
+*/
+.div1 {
+  clear: both;
+  width: 300px;
+  height: 50px;
+  border: 10px solid blue;
+  box-sizing: content-box;
+}
+
+.div2 {
+  width: 300px;
+  height: 50px;
+  border: 10px solid red;
+  box-sizing: border-box;
+  text-indent: 10px;
+}
+.mid {
+  width: 200px;
+  height: 30px;
+  text-indent: 5px;
+}
+/*
+text-indent : 텍스트 파트에 들여쓰기를 하고 싶을 경우 사용
+*/
+.circle {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  border-radius: 100%;
+  margin: 0 auto;
+  /*box-shadow: 0 0 30px black;*/
+  box-shadow: 5px 5px 10px black;
+}
+/*
+box-shadow : 그림자 (x 좌표), (y 좌표), Blur, color;
+box-shadow:none; : 그림자 효과 없앰
+*/
+.circle:hover {
+  box-shadow: none;
+}
+.menu {
+  width: 300px;
+  height: auto;
+  border: 1px solid #ccc;
+  margin: 0;
+  padding: 0;
+}
+.menu > dt {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+.menu > dd {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-indent: 10px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+/*
+cursor: pointer; : 마우스 모양이 클릭할 수 있도록 적용시키는 속성
+*/

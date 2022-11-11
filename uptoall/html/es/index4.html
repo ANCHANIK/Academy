@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            ECMA Script 1일차 + 화살표 함수
+        </title>
+        <script>
+            
+        </script>
+    </head>
+    <body>
+        <!--
+            응용문제 1.
+            ccc 라는 함수에 인자값 20을 입력하면 그 중 짝수만 출력되도록 ES로 제작하라
+        -->
+    </body>
+    <script type="module">
+        import {ccc,aaa} from "./index4.js?v=1";   // aaa : 함수가 아닌 class명으로 호출함  (ccc는 함수임).
+        // 일반함수 // console.log(ccc(20));
+        ccc(20); // 화살표 함수
+
+        var n = new aaa("안찬익");
+        // new aaa 사용하는 이유 : aaa class 호출과 동시에 인자값을 넘기기 위한 형태
+        // class 사용시 무조건 new를 사용해 class이름과 class안에 있는 함수를 동시에 호출함
+        console.log(n.mname)
+        // n.mname : class에서 생성된 가상의 변수명
+    </script>
+</html>

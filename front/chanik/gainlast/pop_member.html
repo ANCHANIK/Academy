@@ -1,0 +1,44 @@
+<?php
+    $data = date("YMDHis");
+?>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="./css/pop_member.css?v=<?=$data?>">
+<form id="m_frm" name="m_frm">
+	<section class="pop_member_bg_outline" id="mem_login">
+		<div class="pop_member_outline">
+			<div class="d_memwrap_log">
+				<span id="member_close" class="d_closebtn">
+					<img src="./img/close.png">
+				</span>
+				<h2>LOGIN</h2>
+				<div class="d_logo">
+					<ul class="ulcss">
+						<li>
+							<input type="text" name="user_nm" id="d_m_nm" class="d_m_input" autocomplete="off" maxlength="10" placeholder="아이디">
+						</li>
+						<li>
+							<input type="password" name="user_pw" id="d_m_pw" class="d_m_input" placeholder="비밀번호">
+						</li>
+						<li>
+							<button type="submit" id="d_m_login" class="d_m_input2" onclick="return loginck();">로그인</button>
+							<label><img src="./img/icon.png">보안접속</label>
+						</li>
+						<li>
+							<button type="button" id="d_m_mem" class="d_m_input3">회원가입</button>
+							<span>
+								<label>회원가입시 무료배송 + 2000원</label>
+								<label>MORE</label>
+							</span>
+						</li>
+						<li>
+							<div>
+								<span>아이디/비밀번호 찾기</span>
+								<span id="nomember">비회원 주문조회</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+</form>

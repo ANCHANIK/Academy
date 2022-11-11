@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 5일차 - 응용연습5</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#btn").click(function(){
+                    var $id_text = $("#id_text").val();
+                    var $email_text = $("#email_ad").val();
+                    if($id_text == "" || $email_text == ""){
+                        alert("이메일을 입력해 주세요.");
+                    }
+                    else{
+                        alert("인증메일이 발송되었습니다.");
+                    }
+                });
+
+                $("#mail_sel").change(function(){
+                    var $m = $(this).val();
+                    $("#email_ad").val($m);
+                });
+
+            })
+        </script>
+        <style>
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            span {display: block;}
+            .check {
+                width: 80px;
+                height: 40px;
+                background-color: black;
+                color: white;
+                font-size: 15px;
+                text-align: center;
+                line-height: 40px;
+                cursor: pointer;
+            }
+            .ulcss > li{
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+            <input type="text" id="id_text" value="">@
+            <input type="text" id="email_ad" value="" readonly>
+            <select id="mail_sel">
+                <option>메일을 선택해 주세요</option>
+                <option value="naver.com">naver.com</option>
+                <option value="nate.com">nate.com</option>
+                <option value="google.com">google.com</option>
+            </select>
+            <input type="button" value="인증하기" id="btn">
+    </body>
+</html>

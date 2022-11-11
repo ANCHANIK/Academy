@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>Ajax (6일차) - Jquery Ajax-JSON(banner)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+
+                $.ajax({
+                    url:"./banner.json",
+                    cache:false,
+                    type:"GET",
+                    dataType:"JSON",
+                    success:function($data){
+                        $.fn.html_make($data);
+                    },
+                    error:function(){
+                        alert("Data error")
+                    }
+                });
+
+                let $banner_ea; // 배너 갯수를 확인하는 변수값
+                $.fn.html_make = function($array){
+                    $banner_ea = $array["mainbanner"].length;
+                    $($array["mainbanner"]).each(function($node,$name){
+                        // console.log($name);
+                        $("#banners").append("<li><img src='"+ $name[0] +"'></li>");
+                        $("#disc").append("<li></li> ");
+                    });
+
+
+                    // ajax를 사용 안할 땐 밖에 둬도 사용 가능하지만
+                    // ajax를 사용할 땐, 밖에 빼면 작동이 안되고, ajax안에 넣었을 땐 작동이 된다.
+                    
+                    $("#disc > li").bind({
+                    "mouseenter":function(){
+                        clearTimeout($timer);
+                    },
+                    "click":function(){
+                        $("#disc > li").css("background-color","black");
+                        $("#banners > li").eq($no).fadeOut();
+                        $no = $(this).index();
+                        $("#banners > li").eq($no).fadeIn();
+                        $("#disc > li").eq($no).css("background-color","red");
+                    }
+                });
+                }
+
+                let $timer;
+                let $no = 0;
+                //배너 애니메이션 (5초에 한 번씩 작동)
+                // 응용문제 디스크도 배너와 함께 순차적으로 변경 되도록 수정하라.
+                $.fn.times = function(){
+                    $timer = setTimeout(function(){
+                        $("#banners > li").eq($no).fadeOut();
+                        $("#disc > li").css("background-color","black");
+                        $no++;
+                        if($no >= $banner_ea){
+                            $no = 0;
+                        }
+                        $("#banners > li").eq($no).fadeIn();
+                        $("#disc > li").eq($no).css("background-color","red");
+                    },5000);
+                    $timer = setTimeout($.fn.times,5000);
+                }
+                $.fn.times();
+
+                // 마우스 오버시 버튼 출력
+                $("#box1").bind({
+                    "mouseenter":function(){
+                        $("#l_btn").fadeIn();
+                        $("#r_btn").fadeIn();
+                        clearTimeout($timer);
+                    },
+                    "mouseleave":function(){
+                        $("#l_btn").fadeOut();
+                        $("#r_btn").fadeOut();
+                    }
+                });
+
+                //응용문제. right 버튼 클릭시 배너가 순차적으로 사라졌다가 나타나도록 하라.(clearTimeout 사용)
+                $("#r_btn").click(function(){
+                    clearTimeout($timer);
+                    $("#banners > li").eq($no).fadeOut();
+                    $("#disc > li").css("background-color","black");
+                    $no++;
+                    if($no >= $banner_ea){
+                        $no = 0;
+                    }
+                    $("#banners > li").eq($no).fadeIn();
+                    $("#disc > li").eq($no).css("background-color","red");
+                })
+                // left button
+                $("#l_btn").click(function(){
+                    clearTimeout($timer);
+                    $("#banners > li").eq($no).fadeOut();
+                    $("#disc > li").css("background-color","black");
+                    $no--;
+                    if($no < 0){
+                        $no = $banner_ea - 1;
+                    }
+                    $("#banners > li").eq($no).fadeIn();
+                    $("#disc > li").eq($no).css("background-color","red");
+                });
+
+                $("#body").mouseleave(function(){
+                    $timer = setTimeout($.fn.times,5000);
+                })
+            });
+        </script>
+        <style>
+            body {margin: 0; padding: 0;}
+            ul,ol,dl { list-style: none; margin: 0; padding: 0; }
+            .box1 {
+                width: 1000px;
+                height: 450px;
+                margin: 0 auto;
+                text-align: center;
+                position: relative;
+            }
+            .banners {
+                width: inherit;
+                height: inherit;
+            }
+            .banners > li {
+                display: none;
+                position: absolute;
+            }
+            .banners > li:nth-of-type(1) {
+                display: block;
+            }
+            .disc {
+                display: inline;
+                position: relative;
+                top: -35px;
+                
+            }
+            .disc > li {
+                width: 25px;
+                height: 5px;
+                display: inline-block;
+                background-color: black;
+                border-radius: 5px;
+                margin: 0 auto;
+                cursor: pointer;
+            }
+            .disc > li:nth-of-type(1){
+                background-color: red;
+            }
+            .btn {
+                position: absolute;
+                width: inherit;
+                height: auto;
+                top: 50%;
+                margin-top: -25px;
+                left: 0;
+            }
+            .l_btn, .r_btn { display: none;}
+            .l_btn > img, .r_btn > img {
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+            }
+            .l_btn > img {
+                float: left;
+                margin-left: 15px;
+            }
+            .r_btn > img {
+                float: right;
+                margin-right: 15px;
+            }
+        </style>
+    </head>
+    <body id="body">
+        <div class="box1" id="box1">
+            <!-- 배너부분 -->
+            <ol class="banners" id="banners">
+                <!-- 배너이미지 출력 sample
+                    <li><img src="./ajaxbanner/banner0.png"></li>
+                -->
+            </ol>
+            <!-- 디스크 부분 -->
+            <ul class="disc" id="disc">
+                <!-- 
+                    디스크 출력
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                -->
+            </ul>
+            <label class="btn" id="btn">
+                <span class="l_btn" id="l_btn"><img src="./carat-l-black.svg"></span>
+                <span class="r_btn" id="r_btn"><img src="./carat-r-black.svg"></span>
+            </label>
+        </div>
+    </body>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 5일차 - 응용연습</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                /*
+                응용버튼 1.
+                검정 버튼 클릭시 해당 팝업창 전체가 서서히 사라지도록 하라
+                빨간 버튼 클릭시 네이버 닷컴으로 이동되도록 하라
+                */
+                /*
+                $("#sbox").click(function(){
+                    $("#box").fadeOut();
+                });
+                $("#inbox").click(function(){
+                    location.href="http://www.naver.com";
+                });
+                */
+
+                $("#box > span").click(function(){
+                    var $node = $(this).index();
+                    if($node == 0){
+                        $("#box").fadeOut();
+                    }
+                    else if($node == 1){
+                        location.href="http://www.naver.com";
+                    }
+
+                });
+            });
+        </script>
+        <style>
+            body {
+                margin: 0; padding: 0;
+            }
+            span,label,main { display: block; }
+            .box {
+                width: 400px;
+                height: 400px;
+                background-color: blue;
+                position: relative;
+                text-align: center;
+            }
+            .sbox {
+                width: 50px;
+                height: 50px;
+                background-color: black;
+                position: absolute;
+                left: 100%;
+                cursor: pointer;
+            }
+            .inbox {
+                width: 260px;
+                height: 40px;
+                background-color: red;
+                position: relative;
+                margin: 0 auto;
+                bottom: -80%;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box">
+            <span class="sbox" id="sbox"></span>
+            <span class="inbox" id="inbox"></span>
+        </div>
+    </body>
+</html>

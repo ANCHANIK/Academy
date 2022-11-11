@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 5일차 - 중급 (메인 front 롤링 게시물)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+
+                const $array = [
+                    {"news":"네이버,카카오,한국은행 '디지털 화폐' 실험 도전 결정...","press":"뉴시스"},
+                    {"news":"스타트업 주4일 근무 '확산' 밀리의 서재 파격 실험","press":"아이뉴스24"},
+                    {"news":"OSBC '8년간 최다 이용 오픈소스는 Jquery'","press":"CCTV 뉴스"},
+                    {"news":"연봉 인상에 스톡옵션까지 4차 산업시대 IT 개발자 선망직업","press":"에듀동아"},
+                    {"news":"[속보] 걸그룹 'Apink' 8년만에... 전세계 콘서트 진행","press":"디스패치"}
+                ];
+                // 기본 key가 없기 때문에 둘 다( $.each($array,function) / $($array).each(function) ) 써도 무방
+                // 기본 key가 있으면 $($array).each(function) 못 씀
+                /*
+                $($array).each(function($aa,$bb){
+                    console.log($bb)
+                })
+                */
+
+                var $height = $("#news_list").height();  // 높이 30
+                // console.log($news_height);
+                var $news_node = $array.length; // 5개
+                // console.log($news_node);
+                $("#ulcss").height($height * $news_node);
+
+
+                let $html;
+                $.each($array,function($a,$b){
+                    // console.log($array[$a]["news"]);
+                    // console.log($array[$a]["press"]);
+                    $html = "<li>"+ $array[$a]["news"]; +"</li>";
+                    $("#ulcss").append($html);
+                    $("#ulcss > li:eq("+ $a +")").attr("datacontent",$array[$a]["press"]);
+                    //attr을 이용해 after 또는 before content에 접근을 하기 위한 방식
+                });
+
+                var $timer;
+                $.fn.news = function(){
+                    $timer = setInterval(function(){
+                        
+                        $("#ulcss").stop().animate({
+                            "top": -$height + "px"
+                        },700,function(){
+                            var $news_clone = $("#ulcss > li").eq(0).clone();
+                            $("#ulcss > li").eq(0).remove();
+                            $("#ulcss").append($news_clone);
+                            $("#ulcss").css("top","0px")
+                        })
+                        
+                    },4000)
+                };
+                setTimeout($.fn.news,2000);
+
+            });
+        </script>
+        <style>
+            .news_list {
+                width: 500px;
+                height: 30px;
+                border: 1px solid #ccc;
+                position: relative;
+                overflow: hidden;
+            }
+            .ulcss {
+                width: inherit;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                position: absolute;
+            }
+            .ulcss > li {
+                width: inherit;
+                height: 30px;
+                line-height: 30px;
+                text-indent: 10px;
+                font-size: 12px;
+            }
+                /* Jquery에서 attr과 연결함 */
+            .ulcss > li:after{
+                content: attr(datacontent);
+                position: absolute;
+                right: 10px;
+            }            
+
+        </style>
+    </head>
+    <body>
+        <div class="news_list" id="news_list">
+            <ul class="ulcss" id="ulcss">
+                <!--sample : <li>네이버 뉴스 롤링 fornt 게시글</li> -->
+            </ul>
+        </div>
+    </body>
+</html>

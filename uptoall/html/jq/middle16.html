@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 5일차 - 중급 (속성값 추가하기)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+                $("#text1").add("p").css("background-color","blue");
+                // add 요소를 추가
+                $("#btn").click(function(){
+                    // $(".in").prop("readonly",true);
+                    // prop : 속성을 추가. 해당 HTML 태그에 속성을 추가하지만, 특정 속성 값을 가져오진 못한다.
+                    // attr이 추가하고 가져올 수 있는 함수임.
+                    // 즉, attr = add + prop 임. add랑 prop는 옛날거
+                    var $a = $("#text1").prop("data");
+                    console.log($a)
+                })
+            });
+        </script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <input type="text" id="text1" class="in" data="1">
+        <!-- <p>테스트</p> -->
+        <input type="text" id="text2" class="in" data="2">
+        <input type="text" id="text3" class="in" data="3">
+        <input type="button" value="클릭" id="btn">
+    </body>
+</html>

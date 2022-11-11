@@ -1,0 +1,88 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+* {
+    box-sizing: border-box;
+}
+.all_body {
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+ul,ol,dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+span,label,main {
+    display: block;
+}
+a { text-decoration: none; }
+.all_body {
+    width: 1200px;
+    height: auto;
+}
+
+/* 메인 레이아웃 */
+.sidebanner_label{
+    position:absolute;
+    display: block;
+    width: 30px;
+    height: 1000px;
+    right: 0;
+    overflow: hidden;
+    z-index: 10;
+    } 
+    
+    .sidebanner_divcass { 
+        width: 0px; height: 950px;
+        background-color: #303030;
+        background-image: url("./images/logo_channel.png");
+        background-repeat: no-repeat;
+        background-position: 20px 10px;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        display: block;
+    }
+    .sidebanner_btn {
+        width: 30px; height: 90px; font-size: 17px; background-color: #303030; color: white;
+        text-align: center; position: absolute;
+        top: 10px; border-radius: 10px 0 0 10px; left: 3px;
+        cursor: pointer;
+    }
+    .diccss{transform: rotate(-90deg); 
+    margin-top: 33px;}
+    
+    .sidebanner_divcass > span{
+        width: 200px; height: 35px; display: block; box-sizing: border-box;
+    }
+.ocn_header {
+    height: 35px;
+
+}
+.ocn_nav {
+    height: 130px;
+    position: relative;
+    z-index: 10;
+}
+.ocn_main {
+    position: relative;
+    height: auto;
+}
+.ocn_section1 {
+    width: inherit;
+    height: auto;
+}
+.ocn_section2 {
+    width: inherit;
+    height: auto;
+}
+.ocn_section3 {
+    width: inherit;
+    height: auto;
+}
+.ocn_footer {
+    width: inherit;
+    height: auto;
+}

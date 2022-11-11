@@ -1,0 +1,210 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>게시판 관리</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+<article class="board_article">
+    <div class="board_article_title">
+        <ul>
+            <li>전체 목록 | </li>
+            <li><label>생성된 게시판 수 <span>4</span> 개</label></li>
+        </ul>
+    </div>
+    <form method="GET" id="sform" name="sform" action="admin_board.html" enctype="application/x-www-form-urlencoded" onsubmit="return search()">
+        <div class="board_article_option">
+            <select class="spart" id="spart" name="spart">
+                <option value="stable">TABLE</option>
+                <option value="stitle">제목</option>
+            </select>
+            <input type="text" id="stext" name="stext">
+            <input type="submit" value="검색">
+        </div>
+    </form>
+    <form id="tform" name="tform">
+        <table class="board_article_table">
+            <tr class="board_article_table_option">
+                <th><input type="checkbox" id="check_all_list" name="all" value="all"></th>
+                <th><u>그룹</u></th>
+                <th><u>TABLE</u></th>
+                <th><u>PC<br>스킨</u></th>
+                <th><u>모바일<br>스킨</u></th>
+                <th><u>제목</u></th>
+                <th>읽기P</th>
+                <th>쓰기P</th>
+                <th>댓글P</th>
+                <th>다운P</th>
+                <th><u>SNS<br>사용</u></th>
+                <th><u>검색<br>사용</u></th>
+                <th><u>출력<br>순서</u></th>
+                <th>접속기기</th>
+                <th>관리</th>
+            </tr>
+            <tr class="board_article_table_option">
+                <td>
+                    <input type="checkbox" class="board_check" id="board_check" name="board_check" value="qa">
+                </td>
+                <td>
+                    <select id="board_group">
+                        <option value="쇼핑몰">쇼핑몰</option>
+                        <option value="#">#</option>
+                        <option value="#">#</option>
+                        <option value="#">#</option>
+                    </select>
+                </td>
+                <td>
+                    <label id="board_table">qa</label>
+                </td>
+                <td>
+                    <select id="board_pc_skin">
+                        <option value="basic">basic</option>
+                        <option value="black">BLACK</option>
+                        <option value="gray">GRAY</option>
+                        <option value="pink">에이핑크</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="board_mobile_skin">
+                        <option value="basic">basic</option>
+                        <option value="black">BLACK</option>
+                        <option value="gray">GRAY</option>
+                        <option value="pink">에이핑크</option>
+                    </select>
+                </td>
+                <td>
+                    <input class="board_option_input" id="board_title"type="text" value="질문답변">
+                </td>
+                <td>
+                    <input class="board_option_input_s" id="board_RP"type="text" value="0">
+                </td>
+                <td>
+                    <input class="board_option_input_s" id="board_WP"type="text" value="5">
+                </td>
+                <td>
+                    <input class="board_option_input_s" id="board_CP"type="text" value="1">
+                </td>
+                <td>
+                    <input class="board_option_input_s" id="board_DP"type="text" value="-20">
+                </td>
+                <td>
+                    <input type="checkbox" class="board_check" id="board_sns_check">
+                </td>
+                <td>
+                    <input type="checkbox" class="board_check" id="board_search_check">
+                </td>
+                <td>
+                    <input class="board_option_input_s" id="board_output" type="text" value="0">
+                </td>
+                <td>
+                    <select id="board_device">
+                        <option value="all">ALL</option>
+                        <option value="PC">PC</option>
+                        <option value="mobile">MOBILE</option>
+                        <option value="none">사용안함</option>
+                    </select>
+                </td>
+                <td>
+                    <label class="mode_clone">
+                        <span onclick="go_page(1,tform.board_check[0].value)">수정</span>
+                        <span onclick="go_page(2)">복사</span>
+                    </label>
+                </td>
+            </tr>
+            <tr class="board_article_table_option">
+                <td>
+                    <input type="checkbox" class="board_check" id="board_check" name="board_check" value="notice">
+                </td>
+                <td>
+                    <select id="board_group">
+                        <option value="쇼핑몰">쇼핑몰</option>
+                        <option value="#">#</option>
+                        <option value="#">#</option>
+                        <option value="#">#</option>
+                    </select>
+                </td>
+                <td>
+                    <label id="board_table">notice</label>
+                </td>
+                <td>
+                    <select id="board_pc_skin">
+                        <option value="basic">basic</option>
+                        <option value="black">BLACK</option>
+                        <option value="gray">GRAY</option>
+                        <option value="pink">에이핑크</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="board_mobile_skin">
+                        <option value="basic">basic</option>
+                        <option value="black">BLACK</option>
+                        <option value="gray">GRAY</option>
+                        <option value="pink">에이핑크</option>
+                    </select>
+                </td>
+                <td>
+                    <input class="board_option_input" id="board_title"type="text" value="질문답변">
+                </td>
+                <td>
+                    <input class="board_option_input_s" id="board_RP"type="text" value="0">
+                </td>
+                <td>
+                    <input class="board_option_input_s" id="board_WP"type="text" value="5">
+                </td>
+                <td>
+                    <input class="board_option_input_s" id="board_CP"type="text" value="1">
+                </td>
+                <td>
+                    <input class="board_option_input_s" id="board_DP"type="text" value="-20">
+                </td>
+                <td>
+                    <input type="checkbox" class="board_check" id="board_sns_check">
+                </td>
+                <td>
+                    <input type="checkbox" class="board_check" id="board_search_check">
+                </td>
+                <td>
+                    <input class="board_option_input_s" id="board_output" type="text" value="0">
+                </td>
+                <td>
+                    <select id="board_device">
+                        <option value="all">ALL</option>
+                        <option value="PC">PC</option>
+                        <option value="mobile">MOBILE</option>
+                        <option value="none">사용안함</option>
+                    </select>
+                </td>
+                <td>
+                    <label class="mode_clone">
+                        <span onclick="go_page(1)">수정</span>
+                        <span onclick="go_page(2)">복사</span>
+                    </label>
+                </td>
+            </tr>
+            <!-- 등록된 게시판을 여기에 나타냅니다 -->
+            <tr class="board_article_table_list">
+            
+            </tr>
+            <tr class="board_article_table_list_none">
+                <td colspan="15">
+                    <label>등록된 게시판이 없습니다</label>
+                </td>
+            </tr>
+        </table>
+    </form>
+        <div class="board_article_table_btns">
+            <!-- 임시 링크 함수 -->
+            <button type="button" id="board_config_btn" onclick="move()">선택수정</button>
+            <button type="submit" id="board_delete_btn">선택삭제</button>
+        </div>
+</article>
+<script>
+    function move(){
+        window.open("./board_config.html","","width=1200, height=750");
+    }
+    filters();
+</script> 

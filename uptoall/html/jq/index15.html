@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 4일차 - 노드추가 및 복제</title>
+        <!-- FAQ : 자주하는 질문&답변 , Q&A : 고객이 질문, 관리자가 답변 -->
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                var $a;
+                $("#btn_copy").click(function(){
+                    $a = $("#ulcss > li").eq(0).clone();
+                    // clone : 해당 노드 (HTML 전체)  clone을 사용할 땐 css에서 nth 절대 사용하지 말 것.
+                    console.log($a);
+                });
+
+                $("#btn_add").click(function(){
+                    $("#ulcss > li").eq(0).remove();
+                    $("#ulcss").append($a);
+                    // append에 $a 는 clone으로 노드를 복제한 것을 그대로 노드를 추가해줌
+                    // html 태그, 텍스트, 링크 등 모든걸 복제해서 붙여넣기가 된다.
+                });
+            
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .ulcss {
+                width: auto;
+                height: 100px;
+            }
+            .ulcss > li {
+                width: 100px;
+                height: 100px;
+                float: left;
+            }
+            .a0{
+                background-color: red;
+            }
+            .a1{
+                background-color: orange;
+            }
+            .a2{
+                background-color: yellow;
+            }
+            .a3{
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="ulcss" id="ulcss">
+            <li class="a0">box1</li>
+            <li class="a1">box2</li>
+            <li class="a2">box3</li>
+            <li class="a3">box4</li>
+        </ul>
+        <button type="button" id="btn_copy">복제</button>
+        <button type="button" id="btn_add">추가</button>
+    </body>
+</html>

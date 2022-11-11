@@ -1,0 +1,98 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../jq/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="index16.css?v=<?=$data?>">
+        <title>
+            SCSS 8일차 - HTML ~ SCSS & 동적 애니메이션(transition,transform) &
+            transform-style(3D), perspective & backface-visibility(3D-Z축 효과)
+        </title>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <label class="btn">애니메이션</label>
+        <div class="divcss">
+            <span class="box" id="box"></span>
+            <!-- <span class="box" id="box">
+                <img src="product/product1.gif">
+            </span> -->
+        </div>
+        <!-- 3D 파트 -->
+        <div class="divcss2">
+            <span class="box2" id="box2"></span>
+        </div>
+        <!-- 버튼 효과 -->
+        <style>
+            .divcss3 {
+                position: relative;
+                width: 200px;
+                perspective: 200px;
+                /* perspective: 200px; : 이걸 쓰면 3D처럼 튀어나와 보이게 한다.
+                Z축을 200px 나오게해 회전반경을 좀 더 크게 돌아가도록 한다 */
+                border: 1px solid red;
+                margin: 0 auto;
+            }
+            .divcss3:hover .btns {
+                transform: rotateY(180deg);
+            }
+            .btns {
+                display: block;
+                width: 200px;
+                height: 50px;
+                position: relative;
+                transform-style: preserve-3d;
+                transition: all 0.8s ease-in-out;
+            }
+            .btn_off {
+                position: absolute;
+                border: 1px solid #ccc;
+                background-color: white;
+                width: 200px;
+                height: 50px;
+                display: block;
+                text-align: center;
+                line-height: 50px;
+                box-sizing: border-box;
+            }
+            .btn_on {
+                transform: rotateY(180deg);
+                position: absolute;
+                background-color: black;
+                color: white;
+                width: 200px;
+                height: 50px;
+                display: block;
+                text-align: center;
+                line-height: 50px;
+            }
+            .views {
+                backface-visibility: hidden;
+                /* IE에서 문제가 발생함 */
+                /*
+                - backface-visibility: hidden : 오브젝트 뒷쪽에서 앞면이 보이게 할 것인지 정하는 옵션
+                - IE 때문에 쓰는 거임. backface-visibility: block; 도 있음
+                - 
+                */
+            }
+        </style>
+        <div class="divcss3">
+            <!--
+                엄마(btns)를 뒤집어야 된다.
+                자식들은 위에 style에서 서로 반대로 붙여놨기 때문에
+                엄마를 뒤집어야 된다.
+            -->
+            <span class="btns">
+                <label class="btn_off views">예약하기</label>
+                <label class="btn_on views">예약하기</label>
+            </span>
+        </div>
+    </body>
+</html>

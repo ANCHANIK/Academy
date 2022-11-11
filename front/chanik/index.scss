@@ -1,0 +1,383 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap");
+/* font-family: 'Noto Sans KR', sans-serif; (100,400,700) */
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap");
+/* font-family: 'Nanum Gothic', sans-serif; (400,700) */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;500&display=swap");
+/* font-family: 'Raleway', sans-serif; (100,200,500) */
+
+@import "media";    // media query
+
+* { 
+    margin: 0; padding: 0; 
+    box-sizing: border-box;
+}
+body,html,div,span,label,section,aside,footer,header,nav,video,table,tr,td,th {
+    margin: 0; padding: 0;
+    border: 0; font-size: 13px;
+    font-family: 'Noto Sans KR', sans-serif;
+    user-select: none;
+}
+a { background-color: transparent; text-decoration: none;}
+a:active, a:hover { outline: 0;}
+a:visited{text-decoration: none;}
+input,textarea { outline: 0; }
+input:focus,textarea:focus { outline: 0; }
+legend{border: 0; padding: 0;}
+textarea { overflow: auto;}
+table { border-collapse:collapse; border-spacing: 0;}
+img{ object-fit: cover; width: 100%; }
+ul,ol { margin: 0; padding: 0; list-style: none; }
+.clear { clear: both; }
+address,caption,cite,code,dfn,em,var {  font-style: normal; }
+span,label{display: block;}
+
+@mixin margin($top,$right,$bottom,$left){
+    margin: $top $right $bottom $left;
+}
+@mixin font($family,$size,$weight){
+    $family:"";
+    @if($family=="notok"){
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    @else if($family=="noto"){
+        font-family: 'Noto Sans', sans-serif;
+    }
+    @else if($family=="go"){
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+    @else if($family=="robo"){
+        font-family: 'Roboto', sans-serif;
+    }
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+}
+
+
+@mixin div($w,$h,$m,$p,$border){
+    width: $w;
+    height: $h;
+    @if($m=="auto"){
+        margin: 0 auto;
+    }
+    @else{
+        margin:$m;
+    }
+    padding: $p;
+    border: $border;
+}
+@mixin position($posi){
+    @if($posi=="ab"){
+        position: absolute;
+    }
+    @else if($posi=="re"){
+        position: relative;
+    }
+    @else if($posi=="fx"){
+        position: fixed;
+    }
+}
+@mixin flex($part,$direct,$just,$itmes,$warp,$content){
+    display: flex;
+    flex-direction: $direct;
+    justify-content: $just;
+    align-items: $itmes;
+    flex-wrap: nowrap;
+    @if($part==1){
+        flex-wrap: wrap;
+        align-content: $content;
+    }
+}
+
+.pc_header {
+    height: 40px;
+    background-color: rgb(206, 206, 206);
+    & > .header_link {
+        max-width: $view_width3;
+        min-height: 40px;
+        margin: 0 auto;
+        @include flex(0,row,flex-end,center,"","");
+        color: white;
+        & > span {
+            min-width: 100px;
+            height: 3vh;
+            text-align: center;
+            transition: all 0.3s ease;
+            &:hover{
+                transform: scale(1.03,1.03);
+            }
+            &:nth-of-type(1) > img {
+                max-width: 25px;
+                cursor: pointer;
+            }
+            &:nth-of-type(2) > img {
+                max-width: 25px;
+                cursor: pointer;
+            }
+            &:nth-of-type(3) > img {
+                max-width: 25px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.pc_banner {
+    min-height: 600px;
+    background: url('./psxtg0406576.jpg') no-repeat center center;
+    background-size: cover;
+    @include flex(0, column, center, center, "", "");
+    & > .banner_text {
+        max-width: 800px;
+        height: 190px;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        border: 2px solid white;
+        // box-shadow: 2px 2px 3px 3px rgba(0,0,0,0.5);
+        & > .banner_span_text1 {
+            min-width: 340px;
+            height: 120px;
+            @include font("robo", 45px, 700);
+            color: white;
+            text-align: center;
+            // line-height: 100px;
+            padding-top: 30px;
+            box-sizing: border-box;
+        }
+        & > .banner_span_text2 {
+            margin: 0 auto;
+            max-width: 300px;
+            height: 20px;
+            line-height: 10px;
+            @include font("robo",9px,500);
+            font-size: 18px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            &:hover {
+                color: rgb(255, 58, 97);
+                border-bottom: 3px solid rgba(255,255,255,0.8);
+            }
+        }
+    }
+}
+
+.menu_nav{
+    height: 50px;
+    background-color: #F95C67;
+    & > div{
+        max-width: $view_width1;
+        height: inherit;
+        margin: 0 auto;
+        & > ul{
+            height: inherit;
+            @include flex(0,row,center,center,"","");
+            & > li{
+                width: calc(100% / 5);
+                height: inherit;
+                line-height: 50px;
+                color: white;
+                text-align: center;                
+                font-weight: 700;
+                font-size: 2.5vmax;
+                font-size: 2.5vmin;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                &:hover{
+                    background-color: #e3414b;
+                    box-shadow: 1px 1px 3px 1px #444;
+                }
+            }
+        }
+    }
+}
+.title_text{
+    height: 120px;
+    & > div{
+        @include font("go",35px,700);
+        height: inherit;
+        line-height: 120px;
+        text-align: center;
+        background-color: beige;
+        color: black;
+    }
+}
+
+.pc_skills{
+    height: auto;
+    // background-color: beige;
+    background-size: cover;
+    padding-top: 20px;
+    box-sizing: border-box;
+    & > .my_skills{
+        height: inherit;
+        & > div{        
+            max-width: $view_width3;
+            margin: 0 auto;
+            height: inherit;
+            margin-bottom: 30px;
+            & > ol{
+                height: inherit;
+                @include flex(1,row,center,center,"",center);
+                & > li{
+                    @include font("robo",16px,700);
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 20px 0 20px;
+                    border-radius: 5px;
+                    background-color: #df454f;
+                    color: white;
+                    box-sizing: border-box;
+                    margin-right: 20px; margin-bottom: 20px;
+                    cursor: pointer;
+                    &:hover{
+                        box-shadow: 2px 2px 10px #000000 ;
+                    }
+                    &:last-of-type{
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+    & > .skills_task{
+        height: auto;
+        & > div{
+            max-width: 950px;
+            height: inherit;
+            margin: 0 auto;
+            @include flex(1,row,space-around,center,"",center);
+            box-sizing: border-box;
+            & > ul{
+                max-width: 280px;
+                background-color: rgb(101, 186, 216);
+                height: auto;
+                margin-bottom: 20px;
+                &:last-of-type{
+                    margin-right:0;
+                }
+                & > li{
+                    color: white;
+                    &:nth-of-type(1){
+                        text-align: center;
+                        height: 50px;
+                        line-height: 50px;
+                        @include font("robo",16px,700);
+                        border-bottom: 1px solid  #6127df;
+                        &:hover{
+                            cursor: pointer;
+                            transition: 0.5s ease all;
+                            border-bottom: 2px solid rgb(232, 168, 240);                            
+                        }
+                    }
+                    &:nth-of-type(2){
+                        height: 250px;
+                        padding: 5px;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.portfolio{
+    height: auto;
+    margin-top: 50px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+    & > div{
+        max-width: $view_width2;
+        margin: 0 auto;
+    }
+    & > .pofol_t{
+        height: 40px;
+        line-height: 40px;
+        @include font("robo",30px,700);
+        margin-bottom: 20px;
+        color: #a0a0a0;
+    }
+    & > .pofol_imp{
+        height: auto;
+        margin-bottom: 20px;
+        display: flex;
+        flex-flow: nowrap row;
+        align-items: center;
+        & > span{
+            height: 260px;
+            display: inline-block;
+            margin-left: 20px;
+            &:nth-of-type(1){
+                max-width: 370px;
+                min-width: 370px;
+                border: 1px solid rgb(196, 196, 196);
+                margin-left: 0;
+            }
+            &:nth-of-type(2){
+                @include font("robo",14px,500);
+                max-width: 640px;
+                text-align: left;
+                border: 1px solid rgb(196, 196, 196);
+                & > ul{
+                    
+                    min-width: inherit;
+                    max-width: inherit;
+                    height: auto;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    & > li{
+                        height: 35px;
+                        line-height: 35px;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+    & > .pofol_btn{
+        max-width: 150px;
+        height: 40px;
+        @include flex(0, row, space-between, center, "", "");
+        
+        > span{
+            @include font("robo",25px,"");
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            border-radius: 4vh;
+            text-align: center;
+            &:nth-of-type(1){
+                background-color: rgba(101, 186, 216, 0.9);
+            }
+            &:nth-of-type(2){
+                background-color: rgba(101, 186, 216, 0.9);
+            }
+            &:hover{
+                background-color: rgba(54, 136, 165, 0.9);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+.mobile_header {
+    display: none;
+    height: 60px;
+    background-color: chartreuse;
+}
+
+
+// 반응형
+@include pc1;
+@include pc2;
+@include tab1;
+@include mobile1;

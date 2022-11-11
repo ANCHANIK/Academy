@@ -1,0 +1,131 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="index29.css?v=<?=$data?>">
+        <script src="../jq/jquery.js"></script>
+        <title>
+            Scss 9일차 - step 회원가입 페이지 만들기
+        </title>
+        <script>
+            $(function(){
+                // 전체 동의
+                $("#total_agree").click(function(){
+                    let $total_agree = $(this).is(":checked");
+                    var $ag_length = $(".ag").length;
+                    var $w = 0;
+                    if($total_agree == true){
+                        while($w < $ag_length){
+                            $(".ag").eq($w).prop("checked",true);
+                            $w++;
+                        }
+                    }
+                    else{
+                        while($w < $ag_length){
+                            $(".ag").eq($w).prop("checked",false);
+                            $w++;
+                        }
+                    }
+                });
+
+                // 서비스 수신 동의
+                $(".ag").click(function(){
+                    var $w = 0;
+                    var $sn = 0;
+                    // // if($(".ag"))
+                    // // $(".ag").eq($w).prop("checked",false)
+                    // var $use_agree = $("#text_agree").is(":checked");
+                    // var $text_agree = $("#text_agree").is(":checked");
+                    // var $mail_agree = $("#text_agree").is(":checked");
+                    // var $kakao_agree = $("#text_agree").is(":checked");
+                    while($w < 4){
+                        if($(".ag").eq($w).is(":checked") == false){
+                            $("#total_agree").prop("checked",false);
+                        }
+                        else{
+                            $("#total_agree").prop("checked",true);
+                        }
+                        $w++;
+                    }
+                });
+
+                // 회원가입
+                $("#agree").click(function(){
+                    var $use_agree = $("#use_agree").is(":checked");
+                    if($use_agree == false){
+                        alert("이용약관에 동의해 주세요.");
+                    }
+                    else{
+                        $("#member").submit();
+                    }
+                });
+            });
+        </script>
+    </head>
+    <!-- 
+        백엔드 코드가 필요없을 땐 굳이 form으로 넘길 필요 없음
+    -->
+    <body>
+        <form id="member" name="member" method="GET" action="http://lswhobby.dothome.co.kr/scss/index29.html">
+        <header class="member_header"></header>
+        <section class="member_section">
+                <aside>
+                    <div class="member_title">
+                        <span>간편 회원가입</span>
+                    </div>
+                    <div class="member_terms">
+                        <ul class="member_terms_ul">
+                            <li>
+                                <label>
+                                    <input type="checkbox" id="total_agree"> 전체 동의하기
+                                </label>
+                            </li>
+                            <li>
+                                <label>[이용약관]</label>
+                            </li>
+                            <li>
+                                <object data="./agree.txt" type="text/txt"></object>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" id="use_agree" name="use_agree" value="yes" class="ag"> 동의함
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="member_check">
+                        <span>[서비스 수신 여부]</span>
+                        <span>
+                            <label>문자광고 수신</label>
+                            <label>
+                                <input type="checkbox" id="text_agree" name="text_agree" value="yes" class="ag"> 동의함
+                            </label>
+                        </span>
+                        <span>
+                            <label>메일광고 수신</label>
+                            <label>
+                                <input type="checkbox" id="mail_agree" name="mail_agree" value="yes" class="ag"> 동의함
+                            </label>
+                        </span>
+                        <span>
+                            <label>카카오톡 수신</label>
+                            <label>
+                                <input type="checkbox" id="kakao_agree" name="kakao_agree" value="yes" class="ag"> 동의함
+                            </label>
+                        </span>
+                    </div>
+                    <div class="member_btn">
+                        <button type="button" class="member_btn_css" id="agree">회원가입</button>
+                    </div>
+                </aside>
+            </form>
+        </section>
+        <footer class="member_footer"></footer>
+    </body>
+</html>

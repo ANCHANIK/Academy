@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 5일차 - 초급코드 함수 사용(submit)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                /*
+                $("#btn").click(function(){
+
+                    $("#view").append("<li>" + $("#chat_text").val() + "</li>")
+                    $("#chat_text").val();
+
+                });
+                */
+                
+                $("#f").submit(function(){
+
+                    var $a = $("#chat_text").val();
+                    if($a == ""){
+                        alert("내용을 입력해 주셨으면 합니다. 좋은말로 할 때.");
+                    }
+                    else{
+                        $("#view").append("<li>홍길동 : " + $("#chat_text").val() + "</li>")
+                        $("#chat_text").val();
+                        // submit 이벤트 헨들링이며, id 값을 form id 값으로 해야만
+                        // 정상적으로 submit 이벤트가 적용된다.
+                        $("#chat_text").focus(); // 자동으로 해당 아이디에 커서가 위치함
+                        
+                    }
+                    return false;
+                    // submit을 사용시 return false를 사용하지 않으면
+                    // 해당 페이지가 이동 또는 새로고침 된다.
+                    
+                    /*
+                    채팅문구가 아무것도 입력되지 않은 상태에서 enter를 사용할 경우
+                    "글을 입력해 주세요."라는 메세지를 출력하시오. 글 입력시에만 view에 출력된다.
+                    */
+                    
+
+                });
+
+
+
+
+
+
+            });
+        </script>
+        <style>
+            /*
+            중급 CSS 
+            display:inline-block 사용시 position:absolute와 함께 사용하면
+            부모에 text-align:center를 넣오도 IE는 작동하지 않는다.
+            */
+            .box {
+                width: 300px;
+                height: 200px;
+                border: 1px solid red;
+                text-align: center;
+                position: relative;
+            }
+            .ulcss {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                border: 1px solid blue;
+                text-align:center;
+                position: relative;
+                display: inline-block;
+            }
+            .ulcss > li {
+                width: 50px;
+                height: 50px;
+                background-color: black;
+                display: inline-block;
+            }
+            .chat {
+                width: 400px;
+                height: 600px;
+                border: 1px solid navy;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+            .view {
+                width: 400px;
+                height: auto;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .view > li {
+                width: 100%;
+                height: 30px;
+                color: orangered;
+                font-size: 12px;
+
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+        <div class="box">
+            <ul class="ulcss">
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        -->
+        <form id="f">
+        <div class="chat">
+            <p>건전한 채팅 문화를 선도합니다.</p>
+            <ul class="view" id="view">
+            </ul>
+        </div>
+
+        <br>
+        
+        <input type="text" id="chat_text">
+        <input type="submit" value="전송">
+        <input type="button" value="전송" id="btn">
+        <!--
+            submit 으로 사용시 id 값을 form 위주로 이벤트 헨들링을 제작해야 됨
+            button은 id값을 사용해야됨
+        -->
+        </form>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>자바스크립트 기초 - 응용편3(반복문)</title>
+        <script>
+            /*
+            반복문 : for, while, do ~ while
+            for 문 : 변수 선언 (초기값, 범위값, 증가 또는 감소)
+            while 문 : 변수 선언 및 초기값 설정 (범위값) {} 안에 증가, 감소
+            do ~ while 문 : 변수 선언 및 초기값 설정 (범위값) {} 안에 증가, 감소
+            while, do ~ while 문 작성시 주의사항 : 더블 반복문일 경우 변수 선언을
+            자식 반복문에 선언해 주어야 한다.
+
+            ++ 증가
+            -- 감소
+            */
+            /*
+            응용문제6.
+            for ~ do~hile 중 아무거나 선택
+            결과값은 console.log 로 출력
+            10~1 까지 역순(내림차순)으로 출력하라
+            */
+            var a = 10;
+            while(a>=1){
+                //console.log(a);
+                a--;
+            }
+            /*
+            응용문제7.
+            숫자 5~20까지 모든 숫자를 더한 결과 값을 출력하시오
+            */
+            var b = 5;
+            var c = 0;
+            while(b<=20){
+                c = c + b;
+                b++;
+            }
+            //console.log(c);
+            
+            /*
+            응용문제8.
+            for ~ do~hile 중 아무거나 선택
+            구구단 5단의 전체 합계 총 결과값을 출력하시오.
+            */
+            var d=1,e=5,f=0;
+            while(d<=9){
+                f = f + (e * d);
+                d++;
+            }
+            //console.log(f);
+
+            /*
+            응용문제9.
+            do ~ while문 사용하라.(if와 함께)
+            11 ~ 50 까지 숫자 중 짝수 값만 모두 합한 결과 값을 출력하라.(620)
+            */
+            var g=11,h=0;
+            do{
+                if(g % 2 == 0){
+                    h = h + g;
+                }
+                g++;
+            }while(g<=50);
+            console.log(h);
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

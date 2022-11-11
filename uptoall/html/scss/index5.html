@@ -1,0 +1,176 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../jq/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="index5.css?v=<?=$data?>">
+        <title>Scss 2일차 - mixin 활용 & JS,JQ 로그인 (확장함수 & 내부함수)</title>
+        <script>
+            
+            function loginck(){
+                if(frm.mid.value == ""){
+                    alert("로그인 정보를 입력하세요");
+                    return false;
+                }
+                else if(frm.mpass.value == ""){
+                    alert("패스워드를 입력하세요");
+                    return false;
+                }
+                else{
+                    var login_sel = document.getElementById("login_select").value;
+                    let ck = "";
+                    let mid = document.getElementById("mid").value;
+                    let mpass = document.getElementById("mpass").value;
+                    if(login_sel == "id_login"){
+                        ck = idcheck(mid,mpass);
+                        if(ck == "ok"){
+                            return;
+                        }
+                        else{
+                            return false;
+                        }
+                    }
+                    else{
+                        ck = emailcheck(mid,mpass);
+                        if(ck == "ok"){
+                            return;
+                        }
+                        else{
+                            return false;
+                        }
+                    }
+                }
+            }
+            
+            // 아이디 입력 확장함수
+            function idcheck(i,p){
+                if(p.length < 5){
+                    alert("올바른 패스워드를 입력하세요");
+                    return "no";
+                }
+                else{
+                    return "ok";
+                }
+            }
+            function emailcheck(i,p){
+                var oksign = i.match("@"); // match 사용시에는 무조건 빈값은 null 로 표기
+                console.log(oksign);
+                if(oksign == null){
+                    alert("정확한 이메일 정보를 입력하세요")
+                    return "no";
+                }
+                else{
+                    return "ok";
+                }
+            }
+            
+            
+            $(function(){
+                $("#frm").submit(function(){
+                    var $mid = $("#mid").val();
+                    var $mpass = $("#mpass").val();
+                    if($mid == ""){
+                        alert("아이디를 입력해 주세요");
+                        return false;
+                    }
+                    else if($mpass == ""){
+                        alert("패스워드를 입력해 주세요");
+                        return false;
+                    }
+                    else{
+                        var $sel = $("#login_select").val();
+                        if($sel == "id_login"){
+                            $.fn.idck($mid,$mpass,$sel);
+                            return false;
+                        }
+                        else{
+                            $.fn.idck($mid,$mpass,$sel);
+                            return false; // 잠깐 stop
+                        }
+                    }
+                });
+                // 아이디 입력 확장함수
+                $.fn.idck = function($i,$p,$s){  // 확장함수 1개, 내부함수 2개
+                    // 내부함수 외부함수 쓰는 이유?
+                    // - 내부 함수와 외부 함수를 나눠서 코드를 간편화 하는것입니다.
+                    
+                    // 내부함수, 먼저 나와야 한다.
+                    // 아이디, 이메일 검토를 사용하면 된다.
+                    var $aa = function(){
+                        // console.log("12345");
+                        $("#frm")[0].submit("ok"); // 이걸 쓰면 또 재호출하게 돼서 루프돈다.
+                        // 내부함수 쓸땐 [0] 이걸 써야 된다.
+                        // return true는 위에서 끝남
+                    }
+                    var $bb = function(){
+                        // console.log("45678");
+                        return true;
+                    }
+                    if($sel == "id_login"){
+                        $aa();  // $aa라는 내부함수 호출
+                    }
+                    else{
+                        $bb();  // $bb라는 내부함수 호출
+                    }
+                }
+                $.fn.emailck = function($i,$p){
+                    var $mailck = $i.match("@,com,co.kr");
+                    if($mailck == null){
+                        alert("정확한 이메일을 입력하세요");
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
+                }
+            });
+            </script>
+    </head>
+    <body>
+        <!-- JavaScript -->
+        <!-- <form name="frm" id="frm" method="POST" onsubmit="return loginck()">
+            <ol class="olcss">
+                <li>
+                    <select id="login_select">
+                        <option value="id_login" selected>아이디</option>
+                        <option value="email_login">이메일</option>
+                    </select>
+                </li>
+                <li>
+                    <input type="text" name="mid" id="mid" class="m">
+                </li>
+                <li>
+                    <input type="password" name="mpass" id="mpass" class="m">
+                </li>
+                <li>
+                    <button type="submit" class="m btn">CLICK</button>
+                </li>
+            </ol>
+        </form> -->
+        <!-- Jquery -->
+        <form name="frm" id="frm" method="POST" enctype="application/x-www-form-urlencoded">
+            <ol class="olcss">
+                <li>
+                    <select id="login_select">
+                        <option value="id_login">아이디</option>
+                        <option value="email_login">이메일</option>
+                    </select>
+                </li>
+                <li>
+                    <input type="text" name="mid" id="mid" class="m">
+                </li>
+                <li>
+                    <input type="password" name="mpass" id="mpass" class="m">
+                </li>
+                <li>
+                    <button type="submit" class="m btn">CLICK</button>
+                </li>
+            </ol>
+        </form>
+    </body>
+    </html>

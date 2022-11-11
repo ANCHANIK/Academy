@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 7일차 - 초급코드 지도 API 연결하기</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js?v=3"></script>
+        <link rel="stylesheet" type="text/css" href="./jquery-ui.css?v=3">
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=85d130420f6596e33c217646ac987f11"></script>
+        <script>
+            // API 란 무슨 뜻임? 통신할때 쓰는 언어 (Application Programming Interface)
+            // 네이티브 앱 키	c31bee675e1637717ff0c9d1c44c4775
+            // REST API 키	   140a7eb694ae29cbf76b1a1af3946ee4
+            // JavaScript 키   85d130420f6596e33c217646ac987f11
+            // Admin 키	       556bde30d183f86de9aa36a88208842f
+
+            $(document).ready(function(){
+                var $a = document.getElementById("m");
+                var $b = {  // 카카오에서 제공하는 맵 좌표 코드
+                    center: new kakao.maps.LatLng(37.747500, 127.067692),
+                    // 좌표크드는 구글맵에서 사용되는 좌표코드와 동일
+                    level:3  // level은 확대 기준. level 값이 클 수록 멀어짐 3이 적당 (1~10)
+                }
+                var $c = new kakao.maps.Map($a,$b);
+                var $d = new kakao.maps.LatLng(37.747500, 127.067692)
+                var $e = new kakao.maps.Marker({  // Marker : 마커를 맵에 출력하게 한다.
+                    position:$d
+                });
+                $e.setMap($c);
+
+                var $info = "<div class='info'>세븐일레븐 편의점 3층</div>";  //
+                var $infomap = new kakao.maps.InfoWindow({
+                    // InfoWindow : 해당 코드를 작성 후 말머리를 출력할 수 있음
+                    position:$d,
+                    content:$info
+                    });
+                    $infomap.open($c,$e)
+
+
+            });
+        </script>
+        <style>
+            .map {
+                width: 500px;
+                height: 500px;
+                border: 1px solid black;
+                position: relative;
+            }
+            .info {
+                width: 150px;
+                height: 40px;
+                position: absolute;
+                z-index: 10;
+                font-size: 12px;
+                text-align: center;
+            }
+            .btn {
+                width: 100px;
+                height: 30px;
+                background-color: darkblue;
+                color: white;
+                font-size: 12px;
+                text-align: center;
+                line-height: 30px;
+                position: absolute;
+                z-index: 10;
+                cursor: pointer;
+                bottom: 20px;
+                right: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <P>[지도 API 연습하기]</P>
+        <div class="map" id="m">
+            <span class="btn">버스노선 확인</span>
+        </div>
+    </body>
+</html>

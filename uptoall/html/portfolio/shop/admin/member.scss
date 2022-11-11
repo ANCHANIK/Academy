@@ -1,0 +1,310 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@mixin base {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin m_fonts($fs,$fw,$color) {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+}
+@mixin m_object($w,$h,$d,$p) {
+    width: $w;
+    height: $h;
+    display: $d;
+    position: $p;
+}
+%ulol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    // color: dodgerblue;
+}
+img {
+    // width: 100%;
+    object-fit: cover;
+}
+ul,ol,dl {
+    @extend %ulol;
+}
+.emptybox {
+    @include m_object(20px, 20px, block, "");
+}
+.member__admin {
+    @include m_object(100%, auto, block, "");
+    margin: 0 auto;
+    & > .member__listNo {
+        @include m_object(100%, 40px, block, "");
+        background-color: #f2f2f2;
+        & > .member__listTotal {
+            @include m_object(1200px, inherit, block, "");
+            margin: 0 auto;
+            & > ul {
+                @include m_object(100%, inherit, flex, "");
+                & > li {
+                    @include m_fonts(110%, 500, black);
+                    line-height: 40px;
+                    margin-right: 30px;
+                    &:nth-of-type(3){
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+    & > form > .idsearch_div {
+        @include m_object(1200px, 30px, flex, "");
+        margin: 0 auto;
+        justify-content: space-between;
+        & > .member__idSearch {
+            @include m_object(500px, inherit, flex, "");
+            justify-content: space-between;
+            & > select {
+                @include m_object(80px, inherit, block, "");
+                border: none;
+                border-bottom: 1px solid dimgray;
+            }
+            & > input {
+                @include m_object(280px, inherit, block, "");
+                border: none;
+                border-bottom: 1px solid dimgray;
+                text-indent: 10px;
+            }
+            & > button {
+                @include m_object(120px, inherit, block, "");
+                @include m_fonts(15px, 300, white);
+                background-color: tomato;
+                border: none;
+                border-radius: 3px;
+                margin-left: 20px;
+            }
+            & > button:hover {
+                background-color: rgb(255, 75, 44);
+            }
+        }
+        & > .member__add_btn {
+            @include m_object(120px, inherit, block, "");
+            & > button {
+                @include m_object(inherit, inherit, block, "");
+                @include m_fonts(15px, 300, white);
+                background-color: crimson;
+                border: none;
+                border-radius: 3px;
+                line-height: 30px;
+            }
+            & > button:hover {
+                background-color: rgb(186, 8, 44);
+            }
+        }
+    }
+    & > .member__memo {
+        @include m_object(1200px, 40px, block, "");
+        line-height: 40px;
+        margin: 0 auto;
+        font-size: 100%;        
+        background-color: rgba(112, 140, 132, 0.15);
+        & > div {
+          @include m_object(inherit, inherit, flex, "");
+          justify-content: space-between;
+          align-items: center;
+          & > button {
+            @include m_object(150px, 30px, block, "");
+            border: none;
+            background-color: crimson;
+            color: white;
+            border-radius: 3px;
+            margin-right: 20px;
+            &:hover {
+              background-color: rgb(186, 8, 44);
+            }
+          }
+        }
+    }
+    /**** 테이블 ****/
+    & > form > .member__table {
+        @include m_object(1200px, auto, block, "");
+        text-align: center;
+        margin: 0 auto;
+        & > .member__table_thead {
+          @include m_object(inherit, 80px, block, "");
+          background-color: #CCCCCC;
+          & > tr:nth-of-type(1) {
+            width: 1200px;
+            height: 40px;
+            & > th {
+              height: 40px;
+              border: 1px solid #aaa;
+              &:nth-of-type(1) {
+                width: 40px;
+              }
+              &:nth-of-type(2) {
+                width: 150px;
+              }
+              &:nth-of-type(3) {
+                width: 160px;
+              }
+              &:nth-of-type(4) {
+                width: 300px;
+              }
+              &:nth-of-type(5) {
+                width: 180px;
+              }
+              &:nth-of-type(6) {
+                width: 130px;
+              }
+              &:nth-of-type(7) {
+                width: 100px;
+              }
+              &:nth-of-type(8) {
+                width: 60px;
+              }
+              &:nth-of-type(9) {
+                width: 80px;
+              }
+            }
+          }
+          & > tr:nth-of-type(2) {
+            height: 40px;
+            & > th {
+              height: 40px;
+              border: 1px solid #aaa;
+              &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7){
+                font-size: 13px;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+        & > .member__table_tbody {
+          @include m_object(inherit, 80px, block, "");
+          & > tr:nth-of-type(1) {
+            width: 1200px;
+            height: 40px;
+            & > td {
+              height: 40px;
+              border: 1px solid #aaa;
+              &:nth-of-type(1) { // 체크박스
+                width: 40px;
+              }
+              &:nth-of-type(2) { // 아이디
+                width: 150px;
+              }
+              &:nth-of-type(3) {  // 이름
+                width: 160px;
+              }
+              &:nth-of-type(4) {  // 본인 확인
+                width: 300px;
+                & > label:nth-of-type(1) {
+                  margin-right: 50px;
+                }
+              }
+              &:nth-of-type(5) {  // 휴대폰
+                width: 180px;
+              }
+              &:nth-of-type(6) {  //  상태/권한
+                width: 130px;
+              }
+              &:nth-of-type(7) { // 최종 접속
+                width: 100px;
+              }
+              &:nth-of-type(8) { // 접근 그룹
+                width: 60px;
+              }
+              &:nth-of-type(9) {  // 관리
+                width: 80px;
+              }
+            }
+          }
+          & > tr:nth-of-type(2) {
+            height: 40px;
+            & > td {
+              height: 40px;
+              border: 1px solid #aaa;
+              &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7){
+                font-size: 13px;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+        & > .member__table_notbody {
+          @include m_object(inherit, 40px, block, "");
+          & > tr {
+            @include m_object(inherit, 40px, block, "");
+            & > td {
+            @include m_object(inherit, 40px, block, "");
+            border: 1px solid black;
+            line-height: 40px;
+            text-align: center;
+            }
+          }
+        }
+    }
+    .member__tableBtns {
+      @include m_object(1200px, 50px, flex, "");
+      justify-content: flex-end;
+      align-items: center;
+      margin: 0 auto;
+      & > span {
+        @include m_object(400px, 30px, flex, "");
+        justify-content: space-between;
+        & > button {
+          @include m_object(120px, 30px, block, "");
+          @include m_fonts(13px, 300, white);
+          border: none;
+          border-radius: 3px;
+          &:nth-of-type(1) {
+              background-color: tomato;
+          }
+          &:nth-of-type(2) {
+              background-color: crimson;
+          }
+          &:nth-of-type(3) {
+              background-color: cornflowerblue;
+          }
+          &:nth-of-type(1):hover {
+              background-color: rgb(255, 75, 44);
+          }
+          &:nth-of-type(2):hover {
+              background-color: rgb(186, 8, 44);
+          }
+          &:nth-of-type(3):hover {
+              background-color: rgb(67, 115, 203);
+          }
+        }
+      }
+    }
+    & > .pageing_num {
+      @include m_object(100%, 60px, flex, "");
+      align-items: center;
+      & > span {
+        @include m_object(1200px, 30px, block, "");
+        margin: 0 auto;
+        & > ul {
+          @include m_object(100%, inherit, flex, "");
+          flex-flow: row wrap;
+          justify-content: center;
+          & > li {
+            @include m_object(30px, 30px, block, "");
+            @include m_fonts(13px, 400, rgb(46, 46, 46));
+            background-color: #ccc;
+            line-height: 30px;
+            text-align: center;
+            margin-right: 7px;
+            cursor: pointer;
+          }
+          & > li:hover {
+            background-color: gray;
+            color: white;
+          }
+        }
+      }
+    }
+}

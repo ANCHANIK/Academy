@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 9일차 - 응용 및 최종복습</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js?v=4"></script>
+        <link rel="stylesheet" type="text/css" href="./jquery-ui.css?v=3">
+        <script>
+
+            $(document).ready(function(){
+                var left = 0;
+                $("#btn").click(function(){
+                    var $bb = $("#box").offset().left;
+                    console.log($bb);
+                    if($bb == 0){
+                        $left = 500;
+                    }
+                    else{
+                        if(confirm("추가로 더 가실?")){
+                            $left = $bb * 2;
+                        }
+                    }
+
+                    $("#box").stop().animate({
+                        "left": $left + "px"
+                    },1000);
+
+                    // if($bb==500){
+                    //     if(confirm("추가로 더 이동 하시겠습니까?")){
+                    //         $("#box").animate({
+                    //         "left": ($bb+500) + "px"
+                    //     },1000);
+                    //     }
+                    //     else{
+                    //         $("#box").val();
+                    //     }
+                    // }
+                    
+                });
+                
+                    
+                    
+                    
+            });
+
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            .box {
+                width:100px;
+                height: 100px;
+                background-color:black;
+                position: relative;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box"></div>
+        <input type="button" value="실행" id="btn">
+    </body>
+</html>

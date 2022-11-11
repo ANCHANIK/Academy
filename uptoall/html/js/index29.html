@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 6 일차 - 초급코드(객체(DOM) 사용하기)</title>
+        <script>
+            function abc(){
+                /* <li></li> */
+                /*
+                예시 (같은거임. 줄여쓸 수 있음)
+                a = a + 1;  =  a += 1; 
+                a = a - 1;  =  a -= 1;
+                */
+                var i=1;
+                //var v = "";
+                var cc = document.getElementById("list");
+                do{
+                    var t = "<li></li>";
+                    cc.innerHTML += t;
+                    //v = v + t;
+                    i++;
+                }while(i<9)
+            }
+            function abc2(){
+                var i=1;
+                var cc = "";
+                var t = "<li></li>";
+                do{
+                    cc = cc + t;
+                    i++;
+                }while(i<9)
+                document.getElementById("list").innerHTML = cc;
+            }
+
+            function abc3(){
+                var i=1;
+                do{
+                    var t = "<li></li>";
+                    document.getElementById("list").innerHTML += t;
+                    i++;
+                }while(i<9)
+            }
+
+            function abc4(){
+                var i;
+                for(i=1;i<9;i++){
+                    var t = "<li></li>";
+                    document.getElementById("list").innerHTML += t;
+                }
+                }
+            
+                function abc5(){
+                var i;
+                var c = "";
+                for(i=1;i<9;i++){
+                    var t = "<li></li>";
+                    c = c + t;
+                }
+                document.getElementById("list").innerHTML += t;
+                }
+        </script>
+        <style>
+            body { margin: 0; padding :0; }
+            #list { 
+                margin: 0; padding: 0; list-style: none;
+                width: 1200px; height: 40px;
+                }
+            #list > li {
+                width: 150px; height: 40px; float: left;
+            }
+            #list > li:nth-child(even) {background-color: pink;}
+            #list > li:nth-child(odd) {background-color: darksalmon;}
+            
+        </style>
+    </head>
+    <body>
+        <ul id="list"></ul>
+        <input type="button" value="출력" onclick="abc();">
+    </body>
+</html>

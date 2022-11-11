@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+<span class="empty_box1"></span>
+<aside class="qna_list_aside" id="QA_list">
+   {{QNALIST}}
+   <div class="qna_list_title">
+      <span>{{q_title}}</span>
+   </div>
+   <span class="empty_box2"></span>
+   <div class="qna_list_div">
+      <span class="qna_list_name">
+         <label>문의날짜</label>
+         <label>카테고리</label>
+         <label>제목</label>
+         <label>작성자</label>
+         <label>문의상태</label>
+      </span>
+      <ul class="qna_list_data" v-if="qlist" v-for="qd in qarray">
+         <li>{{qd.date}}</li>
+         <li>{{qd.cate}}</li>
+         <li>{{qd.subject}}</li>
+         <li>{{qd.name}}</li>
+         <li>{{qd.respon}}</li>
+      </ul>
+      <span class="qna_list_nodata" v-if="nolist">
+         <label>게시글이 존재하지 않습니다.</label>
+      </span>
+   </div>
+   <span class="empty_box2"></span>
+   <div class="qna_list_button">
+      <span @click="qna_register">{{q_p}}</span>
+   </div>
+</aside>
+<span class="empty_box1"></span>

@@ -1,0 +1,62 @@
+{
+    "members": [
+        {
+                "id": "ravi",
+                "name": "박예준",
+                "email": "ravi@gmail.com",
+                "area" : "서울",
+                "phone": "010-3234-1212"
+                
+        },
+       {
+                "id": "jiho08",
+                "name": "윤지호",
+                "email": "dbswlgh@nate.com",
+                "area" : "경기도",
+                "phone": "010-3637-0123"
+                
+        },
+       {
+                "id": "dominj1004",
+                "name": "윤지호",
+                "email": "domin1004@gmail.com",
+                "area" : "충북",
+                "phone": "010-2829-1116"
+                
+        },
+       {
+                "id": "sdoyunshappy",
+                "name": "서도윤",
+                "email": "sdoyunshappy@nate.com",
+                "area" : "서울",
+                "phone": "010-6752-0017"
+                
+        },
+       {
+                "id": "gunwoo1021",
+                "name": "김건우",
+                "email": "gunwoo1021@naver.com",
+                "area" : "제주",
+                "phone": "010-3137-1021"
+                
+        },
+       {
+                "id": "jangpull",
+                "name": "장연우",
+                "email": "jangpull@gmail.com",
+                "area" : "강원도",
+                "phone": "010-0231-3997"
+                
+        },
+       
+        {
+                "id": "kkangji79",
+                "name": "윤지호",
+                "email": "kkangji@naver.com",
+                "area" : "경기도",
+                "phone": "010-7554-9598"
+                
+        }
+               
+    ]
+}

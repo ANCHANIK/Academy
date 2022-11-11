@@ -1,0 +1,92 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>게시판 수정</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+
+<article class="board_config">
+    <form id="board_config" name="board_config" method="POST" action="#" onsubmit="" enctype="application/x-www-form-urlencoded">
+        <table class="board_config_table">
+            <caption class="board_config_caption">게시판 기본 설정</caption>
+            <tr class="board_config_option">
+                <th>TABLE</th>
+                <td>
+                    <input type="text" class="board_option_input" value="basic">
+                    <input type="button" class="board_config_btn" id="board_href_btn" value="게시판 바로가기">
+                    <input type="button" class="board_config_btn" id="board_list_btn" value="목록으로">
+                </td>
+            </tr>
+            <tr class="board_config_option">
+                <th>그룹</th>
+                <td>
+                    <select id="board_config_group">
+                        <option value="쇼핑몰">쇼핑몰</option>
+                        <option value="#">#</option>
+                        <option value="#">#</option>
+                    </select>
+                <input type="button" class="board_config_btn" id="board_config_group" value="동일그룹 게시판목록">      
+                </td>
+            </tr>
+            <tr class="board_config_option">
+                <th>게시판 제목</th>
+                <td>
+                    <input type="text" class="board_option_input big" id="board_config_title" value="공지사항">
+                </td>
+            </tr>
+            <tr class="board_config_option">
+                <th>모바일 게시판 제목</th>
+                <td>
+                    <label class="config_option_info">모바일에서 보여지는 게시판 제목이 다른 경우에 입력합니다. 입력이 없으면 기본 게시판 제목이 출력됩니다.</label>
+                    <input type="text" class="board_option_input big" id="board_config_mobile_title" value="공지사항">
+                </td>
+            </tr>
+            <tr class="board_config_option">
+                <th>접속기기</th>
+                <td>
+                    <label class="config_option_info">PC와 모바일 사용을 구분합니다</label>
+                    <select>
+                        <option value="PC_Mobile">PC와 모바일에서 모두 사용</option>
+                        <option value="#">#</option>
+                        <option value="#">#</option>
+                    </select>
+                </td>
+                <td class="board_config_option2">
+                    <input type="checkbox" id="config_device_group_ck">그룹적용
+                    <input type="checkbox" id="config_device_all_ck">전체적용
+                </td>
+            </tr>
+            <tr class="board_config_option">
+                <th>분류</th>
+                <td>
+                    <label class="config_option_info">분류와 분류사이는 | 로 구분하세요. (예:질문|답변) 첫자로 #은 입력하지 마세요. (예:#질문|#답변 [X])</label>
+                    <input type="text" class="board_option_input big"><input type="checkbox">사용
+                </td>
+                <td class="board_config_option2">
+                    <input type="checkbox" id="config_group_ck">그룹적용
+                    <input type="checkbox" id="config_all_ck">전체적용
+                </td>
+            </tr>
+            <tr class="board_config_option count">
+                <th>카운트 조정</th>
+                <td>
+                    <label class="config_option_info">현재 원글수 : <span>3</span>, 현재 댓글 수 : <span>0</span></label>
+                    <label class="config_option_info">게시판 목록에서 글의 번호가 맞지 않을 경우에 체크하십시오.</label>
+                    <input type="checkbox" id="count_reset" name="#">
+                </td>
+            </tr>
+        </table>
+        <div class="board_config_btns">
+            <button type="button" id="board_config_btn">확인</button>
+            <button type="button" id="board_delete_btn">목록</button>
+            <button type="button" id="board_copy_btn">게시판 복사</button>
+            <button type="button" id="board_href_btn">게시판 바로가기</button>
+            <button type="button" id="board_thumb_btn">게시판 썸네일 삭제</button>
+        </div>
+    </form>
+</article>

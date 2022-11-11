@@ -1,0 +1,53 @@
+<?php
+    $v = date("Ymdhis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="imagetoolbar" content="ko">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>코딩테스트 문제 1</title>
+    </head>
+    <body>
+        <input type="text" id="in">
+        <input type="button" value="계산" onclick="btn()">
+    </body>
+    <script>
+    // example 1
+
+function btn(){
+    var word = document.getElementById("in").value;
+    var number = "";
+    var string = "";
+    var result = "";
+    
+    var word_data = word.match(/[0-9,a-z]/g);
+    
+    for(let a in word){
+        if(isNaN(word[a]) == true){
+            string += word[a];
+        }
+        else{
+            number += word[a];
+        }
+        
+    }
+    for(var b=0; b<word.length; b++){
+        var index = b/2;
+        if(b%2==0){
+            result+=number[b/2];
+        }else {
+            result+=string[Math.floor(b/2)];
+        }
+    }
+    
+    if(number.length!=string.length+1 && number.length!=string.length){
+        result = null;
+    }
+    console.log(result)
+
+}
+</script>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML & CSS 3일차 중급 반응형 (transform2 + transition)</title>
+        <script src="../jq/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#btn").click(function(){
+                    var $a = "360";
+                    $("#box3").css("transform","rotate(" + $a + "deg)")
+                });
+
+                $("#box4").click(function(){
+                    $(this).css({
+                        "transform":"rotate(2900deg)",
+                        "background-color":"pink",
+                        "border-radius":"100px"
+                    });
+                    // background-color 색상을 서서히 변경시 transition을 이용해서 변경해야 됨
+                });
+
+                var $move;
+                $("#box5").click(function(){
+                    $("#box5").css({
+                        "transform":"translate(800px,0) rotate(360deg)",
+                    })
+                    setTimeout($.fn.move,1000)
+                });
+
+                $.fn.move = function(){
+                    $("#box5").css({
+                        "border-radius":"100%",
+                        "background-color":"purple"                           
+                    });
+                };
+
+
+                
+
+            });
+        </script>
+        <style>
+            .box{
+                width: 50px;
+                height: 50px;
+                background-color: slateblue;
+            }
+            .box:hover {
+                transform: translate(500px, 0);
+                transition: 1s;
+            }
+            .box2{
+                width: 50px;
+                height: 50px;
+                background-color: hotpink;
+                margin: 0 auto;
+            }
+            .box2:hover {
+                transform: rotate(360deg);
+                transition: 1s;
+                /* transition : 해당 시간에 맞춰서 애니메이션 효과를 적용함 (1s = 1초) */
+            }
+            .box3 {
+                width: 100px;
+                height: 100px;
+                background-color: indigo;
+                margin: 0 auto;
+                transition: 1s;
+            }
+            .box4 {
+                width: 100px;
+                height: 100px;
+                background-color: brown;
+                margin: 0 auto;
+                transition: 3s;
+            }
+            .box5 {
+                width: 300px;
+                height: 300px;
+                background-color:chartreuse;
+                transition: 5s;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+        <div class="box2"></div>
+
+        <br><br><br>
+
+        <div class="box3" id="box3"></div>
+        <input type="button" id="btn" value="작동">
+        <br><br><br>
+
+        <div class="box4" id="box4"></div>
+
+        <br><br><br>
+
+        <!--응용문제 1-->
+        <div class="box5" id="box5"></div>
+    </body>
+</html>

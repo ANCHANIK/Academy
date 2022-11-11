@@ -1,0 +1,89 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+$font_ng:'Noto Sans KR', sans-serif; 
+
+@mixin base {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+@mixin object($w, $h){
+   width: $w;
+   height: $h;
+}
+
+@mixin uli {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+
+@mixin trans($times){
+   transition-duration: $times + s;
+   transition-timing-function: ease;
+   transition-property: all;
+}
+
+@mixin flexs($w, $d, $j, $ai, $ac) {
+   flex-wrap: $w;
+   flex-direction: $d;
+   justify-content: $j;
+   align-items: $ai;
+   align-content: $ac;
+}
+
+body, html,div, span, label, section, aside, footer, header, nav, video, table, tr, td, th { 
+   margin: 0; padding: 0; border: 0; font-size: 100%; 
+   font-family: $font_ng;
+   -ms-text-size-adjust: 100%;      /* IE */
+   -webkit-text-size-adjust: 100%;  /* 크롬, 사파리 */
+   -o-text-size-adjust: 100%;       /* 오페라 */
+   -moz-text-size-adjust: 100%;     /* 파이어폭스 */
+}
+a { background-color: transparent; text-decoration: none; color: black;}
+a:active, a:hover { outline: 0; color: black; text-decoration: none;}
+a:visited { text-decoration: none;}
+input, textarea { outline: 0;}
+input:focus, textarea:focus { outline: 0;}
+button, input[type="button"], input[type="submit"], input[type="reset"], input[type="checkbox"], input[type="radio"]{
+   cursor: pointer;
+}
+legend { border: 0; padding: 0;}
+textarea { overflow: auto;}
+table { border-collapse: collapse; border-spacing: 0;}
+ul, ol { @include uli; }
+.clear { clear: both;}
+address, caption, cite, code, dfn, em, var { font-style: normal;}
+
+/* 탑 */
+.shop_top {
+   @include object(1200px , auto);
+   margin: 0 auto;   
+}
+.shop_banner{
+   @include object(1200px, auto);
+   margin: 0 auto;
+}
+.shop_product{
+   @include object(1200px, auto);
+   margin: 0 auto;
+}
+.shop_login{
+   @include object(1200px, auto);
+   margin: 0 auto;
+}
+.QA_list{
+   @include object(1200px, auto);
+   margin: 0 auto;
+}
+.QA_config{
+   @include object(1200px, auto);
+   margin: 0 auto;
+}
+.shop_footer{
+   @include object(1200px, auto);
+   margin: 0 auto;
+} 

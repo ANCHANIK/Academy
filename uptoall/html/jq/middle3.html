@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 1일차 - 중급 (setInterval)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+                var $timer;
+                var $node = 0;
+                // setInterval은 더블로 사용  X!!
+                // 더블 사용시 두 개의 setInterval이 작동된다. (setInterval : 지속적인 호출)
+                // 단, setTimeout은 더블로 사용하는 경우도 있다. (setTimeout : 한번만 호출)
+                // 배너 제작시 최초로 time이 작동할 경우는 setTimeout으로 적용하며,
+                // 그 외의 반복구간은 setInterval로 적용한다.
+
+                $.fn.btime = function(){
+                    
+                    $timer = setInterval(function(){
+                    $("#ulcss > li").css("background-color","black");
+                    //$node++;
+                    $node = $node + 1;
+                    if($node == 4){
+                        $node = 0;
+                    }
+                    $("#ulcss > li").eq($node).css("background-color","lightblue");
+                    },2000);
+
+                }
+                setTimeout($.fn.btime,2000);
+
+                $("#ulcss > li").bind({
+                    "click":function(){
+                        var $n = $(this).index();
+                        clearInterval($timer);  // setInterval 정지
+                        $("#ulcss > li").css("background-color","black");
+                        $("#ulcss > li").eq($node).css("background-color","lightblue");
+                        $node = $n;  // 사용자 클릭 후 전역변수 노드값에 반영시킴
+                    },
+                    "mouseleave":function(){
+                        setTimeout($.fn.btime,2000);
+                    }
+                })
+            });
+        </script>
+        <style>
+            .ulcss {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                width: auto;
+                height: 100px;
+            }
+            .ulcss > li {
+                width: 100px;
+                height: 100px;
+                background-color: black;
+                display: inline-block;
+                border-radius: 100%;
+                color: white;
+                font-size: 80px;
+            }
+            .ulcss > li:nth-child(1){
+                background-color: lightblue;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="ulcss" id="ulcss">
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </body>
+</html>

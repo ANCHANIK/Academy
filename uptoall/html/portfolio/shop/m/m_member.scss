@@ -1,0 +1,68 @@
+
+@charset "utf-8";
+body{
+    margin: 0; padding: 0;
+}
+@mixin objectsize($width,$height,$display,$position){
+    width: $width; height: $height; display: $display; position: $position;
+}
+.total{
+    margin: 0 auto;
+    min-width: 340px; max-width: 480px; height: auto; padding-left: 5px; padding-right: 5px;
+    padding-top: 10px; padding-bottom: 10px; border: 1px solid black; text-align: center;
+    display: block;
+}
+#mid{
+    @include objectsize(90%, 20px, block, relative);
+    text-indent: 5px; border-radius: 5px; margin: 0 auto;
+    border: 1px solid rgb(50, 90, 90); margin-bottom: 10px;
+}
+
+#mpass{
+    @include objectsize(90%, 20px, block, relative);
+    text-indent: 5px; border-radius: 5px; margin: 0 auto;
+    border: 1px solid rgb(50, 90, 90);  margin-bottom: 10px;
+}
+#mname{
+    @include objectsize(90%, 20px, block, relative);
+    text-indent: 5px; border-radius: 5px; margin: 0 auto;
+    border: 1px solid rgb(50, 90, 90);  margin-bottom: 10px;
+}
+#memail{
+    @include objectsize(90%, 20px, block, relative);
+    text-indent: 5px; border-radius: 5px; margin: 0 auto;
+    border: 1px solid rgb(50, 90, 90);  margin-bottom: 10px;
+}
+#mhp{
+    @include objectsize(90%, 20px, block, relative);
+    text-indent: 5px; border-radius: 5px; margin: 0 auto;
+    border: 1px solid rgb(50, 90, 90);  margin-bottom: 10px;
+}
+#mnick{
+    @include objectsize(90%, 20px, block, relative);
+    text-indent: 5px; border-radius: 5px; margin: 0 auto;
+    border: 1px solid rgb(50, 90, 90);  margin-bottom: 10px;
+}
+
+.mpass_span{
+    width: 90%; height: auto; display: none;
+    text-align: center;margin: 0 auto;
+}
+.mpass_keybox{
+    width: 90%; height: 200px; background-color: #ccc; border-radius: 5px;
+    display: flex; justify-content: center; color: black; align-items: center;
+    flex-flow: wrap; margin: 0 auto;
+    & > label{
+        width: 33%; height: 30px;
+    }
+     
+}
+#mpass_btn{
+    width: 100px; height: 30px; margin-bottom: 10px; background-color: rgb(50, 90, 90); color: white;
+    border: none;
+}   
+
+#btn{
+    width: 100px; height: 30px; margin-bottom: 10px; background-color: rgb(50, 90, 90); color: white;
+    border: none;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <title>Ajax 4일차 - Ajax POST 통신(인증번호 발송 및 검토)</title>
+        <script>
+            function abc(){
+                var tel1,tel2,tel3;
+                tel1 = document.getElementById("tel1").value;
+                tel2 = document.getElementById("tel2").value;
+                tel3 = document.getElementById("tel3").value;
+                const tel = "phone=" + tel1 + tel2 + tel3;
+                console.log(tel)
+                postajax(tel);
+            }
+
+            let tel_data;  // ajax 통신을 하고자 하는 변수
+            var ncode = "";  // 난수 4자리 코드
+
+            function postajax(data){
+                function windowck(){
+                    if(window.XMLHttpRequest){
+                        return new XMLHttpRequest();
+                    }
+                }
+                function dataopen(){
+                    if(tel_data.readyState == XMLHttpRequest.DONE && tel_data.status == 200){
+                        console.log(this.response);
+                        // 코드번호 : error(데이터 오류), number_error(전화번호 오류), 난수(4자리)
+                        // 비동기 통신때는 코드번호가 반드시 있다. 코드번호는 백엔드한테 확실하게 말해서 달라고 해야됨
+                        var code = this.response;
+                        if(code == "number_error"){
+                            alert("올바른 전화번호가 아닙니다.");
+                        }
+                        else if(code == "error"){
+                            console.log("데이터 오류");
+                        }
+                        else{
+                            ncode = code;  // backend가 준 난수 4자리를 전역변수로 이관함
+                            console.log(code)
+                            document.getElementById("security").style.display = "block";
+                        }
+                    }
+                }
+                tel_data = windowck();
+                tel_data.onreadystatechange = dataopen;
+                tel_data.open("POST","./index13.php",true);
+                tel_data.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                tel_data.send(data);
+            }
+
+            function certify(){  // 인증번호 확인 파트
+                let usercode = document.getElementById("se").value;
+                if(ncode == usercode){
+                    alert("인증번호가 확인되었습니다.");
+                    location.href = "http://www.naver.com";
+                }
+                else{
+                    alert("인증번호를 확인해주세요.")
+                }
+            }
+        </script>
+        <style>
+            .security {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            응용문제1. index13.php 로 ajax post로 전화번호를 전송하라.
+            단, 전송시 name값은 phone로 전송하라. (숫자만 전송)
+
+            ajax put, delete 사용하는 경우? (front-end의 실력이 확인 될때만 사용함)
+        -->
+        <input type="tel" id="tel1" maxlength="3" size="4"> - <input type="tel" id="tel2" maxlength="4" size="5"> - <input type="tel" id="tel3" maxlength="4" size="5">
+        <input type="button" value="인증번호발송" onclick="abc()">
+        <div class="security" id="security">
+            <input type="text" name="se" id="se" maxlength="4">
+            <input type="button" value="인증확인" onclick="certify()">
+        </div>
+    </body>
+</html>

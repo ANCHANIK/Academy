@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 2일차 초급 (JavaScript & jQuery)</title>
+        <script src="../jq/jquery.js"></script>
+        <script>
+            //Jquery
+            $(document).ready(function(){
+
+                /*
+                $("#btn").click(function(){
+
+                    var $name = $("#name").val();
+                    var $sel = $("#sel").val();
+
+                    if($name == ""){
+                        alert("사원명을 입력하세요.");
+                        if($name != "홍길동"){
+                            return false;
+                        }
+                        return false;
+                    }
+
+                    else if($sel == ""){
+                        alert("정확한 부서를 선택해주세요.");
+                        if($sel != "IT"){
+                            return false;
+                        }
+                        return false;
+                    }
+                    else{
+                        $("#fm").submit();
+                        return true;
+                        [추가 방식 1]
+                        var $name = $("#name").val();
+                        var $sel = $("#sel").val();
+                        location.href="./rejava5.php?mids=" + $name + "&mpart=" + $sel;
+                        [추가 방식 2]
+                        $("#fm").attr("method","GET");
+                        $("#fm").attr("action","rejava5.php");
+                        $("#fm").submit();
+                    }
+                        
+                });
+                */
+            });
+
+            //Javascript
+            function abc(){
+                var name = document.getElementById("name");
+                var sel = document.getElementById("sel");
+                
+                if(name.value == ""){
+                    alert("사원명을 입력하세요.");
+                    // return false; submit이 아니기 때문에 return false; 쓸 필요 없음.
+                    name.focus();
+                }
+
+                else if(sel.value == ""){
+                    alert("부서를 선택해 주세요")
+                    sel.focus();
+                }
+
+                else{
+                    document.getElementById("fm").method="GET";
+                    document.getElementById("fm").action="rejava5.php";
+                    document.getElementById("fm").submit();
+                }
+            }
+
+
+
+        </script>
+    </head>
+    <!-- 응용문제5.
+    내부시스템 인트라넷이며, 해당 사원명과 부서를 선택 후 검색 버튼을 클릭시
+    해당 사원이 해당 부서 근무하는 유/무를 검토하는 프로그램 코드를 제작하라
+    정상 데이터 : 사원명 : 홍길동, 부서 : IT
+    부서 데이터 값 : IT,DESIGN,MD,MT
+    name 값 : 사원명(mids), 부서선택(mpart)
+    전송 경로 : rejava5.php, method=get -->
+    
+    <body>
+        <!-- <form id="fm" method="GET" action="./rejava5.php" enctype="application/x-www-form-urlencoded">
+            <p>[검색할 사원명과 부서를 선택하세요]</p>
+            사원명 : <input type="text" id="name" name="mids"><br>
+            부서명 : 
+            <select id="sel" name="mpart">
+                <option value="">[부서선택]</option>
+                <option value="IT">IT팀</option>
+                <option value="DESIGN">Design팀</option>
+                <option value="MD">MD팀</option>
+                <option value="MT">MT팀</option>
+            </select><br>
+            <input type="button" value="검색" id="btn">
+        </form> -->
+
+        <form id="fm" enctype="application/x-www-form-urlencoded">
+            <p>[검색할 사원명과 부서를 선택하세요]</p>
+            사원명 : <input type="text" id="name" name="mids"><br>
+            부서명 : 
+            <select id="sel" name="mpart">
+                <option value="">[부서선택]</option>
+                <option value="IT">IT팀</option>
+                <option value="DESIGN">Design팀</option>
+                <option value="MD">MD팀</option>
+                <option value="MT">MT팀</option>
+            </select><br>
+            <input type="button" value="검색" onclick="abc()">
+        </form>
+    </body>
+</html>

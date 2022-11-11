@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 8일차 - 초급코드 시간(GET 파라이터 값으로 던지기1)</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js?v=3"></script>
+        <script>
+            $(document).ready(function(){
+
+                $("#btn").click(function(){
+                    $("#f").submit();
+                    
+                });
+
+
+            });
+        </script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <!--파라미터 : http://naver.com?mid= -->
+        <!--
+        name값이 1개 이상일 경우 파라미터는 & 기호와 함께 추가되어
+        url에 표시 됩니다.
+        -->
+        <form id="f" method="GET" action="./index32.html">
+            <input type="text" name="mid" id="a">
+            <input type="text" name="mname" id="b">
+            <input type="text" name="mid3" id="c">
+            <input type="text" name="memail" id="d">  <!--%40 = @ -->
+            <input type="button" value="확인" id="btn">
+        </form>
+    </body>
+</html>

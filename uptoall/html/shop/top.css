@@ -1,0 +1,74 @@
+.top_menus {
+  width: 1200px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.top_menus > .top1 {
+  width: 100%;
+  height: 70px;
+}
+
+.top_menus > .top1 > .top_banner {
+  width: auto;
+  height: inherit;
+  cursor: pointer;
+}
+
+.top_menus > .top1 > .top_banner > li {
+  width: 490px;
+  height: inherit;
+  float: left;
+}
+
+.top_menus > .top1 > .top_banner > li:nth-of-type(3) {
+  width: 220px;
+  position: relative;
+}
+
+.top_menus > .top1 > .top_banner > li:nth-of-type(3) > .close {
+  height: 70px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  line-height: 70px;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.top_menus > .top2 {
+  width: 100%;
+  height: 30px;
+  background-color: #ccc;
+  position: relative;
+}
+
+.top_menus > .top2 > .topmenu_left {
+  position: absolute;
+  font-size: 12px;
+}
+
+.top_menus > .top2 > .topmenu_left > li {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.top_menus > .top2 > .topmenu_right {
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+}
+
+.top_menus > .top2 > .topmenu_right > li {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-right: 10px;
+}
+/*# sourceMappingURL=top.css.map */

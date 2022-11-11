@@ -1,0 +1,612 @@
+@charset "UTF-8";
+@import "./config.scss";
+
+.order_title {
+    @include object(100%, 100px, block, "");
+    margin-top: 70px;
+    border-bottom: 1px solid #aaa;
+    & > .order_title_div {
+        @include object(1174px, 100px, block, "");
+        @include fonts(20px, 600, black, 100px);
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+.user_order_list {
+    @include object(1174px, 500px, flex, "");
+    margin: 0 auto;
+    align-items: center;
+    & > .user_order_list_div {
+        @include object(100%, 450px, block, "");
+        & > .user_order_list_info_title {
+            @include object(100%, 50px, block, "");
+            border-bottom: 1px solid dimgray;
+            & > label {
+                @include fonts(15px, 500, black, 50px);
+                margin-left: 10px;
+            }
+        }
+        & > .user_order_list_info {
+            @include object(100%, 130px, block, "");
+            & > ul:nth-of-type(1) {
+                @include object(100%, 40px, flex, "");
+                @extend %ulol;
+                border-bottom: 1px solid #aaa;
+                & > li {
+                    @include object("", inherit, block, "");
+                    @include fonts(13px, 400, dimgray, 40px);
+                    text-align: center;
+                    &:nth-of-type(1) {
+                        width: 26%;
+                    }
+                    &:nth-of-type(2) {
+                        width: 12%;
+                    }
+                    &:nth-of-type(3) {
+                        width: 12%;
+                    }
+                    &:nth-of-type(4) {
+                        width: 12%;
+                    }
+                    &:nth-of-type(5) {
+                        width: 12%;
+                    }
+                    &:nth-of-type(6) {
+                        width: 26%;
+                    }
+                }
+            }
+            & > ul:nth-of-type(2) {
+                @include object(100%, 90px, flex, "");
+                @extend %ulol;
+                & > li {
+                    @include object("", inherit, block, "");
+                    &:nth-of-type(1) { // 상품/옵션 정보
+                        width: 26%;
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: space-around;
+                        align-items: center;
+                        & > span {
+                            @include object("", 70px, block, "");
+                            &:nth-of-type(1) { // 사진
+                                width: 70px;
+                                cursor: pointer;
+                                & > img {
+                                    width: 100%;
+                                    object-fit: contain;
+                                }
+                            }
+                            &:nth-of-type(2) { // 옵션 정보
+                                width: 180px;
+                                display: flex;
+                                flex-flow: column nowrap;
+                                justify-content: center;
+                                & > label:nth-of-type(1){
+                                    @include fonts(13px, 500, black, "")
+                                }
+                                & > label:nth-of-type(2){
+                                    @include fonts(12px, 300, black, "")
+                                }
+                            }
+                        }
+                    }
+                    &:nth-of-type(2) { // 수량
+                        width: 12%;
+                        & > label {
+                            @include fonts(14px, 300, dimgray, 90px);
+                            text-align: center;
+                        }
+                    }
+                    &:nth-of-type(3) { // 상품 금액
+                        width: 12%;
+                        & > label {
+                            @include fonts(14px, 500, dimgray, 90px);
+                            text-align: center;
+                        }
+                    }
+                    &:nth-of-type(4) { // 할인/적립
+                        width: 12%;
+                        & > label {
+                            @include fonts(14px, 500, dimgray, 90px);
+                            text-align: center;
+                        }
+                    }
+                    &:nth-of-type(5) { // 합계금액
+                        width: 12%;
+                        & > label {
+                            @include fonts(14px, 500, dimgray, 90px);
+                            text-align: center;
+                        }
+                    }
+                    &:nth-of-type(6) { // 배송비
+                        width: 26%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        & > span {
+                            text-align: center;
+                            & > label {
+                                @include fonts(13px, 400, dimgray, 20px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        & > .user_order_list_payment_title {
+            @include object(100%, 50px, flex, "");
+            align-items: center;
+            padding-left: 10px;
+            box-sizing: border-box;
+            & > label {
+                @include fonts(14px, 500, dimgray, "");
+                text-decoration: underline;
+                cursor: pointer;
+                &:nth-of-type(1) {
+                    @include object(25px, 25px, block, "");
+                    content: url('../order/shopping_cart.svg');
+                }
+            }
+
+        }
+        & > .user_order_list_payment {
+            @include object(100%, 130px, block, "");
+            border: 1px solid #aaa;
+            & > span {
+                @include object(100%, 50%, flex, "");
+                justify-content: flex-end;
+                &:nth-of-type(1){
+                    & > ul {
+                        @include object(55%, 100%, flex, "");
+                        @extend %ulol;
+                        & > li {
+                            @include object("", 100%, block, "");
+                            @include fonts(14px, 400, gray, 65px);
+                            &:nth-of-type(1){
+                                width: 15%;
+                                text-align: center;
+                            }
+                            &:nth-of-type(2){
+                                @include fonts(15px, 600, gray, 65px);
+                                width: 25%;
+                                text-align: center;
+                            }
+                            &:nth-of-type(3){
+                                width: 10%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                & > span {
+                                    @include object(30px, 30px, block, relative);
+                                    & > img {
+                                        width: 100%;
+                                        object-fit: contain;
+                                        position: absolute;
+                                    }
+                                }
+                            }
+                            &:nth-of-type(4){
+                                width: 25%;
+                                display: flex;
+                                justify-content: center;
+                                
+                                & > span {
+                                    @include fonts(14px, 400, gray, "");
+                                    &:nth-of-type(1){
+                                        margin-right: 10px;
+                                    }
+                                }
+                            }
+                            &:nth-of-type(5){
+                                width: 10%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                & > span {
+                                    @include object(30px, 30px, block, relative);
+                                    & > img {
+                                        width: 100%;
+                                        object-fit: contain;
+                                        position: absolute;
+                                    }
+                                }
+                            }
+                            &:nth-of-type(6){
+                                @include fonts(18px, 600, black, 65px);
+                                width: 20%;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+                &:nth-of-type(2){
+                    & > ul {
+                        @include object(20%, 100%, flex, "");
+                        @extend %ulol;
+                        flex-flow: row nowrap;
+                        justify-content: flex-end;
+                        align-items: center;
+                        & > li {
+                            @include fonts(14px, 400, rgb(255, 124, 146), "");
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.user_order_info {
+    @include object(1174px, 400px, block, "");
+    margin: 0 auto;
+    & > .user_order_info_div {
+        @include object(100%, auto, block, "");
+        & > span {
+            @include object (100%, 50px, block, "");
+            @include fonts(15px, 500, dimgray, 50px);
+            margin-left: 10px;
+        }
+        & > ul {
+            @include object(100%, auto, block, "");
+            @extend %ulol;
+            border-top: 2px solid #aaa;
+            & > li {
+                @include object(100%, 45px, flex, "");
+                border-bottom: 1px solid #ccc;
+                & > span:nth-of-type(1) {
+                    @include fonts(13px, 300, gray, 45px);
+                    width: 20%;
+                    text-indent: 10px;
+                    background-color: rgb(235, 235, 235);
+                }
+                & > span:nth-of-type(2) {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+.user_delivery_info {
+    @include object(1174px, 500px, block, "");
+    margin: 0 auto;
+    & > .user_delivery_info_div {
+        @include object(100%, auto, block, "");
+        & > span {
+            @include object (100%, 50px, block, "");
+            @include fonts(15px, 500, dimgray, 50px);
+            margin-left: 10px;
+        }
+        & > ul {
+            @include object(100%, auto, block, "");
+            @extend %ulol;
+            border-top: 2px solid #aaa;
+            & > li {
+                @include object(100%, 45px, flex, "");
+                border-bottom: 1px solid #ccc;
+                & > span:nth-of-type(1) {
+                    @include fonts(13px, 300, gray, 45px);
+                    width: 20%;
+                    text-indent: 10px;
+                    background-color: rgb(235, 235, 235);
+                }
+                & > span:nth-of-type(2) {
+                    display: flex;
+                    align-items: center;
+                    & > label {
+                        margin-top: 5px;
+                    }
+                }
+                &:nth-of-type(1) > span:nth-of-type(2) {
+                    width: 600px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-content: center;
+                    & > label {
+                        margin-top: -2px;
+                    }
+                }
+                &:nth-of-type(3) {
+                    height: 115px;
+                    & > span:nth-of-type(1){
+                        line-height: 130px;
+                    }
+                    & > span:nth-of-type(2){
+                        display: flex;
+                        flex-flow: column nowrap;
+                        align-items: flex-start;
+                        & > label:nth-of-type(1) {
+                            display: flex;
+                            flex-flow: row nowrap;
+                            justify-content: flex-start;
+                        }
+                        & > label:nth-of-type(2) {
+                            display: flex;
+                            flex-flow: row nowrap;
+                        }
+                        & > label:nth-of-type(3) {
+                            color: steelblue;
+                            line-height: 25px;
+                            & > input {
+                            margin-left: 10px;
+                            }
+                        }
+                    }
+                }
+                &:nth-of-type(7) > span:nth-of-type(2) {
+                    display: flex;
+                    & > label {
+                        margin-top: -2px;
+                        margin-left: 5px;
+                    }
+                    & > span {
+                        @include fonts(11px, 300, gray, "");
+                        margin-left: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.user_order_pay_method {
+    @include object(1174px, auto, block, "");
+    margin: 0 auto;
+    margin-top: 50px;
+    & > .user_order_pay_method_div {
+        @include object(100%, auto, block, "");
+        & > span:nth-of-type(1) {
+            @include object (100%, 50px, block, "");
+            @include fonts(15px, 500, dimgray, 50px);
+            margin-left: 10px;
+        }
+        & > span:nth-of-type(2) {
+            @include object(100%, 40px, flex, "");
+            background-color: rgb(235, 235, 235);
+            border-top: 2px solid #aaa;
+            & > label {
+                margin-left: 15px;
+                margin-top: 9px;
+            }
+        }
+        & > span:nth-of-type(3){
+            @include object(100%, auto, block, "");
+            & > .nomal_pay {
+                @include object(100%, auto, none, "");
+                @extend %ulol;
+                & > li {
+                    @include object(100%, "", block, "");
+                    &:nth-of-type(1) {
+                        height: 45px;
+                        border-top: 1px solid #aaa;
+                        & > span {
+                            @include object(100%, 20px, block, "");
+                            @include fonts(12px, 300, gray, "");
+                            margin-left: 10px;
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        height: 70px;
+                        border-top: 1px solid #aaa;
+                        display: flex;
+                        & > span {
+                            @include object(40%, 45px, flex, "");
+                            align-items: center;
+                            & > div {
+                                margin-left: 10px;
+                                &:nth-of-type(1) {
+                                    @include fonts(13px, 500, rgb(67, 67, 67), "");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            & > .credit_pay {
+                @include object(100%, auto, none, "");
+                @extend %ulol;
+                & > li {
+                    @include object(100%, "", block, "");
+                    &:nth-of-type(1) {
+                        height: 45px;
+                        border-top: 1px solid #aaa;
+                        & > span {
+                            @include object(100%, 20px, block, "");
+                            @include fonts(12px, 300, gray, "");
+                            margin-left: 10px;
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        height: 70px;
+                        border-top: 1px solid #aaa;
+                        display: flex;
+                        & > span {
+                            @include object(40%, 45px, flex, "");
+                            align-items: center;
+                            & > div {
+                                margin-left: 10px;
+                                &:nth-of-type(1) {
+                                    @include fonts(13px, 500, rgb(67, 67, 67), "");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            & > .phone_pay {
+                @include object(100%, auto, none, "");
+                @extend %ulol;
+                & > li {
+                    @include object(100%, "", block, "");
+                    &:nth-of-type(1) {
+                        height: 45px;
+                        border-top: 1px solid #aaa;
+                        & > span {
+                            @include object(100%, 20px, block, "");
+                            @include fonts(12px, 300, gray, "");
+                            margin-left: 10px;
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        height: 70px;
+                        border-top: 1px solid #aaa;
+                        display: flex;
+                        & > span {
+                            @include object(40%, 45px, flex, "");
+                            align-items: center;
+                            & > div {
+                                margin-left: 10px;
+                                &:nth-of-type(1) {
+                                    @include fonts(13px, 500, rgb(67, 67, 67), "");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & > .user_order_cash_receipt {
+        @include object(100%, auto, block, "");
+        margin-bottom: 30px;
+        & > span:nth-of-type(1) {
+            @include object(100%, 40px, flex, "");
+            background-color: rgb(235, 235, 235);
+            border-top: 1px solid #aaa;
+            border-bottom: 1px solid #aaa;
+            & > label {
+                margin-left: 15px;
+                margin-top: 9px;
+                &:nth-of-type(1) {
+                    @include fonts(13px, 600, rgb(67, 67, 67), "");
+                }
+            }
+        }
+        & > span:nth-of-type(2) {
+            @include object(100%, 120px, none, "");
+            margin-top: 10px;
+            border: 1px solid #aaa;
+        }
+    }
+}
+
+.final_payment {
+    @include object(1174px, 80px, block, "");
+    margin: 0 auto;
+    & > div {
+        @include object(100%, inherit, flex, "");
+        border: 1px solid #aaa;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        & > span {
+            @include object("", 100%, block, "");
+            line-height: 80px;
+            text-align: center;
+            &:nth-of-type(1){
+                @include fonts(12px, 600, rgb(67, 67, 67), "");
+                width: 100px;
+            }
+            &:nth-of-type(2){
+                @include fonts(17px, 600, rgb(220, 20, 20), "");
+                width: 160px;
+                margin-right: 20px;
+            }
+        }
+    }
+}
+
+.pay_check_complete {
+    @include object(1174px, 200px, flex, "");
+    margin: 0 auto;
+    margin-bottom: 50px;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    & > div {
+        @include object(50%, 50px, flex, "");
+        justify-content: center;
+        align-items: center;
+        &:nth-of-type(1) {
+            & > span {
+                @include object(auto, 20px, block, "");
+                & > label {
+                    @include object(inherit, inherit, flex, "");
+                    @include fonts (11px, 600, rgb(67, 67, 67), "");
+                    & > span {
+                        @include fonts (11px, 600, crimson, "");
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+        &:nth-of-type(2) {
+            & > span {
+                @include object(200px, 35px, block, "");
+                @include fonts(12px, 500, white, 35px);
+                text-align: center;
+                background-color: rgb(31, 31, 55);
+                cursor: pointer;
+                &:hover{
+                    background-color: rgb(20, 20, 38);
+                }
+            }
+        }
+    }
+}
+
+.input1 {
+    @include object(350px, 35px, block, "");
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    margin-left: 10px;
+    text-indent: 10px;
+}
+.input2 {
+    @include object(100px, 35px, block, "");
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    margin-left: 10px;
+    text-indent: 10px;
+}
+.input3 {
+    @include object(200px, 35px, block, "");
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    margin-left: 10px;
+    text-indent: 10px;
+}
+.input4 {
+    @include object(800px, 35px, block, "");
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    margin-left: 10px;
+    text-indent: 10px;
+}
+.btn_css {
+    @include object(150px, 35px, block, "");
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    background-color: white;
+    margin-left: 10px;
+    color: gray;
+    cursor: pointer;
+    &:hover {
+        background-color: rgb(218, 218, 218);
+    }
+}
+.selects {
+    @include object(150px, 35px, block, "");
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    margin-left: 10px;
+}
+.selects_bank {
+    @include object(250px, 35px, block, "");
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    margin-left: 10px;
+}

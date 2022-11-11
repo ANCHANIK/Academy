@@ -1,0 +1,71 @@
+<meta charset="utf-8">
+<script src="./jq/external/jquery/jquery.js"></script>
+<script>
+    $(function(){
+        $.ajax({
+            url:"./json/hello_menu.json",
+            cache:false,
+            type:"GET",
+            dataType:"JSON",
+            success:function($menu){
+                $.fn.$mainmenu($menu)
+            },error:function(){
+                console.log("DATA ERROR")
+            }
+        });
+        $.fn.$mainmenu = function($menu){
+            //console.log($menu);
+            $.map($menu,function($m_date,$m_node){
+                console.log($m_date)
+            });
+            
+        }
+    });
+</script>
+<style>
+    body{margin: 0; padding: 0;}
+    ul,ol{list-style: none; }
+.menubar{width: 1200px; height: 70px; background-color: white; margin: 0 auto;}
+.main_menu{width: 690px; height: inherit; margin: 0 auto;}
+.main_menu>li{width: 115px; height: 70px; line-height: 70px; text-align: center; background-color: lavender;}
+</style>
+<div class="menubar">
+    <ul id="main_menu">
+        <li>강아지
+            <ol class="sub_menu">
+                <li>강아지</li>
+                <li>고양이</li>
+            </ol>
+        </li>
+        <li>고양이
+            <ol class="sub_menu" id="sub_menu">
+                <li>강아지</li>
+                <li>고양이</li>
+            </ol>
+        </li>
+        <li>장난감
+            <ol class="sub_menu">
+                <li>강아지</li>
+                <li>고양이</li>
+            </ol>
+        </li>
+        <li>펫사료
+            <ol class="sub_menu">
+                <li>강아지</li>
+                <li>고양이</li>
+            </ol>
+        </li>
+        <li>미용용품
+            <ol class="sub_menu">
+                <li>강아지</li>
+                <li>고양이</li>
+            </ol>
+        </li>
+        <li>기획전
+            <ol class="sub_menu">
+                <li>강아지</li>
+                <li>고양이</li>
+            </ol>
+        </li>
+    </ul>
+</div> 

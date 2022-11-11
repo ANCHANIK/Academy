@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 2일차 - Vue 사용자 입력값 실시간 출력 형태 [응용파트]</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <input v-bind:type="t" v-model="msg"> <!--사용자가 입력한 value 값-->
+            <select v-model="msg">
+                <option value="반바지">반바지</option>
+                <option value="티셔트">티셔츠</option>
+                <option value="긴바지">긴바지</option>
+            </select>
+            <span>{{msg}}</span> <!--사용자가 입력한 value 값을 바로 출력-->
+        </section>
+    </body>
+    <script>
+        let a = new Vue({
+            el:"#box",
+            data:{
+                t:"text",
+                msg:null,
+            },
+            methods:{
+
+            }
+        });
+    </script>
+</html>

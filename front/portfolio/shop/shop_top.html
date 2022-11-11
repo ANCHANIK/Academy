@@ -1,0 +1,95 @@
+<meta charset="UTF-8">
+<section class="top_ad_section">
+    <aside class="top_ad_aside">
+        <div class="top_ad_div">
+            <img src="./banner/top_event_banner.jpg" title="쿠폰증정">
+        </div>
+    </aside>
+</section>
+<section class="top_serve_menu_section">
+    <aside class="top_serve_menu_asdie">
+        <div class="top_serve_menu_ensearch">
+            <span>
+                <label>
+                    <img src="./image/book_icon.png">
+                </label>
+                <label id="mysearch">즐겨찾기</label>
+            </span>
+            <span>고객센터
+                <a href="tel:02-0123-4567">02-0123-4567</a>
+            </span>
+        </div>
+        <div class="top_serve_menu_links">
+            <ul class="top_serve_menu_links_ul">
+                <li id="gologin">로그인</li>
+                <li id="logout">로그아웃</li>
+                <span id="loginspan">|</span>
+                <li id="membership_join">회원가입</li>
+                <span>|</span>
+                <li id="mypage">마이페이지</li>
+                <span>|</span>
+                <li id="mycart">장바구니<span></span></li>
+                <span>|</span>
+                <li>고객센터
+                    <a href="tel:02-0123-4567"></a>
+                </li>
+            </ul>
+            <div class="top_serve_menu_links_point" id="point_move">
+                <div></div>
+                <span>2,000P</span>
+            </div>
+        </div>
+    </aside>
+</section>
+<form name="fm_search" onsubmit="return search_btn()">
+    <section class="top_logo_section">
+        <aside class="top_logo_aside">
+            <div class="top_logo_ad">
+                <img src="./image/gift_banner.jpg" title="사은품 증정">
+            </div>
+            <div class="top_logo_title">
+                <a href="./index.html"><img src="./ico/logo.png" title="한우사랑"></a>
+            </div>
+            <div class="top_logo_search">
+                <span class="top_logo_search_input">
+                    <label>
+                        <input type="text" id="searchwd" name="searchwd" autocomplete="off" placeholder="검색란을 입력해 주세요">
+                    </label>
+                    <label>
+                        <input type="submit" value="">
+                        <img src="./image/outline_search_black_48dp.png" title="검색">
+                    </label>
+                </span>
+                <span class="top_logo_search_ad" id="top_logo_search_ad">
+                    <label>
+                        <ul id="notice_ul">
+                        </ul>
+                    </label>
+                    <label>
+                        <div><img src="./image/btn_top_notice_prev.png" title="공지사항" id="notice_prev"></div>
+                        <div><img src="./image/btn_top_notice_next.png" title="공지사항" id="notice_next"></div>
+                    </label>
+                </span>
+            </div>
+        </aside>
+    </section>
+</form>
+<script>
+    function login_infodata(shop_id){
+        if(shop_id == ""){
+            document.getElementById("gologin").style.display = "block";
+            document.getElementById("logout").style.display = "none";
+            document.getElementById("membership_join").style.display = "block";
+            document.getElementById("loginspan").style.display = "block";
+            document.getElementById("point_move").style.display = "block";
+        }
+        else{
+            document.getElementById("gologin").style.display = "none";
+            document.getElementById("logout").style.display = "block";
+            document.getElementById("membership_join").style.display = "none";
+            document.getElementById("loginspan").style.display = "none";
+            document.getElementById("point_move").style.display = "none";
+        }
+    }
+    login_infodata(shop_id);
+</script>

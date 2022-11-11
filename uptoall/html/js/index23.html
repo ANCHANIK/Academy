@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 4일차 - html 추가 태그 연결2</title>
+        <script>
+            function abc(){
+                document.getElementById("tel").value = document.getElementById("cp").value;  // 프린이
+            }
+            function ppp(z){
+                if(z=="my"){
+                    document.getElementById("mail2").readOnly=false;  // readOnlu : 읽기전용 true, false 통제할 수 있다.
+                }
+                else{
+                    document.getElementById("mail2").value = z;    // 좀 쓸줄 아는 사람
+                    document.getElementById("mail2").readOnly=true;   
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!-- onchange : 해당 항목을 선택하게 되면, 변경된 값이 바로 적용되로록 하는 속성 값 -->
+        <select id="cp" onchange="abc()"> 
+            <!--
+            name="" : 백엔드가 가져갈것. 
+            select에 들어갈 value 값은 백엔드가 정해줄 것
+            -->
+            <!--
+                option에는 필수로 value값이 무조건 적용되어야 한다.
+                value = "" 는 값이 없다라는 형식이다.
+            -->
+            <option value="">[통신사 선택]</option>
+            <option value="SKT">SKT</option>
+            <option value="KT">KT</option>
+            <option value="LGT">LGT</option>
+            <option value="알뜰폰">알뜰폰</option>
+        </select>
+        <input type="text" id="tel" readonly>
+        <!-- <input type="button" value="적용" onclick="abc()"> -->
+        <br><br><br><br>
+
+        <form>
+            <input type="text" id="mail">@
+            <input type="text" id="mail2" readonly>
+            <select id="mails" onchange="ppp(this.value);">
+                <!-- this.value : 해당 태그에 있는 value 를 직접 받아서 해당 함수로 보냄 -->
+                <option value="">[메일주소 선택]</option>
+                <option value="nate.com" checked>nate.com</option>
+                <option value="naver.com">naver.com</option>
+                <option value="gmail.com">gmail.com</option>
+                <option value="daum.net">daum.net</option>
+                <option value="my">직접입력</option>
+            </select>
+        </form>
+    </body>
+</html>

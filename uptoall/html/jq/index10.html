@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 2일차 - Table DOM 연습</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                var $n = 4;
+                $("#box1").click(function(){
+                    var $node = $(".ta").length;
+                    //console.log($node);
+                    if($n > 1){
+                        $n = $n - 1;
+                        $(".ta").eq($n).fadeOut();
+                    }
+                    else if($n >= 1){
+                        alert("삭제할 게시물이 없어.")
+                    }
+                    console.log($n);
+                });
+                $("#box2").click(function(){
+                    if($n >= 4){
+                        alert("보여줄건 이것뿐,,,");
+                    }
+                    else{
+                        $(".ta").eq($n).fadeIn();
+                        $n = $n + 1;
+                    }
+
+                });
+
+            });
+        </script>
+        <style>
+            body {margin: 0; padding: 0;}
+            span,label,main {display: block;}
+            .tt {
+                width: 400px;
+                height: 200px;
+            }
+            .table{
+                text-align: center;
+                line-height: 30px;
+                font-size: 13px;
+            }
+            .ta > td{
+                width: 100px;
+            }
+            .btn {
+                width: 100%;
+                height: 40px;
+                text-align: center;
+                margin-top:20px;
+            }
+            .box {
+                width: 100px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                background-color: black;
+                color: white;
+                font-size: 13px;
+                display: inline-block;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="tt">
+        <table border="1" cellspacing="0" cellpadding="0" class="table">
+            <tr class="ta" id="ta0">
+                <td>번호</td>
+                <td>제목</td>
+                <td>글쓴이</td>
+                <td>추천수</td>
+            </tr>
+            <tr class="ta" id="ta0">
+                <td>1</td>
+                <td>공지사항</td>
+                <td>이은미</td>
+                <td>20</td>
+            </tr>
+            <tr class="ta" id="ta0">
+                <td>2</td>
+                <td>시스템 점검</td>
+                <td>이시우</td>
+                <td>30</td>
+            </tr>
+            <tr class="ta" id="ta0">
+                <td>3</td>
+                <td>결제 시스템</td>
+                <td>박재희</td>
+                <td>100</td>
+            </tr>
+        </table>
+        <label class="btn">
+            <span class="box" id="box1">게시물 삭제</span>
+            <span class="box" id="box2">게시물 복원</span>
+        </label>
+        </div>
+    </body>
+</html>

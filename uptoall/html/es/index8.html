@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            ECMA Script 2일차 + 확장함수를 이용한 메소드 형태
+        </title>
+        <script>
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+    <script type="module">
+        import {aaa,bbb} from "./index8.js?v=1";
+        let datas = new aaa(5,4);
+        console.log(datas.loads);
+        let t = new bbb();  //let t = new bbb.test(); 이건 안됨.  먼저 선언을 한 다음에 써야 된다. 선언과 동시 사용 X
+        t.test();
+    </script>
+</html>

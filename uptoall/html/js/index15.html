@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 3일차 - 함수호출</title>
+        <script>
+            /*
+            응용문제 1
+            abc라는 함수를 이용하여 구구단 3 단을 출력하시오
+            단, 구구단 중 3*7=21 까지만 출력하시오. (함수의 값을 던져서 사용함)
+            */
+            /*
+            function abc(a,b){
+                var f = 1;
+                var z;
+                while(f<=b){
+                    z = a * f;
+                    console.log(a + "*" + f + "=" + z);
+                    f++
+                }
+            } abc(3,7);
+            */
+            function abc(a,b){
+                var f = 1;
+                var z;
+                while(f<=9){
+                    z = a * f;
+                    //console.log(a + "*" + f + "=" + z);
+                    f++;
+                }
+            } abc(4,9)
+
+            function bbb(a){
+                console.log(a);
+            }
+
+            bbb("hong");  //함수를 호출할 때 문자는  ""를 이용해서 해당 함수를 대입하게 된다.
+
+
+            /*
+            응용문제 2.
+            ccc라는 함수에 사용자 아이디 "kim", 패스워드 "a1234"를 적용한다.
+            해당 아이디와 패스워다가 동일하면 "로그인 하셨습니다." 라는 alert로 적용하시고
+            아이디, 패스워드가 틀리면 "아이디 및 패스워드를 확인하세요" 라는 alert를 적용하시오.
+            
+            <보안상 사용하지 않음>
+            가입 아이디, 패스워드가 트릴경우  : 올바른 패스워드를 입력하세요.
+            가입 되지 않은 아이디 : 해당 아이디는 가입되지 않은 사용자 입니다.
+            */
+            function ccc(id,pass){    //  &&, || (논리 연산자)     , : (이항연산자)
+                if(id=="kim" && pass=="a1234"){
+                    alert("로그인하셨습니다.");
+                }
+                else{
+                    alert("아이디 및 패스워드를 확인하세요.");
+                }
+            }
+            ccc("kim","a1234");
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

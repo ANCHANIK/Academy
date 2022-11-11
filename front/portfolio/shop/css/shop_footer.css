@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+.navi_aside > .navi_div > ul {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+}
+
+html, body, header, main, section, article, aside, footer, table, tr, td, dl, dd, dt, span, label {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: black;
+  line-height: "";
+  display: block;
+}
+
+header {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+}
+
+nav {
+  width: "";
+  height: 50px;
+  display: block;
+  position: "";
+  background-color: black;
+}
+
+section {
+  width: "";
+  height: auto;
+  display: block;
+  position: relative;
+}
+
+main {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+main > section {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+main > article {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+footer {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.navi_aside {
+  width: 100%;
+  height: 60px;
+  display: block;
+  position: "";
+  border-top: 1px solid dimgray;
+  border-bottom: 2px solid dimgray;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: white;
+}
+
+.navi_aside > .navi_div {
+  width: 1174px;
+  height: 60px;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+.navi_aside > .navi_div > ul {
+  width: 500px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  margin: 0 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navi_aside > .navi_div > ul > li {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: black;
+  line-height: 60px;
+  cursor: pointer;
+}
+
+.navi_aside > .navi_div > ul > li:hover {
+  font-weight: 600;
+}
+
+.navi_aside > .navi_div > ul > span {
+  line-height: 60px;
+}
+
+.copyright {
+  width: 1174px;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  background-color: white;
+  margin: 0 auto;
+  font-size: 12px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.copyright > div {
+  width: 100%;
+  height: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  margin-bottom: 7px;
+  line-height: 25px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.copyright > div:nth-of-type(1) {
+  margin-bottom: 0px;
+}
+
+.ceo_check {
+  width: 70px;
+  text-align: center;
+  margin-top: 3px;
+  height: 20px;
+  line-height: 20px;
+  background-color: dimgray;
+  color: white;
+  font-weight: 300;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.ceo_check:hover {
+  background-color: gray;
+}
+/*# sourceMappingURL=shop_footer.css.map */

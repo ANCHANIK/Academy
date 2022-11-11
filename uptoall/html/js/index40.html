@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 7 일차 - 초급코드(문자 치환)</title>
+        <script>
+            /*
+            치환이라는 버튼 클릭시 사용자가 입력한 값을 콘솔로 출력해라
+            */
+            function abc(){
+                var a = document.getElementById("w").value;
+                var b = a.replace("일본","한국")
+                // replace : 해당 단어를 다른 언어로 변경하는 것을 말한다.
+                // 모든 단어가 바뀌는 것이 아니고 한 번만 바뀐다.
+                var c = a.replaceAll("일본","한국")
+                // replaceAll : 전체문장 중에서 해당 단어가 있으면 중복되더라도 모두 변경
+                var d = a.replaceAll(" ","");
+                // 공백을 제거할 때 사용
+                // ( "a" , "b" ) a가 b로 바뀌는 것임
+                console.log(d);
+            }
+            /*
+            응용문제
+            사용자마다 입력하는 형태가 다르다.
+            */
+            function bbb(){
+                var aa = document.getElementById("tel").value;
+                //var bb = aa.replace("-","");
+                // var bb = aa.replaceAll("-","");  모바일 또는 사용자마다 Edge나 EX가 업그레이드 되어있으면 됨.
+                // replaceAll : IE11, Edge에서는 오류 발생
+                var bb = aa.replace(/-/g,"");
+                // replace에서 정규식 코드로 사용시 모든 브라우저에서 사용 가능
+                console.log(bb);
+            }
+        </script>
+    </head>
+    <body>
+        <input type="text" id="w">
+        <input type="button" value="치환" onclick="abc();">
+        <br><br><br>
+        <input type="text" id="tel" maxlength="11" placeholder="번호만 입력해 주세요.">
+        <input type="button" value="전송" onclick="bbb();">
+    </body>
+</html>

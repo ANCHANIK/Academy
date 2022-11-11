@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 1 일차</title>
+        <script>
+            var a;  //undefined : 값이 없을 때 또는 값을 설정하지 못할 때 나옴
+            a = 5;
+            a = 50; // 변수 값은 하나밖에 못 가짐. 5 다음 50 이기에 50만 적용됨
+            // a 변수가 두 번 사용될 경우 마지막에 사용된 값만 적용됨
+            // document.write(a);
+            var b;
+            b = "홍길동";  // "" : 문자로 인식,  "1"  : 숫자로 인식하는게 아니라 문자로 인식함
+            var c;
+            c = "님 로그인 하셨습니다.";
+            var d;
+            d = b + c;  // + : 숫자 계산과 문자를 합칠 수 있지만,   - , * , / 는 숫자만 적용됨
+            //  document.write(d);
+
+            var aa;
+            var bb;
+            aa = 20;
+            bb = "5";   // 숫자를 문자화 할 때 "" 만 입력시 문자로 전환됨
+            var cc;
+            cc = aa + bb;
+            //  document.write(cc);
+
+            var z = "홍길동";
+            var x = "2021-03-22";
+            var h = z + "님 이벤트에 신청 되셨습니다.<br> 당첨 결과는 "+ x + "입니다.";
+            //document.write(h);
+
+            /* 응용문제1. (+,-,*,/) 
+            문제1. 총 4개의 숫자가 있습니다.
+            25, 16, 11, 33
+
+            25와 16과 값을 곱하고, 11과 33은 더합니다.
+            두 값의 결과를 최종적으로 곱하여 출력하시오.
+            */
+            var a1 = 25;
+            var b1 = 16;
+            var c1 = 11;
+            var d1 = 33;
+            /*
+            a1 = 25;
+            b1 = 16;
+            c1 = 11;
+            d1 = 33;
+            */
+            var ccc = (a1 * b1) * (c1 + d1)
+            // var ccc = a1 * b1 * c1 + d1   완전 다른값임. 틀린 값 
+             /*  aa1 = a1 * b1;
+            bb1 = c1 + d1;
+            ccc = aa1 * bb1;  */
+            document.write(ccc);
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

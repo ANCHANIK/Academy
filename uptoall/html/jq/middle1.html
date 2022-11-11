@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 1일차 - 중급 ()</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+
+                $("#box").bind({
+                    //bind 이벤트 헨들링 그룹 함수
+                    //각종 이벤트 핸들링을 별도로 사용할 수 있음
+                    "click":function(){
+                        alert("test")
+                    },
+                    "mouseover":function(){
+                        $(this).css("background-color","blue");
+                    },
+                    "mouseout":function(){
+                        $(this).css("background-color","");
+                    }
+                })
+                
+                let $r = 0; // 헨들링이 하나 밖에 없기 때문에 bind를 쓸 필요가 없음
+                $("#div_select").bind({
+                    "click":function(){
+                        $r += 180;
+                        $("#div_option").slideToggle();
+                        // slideToggle : slideUp + slideDown 둘 다 사용
+                        $("#span").css("transform","rotate("+ $r +"deg)")
+                    }
+                })
+
+                $("#div_option > label").bind({
+                    "mouseenter":function(){
+                        $(this).css("background-color","#eee");
+                    },
+                    "mouseleave":function(){
+                        $(this).css("background-color","");
+                    },
+                    "click":function(){
+                        var $list = $(this).text();
+                        $("#list_text").text($list);
+                        $("#div_option").slideUp();
+                        //text, html(innerText, innerHTML) : 기존 코드는 삭제됨.
+                        var $l = $(this).attr("links");
+                        var $target = "_blank";
+                        window.open($l,$target);
+                        //window.open : 1. 팝업창, 2. 신규 탭을 이용해 페이지 이동
+                    }
+                })
+            })
+        </script>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: orange;
+            }
+            .div_select {
+                width: 150px;
+                height: 40px;
+                border: 1px solid black;
+                border-radius: 5px;
+                position: relative;
+                line-height: 40px;
+            }
+            .div_option {
+                width: 150px;
+                height: 120px;
+                border: 1px solid black;
+                display: none;
+            }
+            .div_option > label {
+                display: block;
+                width: inherit;
+                height: 40px;
+                line-height: 40px;
+                text-indent: 10px;
+            }
+            .span {
+                display: inline;
+                position: absolute;
+                right: 5px;
+                cursor: pointer;
+                transition: all 1s;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box"></div><br>
+
+        <div class="div_select" id="div_select">
+            <span id="list_text">계열사 선택</span>
+            <span class="span" id="span">▼</span>
+        </div>
+        <div class="div_option" id="div_option">
+            <label links="http://www.naver.com" target="_blank"> 네이버</label>
+            <label links="http://www.nate.co.kr" target="_blank"> 네이트</label>
+            <label links="http://www.google.com" target="_blank"> 구글</label>
+        </div>
+    </body>
+</html>

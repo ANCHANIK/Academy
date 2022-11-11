@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.divbox {
+  width: 200px;
+  height: 200px;
+  display: block;
+  position: relative;
+  border: 1px solid black;
+  top: 200px;
+  margin: 0 auto;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 900px;
+          perspective: 900px;
+  -webkit-perspective-origin: 150% 150%;
+          perspective-origin: 150% 150%;
+}
+
+.divbox > .front:hover {
+  -webkit-transition: 2s all ease;
+  transition: 2s all ease;
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  background-color: blue;
+  -webkit-transform: rotateY(90deg) translateZ(100px);
+          transform: rotateY(90deg) translateZ(100px);
+}
+
+.divbox > label {
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+}
+
+.divbox > .front {
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  background-color: blue;
+  -webkit-transform: translateZ(50px);
+          transform: translateZ(50px);
+  z-index: 10;
+}
+
+.divbox > .back {
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  background-color: green;
+  -webkit-transform: rotateY(180deg) translateZ(50px);
+          transform: rotateY(180deg) translateZ(50px);
+}
+
+.divbox > .right {
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  background-color: yellowgreen;
+  -webkit-transform: rotateY(90deg) translateZ(50px);
+          transform: rotateY(90deg) translateZ(50px);
+}
+
+.divbox > .left {
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  background-color: purple;
+  -webkit-transform: rotateY(-90deg) translateZ(50px);
+          transform: rotateY(-90deg) translateZ(50px);
+}
+
+.divbox > .top {
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  background-color: orange;
+  -webkit-transform: rotateX(90deg) translateZ(50px);
+          transform: rotateX(90deg) translateZ(50px);
+}
+
+.divbox > .bottom {
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  background-color: pink;
+  -webkit-transform: rotateX(-90deg) translateZ(50px);
+          transform: rotateX(-90deg) translateZ(50px);
+}
+/*# sourceMappingURL=index26.css.map */

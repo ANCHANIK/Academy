@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 1 일차 - 조건문</title>
+        <script>
+        /*
+        문제2. 15,000원 상품 30% 할인 금액을 출력하시오.
+        */
+        var a = 15000;
+        var b = 0.7;
+        var c = a * b;
+        //document.write(c);
+        // 비교문(조건문) 
+        var aa = 5;
+        var bb = 15;
+        if(aa > bb){   
+            // if : 조건문의 시작  ()안에 조건이 성립되어야만
+            //      {} 중괄호 안에 문법이  작동된다.
+            document.write("aa값이 더 큽니다.");
+        }
+        else if(aa < bb){   //else if : if의 반대 또는 다른 비교값. else if 는 계속 쓸 수 있음
+            document.write("bb값이 더 큽니다.");
+        }
+        else{   // if 와 else if 의 조건 외의 모든 조건을 말함.
+            document.write("두 값이 같습니다.");
+        }
+
+        /* 문자 조건문 형태 (주의사항 공백도 검토함) */
+        var mid = "hong";
+        if(mid == "hong"){
+            document.write("해당 사용자는 정상 회원입니다.");
+        }
+        else if(mid == "kim"){
+            document.write("해당 사용자는 휴면 회원입니다.");
+        }
+        else{
+            document.write("해당 사용자는 가입되지 않은 회원입니다.");
+        }
+
+        /*
+        응용문제3.
+            다음 숫자를 계산하여 어느 값이 작은 값인지 출력하시오
+            단, 변수는 2개만 사용합니다. (단, 덧셈을 위주로 - 2번이 작은값)
+            1. 25*6+11+42
+            2. 33+7*14+6
+        */
+        var g = 25 * 6 + 11 + 42;    // 가로를 어떻게 묶냐에 따라서 값이 완전 달라짐
+        var f = 33 + 7 * 14 + 6;
+        if(g > f){
+            document.write("2번 계산값이 더 작습니다.");
+        }
+        else if(g < f){
+            document.write("1번 계산값이 더 작습니다.");
+        }
+        else{
+            document.write("두 값이 같습니다.");
+        }
+        // 비교 형태 (쿠폰번호)
+        var abc = 123456; //숫자엔 공백 절대 못넣음. 문자쓸거면 문자쓰고 숫자쓸거면 숫자써라
+        if(abc=="123456"){
+            document.write("쿠폰번호가 정상입니다.");
+        }
+        else if(abc!=123456){    //  != : 같지 않다, == : 같다
+            document.write("올바른 쿠폰번호를 입력하세요");
+        }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

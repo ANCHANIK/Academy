@@ -1,0 +1,47 @@
+<?php
+    $v = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 3일차 - Vue 게시판 Editor</title>
+        <script src="./editor/ckeditor.js?v=<?php echo $v?>"></script>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <!-- Editor 스크립트 (일명 - 웹보드 에디터) : Naver, CKEditor, 다음 오픈 에디터, 스마트 에디터 -->
+        <style>
+        </style>
+    </head>
+    <body>
+        <form name="frm" id="frm">
+            <section id="notice">
+                <textarea name="editors" id="editors"></textarea>
+                <button type="button" v-text="btn" @click="boardok"></button>
+            </section>
+        </form>
+    </body>
+    <script>
+        let a = new Vue({
+            el:"#notice",
+            data:{
+                btn:"등록완료",
+                z:"POST",
+                za:"./index22.php",
+                enc:"application/x-www-form-urlencoded"
+            },
+            methods:{
+                boardok:function(){
+                    frm.method = this.z;
+                    frm.action = this.za;
+                    frm.enctype = this.enc;
+                    frm.submit();
+                }
+            }
+        });
+        CKEDITOR.replace("editors",{height:260});
+        // config.js 에서 업로드 파트 추가함
+        // 게시판 만들때 이거는 프론트가 작성해 줘야 함
+        
+    </script>
+</html>

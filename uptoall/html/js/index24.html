@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>JavaScript 4일차 - display (응용)</title>
+        <script>
+            function abc(){
+                var t1 = document.getElementById("num1").value;
+                var t2 = document.getElementById("num2").value;
+                var t3 = document.getElementById("num3").value;
+                var t4 = document.getElementById("sel").value;
+                
+                if(t4==""){
+                    alert("통신사를 선택해 주세요");
+                }
+                else{
+                    if(t1=="" || t2=="" || t3==""){
+                    alert("휴대폰 번호를 정확하게 입력해 주세요");
+                    }
+                    else{
+                        alert("인증번호가 발송되었습니다.");
+                        document.getElementById("ff").style.display="block";
+                        // javascript에서 style을 조정할 수 있다.
+                        // 단, style 조정시 style 이라는 명령어를 사용한 후 css 속성값 입력
+                        // 그리고  = 다음에 css 속성을 적용할 코드 입력
+                    }
+                }
+            }
+                // if(f.sel[0].value==""){   // id로 쓸땐 0,1,2,3 과 같이 순서대로 써야됨
+                //     alert("통신사를 선택해 주세요");
+                // }
+                // else if(f.sel[1].value=="" || f.sel[2].value=="" || f.sel[3].value==""){
+                //     alert("휴대폰 번호를 정확하게 입력해 주세요");
+                // }
+            
+            // 인증번호 확인
+            function sc(){
+                if(ff.scn.value==""){
+                alert("인증번호를 입력해 주세요");
+                return false;
+                }
+                else{
+                    alert("인증번호가 확인되었습니다.");
+                    return;
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <form id="f" name="f"> 
+            <select id="sel" name="sel">  <!-- form 쓰려면 name이 다 같아야 된다.-->
+                <option value="">통신사 선택</option>
+                <option value="SKT">SKT</option>
+                <option value="KT">KT</option>
+                <option value="LGT">LGT</option>
+                <option value="알뜰폰">알뜰폰</option>
+            </select>
+            <input type="text" id="num1" maxlength="3" minlength="3" name="sel">-
+            <input type="text" id="num2" maxlength="4" minlength="4" name="sel">-
+            <input type="text" id="num3" maxlength="4" minlength="4" name="sel">
+            <input type="button" value="인증번호 발송" onclick="abc();">
+        </form>
+            <br><br><br>
+        <form name="ff" id="ff" onsubmit="return sc();" style="display: none;">
+            <input type="text" maxlength="6" id="scn" name="scn">
+            <input type="submit" value="인증번호 확인">
+        </form>
+    </body>
+</html>

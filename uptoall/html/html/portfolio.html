@@ -1,0 +1,82 @@
+<?php
+    $v = date("Ymdhis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <!--
+            전체 사이즈 : 1174px
+        -->
+        <meta charset="UTF-8">
+        <meta http-equiv="imagetoolbar" content="ko">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="title" content="한우사랑 쇼핑몰">
+        <!--검색사이트 키워드 타이틀 이름 -->
+        <meta name="description" content="한우,한우사랑,소고기,안찬익,A등급,횡성,장흥,돼지고기,안창살,등심,소태,안심">
+        <!-- 검색에 사용되는 키워드 출력 파트 -->
+        <meta name="keyword" content="한우,한우사랑,소고기,안찬익,A등급,횡성,장흥,돼지고기,안창살,등심,소태,안심">
+        <!-- 검색 키워드 값 -->
+        <meta name="publisher" content="AN CHAN IK">
+        <!-- 사이트 전체 퍼블리싱 담당자를 말함 -->
+        <meta name="robots" content="index,follow">
+        <!-- 검색 엔진에 대한 페이지 유효범위 -->
+        <meta name="twitter:card" content="한우,한우사랑,소고기,안찬익,A등급,횡성,장흥,돼지고기,안창살,등심,소태,안심">
+        <!-- 트위터 키카드를 사용할 때 적용함 -->
+        <meta name="twitter:description" content="한우,한우사랑,소고기,안찬익,A등급,횡성,장흥,돼지고기,안창살,등심,소태,안심">
+        <!-- 트위터 전용 #:해시태그 -->
+        <meta name="twitter:title" content="한우사랑 쇼핑몰">
+        <!-- 트위터 타이틀 이름 -->
+
+        <!-- og : SEO에서 오픈그래프(open graph). 접속 현황, 카카오톡 미리보기, 네이버 블로그, 다음 카페 등 SNS 컨텐츠 공유를 할 수 있는 meta -->
+        <meta property="og:locale" content="ko_kr">
+        <meta property="og:title" content="한우사랑 쇼핑몰">
+        <meta property="og:site_name" content="생활의 건강한 먹거리를 드리는 한우사랑 쇼핑몰 입니다.">
+        <meta property="og:author" content="AN CHAN IK">
+        <meta property="og:type" content="website">
+        <!-- website, app -->
+
+        <meta property="og:url" content="http://cksdlr7446.dothome.co.kr/portfolio/shop">
+        <meta property="og:image" content="http://cksdlr7446.dothome.co.kr/portfolio/shop/ico/logo.png">
+        <!-- SNS 공유시 출력되는 대표 이미지 -->
+
+        <meta property="al:ios:url" content="http://cksdlr7446.dothome.co.kr/portfolio/shop">
+        <meta property="al:android:url" content="http://cksdlr7446.dothome.co.kr/portfolio/shop">
+        <meta property="al:web:url" content="http://cksdlr7446.dothome.co.kr/portfolio/shop"> <!--페이스북,인스타,유투브에서도 경로를 출력할 수 있음. (광고)-->
+        <!-- app 전용 애플, 안드로이드 url 경로 -->
+
+        <!-- 파빌리온을 사용함, 모바일, 웹 모두 적용할 수 있는 아이콘(ico) -->
+        <link rel="icon" href="./ico/faico.png" sizes="128x128">
+        <link rel="icon" href="./ico/faico64.png" sizes="64x64">
+        <link rel="icon" href="./ico/faico32.png" sizes="32x32">
+        <link rel="icon" href="./ico/faico16.png" sizes="16x16">
+        <link rel="apple-touch-icon-precomposed" href="./ico/faico.png">
+        <!-- 애플폰, 사파리에서 파빌리온 아이콘을 출력하는 부분 -->
+
+        <link type="text/css" rel="stylesheet" href=".css/index.css?v=<?php echo $v?>">
+        <title>생활의 건강한 먹거리를 드리는 한우사랑 쇼핑몰 입니다.</title>
+        <script src="../JS/jquery.js"></script>
+    </head>
+    <body>
+        <header><?php include "shop_top.html"; ?></header>
+        <nav><?php include "shop_menu.html"; ?></nav>
+        <section><?php include "shop_banner.html"; ?></section>
+        <main>
+            <section><?php include "event_product.html"; ?></section>
+            <section><?php include "md_product.html"; ?></section>
+            <section><?php include "week_product.html"; ?></section>
+            <article><?php include "event_banner.html"; ?></article>
+            <section><?php include "new_product.html"; ?></section>
+            <section><?php include "notice_review.html"; ?></section>
+        </main>
+        <footer><?php include "shop_footer.html"; ?></footer>
+    </body>
+    <script>
+        
+    </script>
+</html>
+
+<!-- 
+    1) 구글 웹마스터 도구로 url 인증받아라
+    2) 속성으로 들어가서 셋팅 해줘야 키워드가 진짜 뜬다
+ -->

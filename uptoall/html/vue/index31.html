@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 5일차 - Vue 복습 및 응용 & computed(함수 즉시 실행) & 상위-하위 Vue</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <section id="box">
+            <input type="button" value="클릭" @click="abc">
+            {{ccc}}
+            <!--computed를 작동하기 위한 함수호출. data(X).
+                즉시 실행시키는 거는 따로 태그로 안묶어 놓는다.-->
+            {{ddd}}
+            <div></div>
+        </section>
+        <section id="box2">
+            {{zzz}}
+            {{hhh}}
+        </section>
+    </body>
+    <script>
+        /*
+        1) el
+        2) data
+        3) components
+        4) computed
+        5) methods
+        이 순으로 Vue가 작동된다.
+        */
+
+
+        let a = new Vue({
+            el:"#box",
+            data:{
+
+            },
+            methods:{
+                abc(){
+                    alert("ttest");
+                    // b.hhh();  //하위에 있는 Vue는 호출할 수 없다.
+                }
+            },
+            components:{
+                
+            },
+            computed:{ // 즉시 실행 함수가 적용되는 파트
+                ccc(){
+                    // console.log("abc")
+                    // window.open("./index30.html","","width=500 height=500");
+                },
+                ddd(){
+                    // this.abc();
+                }
+            }
+        });
+
+        // a Vue를 b Vue에서 호출하기 위해선 a Vue 밑에 있어야 한다.
+        // 즉, 하위의 Vue에서는 상위의 Vue의 데이터를 호출할 수 있지만,
+        // 상위의 Vue는 하위의 Vue를 호출할 수 없다.
+        let b = new Vue({
+            el:"#box2",
+            data:{
+
+            },
+            methods:{
+
+            },
+            computed:{
+                zzz(){
+                    a.abc();  // b에서 봤을 경우 a가 상위 코드 이므로 호출이 가능하다.
+                }
+            }
+        });
+    </script>
+</html>

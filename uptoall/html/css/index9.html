@@ -1,0 +1,86 @@
+<?php
+    $date = date("Ymdhis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1">
+        <title>CSS3 2일차 회원가입 페이지 만들기 - 응용(간편회원가입)</title>
+        <link rel="stylesheet" type="text/css" href="./index9.css?v=<?php echo $date?>">
+        <script src="./index9.js?v=<?php echo $date?>" charset="UTF-8"></script>
+    </head>
+    <body>
+        <form>
+            <input type="hidden" id="overlep" value="no">
+        <div class="member">
+            <label class="title">간편회원가입</label>
+            <table border="1" cellspacing="0" cellpadding="0" class="table" bordercolor="#0067b8">
+                <tr>
+                    <td>회원 아이디</td>
+                    <td>
+                        <input type="text" class="input" id="t_id">
+                        <input type="button" value="중복확인" class="btn1" onclick="id_ck()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>패스워드</td>
+                    <td>
+                        <ul class="ulcss">
+                            <li class="licss">
+                                <input type="password" class="input" id="t_pw">
+                            </li>
+                            <li class="licss">
+                            </li>
+                            <li class="licss">
+                                패스워드 확인
+                            </li>
+                            <li class="licss">
+                                <input type="password" class="input" id="t_pw2">
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>회원인증 휴대폰</td>
+                    <td>
+                        <input type="text" class="input" id="t_tel">
+                        <span class="helptext">"-" 포함하지 않고 숫자만 입력하시면 됩니다.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>회원 이메일</td>
+                    <td>
+                        <input type="text" class="email" id="t_mail">
+                    </td>
+                </tr>
+                <tr>
+                    <td>VIP 회원코드 번호</td>
+                    <td>
+                        <input type="text" class="email">
+                        <span class="code">VIP 회원코드를 가지고 계신 고객분은 입력해 주시길 바랍니다.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>구매의사 소프트웨어</td>
+                    <td class="td3" id="ck">
+                        <label for="a1">
+                        <input type="radio" name="a" id="a1" class="radio">윈도우 10
+                        </label>
+                        <label for="a2">
+                        <input type="radio" name="a" id="a2" class="radio">MS-OFFICE
+                        </label>
+                        <label for="a3">
+                        <input type="radio" name="a" id="a3" class="radio">X-BOX 게임
+                        </label>
+                    </td>
+                </tr>
+            </table>
+            <span class="join_btn">
+                <input type="button" value="회원가입" class="join" style="background-color:#0067b8;" onclick="member_ship();">
+                <input type="reset" value="가입취소" class="join" style="background-color:#aaaaaa;">
+            </span>
+        </form>
+        </div>
+    </body>
+</html>

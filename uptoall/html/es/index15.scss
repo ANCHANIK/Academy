@@ -1,0 +1,101 @@
+@charset "UTF-8";
+@mixin sobject($nw,$xw,$h,$d,$p) {
+    min-width: $nw;
+    max-width: $xw;
+    height: $h;
+    display: $d;
+    position: $p;
+}
+@mixin object($w,$h,$d,$p) {
+    width: $w;
+    height: $h;
+    display: $d;
+    position: $p;
+}
+@mixin base {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin fonts($fs,$fw,$fc) {
+    font-size: $fs;
+    font-weight: $fw;
+    color: $fc;
+}
+
+body {
+    @include base;
+}
+@media screen and (min-width:340px) and (max-width:480px) {
+    section {
+        @include sobject(340px, 480px, auto, block, "");
+        padding: 10px;
+        box-sizing: border-box;
+        & > .membership_title {
+            @include object(100%, 60px, block, "");
+            @include fonts(25px, bold, black);
+            line-height: 60px;
+            text-align: center;
+        }
+        & > .membership_terms {
+            @include object(100%, 200px, block, "");
+            line-height: 30px;
+            & > ul {
+                @include base;
+                @include object(100%, inherit, block, "");
+                list-style: none;
+                & > li {
+                    @include object(100%, "", block, relative);
+                    box-sizing: border-box;
+                }
+                & > li:nth-of-type(1) {
+                    @include fonts(14px, bold, black);
+                    height: 40px;
+                    line-height: 40px;
+                    padding-left: 5px;
+                }
+                & > li:nth-of-type(2) {
+                    height: 120px;
+                    & > textarea {
+                        @include object(inherit, inherit, block, "");
+                        resize: none;
+                        box-sizing: border-box;
+                    }
+                }
+                & > li:nth-of-type(3) {
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    & > span {
+                        @include object(60px, 30px, block, absolute);
+                        background-color: gray;
+                        border-radius: 15px;
+                        right: 0;
+                        padding: 2px;
+                        box-sizing: border-box;
+                        & > div {
+                            @include object(26px, 26px, block, absolute);
+                            background-color: aliceblue;
+                            border-radius: 100%;
+                            right: 2px;
+                        }
+                    }
+                }
+            }
+        }
+        & > .membership_join {
+            @include object(100%, 80px, flex, "");
+            justify-content: center;
+            align-items: center;
+            & > button {
+                @include object(120px, 40px, block, "");
+                background-color: tomato;
+                color: white;
+                border: none;
+            }
+        }
+    }
+}
+.empty_box {
+    @include object(20px, 20px, block, "");
+}

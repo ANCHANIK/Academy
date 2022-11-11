@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 4일차 - 데이터 보내기</title>
+        <script>
+            function abc(){
+                if(fm.memo.value==""){
+                    alert("댓글을 입력해 주세요");
+                    return false;
+                }
+                else{
+                    fm.submit();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!--
+        응용문제1.
+        간단 댓글 페이지 제작하라
+        댓글 입력할 수 있는 입력값과 저장이라는 버튼을 클릭하여
+        index21.php로 post 값을 전송시켜라.
+        name 값은 memo 
+        -->
+        <form id="fm" name="fm" method="post" action="./index21.php" onsubmit="return abc();">
+            <input type="text" id="mid" name="memo">
+            <input type="submit" value="저장">
+        </form>
+    </body>
+</html>

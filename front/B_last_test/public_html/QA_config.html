@@ -1,0 +1,67 @@
+<meta charset="UTF-8">
+<span class="empty_box1"></span>
+<form name="qainput" id="qainput">
+   <aside class="QA_config">
+      <div class="qna_list_title">
+         <span>{{qinput_title}}</span>
+      </div>
+      <span class="empty_box2"></span>
+      <input type="hidden" name="qa_key" value="qa_today">
+      <div class="qna_input_div">
+         <ul class="qna_input_ul">
+            <li>
+               <span>{{qi_title}}</span>
+               <span>
+                  <input v-bind:type="tx" name="qa_subject" v-model="qa_subject" ref="qa_subject" class="qna_input_1" placeholder="문의 제목을 입력해 주세요" autocomplete="off">
+               </span>
+            </li>
+            <li>
+               <span>{{qi_cate}}</span>
+               <span>
+                  <select class="qna_sel_2" name="qa_cate" v-model="qa_cate">
+                     <option value="">문의카테고리를 선택하세요</option>
+                     <option value="회원정보">회원정보</option>
+                     <option value="주문">주문</option>
+                     <option value="결제">결제</option>
+                     <option value="배송">배송</option>
+                     <option value="취소/환불">취소/환불</option>
+                     <option value="반품">교환</option>
+                  </select>
+               </span>
+            </li>
+            <li>
+               <span>{{qi_writer}}</span>
+               <span>
+                  <input v-bind:type="tx" name="qa_name" v-model="qa_name" ref="qa_name" class="qna_input_2" placeholder="고객명을 입력해 주세요" autocomplete="off">
+               </span>
+            </li>
+            <li>
+               <span>{{qi_pass}}</span>
+               <span>
+                  <input v-bind:type="pw" name="qa_pass" v-model="qa_pass" ref="qa_pass" class="qna_input_2" placeholder="비밀번호를 입력해 주세요">
+               </span>
+            </li>
+            <li>
+               <span>{{qi_file}}</span>
+               <span>
+                  <input type="file" name="qa_file">
+               </span>
+            </li>
+            <li>
+               <span>{{qi_text}}</span>
+               <span>
+                  <textarea name="qa_text" v-model="qa_text" ref="qa_text" placeholder="문의 내용을 입력해 주세요" autocomplete="off"></textarea>
+               </span>
+            </li>
+         </ul>
+      </div>
+      <span class="empty_box2"></span>
+      <div class="qna_input_btns">
+         <span>
+            <button v-bind:type="bt" @click="QNA_submit">상품문의</button>
+            <button v-bind:type="bt" @click="QNA_LIST">문의리스트</button>
+         </span>
+      </div>
+   </aside>
+   <span class="empty_box1"></span>
+</form>

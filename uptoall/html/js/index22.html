@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 4일차 - html 추가 태그 연결</title>
+        <script>
+            function aaa(){
+                var a = document.getElementById("ck").checked;
+                var b = document.getElementById("ra").checked;
+                 // false 에 "" 를 넣으면 안됨
+                 // fales, true 는 "" 를 사용하지 않는다. 또한 var 도 못넣는다.
+                 // checkbox, radio 모두 checked를 이용하여, true, false로 구분한다.
+                if(a==false){ 
+                    alert("동의함에 체그하셔야 합니다.");
+                 // checkbox 와 radio는 같이 쓸 수 없다.
+                 // || 는 사용할 수 는 있으나, && 는 사용 불가. 단, 같은 속성의 태그에만 한해서 사용이 가능
+                }
+                else if(b==false){  // 별도로 따로 써야 됨
+                    alert("동의함에 체그하셔야 합니다.");
+                }
+            }
+
+            function agree(){
+                // var a = document.getElementById("tt").checked;
+                // var b = document.getElementById("kk").checked;
+                // if(a!=){
+                //     alert("서비스를 등록하지 못합니다.");
+                // }
+                // else if(b==true){
+                //     alert("정상등록 되었습니다람쥐.");
+                // }
+                var bb = fm.qq[0].checked;  //javascript 노드는 무조건 "0" 부터 시작
+                if(bb!=true){
+                    alert("서비스를 등록하지 못합니다.");
+                }
+            }
+            // DOM getElementById, querySlect
+            // NODE [], getElementById
+            // Name을 이용한 Node형태로 구분 하는 함수
+            // var aa = f.a.value;  // f(form 태그의 name 값).a(input 안에 name 값).value;
+            function zzz(){
+                var a = 5;
+                var b;
+                var c;
+                var d = 0; // 갯수 체크 카운터
+                for(b=0;b<a;b++){
+                    c = ff.fruit[b].checked;
+                    console.log(c);
+                    if(c==true){
+                        d = d + 1
+                    }
+                }
+                if(d < 3){
+                alert("2개 이상 선택을 해야 합니다.");
+                }
+                else{
+                    alert("해당 정보를 전송합니다.");
+                }
+                }
+                
+            
+        </script>
+    </head>
+    <body>
+        <input type="checkbox" id="ck">동의함
+        <br>
+        <input type="radio" id="ra">동의함
+        <input type="button" value="확인" onclick="aaa();">
+        <br><br><br>
+        <!--
+            응용문제2.
+            [광고 수신 동의에 대해 선택해 주시길 바랍니다.]
+            수신 동의, 수신차단 2 가지 중 헌가지만 선택하는 html 코드를 작성하시오.
+            버튼 이름은 "서비스 등록" 이라 하라.
+            추가 옵션 : 서비스 등록 버튼 클릭시 수신동의가 안되면
+            "서비스를 등록하지 못합니다" 라는 메세지를 출력하라.
+        -->
+        <p>[광고수신 동의에 대해 선택해 주시길 바랍니다.]</p>
+        <form id="fm" name="fm">
+        <input type="radio" id="kk" name="qq">수신동의<br>
+        <input type="radio" id="tt" name="qq" checked>수신차단<br>
+        <input type="button" value="서비스 등록" onclick="agree();">
+        </form>
+        <br><br><br>
+
+        <!--
+            응용문제3.
+            무조건 2가지 이상이 되어야만 등록이 되도록 하라.
+            1가지 또는 2가지를 선택하면 "2가지 이상 과일을 선택하세요."
+            2가지 이상을 선택하면 "정상적으로 등록 되었습니다." 라고 출력시켜라.
+        -->
+        <form id="ff" name="ff">
+            <p>자신이 좋아하는 과일 2가지 이상을 선택하세요</p>
+            <input type="checkbox" name="fruit">사과
+            <input type="checkbox" name="fruit">딸기
+            <input type="checkbox" name="fruit">바나나
+            <input type="checkbox" name="fruit">수박
+            <input type="checkbox" name="fruit">포도
+            <input type="button" value="등록" onclick="zzz();">
+        </form>
+    </body>
+</html>

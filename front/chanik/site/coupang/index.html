@@ -1,0 +1,42 @@
+<?php
+    $date = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, Chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>COUPANG!</title>
+        <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+        <link type="text/css" rel="stylesheet" href="./index.css?v=<?=$data?>">
+        <link type="text/css" rel="stylesheet" href="./jq/jquery-ui.css?v=<?=$data?>">
+        <script src="./jq/jquery.js"></script>
+        <script src="./jq/jquery-ui.js"></script>
+    </head>
+    <body>
+        <!-- header : 상단 탑 배너 및 탑 메뉴 -->
+        <header class="cou_header">
+            <?php include "top.html";?>
+        </header>
+        <!-- nav : 검색 기능 및 대메뉴 소메뉴-->
+        <nav class="cou_nav">
+            <?php include "menu.html";?>
+        </nav>
+        <!-- main : main 항목들 -->
+        <main class="cou_main">
+            <!-- section : 각각의 항목들 (메인 배너) -->
+            <section class="cou_banner">
+                <?php include "banner.html";?>
+            </section>
+            <section class="cou_product">
+                <?php include "product.html";?>
+            </section>
+        </main>
+        <!-- footer : right나 공지사항 등 -->
+        <footer class="cou_footer">
+            <?php include "bottom.html";?>
+        </footer>
+</body>
+</html>

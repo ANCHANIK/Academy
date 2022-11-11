@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 5일차 - 응용연습2</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                var $ck = 0;
+                $("#btn").click(function(){
+                    if($ck == 0){
+                        $("#box > span").animate({
+                        "right":"0px",
+                        },1500);
+                    }
+
+                    else if($ck == 1){
+                        $("#box > span").animate({
+                        "bottom":"0px",
+                    },1500);
+                    }
+
+                    else if($ck == 2){
+                        $("#box > span").animate({
+                        "left":"0px",
+                    },1500);
+                    }
+                
+                    else if($ck == 3){
+                        $("#box > span").animate({
+                        "top":"0px",
+                    },1500);
+                    }
+                    $ck = $ck + 1;
+
+                /*
+                if($ck > 4){
+                    $ck = 1;
+                }
+                console.log($ck);
+                */
+                });
+                
+
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            span,label,main { display: block; }
+            .box {
+                width: 800px;
+                height: 400px;
+                background-color: red;
+                margin: 0 auto;
+                position: relative;
+            }
+            .box > span {
+                width: 50px;
+                height: 50px;
+                background-color: yellow;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box">
+            <span></span>
+        </div>
+        <input type="button" value="이동" id="btn">
+    </body>
+</html>

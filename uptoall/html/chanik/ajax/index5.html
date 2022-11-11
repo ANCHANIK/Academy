@@ -1,0 +1,58 @@
+<?php
+    $date = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>배너 연습</title>
+        <link rel="stylesheet" type="text/css" href="./index5.css?v=<?=$date?>">
+        <link rel="stylesheet" type="text/css" href="../jq/jquery-ui.css">
+        <script src="../jq/jquery.js"></script>
+        <script src="./index5.js?v=<?=$date?>"></script>
+        <script src="../jq/jquery-ui.js"></script>
+    </head>
+    <body>
+        <header class="banner_header">
+            <div class="banner_header_top"></div>
+        </header>
+        <nav class="banner_nav">
+            <ul></ul>
+        </nav>
+        <main class="banner_main">
+            <!-- 배너 -->
+            <section class="banner_section">
+                <!-- 배너 -->
+                <ol class="banner_ol" id="banner_ol">
+                    <!-- sample
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li> -->
+                </ol>
+                <!-- 버튼 -->
+                <span class="banner_btn">
+                    <label class="l_btn" id="l_btn">
+                        <img src="carat-l-black.svg">
+                    </label>
+                    <label class="r_btn" id="r_btn">
+                        <img src="carat-r-black.svg">
+                    </label>
+                </span>
+                <!-- 디스크 -->
+                <span class="banner_disc">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </span>
+            </section>
+            <section class="banner_product"></section>
+        </main>
+    </body>
+</html>

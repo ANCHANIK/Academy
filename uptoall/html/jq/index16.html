@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 4일차 - 추가 이벤트 헨들링</title>
+        <!-- FAQ : 자주하는 질문&답변 , Q&A : 고객이 질문, 관리자가 답변 -->
+        <script src="./jquery.js"></script>
+        <script>
+            // 각각 짝 지어서 사용함
+            // mouseover + mouseout
+            // mouseenter + mouseleave
+
+            //hover = mouseenter
+            //onmouseover + onmouseout
+
+            $(document).ready(function(){
+
+                var $a = 0;
+                var $b = 0;
+
+                $("#box1").mouseover(function(){  //mouseover : 마우스 포인터가 해당 오브젝트에 오버되었을 경우
+                    //$(this).css("background-color","black");
+                    //$(this).css("color","red");
+                    $a++;
+                    $("#box1 > p").text($a);
+                });
+
+                $("#box1").mouseout(function(){  //mouseout : 마우스 포인터가 자식 노드와 별개로 떠났다고 생각함
+                    //$(this).css("background-color",""); //  "" : 원래 색상으로 돌아오라는 것
+                    //$("#box1 > p").css("color","white");
+                    $a++;
+                    $("#box1 > p").text($a);
+                });
+
+                $("#box2").mouseenter(function(){  //mouseenter : 마우스 포인터가 해당 오브젝트에 포함되어 있어도 작동된다.
+                    //$(this).css("background-color","black");
+                    $b++;
+                    $("#box2 > p").text($b);
+                });
+
+                $("#box2").mouseleave(function(){  //mouseleave : 마우스 포인터가 자식 노드도 같은 노드로 인식함
+                    $b++;
+                    $("#box2 > p").text($b);
+                    //$(this).css("background-color","");
+                    //$("#box2 > p").css("color","white");
+                });
+
+
+                $("#menu > li").mouseenter(function(){
+                    var $node = $(this).index();
+                    //console.log($node);
+                    $("#menu > li:eq(" + $node + ") > .s_ulcss").slideDown(200);
+                });
+
+                $("#menu > li").mouseleave(function(){
+                    var $node = $(this).index();
+                    //console.log($node);
+                    $("#menu > li:eq(" + $node + ") > .s_ulcss").slideUp(200);
+                });
+
+                $("#f").mouseover(function(){
+                    $(this).animate({
+                        "border-radius":"100px"
+                    },1000) 
+                });
+
+                $("#f").mouseout(function(){
+                    $(this).animate({
+                        "border-radius":""
+                    },1000) 
+                });
+
+
+            })
+        </script>
+        <style>
+            body { margin: 0; padding: 0;}
+            ul, ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: orange;
+                color: white;
+            }
+            .box2 {
+                width: 100px;
+                height: 100px;
+                background-color: yellowgreen;
+            }
+            p {
+                width: 100px;
+                height: 30px;
+                border: 1px solid red;
+            }
+
+            /* 메뉴 */
+            .ulcss {
+                text-align: center;
+                height: 40px;
+                line-height: 40px;
+            }
+            .ulcss > li {
+                width: 100px;
+                height: 40px;
+                border: 1px solid black;
+                line-height: 40px;
+                float: left;
+            }
+            .s_ulcss {
+                display: none;
+            }
+            .s_ulcss > li {
+                width: 98px;
+                height: 40px;
+                border: 1px solid black;
+                line-height:40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box1">
+            <p>박스 입니다.</p>
+        </div>
+        <div class="box2" id="box2">
+            <p>박스 입니다.</p>
+        </div>
+
+        <br><br><br>
+
+        <ul class="ulcss" id="menu">
+            <li>menu1
+                <ul class="s_ulcss">
+                    <li>smenu1</li>
+                    <li>smenu2</li>
+                    <li>smenu3</li>
+                </ul>
+            </li>
+            <li>menu2
+                <ul class="s_ulcss">
+                    <li>smenu1</li>
+                    <li>smenu2</li>
+                    <li>smenu3</li>
+                </ul>
+            </li>
+            <li>menu3
+                <ul class="s_ulcss">
+                    <li>smenu1</li>
+                    <li>smenu2</li>
+                    <li>smenu3</li>
+                </ul>
+            </li>
+        </ul>
+
+        <br><br><br>
+
+        <div style="width: 100px; height:100px; background-color: violet;" id="f"></div>
+    </body>
+</html>

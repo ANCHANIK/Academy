@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>Ajax (5일차) - Jquery Ajax-JSON(아이디 중복체크)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+                // global : 전역변수
+                // 핸들링 함수와 화살표 함수의 가장 큰 차이점은? 답 : this.css
+                // 핸들링 함수의 this : 자기 자신을 출력.
+                // 화살표 함수의 this : global(document)를 지칭하며 선택한 오브젝트 및 자식 오브젝트도 컨트롤 가능
+                // target을 이용함
+                /*
+                $("#btn").click(function(e){
+                    // this : 자기자신(#btn)
+                    // console.log(this)
+                    $(this).addClass("btn");
+                });
+
+                // 화살표 함수는 target을 쓰지 않으면 global로 적용된다.
+                $("#btn").click((e)=>{
+                    
+                   // this : global(window)
+                    // console.log(this)
+                    // $(e.target).addClass("btn");
+                });
+                */
+
+
+                $("#btn").click((e)=>{
+                    if($("#make_id").val() == ""){
+                        alert("아이디를 입력하세요.");
+                    }
+
+                    else{
+                        let $id = $("#make_id").val();
+                        $.ajax({
+                            url:"./jndex4ok.php",
+                            cache:false,
+                            type:"POST",
+                            dataType:"JSON",
+                            data:"make_id=" + $id,
+                            contentType:"application/x-www-form-urlencoded",
+                            success:function($data){
+                                /*
+                                    [callsign]
+                                    cancel : 데이터가 잘못됨
+                                    no : 중복된 아이디
+                                    ok : 중복되지 않은 아이디
+                                */
+                                if($data == "no"){
+                                    alert("중복된 아이디 입니다.");
+                                }
+                                else if($data == "ok"){
+                                    //응용1. callsign이 ok가 났을 때 아이디를 더 이상 입력 안되도록 하라.
+                                    alert("사용가능한 아이디 입니다.");
+                                    $("#make_id").attr("readonly",true);
+                                    //응용2. 사용가능한 아이디일 경우 더이상 중복체크 버튼을 비활성화 시켜라.
+                                    $("#btn").unbind();
+                                }
+                                else{
+                                    alert("사용할 수 없는 아이디 입니다.");
+                                }
+                                console.log($data)
+                            },
+                            error:function(){
+                                alert("파일로드 실패");
+                            }
+                        })
+                    }
+
+                });
+
+
+            });
+        </script>
+        <style>
+            .btn {
+                width: 500px;
+                height: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="make_id" placeholder="생성할 아이디를 입력하세요">
+        <input type="button" value="중복체크" id="btn">
+    </body>
+</html>

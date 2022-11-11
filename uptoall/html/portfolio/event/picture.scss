@@ -1,0 +1,250 @@
+@charset "UTF-8";
+@import url("../css/font.css");  // url을 scss에서는 사용하지 않음. 단, css를 가져올 때는 url을 사용하고
+@import "./basic.scss"; // scss에서 scss를 가져올 때는 url을 안쓴다.
+// @import url("./basic.scss");  이렇게 쓰면 안됨!!!!!
+@keyframes texts {
+    from{
+        word-spacing: -100px;
+    }
+    to{
+        word-spacing: 0px;
+    }
+}
+img {
+    width: 100%;
+    object-fit: cover;
+}
+.dark {
+    width: 100%;
+    height: 750px;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    z-index: 10;
+    & > label {
+        @include div(350px,100px,block,"");
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -175px;
+        margin-top: -50px;
+        & > span {
+            @include div(350px,100px,block,"");
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -175px;
+            margin-top: -50px;
+            font-size: 60px;
+            line-height: 80px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        & > .game_start1 {
+            border: 9px solid skyblue;
+            color: skyblue;
+        }
+        & > .game_start2 {
+            display: none;
+            border: 9px solid tomato;
+            color: tomato;
+        }
+    }
+}
+.picture_aside {
+    @include div(1200px,auto,block,"");
+    margin: 0 auto;
+    position: relative;
+    & > .picture_title {
+        @include div(700px,80px,block,"");
+        @include font("sans",700,30px,black);
+        margin: 0 auto;
+        line-height: 80px;
+        text-align: center;
+        text-decoration: overline;
+        background-color: rgb(230, 230, 230);
+        border-radius: 40px 40px 0 0;
+        // 새로 배운 코드
+        animation: texts 0.7s 3 linear;
+        animation-direction: alternate;
+        animation-timing-function: 3s;
+    }
+    & > .picture_box {
+        @include div(inherit,auto,block,"");
+        position: relative;
+        background-color: rgb(230, 230, 230);
+        & > .picture_box_img {
+            @include div(inherit,750px,flex,"");
+            @include flex(space-evenly,row,nowarp,center,center,2);
+            position: relative;
+            & > label {
+                @include div(550px,723px,inline-block,"");
+                position: relative;
+                & > .aw {
+                    @include div(50px,50px,block,"");
+                    position: absolute;
+                    $i:1;
+                    $r:120px,470px,200px,450px,150px;
+                    $t:140px,200px,215px,270px,600px;
+                    @while ($i <= 5) {
+                        &:nth-of-type(#{$i}){
+                            right: nth($r,$i);
+                            top: nth($t,$i);
+                        }
+                        $i:$i+1;
+                    }
+                }
+            }
+        }
+        & > .picture_box_text {
+            @include div(1170px,180px,block,"");
+            & > label {
+                @include div(inherit,35px,block,"");
+                display: flex;
+                justify-content: space-evenly;
+                flex-flow: column ;
+                text-align: right;
+            }
+            & > label:nth-of-type(3),:nth-of-type(5) {
+                color: tomato;
+            }
+        }
+        & > .picture_box_chance {
+            @include div(100px,100px,block,"");
+            background-color: gray;
+            border: 1px solid dimgray;
+            border-radius: 100%;
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            margin-left: -50px;
+            z-index: 5;
+        }
+    }
+}
+
+// 이벤트 정보 입력 part
+.picture_event_join {
+    @include div(1200px,auto,block,"");
+    background-color: rgb(230, 230, 230);
+    margin: 0 auto;
+    margin-top: 10px;
+    & > .picture_event_policy {
+        @include div(inherit, 300px, flex, "");
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        & > .picture_event_policy_title {
+            @include div(1000px, 80px, block, "");
+            @include font("noto",500,20px,black);
+            text-align: center;
+            line-height: 80px;
+            // background-color: rgb(236, 155, 155);
+            background-color: rgb(230, 230, 230);
+            text-decoration: overline;
+        }
+        & > .picture_event_policy_content {
+            @include div(1000px, 220px, block, "");
+            background-color:#ccc;
+            overflow-y: scroll;
+            padding-left: 10px;
+            border: 2px solid rgb(247, 247, 247);
+            box-sizing: border-box;
+        }
+    }
+    & > .picture_event_policy_check {
+        @include div(inherit, 60px, flex, "");
+        justify-content: center;
+        align-items: center;
+        & > .picture_event_policy_checkbox {
+            @include div(1000px, 40px, block, "");
+            @include font("noto",500,16px,black);
+            line-height: 40px;
+            & > label {
+                @include div(350px, 40px, block, "");
+                text-decoration: overline;
+            }
+        }
+    }
+    & > .picture_event_input {
+        @include div(1000px, 250px, flex, "");
+        // border: 2px solid rgb(247, 247, 247);
+        background-color: rgb(230, 230, 230);
+        margin: 0 auto;
+        & > .picture_event_inputbox1 {
+            @include div(250px, inherit, flex, "");
+            justify-content: center;
+            & > .picture_event_inputbox1_ul1 {
+                @include div(150px, inherit, flex, "");
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: space-around;
+                & > li {
+                    @include div(150px, 40px, block, "");
+                    line-height: 40px;
+                    text-decoration: overline;
+                }
+            }
+        }
+        & > .picture_event_inputbox2 {
+            @include div(750px, inherit, block, "");
+            & > .picture_event_inputbox1_ul2 {
+                @include div(inherit, inherit, flex, "");
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: space-around;
+                & > li {
+                    @include div(auto, 30px, flex, "");
+                    & > input {
+                        height: 30px;
+                        text-indent: 5px;
+                        border-radius: 3px;
+                        border: 1px solid #ccc;
+                    }
+                }
+            }
+            & > ul > li:nth-of-type(2) {
+                @include div(auto, 30px, flex, "");
+            }
+        }
+    }
+    & > .picture_event_btn {
+        @include div(inherit, 100px, flex, "");
+        justify-content: center;
+        align-items: center;
+        & > span {
+            @include div(200px, 70px, block, "");
+            @include font("noto",500,20px, white);
+            text-align: center;
+            line-height: 70px;
+            border-radius: 5px;
+            background-color: rgb(236, 155, 155);
+            cursor: pointer;
+            &:hover {
+                background-color: rgb(216, 111, 111);
+            }
+        }
+    }
+}
+.e_name {
+    width: 100px;
+}
+.e_addr {
+    width: 100px;
+}
+.e_road {
+    width: 450px;
+}
+.e_tel {
+    width: 100px;
+}
+.addr_btn {
+    @include div(80px, 30px, block, "");
+    text-align: center;
+    border: none;
+    border-radius: 3px;
+}
+
+#event_fm {
+    display: none;
+}

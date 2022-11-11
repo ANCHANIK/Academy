@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <title>Jquery 응용6</title>
+    <script src="./jquery.js"></script>
+<script>
+    $(document).ready(function(){
+
+
+
+        
+        $("#node_add1").click(function(){
+            $("#divbox").append("<label class='labelcss'>box1</label> ")
+        });
+        
+        $("#node_add2").click(function(){
+            $("#divbox").prepend("<label class='labelcss'>box2</label> ")
+        });
+        
+        $("#node_del1").click(function(){
+            var $node = $("#divbox > label").length - 1;
+            $("#divbox > label").eq($node).remove();
+        });
+
+        $("#node_del2").click(function(){
+            $("#divbox > label").eq(0).remove();
+        });
+
+        $("#node_all").click(function(){
+            $("#divbox > label").remove();
+        });
+
+
+
+
+    });
+
+
+</script>
+<style>
+        .labelcss { width:100px; height:30px; border:1px solid red;
+        display:inline-block; }
+
+        .divbox { width:100%; height:40px;
+        border:1px solid blue;
+        }
+</style>
+</head>
+<body>
+<div class="divbox" id="divbox">
+    <label class="labelcss">box1</label>
+    <label class="labelcss">box2</label>
+    <label class="labelcss">box3</label>
+    <label class="labelcss">box4</label>
+    <label class="labelcss">box5</label>
+</div>
+
+<input type="button" value="노드추가(맨뒤)" id="node_add1">
+<input type="button" value="노드추가(맨앞)" id="node_add2">
+<input type="button" value="노드삭제(맨뒤)" id="node_del1">
+<input type="button" value="노드삭제(맨앞)" id="node_del2">
+<input type="button" value="노드전체삭제" id="node_all">
+<input type="button" value="노드복제(맨앞)" id="node_copy_f">
+<!--
+    노드 복제 버튼 클릭시 맨 앞에 있는 노드를 복제하여 맨 뒤로 이동시켜라
+    예) box1이 복제가 되면서 원래 있는 위치에는 삭제되고
+    box5 맨 뒤로 이동되도록 하라.
+-->
+<input type="button" value="노드복제(맨뒤)" id="node_copy_b">
+<!--
+    예) box5을 복제하여 box1 앞에 노드가 추가되어야 하며
+    기존의 box5번은 삭제되어야 한다.
+-->
+</body>
+</html>

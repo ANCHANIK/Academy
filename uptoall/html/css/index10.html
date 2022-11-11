@@ -1,0 +1,45 @@
+<?php
+    $date = date("Ymdhis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <!--
+        viewport : CSS3 디바이스 타입, 화면크기 기준으로 스타일 시트가 적용되도록하는 meta 속성
+        width=device-width : 접속 디바이스 가로 최대 길이 모두 사용
+        initial-scale=1 : 1:1비율로 보여주도록 함
+        user-scalable : yes, no   확대, 축소기능 사용 여부
+        -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <!-- 애플 (사파리) 기능중 전체모드를 사용할 수 있도록 하는 기능 -->
+        <title>CSS3일차 모바일 페이지</title>
+        <link rel="stylesheet" type="text/css" href="./index10.css?v=<?php echo $date?>">
+    </head>
+    <body>
+        <!--<div class="box">연습입니다.</div>-->
+        <!--
+            모바일 전용 웹 제작
+            최소 가로 사이즈 : 320px
+            최대 가로 사이즈 : 560px
+        -->
+        <header class="top">
+            <div class="btn1"></div>
+            <div class="btn2"></div>
+            <div class="btn3"></div>
+            <span class="cs">
+                <a href="tel:1588-0000">CS : 1588-0000</a>
+                <!--
+                    tel : 속성값을 입력하면 모바일에서는 
+                    전화연결 디바이스로 화면 전환이 된다.
+                -->
+                <a href="mailto:webmaster@nate.com">담당자 메일 : webmaster@nate.com</a>
+                <!--
+                    mailto : 속성값을 메일 보내기 기능을 사용할 수 있다.
+                -->
+            </span>
+        </header>
+    </body>
+</html>

@@ -1,0 +1,155 @@
+@charset "UTF-8";
+@import "./config.scss";
+
+.notice_article {
+    @include object(1174px, auto, block, "");
+    margin-top: 30px;
+    margin: 0 auto;
+    & > .notice_title {
+        @include object(100%, 100px, block, "");
+        @include fonts(18px, 600, black, 100px);
+        text-align: center;
+    }
+    & > .notice_content {
+        @include object(100%, 400px, flex, "");
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        & > .notice_content_title {
+            @include object(100%, 40px, block, "");
+            & > ul {
+                @include object(100%, inherit, flex, "");
+                @extend %ulol;
+                background-color: rgb(210, 210, 210);
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                padding-left: 20px;
+                padding-right: 20px;
+                box-sizing: border-box;
+                & > li {
+                    @include object("", inherit, flex, "");
+                    @include fonts(12px, 400, black, 40px);
+                    text-align: center;
+                    flex-flow: row nowrap;
+                    justify-content: space-around;
+                    & > div {
+                        @include object(45%, inherit, block, "");
+                        &:nth-of-type(2){
+                            @include fonts(12px, 700, black, 40px);
+                            text-align: left;
+                        }
+                    }
+                    &:nth-of-type(1) {
+                        width: 100px;
+                    }
+                    &:nth-of-type(2) {
+                        width: 600px;
+                        justify-content: flex-start;
+                        & > div:nth-of-type(1) {
+                            width: 60px;
+                        }
+                        & > div:nth-of-type(2) {
+                            width: 100%;
+                            text-align: left;
+                        }
+                    }
+                    &:nth-of-type(3) {
+                        width: 150px;
+                    }
+                    &:nth-of-type(4) {
+                        width: 150px;
+                    }
+                }
+            }
+        }
+        & > .notice_content_inner {
+            @include object(100%, 350px, block, "");
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    }
+    & > .notice_btn {
+        @include object(100%, 70px, flex, "");
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        & > button {
+            @include object(90px, 40px, block, "");
+            @include fonts(12px, 400, white, 40px);
+            border: none;
+            border-radius: 3px;
+            text-align: center;
+            cursor: pointer;
+            background-color: rgb(18, 22, 45);
+            &:hover {
+                background-color: rgb(7, 9, 21);
+            }
+        }
+    }
+}
+
+
+// notice_list part
+.notice_list_article {
+    @include object(1174px, auto, block, "");
+    margin-top: 30px;
+    margin: 0 auto;
+    & > .notice_title {
+        @include object(100%, 100px, block, "");
+        @include fonts(18px, 600, black, 100px);
+        text-align: center;
+    }
+    & > .notice_content {
+        @include object(100%, 400px, flex, "");
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        & > .notice_content_title {
+            @include object(100%, 40px, block, "");
+            & > ul {
+                @include object(100%, inherit, flex, "");
+                @extend %ulol;
+                background-color: rgb(210, 210, 210);
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                & > li {
+                    @include object("", inherit, flex, "");
+                    @include fonts(12px, 400, black, 40px);
+                    text-align: center;
+                    flex-flow: row nowrap;
+                    justify-content: space-around;
+                    &:nth-of-type(1){
+                        width: 10%;
+                        background-color: blueviolet;
+                    }
+                    &:nth-of-type(2){
+                        width: 40%;
+                        background-color: brown;
+                    }
+                    &:nth-of-type(3){
+                        width: 15%;
+                        background-color: cadetblue;
+                    }
+                    &:nth-of-type(4){
+                        width: 20%;
+                        background-color: chartreuse;
+                    }
+                    &:nth-of-type(5){
+                        width: 15%;
+                        background-color: blue;
+                    }
+                }
+            }
+        }
+        & > .notice_content_inner {
+            @include object(100%, 350px, block, "");
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    }
+    & > .notice_list_paging {
+
+    }
+}

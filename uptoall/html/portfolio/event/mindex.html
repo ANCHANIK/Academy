@@ -1,0 +1,65 @@
+<?php
+    $v = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="./mevent.css?v=<?php echo $v?>">
+        <title>롤렛 이벤트 페이지!</title>
+        <script src="../JS/jquery.js"></script>
+        <script src="./event.js?v=<?php echo $v?>"></script>
+        <script>
+            $(document).ready(function(){
+
+
+                var $btn_w = $("#game_btn").width() / 2;
+                var $btn_h = $("#game_btn").height() / 2;
+                
+                var $container_w = $("#container").width();
+                $(".game_bg").css({
+                    "height": $container_w + 120 + "px"
+                });
+                
+                if($container_w >= 340 && $container_w <= 480){
+                    // $("#game_btn").css({
+                    //     "margin-top": $btn_w + "px"
+                    // });
+                    $("#board").css({
+                        "bottom":"55px"
+                    });
+                }
+                else{
+                    $("#board").css({
+                        "bottom":"75px"
+                    });
+                }
+
+            });
+        </script>
+
+    </head>
+    <body>
+        <input type="hidden" name="ct" id="ct" value="3">
+        <header class="title">
+            <p>[모바일 이벤트 룰렛 페이지]</p>
+        </header>
+        <section class="container" id="container">
+            <div class="game_bg">
+                <div class="msg" id="msg"></div>
+                <span class="board" id="board">
+                    <img src="./images/event_view.png">
+                </span>
+                <span class="start_off" id="game_btn">
+                    <img src="./images/event_start_off.png">
+                </span>
+                <span class="marker">
+                    <img src="./images/event_pt.png">
+                </span>
+            </div>
+        </section>
+    </body>
+</html>

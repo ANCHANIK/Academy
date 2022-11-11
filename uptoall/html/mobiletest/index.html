@@ -1,0 +1,48 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="index.css?v=<?=$data?>">
+        <link rel="stylesheet" type="text/css" href="jquery-ui.css?v=<?=$data?>">
+        <link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5.css?v=<?=$data?>">
+        <script src="jquery1.12.js"></script>
+        <script src="jquery-ui.js"></script>
+        <script src="jquery.mobile-1.4.5.js"></script>
+        <script src="index.js?v=<?=$data?>"></script>
+    </head>
+    <body>
+        <!-- 상단 알림창 -->
+        <div class="notice" id="notice">
+            <span class="notice_text">
+                <label>NVIDIA에서 GTX3060Ti를 40% 저렴하게 구매하도록</label>
+                <label>권고하고 있습니다. 금액 규정에 대한 정보를 꼭 확인하세요.</label>
+            </span>
+            <span class="notice_close" id="notice_close">
+                <img src="./img/closeico.png">
+            </span>
+        </div>
+        <!-- 대메뉴 -->
+        <header class="header">
+            <div class="header_small" id="header_menu">
+                <img src="./img/menuico.png">
+            </div>
+            <div class="header_logo" id="header_logo">
+                <img src="img/logo.png">
+            </div>
+            <div class="header_small" id="header_search">
+                <img src="img/searchico.png">
+            </div>
+        </header>
+        <!-- 메인 -->
+        <main>
+            
+        </main>
+        <footer></footer>
+    </body>
+</html>

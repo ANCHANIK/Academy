@@ -1,0 +1,122 @@
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  left: -7px;
+}
+
+.product {
+  width: 100%;
+  height: 500px;
+  display: block;
+}
+
+.product > .product_list {
+  width: 300px;
+  height: 500px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+}
+
+.product > .product_list > .product_label {
+  width: 300px;
+  height: 500px;
+  display: block;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.product > .product_list > .product_label > .product_view {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  display: block;
+}
+
+.product > .product_list > .product_label > .product_view > .product_img {
+  width: 300px;
+  height: 400px;
+  display: block;
+}
+
+.product > .product_list > .product_label > .product_view:nth-of-type(2) {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.product > .product_list > .product_money {
+  position: absolute;
+  bottom: 0;
+  width: inherit;
+  height: 100px;
+  display: block;
+}
+
+.product > .product_list:hover .product_label {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.ulcss {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ulcss {
+  width: inherit;
+  height: auto;
+  display: block;
+}
+
+.ulcss > li {
+  width: inherit;
+  height: 50px;
+  display: block;
+  text-align: center;
+  line-height: 50px;
+}
+
+.blackscreen {
+  width: inherit;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btn {
+  width: 100px;
+  height: 40px;
+  display: block;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.views {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+/*# sourceMappingURL=index17_1.css.map */

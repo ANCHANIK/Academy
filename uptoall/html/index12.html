@@ -1,0 +1,25 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML 4.0 4일차 - 기본 레이아웃 + CSS 2.0</title>
+        
+        <style>
+            body { margin:0; padding:0; }  /* margin : 바깥쪽 여백, padding : 안쪽 여백 */
+            /* div 객체에 배경색상 노란색, 크기 100*100 */
+            .a { width:100px; height:100px; background-color: yellow; margin-left:500px; margin-top:200px; }
+            /* div 객체 생성 크기 : 50*50 배경색상 붉은색 */
+            .b { width:50px; height:50px; background-color: red; margin-left:525px; margin-top:-300px; margin-bottom:50px; }
+            /* div 객체 생성 크기 :100*100 배경색상 녹색 */
+            .c { width:100px; height:100; background-color: green; margin-left:500px; }
+            /* margin : left, right, top, bottom */
+            /* div 객체 생성 크기 : 135*55 배경색상 파랑색*/
+            .d { width:135px; height:55; background-color: blue; margin: 100px 0 0 300px; } /* 0(top) -> 0(right) -> 0(bottom) -> 0(left)  margin:100px 이면 다 100px 주라는 소리 */
+        </style>
+    </head>
+    <body>
+        <div class="a"></div>
+        <div class="b"></div>
+        <div class="c"></div>
+        <div class="d"></div>
+    </body>
+</html>

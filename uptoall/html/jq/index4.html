@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 1일차 - 애니메이션</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                // slideUp + slideDown = 드롭메뉴, 상단 베너에 적용함
+                $("#box").click(function(){
+                    $(this).slideUp(1000);
+                });
+                $("#box2").click(function(){
+                    $("#box").slideDown(1000);
+                    // box가 display: none; 상태에서 사용해야 된다.
+                    })
+
+                $("#box3").click(function(){
+                    var $dis = $("#sbox").css("display");
+                    if($dis == "block"){
+                        $("#sbox").fadeOut(500);  // fadeOut : 크기는 유지하되 서서히 사라지는 효과
+                    }
+                    else{
+                        $("#sbox").fadeIn(1000);  // fadeIn : 서서히 나타나는 효과
+                    }
+                });
+
+                $("#close").click(function(){
+                    $("#popup").fadeOut(500);
+                });
+                $("#close2").click(function(){
+                    $("#popup").fadeOut(500);
+                });
+
+
+                });
+            
+        </script>
+        <style>
+            .box {
+                width: 600px;
+                height: 150px;
+                background-color: orange;
+                display: none;
+            }
+            .sbox {
+                width: 300px;
+                height: 300px;
+                background-color: goldenrod;
+            }
+            .popup {
+                width: 600px;
+                height: auto;
+                position: relative;
+            }
+            .popup > img { width: 100% }
+            .btn_close > input {
+                width: 100px;
+                height: 40px;
+                font-size: 13px;
+                font-weight: bold;
+                color: white;
+                background-color: black;
+                border: none;
+                float: right;
+            }
+            .x {
+                width: 100px; height: 100px;
+                display: block;
+                position: absolute;
+                cursor: pointer;
+                right: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box"></div>
+        <input type="button" value="click" id="box2">
+        
+        <br><br>
+
+        <div class="sbox" id="sbox"></div>
+        <input type="button" value="click2" id="box3">
+        
+        <br><br><br>
+
+        <div class="popup" id="popup">
+            <label class="x" id="close2"></label>
+            <img src="./popup.jpg">
+            <span class="btn_close">
+                <input type="button" value="창닫기" id="close">
+            </span>
+        </div>
+
+    </body>
+</html>

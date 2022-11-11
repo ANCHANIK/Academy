@@ -1,0 +1,166 @@
+@charset "UTF-8";
+@import "./config.scss";
+
+//---------------------------------------------상단 광고 --------------------------------------------
+.top_ad_section {
+    @include object(100%, auto, block, "");
+    background-color: #fee63c;
+    .top_ad_aside {
+        @include object(1174px, 80px, block, "");
+        margin: 0 auto;
+        & > .top_ad_div {
+            @include object(inherit, inherit, block, "");
+        }
+    }
+}
+//-------------------------------------------- top 서브 메뉴 ---------------------------------------------
+.top_serve_menu_section {
+    @include object(100%, auto, block, "");
+    border-bottom: 1px solid #CCCCCC;
+    .top_serve_menu_asdie {
+        @include object(1174px, 40px, flex, "");
+        margin: 0 auto;
+        justify-content: space-between;
+        & > .top_serve_menu_ensearch {
+            @include object(250px, inherit, flex, "");
+            & > span:nth-of-type(1){
+                @include object(90px, inherit, flex, "");
+                & > label:nth-of-type(1) {
+                    @include object(20px, inherit, block, "");
+                    padding-top: 9px;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                }
+                & > label:nth-of-type(2) {
+                    @include object(55px, inherit, block, "");
+                    padding-left: 10px;
+                    line-height: 40px;
+                    cursor: pointer;
+                }
+            }
+            & > span:nth-of-type(2){
+                @include object(160px, inherit, block, "");
+                line-height: 40px;
+                padding-left: 10px;
+                & > a {
+                    color: black;
+                }
+            }
+        }
+        & > .top_serve_menu_links {
+            @include object(400px, inherit, block, relative);
+            & > .top_serve_menu_links_ul {
+                @include object(inherit, inherit, flex, "");
+                @extend %ulol;
+                justify-content: space-around;
+                & > li {
+                    height: inherit;
+                    line-height: 40px;
+                    cursor: pointer;
+                }
+                & > li:nth-of-type(5) {
+                    display: flex;
+                }
+                & > span {
+                    line-height: 38px;
+                }
+            }
+            & > .top_serve_menu_links_point {
+                @include object(55px, 30px, block, absolute);
+                left: 75px;
+                top: 28px;
+                & > div{
+                    position: absolute;
+                    width: 0px;
+                    height: 0px;
+                    border-top: 10px solid transparent;
+                    border-right: 10px solid #303947;
+                    transform: rotate(225deg);
+                    right: 23px;
+                    top:6px;
+                }
+                & > span{
+                    @include object(inherit, 20px, block, absolute);
+                    background-color: #303947;
+                    border-radius: 20px;
+                    color: white;
+                    line-height: 20px;
+                    text-align: center;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+}
+// ----------------------------------------------logo 파트 ---------------------------------------------------
+.top_logo_section {
+    @include object(100%, auto, block, "");
+    .top_logo_aside {
+        @include object(1174px, 140px, flex, "");
+        margin: 0 auto;
+        justify-content: space-between;
+        align-items: center;
+        & > .top_logo_ad {
+            width: 250px;
+            cursor: pointer;
+        }
+        & > .top_logo_title {
+            width: 330px;
+            cursor: pointer;
+        }
+        & > .top_logo_search {
+            @include object(270px, 90px, flex, "");
+            margin-right: 25px;
+            flex-flow: column nowrap;
+            justify-content: space-around;
+            & > span {
+                @include object(270px, 35px, block, "");
+            }
+            & > .top_logo_search_input {
+                @include object(270px, 35px, flex, "");
+                & > label:nth-of-type(1){
+                    @include object(235px, inherit, block, "");
+                    & > input {
+                        @include object(235px, inherit, block, "");
+                        border: none;
+                        border-bottom: 1px double dimgray;
+                        box-sizing: border-box;
+                        padding-left: 5px;
+                    }
+                }
+                & > label:nth-of-type(2){
+                    @include object(35px, inherit, block, "");
+                    background-color: rgba(0,0,0,0);
+                    & > input {
+                        @include object(35px, inherit, block, "");
+                        position: absolute;
+                        background-color: rgba(0,0,0,0);
+                        border: none;
+                        cursor: pointer;
+                    }
+                }
+            }
+            & > .top_logo_search_ad {
+                @include object(270px, 35px, flex, "");
+                & > label:nth-of-type(1){
+                    @include object(235px, inherit, block, relative);
+                    overflow: hidden;
+                    & > ul {
+                        @include object(inherit, inherit, block, absolute);
+                        @extend %ulol;
+                        & > li {
+                            @include object(inherit, 35px, block, "");
+                            line-height: 35px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                & > label:nth-of-type(2) {
+                    @include object(35px, inherit, flex, "");
+                    align-items: center;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,84 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1" />
+        <title>HTML 4.0 7일차 - ul&li</title>
+        <style>
+        body {
+        margin: 0;
+        padding: 0;
+        }
+        /* 메뉴 1개당 크기는 가로 100*30 가로 형태의 대매뉴를 작성하시오 (외각선 1px black) */
+        .ulcss {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .licss {
+            width: 100px;
+            height: 30px;
+            border: 1px solid black;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+        }
+        a {
+        text-decoration: none;
+        }
+            /*
+            a 태그를 사용시 외각 라인 또는 밑줄이 생성되는 경우가 있음
+            text-decoration: none; 하면 해당 밑줄 밑 외각라인 삭제함
+            */
+        .banner {
+            clear: both;
+            width: 1000px;
+            height: 450px;
+            background-color: green;
+            position: relative;
+        }
+        .oldisc {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            margin-left: -55px;
+        }
+        .disc {
+            width: 20px;
+            height: 5px;
+            background-color: black;
+            float: left;
+            /*  border-radius: 10px;  */
+            margin-right: 10px;
+        }
+        .disc_view {
+            background-color: red;
+        }
+        </style>
+    </head>
+    <body>
+    <!-- 상위태그, 하위태그 -->
+    <ul class="ulcss">
+        <li class="licss">
+            <a href="http://www.naver.com" target="_blank">메뉴1</a>
+        </li>
+        <a href="http://nate.com" target="_blank">
+            <li class="licss">메뉴2</li>
+        </a>
+        <li class="licss">메뉴3</li>
+    </ul>
+
+    <!-- 배너 만들기(기초) -->
+    <div class="banner">
+        <ol class="oldisc">  <!-- 배너의 디스크 생성 태그(position을 이용해서 사용) -->
+            <li class="disc disc_view"></li>  <!-- li : 디스크 모양, 크기를 셋팅하며, 현재 보고 있는 오브젝트를 표시 -->
+            <li class="disc"></li>
+            <li class="disc"></li>
+            <li class="disc"></li>
+        </ol>
+    </div>
+
+    </body>
+</html>

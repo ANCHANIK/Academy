@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 4일차 (중급 - 배열(고객리스트 출력)응용)</title>
+        <script>
+            /*
+            const array = [
+                ["hong","lee","kims","yiking","yiks"],
+                ["홍길동","이순신","김유신","유리왕","유관순"],
+                ["010-1234-5555","010-0909-0001","010-9999-0486","010-3949-5949","010-1588-1588"]
+        ]
+            // 더블 반복문 for
+            function abc(){
+                var f,g;
+                var f_ea = array.length;
+                var g_ea = array[2].length;
+                console.log(g_ea)
+                
+                var label1,span1,data1;
+                for(g=0;g<g_ea;g++){
+                    label1 = document.createElement("label");
+
+                        for(f=0;f<f_ea;f++){
+                            span1 = document.createElement("span");
+                            data1 = document.createTextNode(array[f][g]);
+                            span1.appendChild(data1);
+                            label1.appendChild(span1);
+                            document.getElementById("member").appendChild(label1);
+                        //console.log(array[f][g]);
+                    }
+                    
+                }
+            }
+                */
+
+            /*
+            // [더블 for in]
+            const array = [
+                ["hong","lee","kims","yiking","yiks"],
+                ["홍길동","이순신","김유신","유리왕","유관순"],
+                ["010-1234-5555","010-0909-0001","010-9999-0486","010-3949-5949","010-1588-1588"]
+            ]
+            console.log(array);
+            console.log(array[0]);
+            console.log(array[1]);
+
+            function abc(){
+                var aa,bb,label1,span1,data;
+                for(aa in array[0]){
+                    console.log(array.mid);
+                    label1 = document.createElement("label");
+                    for(bb in array){
+                        console.log(array[bb][aa]);
+                        span1 = document.createElement("span");
+                        data = document.createTextNode(array[bb][aa]);
+                        span1.appendChild(data);
+                        label1.appendChild(span1);
+                        document.getElementById("member").appendChild(label1);
+                        
+                    }
+                }
+            }
+            */
+            
+            
+        </script>
+        <style>
+            .list { width:500px; height: 30px; text-align:center;
+                background-color: wheat; font-size:12px;
+                }
+            .list > span { display:block; float: left; 
+                height: 30px; line-height: 30px; border-right:1px solid rosybrown;
+                box-sizing: border-box;
+                } 
+            .list > span:nth-of-type(1) { width: 100px;} 
+            .list > span:nth-of-type(2) { width: 100px;} 
+            .list > span:nth-of-type(3) { width: 300px; border: 0;} 
+
+            .member { width:500px; height:auto; text-align:center;
+                background-color:seashell; font-size:12px;
+                }
+            .member > label { width:inherit; height: 30px; display: block;}
+            .member > label > span { display:block; float: left; 
+                height: 30px; line-height: 30px; border-right:1px solid rosybrown;
+                box-sizing: border-box;
+                } 
+            .member > label > span:nth-of-type(1) { width: 100px;} 
+            .member > label > span:nth-of-type(2) { width: 100px;} 
+            .member > label > span:nth-of-type(3) { width: 300px; border: 0;}
+        </style>
+    </head>
+    <body>
+        <p>고객 리스트 및 전화번호</p>
+        <div class="list">
+            <span>아이디</span>
+            <span>고객명</span>
+            <span>연락처</span>
+        </div>
+        <div class="member" id="member">
+            <!-- 샘플 코드
+                <label>
+                    <span>아이디</span>
+                    <span>고객명</span>
+                    <span>연락처</span>
+                </label>
+            -->
+        </div>
+        <input type="button" value="리스트 출력" onclick="abc()">
+    </body>
+    <script>
+        // [더블 foreach]
+        const array = [
+                ["hong","lee","kims","yiking","yiks"],
+                ["홍길동","이순신","김유신","유리왕","유관순"],
+                ["010-1234-5555","010-0909-0001","010-9999-0486","010-3949-5949","010-1588-1588"]
+            ]
+            // console.log(array[0])
+            var label1,span1,data;
+            function abc(){
+            array[0].forEach(function(a1,b1,c1){
+                label1 = document.createElement("label");
+                // console.log(array[b1]);
+                array.forEach(function(a2,b2,c2){
+                    span1 = document.createElement("span");
+                    data = document.createTextNode(array[b2][0]);
+                    span1.appendChild(data);
+                    label1.appendChild(span1);
+                    document.getElementById("member").appendChild(label1);
+                    console.log(span1);
+                })
+            })
+
+            }
+    </script>
+</html>

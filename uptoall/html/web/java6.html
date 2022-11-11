@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>자바스크립트 기초 응용편5</title>
+        <script>
+            /*
+            응용문제15
+            버블링 함수(abc(1,2))를 이용하여 두 개의 값을 곱하여
+            20보다 크면 "해당 입력값은 20보다 큽니다." 라고 console로 출력하고
+            20보다 작으면 "해당 입력값은 20보다 작습니다." 라고 console로 출력하라.
+            단. 계산된 값이 20이면 "정상적인 값입니다." 라고 console로 출력하라.
+            */
+
+            function cal(x,y){
+                var a = Number(document.getElementById("t1").value);
+                var b = Number(document.getElementById("t2").value);
+                c = a * b;
+                if(c > 20){
+                    console.log("해당 입력값은 20보다 큽니다.");
+                }
+                else if(c < 20){
+                    console.log("해당 입력값은 20보다 작습니다.");
+                }
+                else{
+                    console.log("정상적인 값입니다.");
+                }
+            }
+
+            /*
+            응용문제16.
+            이벤트 헨들링 함수를 이용하여 사용자 직접 숫자를 2개를 입력하라.
+            "계산"이라는 버튼 클릭시 해당 값을 함수로 보내서
+            20보다 큰지, 작은지 console로 출력하고, 같을 경우
+            "정상적인 값입니다."라고 출력하라.
+            */
+            
+            
+        </script>
+    </head>
+    <body>
+        <input type="text" id="t1">X
+        <input type="text" id="t2">
+        <input type="button" value="계산" onclick="cal();">
+    </body>
+</html>

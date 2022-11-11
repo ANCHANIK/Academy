@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>vue 연습 1</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+            .spanbox {
+                display: block;
+                width: 100px;
+                height: 100px;
+                background-color: blueviolet;
+            }
+            .divbox {
+                display: block;
+                width: 100px;
+                height: 100px;
+                background-color:brown;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <div>{{text1}}</div>
+            <div>{{text2}}</div>
+            <span v-bind:class="w"></span>
+            <div v-bind:class="h"></div>
+        </section>
+    </body>
+    <script>
+        let a = new Vue({
+            el:"#box",
+            data:{
+                text1:"뷰 연습",
+                text2:"ㅋㅋㅋㅋ",
+                w:"spanbox",
+                h:"divbox"
+            }
+        });
+    </script>
+</html>

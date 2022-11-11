@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.navcss {
+  width: 100%;
+  height: 30px;
+  display: block;
+  position: relative;
+}
+
+.navcss > .top_div {
+  width: 800px;
+  height: 30px;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  background-color: hotpink;
+}
+
+.navcss > .top_div > .top_menu {
+  width: inherit;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navcss > .top_div > .top_menu > li {
+  width: 100%;
+  height: 30px;
+  display: block;
+  position: relative;
+  text-align: center;
+  line-height: 30px;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+  cursor: pointer;
+}
+
+.navcss > .top_div > .top_menu > li > .menus {
+  width: 100%;
+  height: 30px;
+  display: block;
+  position: absolute;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.navcss > .top_div > .top_menu > li:first-of-type {
+  border-left: 0px;
+}
+
+.navcss > .top_div > .top_menu > li:last-of-type {
+  border-right: 0px;
+}
+/*# sourceMappingURL=index27_1.css.map */

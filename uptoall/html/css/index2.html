@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=edge, chrome=1">
+        <title>CSS3 1일차 DOM 및 NODE 2</title>
+        <link type="text/css" rel="stylesheet" href="./index2.css?v=19">
+    </head>
+    <body>
+        <!-- 여러개의 오브젝트가 있을 때 노드 카운터 형식-->
+        <ul class="ulcss">
+            <li>테스트1</li>
+            <li>테스트2</li>
+            <li>테스트3</li>
+        </ul>
+        <ul class="ulcss2">
+            <li>테스트4</li>
+            <li>테스트5</li>
+            <li>테스트6</li>
+        </ul>
+        <!-- 한개의 오브젝트 안에 작은 오브젝트 노드가 추가 되었을 때 -->
+        <ul class="ulcss3">
+            <li>테스트7</li>
+            <li>테스트8
+                <ul class="ulcss4">
+                    <li>테스트8-1</li>
+                    <li>테스트8-2</li>
+                </ul>
+            </li>
+            <li>테스트9</li>
+            <li>테스트10</li>
+        </ul>
+        <br><br>
+        <!-- class명이 같더라도 태그명이 다르면 노드는 다시 계산되어서 카운팅 된다. -->
+        <div class="box">box1</div>
+        <span class="box">box3</span>
+        <div class="box">box2</div>
+        <br><br>
+        <div class="box2">
+            <label>홍길동</label>
+            <label>이순신</label>
+            <label>세종대왕</label>
+            <label>강감찬</label>
+            <label>장보고</label>
+        </div>
+    </body>
+</html>

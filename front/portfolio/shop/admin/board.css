@@ -1,0 +1,196 @@
+@charset "UTF-8";
+/* 게시판 리스트 */
+.board_article {
+   width: 100%;
+   height: auto;
+   margin: 0 auto;
+   text-align: center;
+   margin-bottom: 50px;
+}
+.board_article_title { 
+   font-size: 110%;
+   font-weight: 400;
+   width: inherit;
+   height: 40px;
+   line-height: 40px;
+   background-color: #f2f2f2;
+}
+
+/* table 전 전체 목록 & 검색 설정 */
+.board_article_title>ul {
+   width: 1200px;
+   height: auto;
+   text-align: left;
+   margin: 0 auto;
+}
+.board_article_title>ul>li {
+   display: inline-block;
+}
+.board_article_option { 
+   width: 1200px;
+   height: 50px;
+   line-height: 50px; 
+   text-align: left;
+   margin-bottom: 10px;
+   margin: 0 auto;
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+.board_article_option>input {
+   width: 200px;
+   height: 30px;
+   line-height: 25px;
+}
+.board_article_option>input:nth-of-type(2):hover {
+   background-color: rgb(186, 8, 44);
+}
+.board_article_option>input[type="submit"] {
+   width: 50px;
+   line-height: 25px;
+   background-color: crimson;
+   color: white;
+   border: none;
+}
+.spart {
+   width: 80px;
+   height: 30px;
+}
+.mode_clone > span {
+   cursor: pointer;
+   border-radius: 3px;
+   font-weight: lighter;
+   background-color: dimgray;
+   color: white;
+}
+
+
+/* form */
+.board_article_table {
+   width: 1200px;
+   height: auto;
+   border: 1px solid #ccc;
+   margin: 0 auto;
+}
+.board_article_table_option {
+   background-color: #ddd;
+}
+.board_article_table_option > th { 
+   text-align: center;
+   border-right: 1px solid #ccc;
+}
+.board_option_input {
+   width: 150px;
+}
+.board_option_input_s {
+   width: 25px;
+   text-align: center;
+}
+.board_article_table_option > td {
+   height: 40px;
+   background-color: #eee;
+   border-right: 1px solid #ccc;
+   border-bottom: 1px solid #ccc;
+   text-align: center; 
+}
+.board_article_table_list { 
+   display: none;
+   width: 100%;
+   height: 40px; 
+   border-bottom: 1px solid #ccc;
+}
+.board_article_table_list_none {
+   width: 100%;
+   height: 40px;
+   text-align: center;
+}
+/* 버튼 */
+.board_article_table_btns {
+   width: 1200px;
+   height: 40px;
+   line-height: 40px;
+   margin: 0 auto;
+   text-align: left;
+   margin-top: 20px;
+}
+.board_article_table_btns>button {
+   width: 70px;
+   line-height: 30px;
+   border: none;
+   background-color: #ccc;
+   border-radius:3px;
+}
+.board_article_table_btns>button:hover {
+   background-color: dimgray;
+   color: white;
+}
+
+label{ display: block;}
+
+/* 게시판 리스트 수정 */
+.board_config {
+   width: 1200px;
+   height: 750px;
+   margin: 0 auto;
+   text-align: center;
+}
+.board_config_caption {
+   height: 50px; 
+   line-height: 50px;
+   font-size: 120%;
+   font-weight: bold;
+}
+
+/* form */
+.board_config_table {
+   width: 100%;
+   height: auto;
+   border: 1px solid #ccc;
+}
+.board_config_option {
+   height: auto;
+   border-bottom: 1px solid #ccc;
+}
+.board_config_option > th {
+   width: 20%;
+   text-align: left;
+   text-indent: 5px;
+}
+.board_config_option > td {
+   width: 65%;
+   text-align: left;
+}
+.config_option_info {
+   color: #bbb;
+}
+.board_option_input {
+   width: 150px;
+   line-height: 25px;
+}
+.big {
+   width: 90%;
+}
+.board_config_btn {
+   line-height: 28px;
+   color: white;
+   background-color: black;
+   border: none;
+}
+
+
+
+/* 버튼 */
+.board_config_btns {
+   width: 100%;
+   height: 50px;
+   line-height: 50px;
+   text-align: center;
+}
+.board_config_btns>button {
+   line-height: 30px;
+   color: white;
+   border: none;
+   background-color: darkseagreen
+}
+.board_config_btns>button:first-child {
+   background-color: crimson;
+}

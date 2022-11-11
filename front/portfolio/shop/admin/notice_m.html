@@ -1,0 +1,74 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>공지사항</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+<article class="notice_list_article">
+    <div class="notice_list_article_text">NOTICE 수정</div>
+</article>
+<form name="nfrm">
+    <input type="hidden" name="notice_key" value="notice_modify">
+    <input type="hidden" name="notice_sidx" id="notice_sidx" value="">
+    <aside class="notice_insert_aside">
+        <table>
+            <tbody class="notice_table">
+                <tr class="notice_title">
+                    <td>제목</td>
+                    <td>
+                        <input type="text" name="notice_subject">
+                    </td>
+                </tr>
+                <tr class="notice_id">
+                    <td>아이디</td>
+                    <td>
+                        <input type="text" name="notice_id" value="<?php echo $aid?>" readonly autocomplete="off">
+                    </td>
+                </tr>
+                <tr class="notice_name">
+                    <td>이름</td>
+                    <td>
+                        <input type="text" name="notice_name" value="<?php echo $aname?>" readonly autocomplete="off">
+                    </td>
+                </tr>
+                <tr class="notice_pw">
+                    <td>패스워드</td>
+                    <td>
+                        <input type="password" name="notice_pw" autocomplete="off"><span class="np_memo">※ 최고관리자일 경우 패스워드 없이 삭제가 가능합니다.</span>
+                    </td>
+                </tr>
+                <tr class="notice_content">
+                    <td>내용</td>
+                    <td>
+                        <textarea name="notice_text" id="notice_text" autocomplete="off"></textarea>
+                        <script>
+                            CKEDITOR.replace("notice_text",{height:300})
+                        </script>
+                    </td>
+                </tr>
+                <tr class="notice_print">
+                    <td>공지 출력 유/무*</td>
+                    <td>
+                        <label>
+                            <input type="radio" name="notice_hide" value="Y" checked> Y
+                        </label>
+                        <label>
+                            <input type="radio" name="notice_hide" value="N"> N
+                        </label>
+                        <span class="np_memo">※ 공지출력이 N일 경우 쇼핑몰에 공지내용이 출력되지 않습니다.</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="notice_btn">
+            <button type="button" class="npb" id="notice_modi">공지수정</button>
+            <button type="button" class="npb" id="notice_list">공지목록</button>
+            <input type="hidden" id="notice_btn" disabled>
+        </div>
+    </aside>
+</form>

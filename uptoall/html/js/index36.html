@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 7 일차 - 초급코드(split 응용부분)</title>
+        <script>
+            // 메일,카페,블로그,지식IN,쇼핑
+            var menus = "메일|카페|블로그|지식IN|쇼핑|고객센터";
+            var m = menus.split("|");
+            var m_ea = m.length;  // 메뉴 개수 파악
+            // console.log(m_ea);
+
+            function abc(){
+                var w = 0;  // w 변수에 0을 준 이유 : 노드값이 0부터 시작하기 때문
+                var html = "";
+                while(w < m_ea){
+                    var code = "<li onclick='link("+w+")'>" + m[w] + "</li>" //inline-block 먹이려면 "</li> " 공백 주면 적용됨
+                    // html 코드 생성시 이벤트 핸들링 함수를 생성할 수 있다.
+                    html = html + code;
+                    //document.getElementById("menu").innerHTML += code;
+                    w++;
+                }
+                document.getElementById("menu").innerHTML = html;
+            }
+            function link(aa){
+                switch(aa){
+                    case 0:
+                    location.href = "http://naver.com";
+                    break;
+                    case 1:
+                    alert("쉿~ 서비스 준비중!");
+                    break;
+                    case 2:
+                    location.href = "http://naver.com";
+                    break;
+                    case 3:
+                    location.href = "http://naver.com";
+                    break;
+                    case 4:
+                    location.href = "http://naver.com";
+                    break;
+                }
+            }
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            ul, ol { list-style: none; margin: 0; padding: 0; }
+            .menu {
+                margin: 0 auto;
+                width: 100%;
+                height: 30px;
+                position: relative;
+                text-align: center;
+            }
+            .menu > li {
+                width: 150px;
+                height: 30px;
+                border: 1px solid blue;
+                box-sizing: border-box;
+                text-align: center;
+                line-height: 30px;
+                margin-left: 0;
+                display: inline-block;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="menu" class="menu">
+        </ul>
+    </body>
+    <script>
+        abc();
+    </script>
+</html>

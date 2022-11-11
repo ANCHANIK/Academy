@@ -1,0 +1,197 @@
+<?php
+    include "notice_view.php";  //백엔드 파일
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>Ajax (6일차) - 공지사항 글 수정</title>
+        <script src="./jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="./notice_modify.css?v=2">
+        <script>
+            $(function(){
+                const $data = JSON.parse('<?=$view?>');
+
+                $("#notice_subject").val($data[0]["nsubject"]) // 제목
+                $("#notice_writer").val($data[0]["nwriter"])  // 글쓴이
+                $("#notice_text").val($data[0]["ntext"])   // 내용
+                
+                var $p = location.search;
+                var $split = $p.split("?nidx=");
+                $("#nidx").val($split[1]);
+
+
+                // 보안코드 생성
+                $.fn.numload = function(){
+                $.ajax({
+                        url:"./notice_number.php",
+                        cache:false,
+                        type:"GET",
+                        dataType:"JSON",  //back-end가 xml,txt,json
+                        success:function($data){
+                            $.fn.reload($data);
+                        },
+                        error:function(){
+                            console.log("DATA ERROR");
+                        }
+                    });
+                }
+                $.fn.numload();
+                
+                // 새로고침
+                $("#new_btn").click(function(){
+                    $.fn.numload();
+                });
+                // 목록버튼
+                $("#list_btn").click(function(){
+                    location.href = "http://cksdlr7446.dothome.co.kr/ajax/notice_list.html";
+                });
+
+                // 보안코드 새로고침 확장함수
+                $.fn.reload = function($data){
+                    $("#se_num").text($data);
+                }
+
+                let $snumber; // 보안코드 6자리 임시 저장공간
+                // 보안코드 새로고침 확장함수
+                $.fn.reload = function($data){
+                    $snumber = $data;
+                    $("#se_num").text($data);
+                }
+
+                // let $se_code = "";
+                // $.fn.se_num = function($data){
+                //     $se_code = $("#se_num").text($data);
+                //     console.log($se_code);
+                // }
+
+                $("#sub_btn").click(function(){
+                    $.wcheck();
+                });
+
+                $.extend({  // $.fn과는 다른 여러개의 확장함수를 가질 때 사용. bind와 비슷한 함수
+                    wcheck:function(){
+                        if($("#notice_subject").val() == ""){
+                            alert("제목을 입력해 주세요");
+                        }
+                        else if($("#notice_writer").val() ==""){
+                            alert("글쓴이를 입력해 주세요");
+                        }
+                        else if($("#notice_pass").val() ==""){
+                            alert("비밀번호를 입력해 주세요");
+                        }
+                        else if($("#notice_text").val() ==""){
+                            alert("내용을 입력해 주세요");
+                        }
+                        else if($("#se_input").val() ==""){
+                            $("#se_input").focus();
+                            alert("보안코드를 입력하세요");
+                        }
+                        else{
+                            if($snumber == $("#se_input").val()){
+                                //nidx 파라미터 값이 hidden name="nidx"에 value값으로 등록되어야 함
+                                var $p = location.search;
+                                var $split = $p.split("?nidx=");
+                                $("#nidx").val($split[1]);
+                                $("#fm").submit();
+                            }
+                            else{
+                                alert("정확한 6자리 보안코드를 입력하세요");
+                                $("#se_input").focus();
+                                $("#se_input").val("");
+                            }
+                        }
+                    }
+                });
+
+                /*
+                $("#sub_btn").click(function(){
+                    var $nsubject = $("#notice_subject").val();
+                    var $nwriter = $("#notice_writer").val();
+                    var $npass = $("#notice_pass").val();
+                    var $ntext = $("#notice_text").val();
+                    var $se_input = $("#se_input").val();
+                    var $vvv = $("#se_num").text();
+                    
+                    if($nsubject == ""){
+                        alert("제목을 입력해 주세요");
+                    }
+                    else if($nwriter == ""){
+                        alert("글쓴이를 입력해 주세요");
+                    }
+                    else if($npass == ""){
+                        alert("비밀번호를 입력해 주세요");
+                    }
+                    else if($ntext == ""){
+                        alert("내용을 입력해 주세요");
+                    }
+                    else if($se_input != $vvv){
+                        alert("보안코드를 확인하세요");
+                    }
+                    else{
+                        $("#fm").submit();
+                    }
+                });
+                */
+            });
+        </script>
+    </head>
+    <body>
+        <form id="fm" name="fm" method="POST" action="http://cksdlr7446.dothome.co.kr/ajax/notice_modify.php" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="domain" value="http://cksdlr7446.dothome.co.kr">
+            <input type="hidden" name="nidx" id="nidx" value="">
+            <section class="notice">
+                <div class="notice_box">
+                    <table cellspacing="0" cellpadding="0">
+                        <thead class="thead">
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <p>[공지사항 게시판 - 글쓰기]</p>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+                            <tr>
+                                <td>제목</td>
+                                <td>
+                                    <input type="text" class="input1" name="notice_subject" id="notice_subject" maxlength="100" autocomplete="off">&nbsp;[최대 100자까지만 입력 가능합니다]
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>글쓴이</td>
+                                <td>
+                                    <input type="text" class="input2" name="notice_writer" id="notice_writer" autocomplete="off">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>패스워드</td>
+                                <td>
+                                    <input type="password" class="input2" name="notice_pass" id="notice_pass" maxlength="10" minlength="4">&nbsp;[글 작성시의 패스워드를 입력하세요]
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>내용</td>
+                                <td>
+                                    <textarea class="input3" name="notice_text" id="notice_text" cols="100" rows="20" autocomplete="off"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>보안코드</td>
+                                <td>
+                                    <label class="security" id="se_num"></label>
+                                    <input type="text" class="input2" id="se_input" maxlength="6" autocomplete="off">
+                                    <input type="button" value="새로고침" class="se_btn" id="new_btn">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn_box">
+                        <button type="button" class="sub_btn" id="sub_btn">등록완료</button>
+                        <button type="button" class="sub_btn" id="list_btn">목록</button>
+                    </div>
+                </div>
+            </section>
+        </form>
+    </body>
+</html>

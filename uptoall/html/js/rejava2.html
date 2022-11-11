@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 2일차 초급 (JavaScript & jQuery)</title>
+        <script src="../jq/jquery.js"></script>
+        <script>
+            //jq로 작성
+            $(document).ready(function(){
+
+            //     $("#sel").change(function(){
+            //         var $aa = $(this).val();
+            //         if($aa == "my"){
+            //             $("#bemail").attr("readonly",false);
+            //             $("#bemail").val("");
+            //         }
+            //         else{
+            //             $("#bemail").attr("readonly",true);
+            //             $("#bemail").val($aa);
+            //         }
+            //     });
+                
+            
+            /*
+                $("#btn").click(function(){
+                
+                var $aa = $("#test").attr("name");  // 속성값을 가져올 때
+                console.log($aa);
+                $("#test").attr("name","bbb");  // 속성값을 변경할 때
+                
+                $("#test").attr("style","border: 1px solid red");  // 속성값을 추가할 때도 사용
+                $("#test").attr("class","input_css");
+                // attr : 속성값을 가져올 수도, 속성값을 변경시킬 수도, 속성값을 추가할 수도 있다.
+                })
+                */
+
+            });
+
+                function abc(z){
+                    if(z == "my"){
+                        document.getElementById("bemail").value = "";
+                        document.getElementById("bemail").readOnly = false;
+                    }
+                    else{
+                        document.getElementById("bemail").value = z;
+                        document.getElementById("bemail").readOnly = true;
+                    }
+                }
+
+                function ccc(){
+                    document.getElementById("test").setAttribute("name","aaa");  // 속성을 추가할 때
+                    var b = document.getElementById("test").getAttribute("class");  // 속성을 가져올 때 [get]
+                    console.log(b);
+                }
+        </script>
+    </head>
+    <body>
+        <!-- 응용문제2.
+        사용자가 이메일을 입력한다.
+        단, 메일주소 선택에서 해당 메일주소를 선택하면 bmail에 해당 선택한 메일 주소값이
+        입력되어야 한다. 또한 직접 입력 선택시 사용자가 bmail에 직접 메일 주소값을 입력할 수 있다.
+        jq로 먼저 작성-->
+
+        <!-- [jquery]
+        <input type="text" id="femail">@<input type="text" id="bemail" readonly>
+        <select id="sel">
+            <option value="">[메일주소 선택]</option>
+            <option value="naver.com">naver.com</option>
+            <option value="nate.com">nate.com</option>
+            <option value="gmail.com">gmail.com</option>
+            <option value="hotmail.com">hotmail.com</option>
+            <option value=" ">직접입력</option>
+        </select>
+        -->
+        <!-- [JavaScript] -->
+            <input type="text" id="femail">@<input type="text" id="bemail" readonly>
+            <select id="sel" onchange="abc(this.value)"> <!-- this.value : option에 있는 value값을 태워서 JS 함수로 보낸다 -->
+                <option value="">[메일주소 선택]</option>
+                <option value="naver.com">naver.com</option>
+                <option value="nate.com">nate.com</option>
+                <option value="gmail.com">gmail.com</option>
+                <option value="hotmail.com">hotmail.com</option>
+                <option value="my">직접입력</option>
+            </select>
+            <br><br><br>
+            <!-- <input type="text" id="test" name="abc">
+            <input type="button" value="버튼" id="btn"> -->
+            <br><br><br>
+            <input type="text" id="test" class="text_css">
+            <input type="button" value="attr" onclick="ccc()">
+    </body>
+</html>

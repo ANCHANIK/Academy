@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../jq/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="http://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script> <!--vue router : single page 만들때 사용-->
+        <title>8일차 Vue + 보강 (Vue single Page + vue router + 역 외따옴 `)</title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <!--
+            <router-view></router-view> : vue router 엔진이 있을 때만 사용 가능
+        -->
+        <section id="box">
+            <!-- 여기에 쓰는 name은 backend에게 넘기는 name값 X !!! -->
+            <router-view name="top"></router-view>
+            <router-view name="banner"></router-view>
+            <router-view name="bottom"></router-view>
+        </section>
+    </body>
+    <script>
+        function ccc(e){
+            console.log(e);
+        }
+        var page1 = { template:`
+            <div style="width:100%; height:100px; background-color:yellow onclick="ccc('홍길동')">{{hhh}}</div>`,
+        data(){
+            return {
+                hhh:"테스트다."
+            };
+        }
+        }
+        var page2 = { template:`
+            <div style="width:100%; height:400px; background-color:green"></div>`
+        }
+        var page3 = { template:`
+            <div style="width:100%; height:200px; background-color:black"></div>`
+        }
+
+        var r = new VueRouter({  // VueRouter 엔진이 있을때만 사용한다.
+            routes:[
+                {
+                    path: "/",
+                    components: {
+                        top: page1,  // name명: template 변수값
+                        banner: page2,
+                        bottom: page3
+                    }
+                }
+            ]
+        });
+
+        let vues = new Vue({
+            router: r, // router-view 태그를 말함. 아무곳에 적용 시켜도 되지만, 단 독수리 5형제 처럼 적용해야 됨
+            // VueRouter 전체를 통제하는 변수를 이용해 rputer를 적용함.
+            // router 파트는 무조건 vuerouter엔진이 있을 때만 사용한다.
+            el:"#box",
+            data:{
+                
+            },
+            methods:{
+
+            },
+            components:{
+
+            },
+            computed:{
+
+            }
+        });
+    </script>
+</html>

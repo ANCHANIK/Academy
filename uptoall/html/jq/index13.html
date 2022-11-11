@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 3일차 - disc</title>
+        <!-- FAQ : 자주하는 질문&답변 , Q&A : 고객이 질문, 관리자가 답변 -->
+        <script src="./jquery.js"></script>
+        <script>
+            /*
+            배너 디스크 또는 게시판 페이징 번호, 퀵 메뉴 넘버링 등 좌우 버튼을 
+            이용하여 이동하는 형태는 반복문이 필수이며, 해당 노드만 style을 적용해
+            사용자 눈에 이동되는 것 처럼 보이도록 하는 기술이 중요하다.!!!
+            */
+            $(document).ready(function(){
+                var $a = $("#ul_css > li").length;
+                var $node = 0;
+
+                $("#l_btn").click(function(){
+                    $w = 0;
+                    while($w < $a){
+                        $("#ul_css > li").eq($w).css("background-color","black");
+                        $w++;
+                    }
+                    if($node == 0){
+                        $node = 3;
+                    }
+                    else{
+                        $node = $node - 1;
+                    }
+                    console.log($node)
+                    $("#ul_css > li").eq($node).css("background-color","red");
+                    
+                });
+
+                // animate : background-color 사용 안됨!!!
+                $("#r_btn").click(function(){
+                    $w = 0;
+                    while($w < $a){
+                        $("#ul_css > li").eq($w).css("background-color","black");
+                        $w++;
+                    }
+                    $node = $node + 1;
+                    if($node > 3){
+                        $node = 0;
+                    }
+                    $("#ul_css > li").eq($node).css("background-color","red");
+                });
+
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            ul,ol {list-style: none; margin: 0; padding: 0;}
+            span,label,main {display: block;}
+            .box {
+                width: auto;
+                height: 100px;
+                margin: 0 auto;
+                text-align: center;
+                position: relative;
+            }
+            .disc {
+                width: auto;
+                height: 30px;
+            }
+            .disc > ul > li {
+                width: 30px;
+                height: 30px;
+                border-radius: 100%;
+                background-color: black;
+                display: inline-block;
+                margin-left: 10px;
+                text-align: center;
+            }
+            .disc > ul > li:nth-child(1){
+                margin-left: 0;
+                background-color: red;
+            }
+            .ck_btn {
+                width: 130px;
+                height: 50px;
+                display: inline-block;
+                position: relative;
+                margin-top: 10px;
+            }
+            .ck_btn > span{
+                width: 50px;
+                height: 50px;
+                background-color: lightblue;
+                color: white;
+                font-size: 30px;
+                text-align: center;
+                line-height: 40px;
+                cursor: pointer;
+                position: absolute;
+            }
+            .ck_btn > span:nth-child(1){
+                left: 0;
+            }
+            .ck_btn > span:nth-child(2){
+                right: 0;
+            }
+
+            /* 높이 관련 사항 */
+            /*
+            
+            */
+            /* .bbox {
+                display: inline-block;
+                height: 30px;
+                border: 1px solid red;
+            }
+            .bbox > li {
+                width: 100px;
+                height: 30px;
+                background-color: pink;
+                display: inline-block;
+            } */
+            .bbox {
+                width: 400px;
+                height: 30px;
+                border: 1px solid red;
+            }
+            .bbox > li {
+                width: 100px;
+                height: 30px;
+                background-color: pink;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <span class="disc">
+                <ul id="ul_css">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </span>
+            <label class="ck_btn">
+                <span id="l_btn"><</span>
+                <span  id="r_btn">></span>
+            </label>
+        </div>
+
+        <br><br><br>
+
+        <ul class="bbox">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </body>
+</html>

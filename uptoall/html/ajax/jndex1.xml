@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fruits>
+    <user>
+        <mname>김주리</mname>
+        <likes>watermelon</likes>
+        <hobby>조개캐기</hobby>
+    </user>
+    <user>
+        <mname>민서현</mname>
+        <likes>cherry</likes>
+        <hobby>야구보기</hobby>
+    </user>
+    <user>
+        <mname>이은미</mname>
+        <likes>peach</likes>
+        <hobby>인형놀이</hobby>
+    </user>
+    <user>
+        <mname>정아름</mname>
+        <likes>kiwi</likes>
+        <hobby>음악듣기</hobby>
+    </user>
+    <user>
+        <mname>김리후</mname>
+        <likes>mango</likes>
+        <hobby>식물 키우기</hobby>
+    </user>
+    <user>
+        <mname>맹유림</mname>
+        <likes>cherry</likes>
+        <hobby>인형놀이</hobby>
+    </user>
+        <user>
+        <mname>이시우</mname>
+        <likes>kiwi</likes>
+        <hobby>음악듣기</hobby>
+    </user>
+</fruits>

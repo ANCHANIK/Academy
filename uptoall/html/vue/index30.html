@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 5일차 - Vue 복습 및 응용 & checkbox(전체선택) + push + 다중 name값 전달 & !this</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <section id="box">
+            <ul>
+                <li>
+                    <input type="checkbox" @click="selectall" v-model="all">전체선택
+                </li>
+                <li>
+                    <input type="checkbox" name="online[]" @click="one_select" v-model="s" value="a1">선택1
+                </li>
+                <li>
+                    <input type="checkbox" name="online[]" @click="one_select" v-model="s" value="a2">선택2
+                </li>
+                <li>
+                    <input type="checkbox" name="online[]" @click="one_select" v-model="s" value="a3">선택3
+                </li>
+                <li>
+                    <input type="checkbox" name="online[]" @click="one_select" v-model="s" value="a4">선택4
+                </li>
+                <li>
+                    <input type="checkbox" name="online[]" @click="one_select" v-model="s" value="a5">선택5
+                    <!-- 
+                        checkbox인 상태에서 name을 한 개만 줬을 때, 저런식으로  name="online[]" 대괄호만 넣으면 된다.
+                        backend에서 받는 name값은 online[0],online[1],online[2]... 이런식으로 받는다
+                    -->
+                </li>
+            </ul>
+        </section>
+    </body>
+    <script>
+        let a = new Vue({
+            el:"#box",
+            data:{
+                all:false,
+                s:[] // []을 쓰는건 배열로 때리겠다는 거임
+            },
+            methods:{
+                selectall(){
+                    this.s = [];  // 배열형태로 유지. 
+                    if(!this.all){ // !this.all은 this.all == false 와 같은 말임.
+                        // 처음 클릭시 checkbox는 false이므로 조건문을 반대로 작성해야 한다.
+                        for(var a=1;a<6;a++){
+                            this.s.push("a"+ a); // input에 들어간 value값인 1~5와 for문으로 돌린 a 값을 push로 넣어서 비교함
+                            // push : 기본 기능은 추가. URL 이동, 해당 메소드를 호출
+                        }
+                    }
+                },
+                one_select(){
+                    this.all = false;
+                }
+            },
+            components:{
+
+            },
+            computed:{
+
+            }
+        });
+    </script>
+</html>

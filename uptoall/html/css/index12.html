@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS 중상급 (체크 박스 디자인 연동)</title>
+    </head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 300px;
+            height: 80px;
+            position: relative;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            font-size: 12px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .ckbox {  /* 체크박스 기본 사항 : relative */
+            position: relative;
+            margin-right: 10px;  /* 체크박스 위에 디자인이 들어갈 가로 크기를 위해 미리 글자와 간격을 띄워놓음 */
+            text-align: center;
+        }
+        .ckbox:before {  /* 체크박스 대신할 이미지를 가져옴 */
+            content: "";
+            background-image: url("./pc_ico.png");
+            background-position: -30px 0;
+            background-color: white;  /* 체크박스를 하얀배경으로 가려놓음 */
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            overflow: hidden;
+            left: -6px;
+            top: -7px;
+            cursor: pointer;
+        }
+        .ckbox:checked:after {  /* 체크박스가 체크 on 되었을 때 off 이미지를 가져지도록 하기 위해서 after로 위치를 조정합니다. */
+            content: "";
+            background-image: url("./pc_ico.png");
+            background-color: white;  /*실제 체크박스를 가리기 위해서 사용함 */
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            overflow: hidden;
+            left: -6px;
+            top: -7px;
+            cursor: pointer;
+        }
+    </style>
+    <body>
+        <div class="box">
+            <input type="checkbox" class="ckbox" id="ckbox">
+            <label for="ckbox">자동 로그인</label>
+        </div>
+    </body>
+</html>

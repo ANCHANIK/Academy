@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 8 일차 - 초급코드(key 코드)</title>
+        <!--
+            onkeyup : 키를 눌렀다가 놓을 때 작동 됨 (특수 키를 인식못함) - 대문자 소문자 ASCII를 동일
+            onkeydown : 키를 눌렀을 때 작동 됨 (특수 키를 인식못함) - 대문자 소문자 ASCII를 동일
+            onkeypress : 키를 누르는 순간 작동 됨. (esc, back-space 등 특수 키를 인식해서 작동 안함) - 대문자 소문자 ASCII를 구분함
+        -->
+        <script>
+            
+            function abc(){
+                var b = event.keyCode;
+                // event.keyCode 키보드에서 사용자가 해당 키를 누를 경우
+                // ASCII 형태로 코드값을 분석하여 키보드를 제어할 수 있디.
+                var i = document.getElementById("a");
+                console.log(b);
+                if(b == 189 || b == 109){
+                    alert("-는 사용할 수 없습니다.")
+                    i.value = "";
+                }
+            }
+            function bbb(){
+                alert("keydown");
+            }
+            function ccc(){
+                var b = event.keyCode;
+                console.log(b);
+                if(b == 45){
+                    alert("-는 사용할 수 없습니다.")
+            }
+            }
+
+            function pws(){
+                var a = "123456";
+                var b = document.getElementById("pw").value;
+                if(a != b){
+                    document.getElementById("help").style.display="block"; //null,true,flase 만 "" 빠짐
+                }
+                else{
+                    document.getElementById("help").style.display="none";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="text" id="a" onkeyup="abc();"><br>
+        <input type="text" id="b" onkeydown="bbb();"><br>
+        <input type="text" id="c" onkeypress="ccc();">
+        <br><br>
+        <input type="password" id="pw" onkeyup="pws()">
+        <span id="help" style="display: none;">동일한 패스워드를 입력하세요.</span>
+    </body>
+</html>

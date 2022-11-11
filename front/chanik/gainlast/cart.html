@@ -1,0 +1,29 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="imagetoolbar" content="no">
+	<title>MINIMAL</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css?v=<?=$data?>">
+	<script src="./js/jquery.js"></script>
+	<script src="./js/jquery-ui.js"></script>
+	<script src="./js/header_menu.js?v=<?=$data?>"></script>
+	<script src="./js/header_cibi.js?v=<?=$data?>"></script>
+	<script src="./js/footer_bottom.js?v=<?=$data?>"></script>
+</head>
+<body>
+	<main class="main">
+		<?php include "header_menu.html" ?>
+		<?php include "header_cibi.html" ?>
+		<?php include "pop_menu.html" ?>
+		<?php include "pop_member.html" ?>
+		<?php include "pop_nonmember.html" ?>
+		<?php include "content_cart.html" ?>
+		<?php include "footer_bottom.html" ?>
+	</div>
+</body>
+</html>

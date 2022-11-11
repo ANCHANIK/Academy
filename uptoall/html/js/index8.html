@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 1 일차 - 반복문 + 반복문2</title>
+        <script>
+            //   for < while < do ~ while < each < for in
+            var a = 1;   // 초기값
+            while(a < 11){   // 범위값        
+                //document.write(a + "<br>");
+                a++;   //증가, 감소
+            }
+            /*
+            응용문제1 while 문으로 10~1 까지 역순으로 나오는 반복문을 작성하시오
+            */
+            var b = 10;
+            while(b >= 1){
+                //document.write(b + "<br>");
+                b--;
+            }
+            /* do~while 문 */
+            var aa =1;   // 초기값
+            do{
+                //document.write(aa + "<br>");
+                aa++;    // 증가 , 감소
+            }while(aa < 11);    // 범위값
+            /*
+            응용문제2. 구구단 8단 8 * 1 ~ 8 * 9
+            while 문으로 작성하시오
+            */
+            var c = 8;  // 8단 기본값
+            var d = 1;  // while 문에 사용할 초기값
+            var e;   // 계산 결과값
+            while(d <= 9){
+                e = c * d;  // 계산 공식이 밖에 빠지면 계산 인식 안됨. 계산 수식구
+                //document.write(c + "*" + d + "=" + e + "<br>");
+                d++;  // 증가
+            }
+
+            var t = 1;
+            while(t<11){
+                if(t>5){    // while + if 해당 조건에 맞는 부분만 출력됨
+                    //document.write(t + "<br>");
+                }
+                t++
+            }
+//n==0 짝수
+//n==1 홀수
+            /*
+            응용문제3.
+            100 ~ 50 까지 숫자 역순(내림차순) 중 짝수 값만 출력하시오.
+            단, while 문을 이용합니다.
+            100, 49, --, %
+            */
+            var f = 100;
+            var g;   //계산할 때 쓸 변수임
+            while(f>=50){
+                g = f % 2;
+                if(g==0){
+                    document.write(f + "<br>");
+                }
+                f--;
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

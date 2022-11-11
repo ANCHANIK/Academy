@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 3일차 - Vue 애니메이션 Vue 전용 transition 태그</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+            .tests {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+            .tests-enter {  /* 최초 오브젝트 형태를 말함. leave가 적용되고 나서의 그 다음 효과가 시작되는 단계 */
+                opacity: 0;
+            }
+            .tests-leave {  /* 효과가 최초로 시작되는 단계 */
+                opacity: 1;
+            }
+            .tests-enter-to {  /* leave와 동일한 효과 적용 단계. enter가 시작되고 나서 효과가 끝나는 단계 */
+                opacity: 1;
+            }
+            .tests-leave-to {  /* 효과가 끝나는 단계 */
+                opacity: 0;
+            }
+            /* .tests-leave-to, .tests-enter{
+                opacity: 0;
+            } */
+            .tests-enter-active, .tests-leave-active {  /* 애니메이션 작동 */
+                transition: all 3s ease;
+            }
+
+            .aaa {
+                width: 100px;
+                height: 100px;
+                background-color: blueviolet;
+                position: absolute;
+            }
+            .tests2-enter, .tests2-leave-to {
+                /* transform: translateX(800px); */
+                transform: rotate(3600deg);
+            }
+            .tests2-leave, .tests2-enter-to {
+                /* transform: translateX(0px); */
+                transform: rotate(0deg);
+            }
+            .tests2-leave-active, .tests2-enter-active {
+                transition: all 3s ease;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <button @click="btn" v-text="btns"></button>
+            <!--
+                <transition name="tests"></transition>
+                - Vue 전용 태그 , html element에 출력되지 않음
+                - 여기서 쓰는 name값은 내가 임의 지정. 백엔드랑 상관 ㄴㄴ
+                - name을 써야됨. class, id는 안됨.
+                transition name이랑 하위 태그의 class랑 이름이 같아야 한다.
+            -->
+            <transition name="tests">
+                <div v-if="ani" class="tests">애니메이션</div>
+            </transition> 
+        </section>
+
+        <section id="box2">
+            <button @click="btn2">애니메이션2</button>
+            <transition name="tests2">
+                <div v-if="ani2" class="aaa"></div>
+            </transition>
+        </section>
+    </body>
+    <script>
+        let b = new Vue({
+            el:"#box2",
+            data:{
+                ani2:true,
+                ifvalue:1
+            },
+            methods:{
+                btn2:function(){
+                    this.ani2 = !this.ani2;
+                }
+            }
+        });
+
+
+        let a = new Vue({
+            el:"#box",
+            data:{
+                btns:"작동",
+                ani:false
+            },
+            methods:{
+                btn:function(){
+                    this.ani = !this.ani;
+                }
+            }
+        });
+    </script>
+</html>

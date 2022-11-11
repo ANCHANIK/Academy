@@ -1,0 +1,179 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>상품 관리</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+<article class="product_list_article">
+    <div class="product_list_article_text">상품 수정</div>
+</article>
+{{product_code}}
+<form name="product_register" id="product_register">
+    <input type="hidden" name="domain" v-model="myurl">
+    <input type="hidden" name="product_key" value="modify_product">
+    <input type="hidden" name="pidx" v-model="midx">
+    <input type="hidden" name="main_img" v-model="mamg">
+    <aside class="new_product_aside">
+        <div class="warnnig_msg">{{WMSG}}</div>
+        <table>
+            <tbody class="new_product_table">
+                <tr class="new_product_code">
+                    <td>상품코드(*)</td>
+                    <td>
+                        <input v-bind:type="te" name="goodsno" v-model="m_goodsno" ref="code" readonly><span class="np_memo">{{p_code}}</span>
+                    </td>
+                </tr>
+                <tr class="new_product_name">
+                    <td>상품명(*)</td>
+                    <td>
+                        <input v-bind:type="te" name="product_nm" ref="name" v-model="nm" autocomplete="off"><span class="np_memo">{{p_name}}</span>
+                    </td>
+                </tr>
+                <tr class="new_product_ex">
+                    <td>간편설명(*)</td>
+                    <td>
+                        <input v-bind:type="te" name="product_nmdtc" ref="explain" v-model="ex" autocomplete="off"><span class="np_memo">{{p_expl}}</span>
+                    </td>
+                </tr>
+                <tr class="new_product_price">
+                    <td>소비자 가격(*)</td>
+                    <td>
+                        <input v-bind:type="te" name="product_money" ref="money" v-model="pc" autocomplete="off"> 원
+                    </td>
+                </tr>
+                <tr class="new_product_sale">
+                    <td>상품 할인 유/무(*)</td>
+                    <td>
+                        <label>
+                            <input type="radio" name="product_dc" v-model="pdc" value="Y" @click="sale_radio('Y')">적용
+                        </label>
+                        <label>
+                            <input type="radio" name="product_dc" v-model="pdc" value="N" @click="sale_radio('N')">미적용
+                        </label>
+                    </td>
+                </tr>
+                <tr class="new_product_sale_per" v-if="pd_sale">
+                    <td>상품 할인율(*)</td>
+                    <td>
+                        <label>
+                            <input type="radio" name="product_dcpart" v-model="pdpart" value="P"> % 할인
+                        </label>
+                        <label>
+                            <input type="radio" name="product_dcpart" v-model="pdpart" value="M"> 원 할인
+                        </label>
+                        <span>
+                            <input v-bind:type="te" name="product_dcnum" v-model="sl" ref="sale" v-on:input="total" autocomplete="off"> 할인율
+                        </span>
+                        <span>|</span>
+                        <span>
+                            할인 최종금액 : <input v-bind:type="te" name="product_sales" v-model="total_price" readonly> 원
+                        </span>
+                    </td>
+                </tr>
+                <tr class="new_product_ea">
+                    <td>상품 제한 수량(*)</td>
+                    <td>
+                        <input v-bind:type="te" name="product_ea" ref="ea" v-model="pro_ea" autocomplete="off" maxlength="5"> EA <span class="np_memo">{{p_ea}}</span>
+                    </td>
+                </tr>
+                <tr class="new_product_img">
+                    <td>상품 대표 이미지(*)</td>
+                    <td>
+                        <div class="img_content">
+                            <span class="preview_img" v-if="pv==1">
+                                <input type="file" v-model="p_img" name="product_img" class="upfile" accept="image/png, image/gif, image/jpeg, image/bmp, image/jpg" ref="mimg">
+                            </span>
+                            <span class="prebtnspan" v-else-if="pv==2">
+                                <img v-bind:src="pview" @click="pre_img(p_img)" ref="backimg">
+                                <button v-bind:type="p_btn" @click="img_del('product_img')">{{imgdel}}</button>
+                            </span>
+                            <span class="img_memo">{{pro_img}}</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="new_product_op">
+                    <td>상품 옵션명(*)</td>
+                    <td>
+                        <span>
+                            <label>옵션명1</label>
+                            <label>
+                                <input v-bind:type="te" class="in0" name="product_option1" v-model="op1" autocomplete="off">
+                            </label>
+                        </span>
+                        <span>
+                            <label>옵션명2</label>
+                            <label>
+                                <input v-bind:type="te" class="in0" name="product_option2" v-model="op2" autocomplete="off">
+                            </label>
+                        </span>
+                        <span>
+                            <label>옵션명3</label>
+                            <label>
+                                <input v-bind:type="te" class="in0" name="product_option3" v-model="op3" autocomplete="off">
+                            </label>
+                        </span>
+                        <span class="np_memo">{{p_option}}</span>
+                    </td>
+                </tr>
+                <tr class="new_product_URL">
+                    <td>상품 상세보기 URL</td>
+                    <td>
+                        <input v-bind:type="te" name="product_url" v-model="m_url" autocomplete="off">
+                    </td>
+                </tr>
+                <tr class="new_product_mody_img">
+                    <td>상품 추가 이미지</td>
+                    <td>
+                        <div>
+                            <div class="img_content">
+                                <span class="preview_img" v-if="s_pv1==1">
+                                    <input type="file" v-model="s_img1" name="product_img1" class="upfile" accept="image/png, image/gif, image/jpeg, image/bmp, image/jpg">
+                                </span>
+                                <span class="prebtnspan" v-else-if="s_pv1==2">
+                                    <img v-bind:src="psview1" @click="pre_img(s_img1)">
+                                    <button v-bind:type="p_btn" @click="img_del('product_simg1')">{{imgdel}}</button>
+                                </span>
+                                <span class="img_memo">{{pro_img}}</span>
+                            </div>
+                            <div class="img_content">
+                                <span class="preview_img" v-if="s_pv2==1">
+                                    <input type="file" v-model="s_img2" name="product_img2" class="upfile" accept="image/png, image/gif, image/jpeg, image/bmp, image/jpg">
+                                </span>
+                                <span class="prebtnspan" v-else-if="s_pv2==2">
+                                    <img v-bind:src="psview2" @click="pre_img(s_img2)">
+                                    <button v-bind:type="p_btn" @click="img_del('product_simg2')">{{imgdel}}</button>
+                                </span>
+                                <span class="img_memo">{{pro_img}}</span>
+                            </div>
+                            <div class="img_content">
+                                <span class="preview_img" v-if="s_pv3==1">
+                                    <input type="file" v-model="s_img3" name="product_img3" class="upfile" accept="image/png, image/gif, image/jpeg, image/bmp, image/jpg">
+                                </span>
+                                <span class="prebtnspan" v-else-if="s_pv3==2">
+                                    <img v-bind:src="psview3" @click="pre_img(s_img3)">
+                                    <button v-bind:type="p_btn" @click="img_del('product_simg3')">{{imgdel}}</button>
+                                </span>
+                                <span class="img_memo">{{pro_img}}</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="new_product_detail">
+                    <td>상품 상세설명(*)</td>
+                    <td>
+                        <textarea name="product_contents1" id="product_contents1" ref="detail" v-model="p_de" autocomplete="off"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="new_product_btn">
+            <button v-bind:type="p_btn" class="npb" @click="pmodify">상품수정</button>
+            <button v-bind:type="p_btn" class="npb" @click="p_retu">상품목록</button>
+        </div>
+    </aside>
+</form>

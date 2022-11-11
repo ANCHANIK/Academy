@@ -1,0 +1,72 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="preview1.css?v=<?=$data?>">
+        <link rel="stylesheet" type="text/css" href="jquery-ui.css?v=<?=$data?>">
+        <link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5.css?v=<?=$data?>">
+        <script src="jquery1.12.js"></script>
+        <script src="jquery-ui.js"></script>
+        <script src="jquery.mobile-1.4.5.js"></script>
+        <script>
+            $(function(){
+                var $a = 0;
+                $(".main").bind({
+                    "swiperight":function(){
+                        $(".blackscreen").css("display","block");
+                        $(".inmenu").css("display","block");
+                        $(".inmenu").stop().animate({
+                            "width":"90%"
+                        },500,function(){
+                            $a++;
+                        });
+                    },
+                    "swipeleft":function(){
+                        $(".inmenu").stop().animate({
+                            "width":"0"
+                        },500,function(){
+                            $(".blackscreen").css("display","none");
+                            $(".inmenu").css("display","none");
+                            $a--;
+                        });
+                    }
+                });
+
+                // if($a == 0){
+                //     $(".main").swiperight(function(){
+                //         $(".blackscreen").css("display","block");
+                //         $a++;
+                //         console.log($a);
+                //     });
+                // }
+                // else{
+                //     $(".main").swipeleft(function(){
+                //         $(".blackscreen").css("display","block");
+                //         $a--;
+                //     });
+                // }
+            });
+        </script>
+    </head>
+    <body>
+        <header>
+            <div class="menubar">
+                <span class="menu"></span>
+                <span class="logo"></span>
+                <span class="search"></span>
+            </div>
+        </header>
+        <div class="blackscreen"></div>
+        <section class="main">
+            <div class="inmenu"></div>
+        </section>
+        <main></main>
+        <footer></footer>
+    </body>
+</html>

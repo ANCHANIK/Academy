@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML 3.0 4일차</title>
+    </head>
+    <body>
+        <select>  <!-- select : 사용자가 선택할 수 있는 범위 적용 태그 -->
+            <option>신발</option>  <!-- option과 함께 사용하며 option 한 개 이상 무조건 적용해야 한다. -->
+            <option>점퍼</option>
+            <option selected>바지</option>
+        </select>
+        <!-- selected : 여러가지 옵션 중에서 제일 먼저 선택되도록 하는 속성 -->
+        <br>
+        <!--
+            <object data="./20210303.pdf" type="application/pdf" width="600" height="600"></object>
+        -->
+        <!--
+            <object data="./CL.mp4" type="video/mp4" width="300" height="300"></object>
+        -->
+        <!--
+            data : 불러오는 파일명을 입력한다.
+            object : html, pdf, wav, mp3, avi, mp4, mpeg
+            type
+            - application(window외 프로그램이 필요할 때) : hwp, doc, xls
+            - video : 영상 avi, mpeg, mp4
+            - audio : 소리 wav, mp3, adf
+            - text : txt(주로 약관 같은걸 다룸), html
+
+            txt 파일 저장시 인코딩
+            ANSI (->euc-kr 일때 사용)
+            UTF-16 LE
+            UTF-16 BE
+            UFT-8(BOM)
+        -->
+        <object data="./aaa.txt" type="text/txt" width="400" height="400"></object>
+    </body>
+</html>

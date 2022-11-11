@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 3일차 - 기본함수(명령어)</title>
+        <script>
+            //var a = "연습입니다.";
+            //alert(a);   // 윈도우 경고 메세지를 출력함
+            //console.log(a);   // 개발자 console 을 이용하여 출력함. 백엔드와 프론트에서 의미가 다름
+            var b = 1;
+            while(b < 11){
+                // console.log(b);
+                b++
+            }
+            /*
+            if(confirm("네이버로 이동 하시겠습니까?")){
+                // confirm : 선택지 메세지. "확인", "취소" 버튼이 생성되며
+                // if : 확인, else : 취소
+                location.href = "http://naver.com";
+            }
+            else{
+                location.href = "http://cksdlr7446.dothome.co.kr";
+            } */
+            //prompt : 입력창이 출력되며, 사용자가 입력할 수 있도록 함
+            /*
+            var c = prompt("보안 접속 코드를 입력하세요.");
+            //alert(c + "비정상 코드 입니다.");
+            if(c==12345){
+                alert("정상적으로 접속 하셨습니다");
+            }
+            else{
+                alert("정상적인 코드를 입력하세요");
+            }
+            */
+            var d = prompt("이동할 접속 URL을 입력해 주세요");
+            if(d == ""){
+                alert("주소를 입력해야 이동됩니다.");
+            }
+            else{
+                location.href = d;
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

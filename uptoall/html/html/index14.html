@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML & CSS 3일차 중급 반응형 (transform4 + transition) - 응용</title>
+        <script src="../jq/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                var $rt = 0;
+
+                $("#btn").click(function(){
+                    var $bb = $("#box").css("transform");
+                    // transform 값을 콘솔로 출력하면 matrix 값으로 출력된다.
+                    // 단, rotate 값이 초기에 없을 경우는 none 이라 표시된다.
+                    var $m = $bb.split(",");
+                    var $z = Math.floor(Math.abs($m[1])*100);
+                    //Math.abs : 음수 값을 양수로 모두 변경함. 절대값을 구해주는 함수.
+                    //console.log($z);
+
+                    var $r = Math.ceil(Math.random()*10);
+                    if(isNaN($z)==true){
+                        $rt = $rt + (20000 / $r)*0.1 + 1800;
+                        // 36000 : 10바퀴를 돌리는 수치이며, 해당 수치가 높을 수록 오차 범위는 늘어난다.
+                        // 오차 범위가 늘어날 수록 롤렛 범위가 랜덤하게 걸린다.
+                        // 회전을 많이 돌릴 수록 다른 곳에 위치할 확률이 높아짐.
+                    }
+                    else{
+                        $rt = $rt + (20000 / $z)*0.1 + 1800;
+                    }
+                    console.log($rt)
+                    $("#box").rotate($rt);
+
+                });
+
+                $.fn.rotate = function($rt){
+                    $(this).css({
+                        "transform":"rotate("+ $rt +"deg)"
+                    });
+                    //console.log($(this).css("transform"));
+                    // matrix : 기울기(n,n,n,n,n,n) (왼쪽 위 모서리, 오른쪽 위 모서리, 오른쪽 아래 모서리, 왼쪽 아래 모서리, X축, Y축)
+                }
+
+            });
+        </script>
+        <style>
+            .box {
+                width: 150px;
+                height: 150px;
+                background: linear-gradient(-45deg, black 90%, red 10%);
+                margin: 0 auto;
+                margin-top: 300px;
+                transition-duration: 5s;
+                transform: rotate(45deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box"></div>
+        <input type="button" value="start" id="btn">
+    </body>
+</html>

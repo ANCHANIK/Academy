@@ -1,0 +1,172 @@
+<?php
+    $v = date("Ymdhis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="imagetoolbar" content="ko">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Front-End Developer Chanik's</title>
+        <script src="./JS/jquery.js"></script>
+        <script src="./index.js?v=<?php echo $v?>"></script>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=85d130420f6596e33c217646ac987f11"></script>
+        <link rel="icon" type="image/png" href="./young_child.jpg">
+        <link type="text/css" rel="stylesheet" href="./index.css?v=<?php echo $v?>">
+    </head>
+    <body>
+        <!-- 첫 페이지 -->
+        <aside class="start_page">
+            <div class="start_page_text" id="start_page">
+                <span><label>안녕하세요.</label></span>
+                <span><label><b>"긍정"</b>의 FRONT-END DEVELOPER</label></span>
+                <span><label>신입 안찬익입니다.</label></span>
+            </div>
+            <div class="down_page">
+                <ul id="dpspan">
+                    <li class="down_page_span">내려보기</li>
+                </ul>
+            </div>
+        </aside>
+        
+        <!--mobile 헤더-->
+        <header class="mobile_header">
+            <div>
+                <span class="mobile_main_menu_nav">
+                    <ul id="topmenu">
+                        <li title="프롤로그">Prologue</li>
+                        <li title="기술리스트">Skill</li>
+                        <li title="포트폴리오">Portfolio</li>
+                        <li title="나의소개">Information</li>
+                        <li title="문의사항">Contact</li>
+                    </ul>
+                </span>
+            </div>
+        </header>
+
+
+        <!-- 플로팅 배너 -->
+        <div class="social_go_site" id="social_go_site">
+            <span id="go_top">
+                <img src="btn_arrow_next.png">
+            </span>
+            <ul id="social_togle">
+                <li title="AN CHAN IK instagram" onclick="go_social(0)">
+                    <img src="./instagram-social-outlined-logo_icon-icons.com_74053.png">
+                </li>
+                <li title="AN CHAN IK facebook" onclick="go_social(1)">
+                    <img src="./social_facebook_fb_35.png">
+                </li>
+                <li title="AN CHAN IK GitHub" onclick="go_social(2)">
+                    <img src="./github_logo_icon_143772.png">
+                </li>
+            </ul>
+        </div>
+
+        <!-- 메뉴 -->
+        <aside class="menu_nav" id="menu_nav">
+            <div>
+                <span class="main_menu_nav">
+                    <ul id="topmenu">
+                        <li title="프롤로그">Prologue</li>
+                        <li title="기술리스트">Skill</li>
+                        <li title="포트폴리오">Portfolio</li>
+                        <li title="나의소개">Information</li>
+                        <li title="문의사항">Contact</li>
+                    </ul>
+                </span>
+            </div>
+        </aside>
+        <!-- about me -->
+        <section class="introduce scrolls0 pages" id="introduce">
+            <aside class="intro_t">PROLOGUE</aside>
+            <aside class="intro_content">
+                <div class="introduce_pictur">
+                    <img src="./ID_photo.jpg">
+                </div>
+                <div class="introduce_text">
+                    <ul>
+                        <li>"YOU ARE MY SUNSHINE"</li>
+                        <li>
+                            26살 무렵, 웹 사이트를 의뢰한 경험이 있습니다. 상당한 금액을 지불했음에도 결과는 만족스럽지 못했습니다.<br>
+                            <b>'직접 만들어보는건 어떨까?'</b>하는 마음으로 졸업과 동시에 국비지원을 통해 FRONT-END 양성 과정을 배웠습니다.<br>
+                            Client의 데이터를 BACK-END와의 Ajax 통신으로 데이터를 주고 받음과 동시에<br>
+                            UI,UX와 보안을 충족하는 FRONT-END 개발자가 되겠습니다.<br> 
+                            <br>
+                            항상 밝고 <b>긍정적인</b> 성격을 가지고 있습니다.<br>
+                            어떠한 상황이 주어져도 <b>'즐기자'</b>라는 생각으로 임하고 있습니다.<br>
+                            긍정적으로 상황을 즐길줄 아는 <b>FRONT-END 신입 안찬익</b>입니다.
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </section>
+        <!-- skill -->
+        <section class="skills scrolls1 pages" id="skills">
+            <aside class="skills_title">SKILLS</aside>
+            <aside class="skills_content">
+                <div class="skills_list">
+                    <ul id="skills_li">
+                    </ul>
+                </div>
+                <div class="skills_load" id="skills_load">
+                </div>
+            </aside>
+        </section>
+        <!-- 포트폴리오 -->
+        <section class="portfolio scrolls2 pages" id="portfolio">
+            <aside class="pofol_t">PORTFOLIO</aside>
+            <aside class="pofol_imp" id="pofol_imp">
+                <div class="pofol_imp_fade" id="pofol_imp_fade">
+                </div>
+                <div class="pofol_imp_btn" id="pofol_imp_btn">
+                    <ul>
+                        <li id="left_btn">
+                            <img src="./btn_arrow_prev.png">
+                        </li>
+                        <li id="right_btn">
+                            <img src="./btn_arrow_next.png">
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </section>
+        <!-- information -->
+        <section class="information scrolls3 pages" id="information">
+            <div class="infor_t">INFORMATION</div>
+            <aside class="infor_c">
+                <div class="infor_map" id="infor_map"></div>
+                <div class="infor_text">
+                    <ul>
+                        <li>◻ NAME : 안찬익</li>
+                        <li>◻ BIRTH-DAY : 1993-03-16</li>
+                        <li>◻ HOME-ADDRESS : 경기도 의정부시 추동로 124</li>
+                        <li>◻ E-MAIL ADDRESS : cksdlr7446@naver.com</li>
+                        <li>◻ HOBBY : SOCCER(풋살)</li>
+                        <li>◻ SPECIALTY : DRIVE</li>
+                    </ul>
+                </div>
+            </aside>
+        </section>
+        <!--contact us-->
+        <form name="perf" id="perf">
+            <section class="contact scrolls4 pages" id="contact">
+                <div class="contact_title">CONTACT</div>
+                <aside class="contact_input">
+                    <div class="contact_input_box">
+                        <input type="hidden" name="myemail" value="cksdlr7446@naver.com">
+                        <input type="text" name="pernm" id="pernm" class="per_input" placeholder="담당자명을 입력해 주세요">
+                        <input type="text" name="pertel" id="pertel" class="per_input" placeholder="담당자분의 휴대폰 번호를 입력해 주세요">
+                        <input type="text" name="peremail" id="peremail" class="per_input" placeholder="담당자분의 이메일을 입력해 주세요">
+                        <textarea name="pertext" id="pertext" class="per_text" placeholder="문의하실 내용을 입력해 주세요"></textarea>
+                        <button type="submit" class="contact_btn">문의하기</button>
+                    </div>
+                </aside>
+            </section>
+        </form>
+        <footer class="copyright">
+            <div>Copyright © 2021 Web Front-End Developer Portfolio by ANCHANIK All Rights Reserved.</div>
+        </footer>
+    </body>
+</html>

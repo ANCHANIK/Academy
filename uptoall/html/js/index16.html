@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 3일차 - 함수호출(HTML 결합)</title>
+        <script>
+            /*
+            응용문제3.
+            홍길동이라는 사용자가 있습니다.
+            해당 사용자의 닉네임은 html도 있고, HTML도 동일한 닉네임입니다.
+            두 정보가 맞을 경우 "해당 사용자는 정상입니다."
+            그 외에 정보는 "해당 사용자는 올바른 정보가 아닙니다."
+            라고 출력하시오. 단(member라는 함수를 사용할 것)
+            */
+            /*
+            function member(a,b){
+                var p = "홍길동";
+                switch(p){
+                    case "a":
+                    case "b":
+                        alert("해당 사용자는 정상입니다.");
+                    break;
+                    
+                    default:
+                        alert("해당 사용자는 올바른 정보가 아닙니다.")
+                }
+            } member("html","HTML")
+            */
+
+            function member(name,nick){
+                // if((a=="aa" && b=="bb") || (a=="bb" && b=="aa"))  이렇게 쓰일 수도 있음
+                if(name=="홍길동" && (nick=="html" || nick=="HTML")){
+                    //console.log("해당 사용자는 정상입니다.");
+                }
+                else{
+                    //console.log("해당 사용자는 올바른 정보가 아닙니다.");
+                }
+            }member("홍길동","html")
+
+
+function abc(){
+    var a = document.getElementById("mid").value;
+    // document.getElementById : HTML에서 id 속성값을 가져오는 명령어
+    //value :입력된 값을 가져오는 것을 말함
+    //alert(a);
+    //alert("테스트");
+    var b = Number(document.getElementById("test").value);
+    var c = typeof(b);  // 입력된 값의 속성을 확인함
+    // input 에 있는 모든 값은 문자로 인식. Number를 써야 숫자로 인식
+    alert(c);
+}
+
+        </script>
+    </head>
+    <body>
+        <!-- onclick : 자바그크립트 함수와 연결 할 수 있는 이벤트 속성이다. -->
+        <input type="text" id="mid" value="홍길동">
+        <input type="text" id="test"> 
+        <!-- value는 HTML 속성이며, 값을 미리 넣어둘 때 사용한다. -->
+        <!-- id는 절대 중복되지 않게 할 것 -->
+        <input type="button" value="확인" onclick="abc()">
+    </body>
+</html>

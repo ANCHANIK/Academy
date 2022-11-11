@@ -1,0 +1,129 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index8_1.css?v=<?=$data?>>">
+    <title>Scss 3일차 - 모바일 상품 출력 페이지 & parent()</title>
+    <script src="../jq/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#p_ul > label > ul > li").click(function(){
+                let $n = $(this).index();
+                if($n==0){
+                    // 현재 스크롤 위치값 가져온 후 #zoom에 대한 top값을 적용함
+
+                    // 스크롤바를 이용하여 사용하는 형태
+                    let $offset = $(window).scrollTop();
+
+                    // li에 대한 오브젝트 위치값을 확인하여 사용하는 형태
+                    // let $offset = $(this).offset().top;
+                    // $("#popup").css("padding-top",$offset + "px");
+                    console.log($offset);
+                    
+                    //블랙스크린 출력
+                    $("#popup").css("display","flex");
+                    let $imgurl = $(this).css("background-image").split('"');
+                    console.log($imgurl[1]);
+                    $("#popup").css("top",$offset + 150 + "px");
+                    $("#zoom > img").remove();
+                    $("#zoom").append("<img src="+$imgurl[1]+">");
+                }
+                else{
+                    let $ss = $(this).parent().parent().index();
+                    // parent() : 현재 태그에서 자신의 바로 상위 태그를 지징함
+                    console.log($ss);
+                    if($ss == 0){
+                        location.href="http://m.naver.com";
+                    }
+                    else if($ss == 1){
+                        location.href="http://m.nate.com";
+                    }
+                    else if($ss == 2){
+                        location.href="http://m.google.com";
+                    }
+                    else if($ss == 3){
+                        location.href="http://m.daum.net";
+                    }
+                    
+                    // $.fn.links(this);
+                }
+            });
+            $.fn.links = function($h){
+                let $data = $h.parent();
+                console.log($data);
+                switch($data){
+                    case "상품명 출력파트 상품 이름 테스트 입니다.":
+                    location.href = "http://m.naver.com";
+                    break;
+                    
+                    case "상품명 출력파트2":
+                    location.href = "http://m.nate.com";
+                    break;
+
+                    case "상품명 출력파트3":
+                    location.href = "http://m.google.com";
+                    break;
+
+                    case "상품명 출력파트4":
+                    location.href = "http://m.daum.net";
+                    break;
+                }
+            }
+            $("#popup").click(function(){
+                $(this).css("display","");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="popup" id="popup">
+        <label class="zoom" id="zoom">
+        </label>
+        <!--응용문제1. 
+        블랙스크린 전체 화면에 출력 되어야 하며, 블랙스크린 외에
+        다늘 어떤것도 클릭이 작동 되면 안됨
+        -->
+    </div>
+    <header>
+
+    </header>
+    <section id="p_ul">
+        <label class="product">
+            <ul class="p_ul">
+                <li></li>
+                <li>상품명 출력파트 상품 이름 테스트 입니다.</li>
+                <li>금액 출력파트(0 원)</li>
+            </ul>
+        </label>
+        <label class="product">
+            <ul class="p_ul">
+                <li></li>
+                <li>상품명 출력파트2</li>
+                <li>금액 출력파트(0 원)</li>
+            </ul>
+        </label>
+        <label class="product">
+            <ul class="p_ul">
+                <li></li>
+                <li>상품명 출력파트3</li>
+                <li>금액 출력파트(0 원)</li>
+            </ul>
+        </label>
+        <label class="product">
+            <ul class="p_ul">
+                <li></li>
+                <li>상품명 출력파트4</li>
+                <li>금액 출력파트(0 원)</li>
+            </ul>
+        </label>
+    </section>
+    <footer>
+
+    </footer>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<meta charset="UTF-8">
+
+<div class="login">
+    <form name="lofrm" id="lofrm" onsubmit="return memlogin()">
+        <span class="title_login">MEMBER LOGIN</span>
+        <span class="total_login">
+            <span class="login_box">
+                <ul>
+                    <li>
+                        <input type="text" name="shop_id" placeholder="아이디를 입력하세요" class="login_li">
+                    </li>
+                    <li>
+                        <input type="password" name="shop_pw" placeholder="패스워드를 입력하세요" class="login_li">
+                    </li>
+                </ul>
+                <label class="login_btn">
+                    <input type="submit" value="LOGIN" class="login_btn1">
+                </label>
+                <span class="id_save">
+                    <label for="save" class="id_save2"><input type="checkbox" id="save" class="id_btn">아이디 저장</label>
+                </span>
+            </span>
+        </span>
+        <span class="join_btn">
+            <ol>
+                <li>
+                    <input type="button" value="회원가입" onclick="member_btn(1)" class="j_bt1">
+                </li>
+                <li>
+                    <input type="button" value="아이디 찾기" onclick="member_btn(2)" class="j_btn2">
+                </li>
+                <li>
+                    <input type="button" value="비밀번호 찾기" onclick="member_btn(3)" class="j_btn3">
+                </li>
+            </ol>
+        </span>
+    </form>
+    <form name="nofrm" id="nofrm" onsubmit="return nomemlogin()">
+        <input type="hidden" name="nomember_security" value="noinfo">
+        <span class="title_order">비회원 주문조회</span>
+        <span class="order_box">
+            <ol>
+                <li>
+                    <input type="text" name="nomember_id" placeholder="주문자명을 입력하세요" class="order_li">
+                </li>
+                <li>
+                    <input type="text" name="nomember_no" placeholder="주문번호 8자리를 입력하세요" maxlength="8" class="order_li">
+                </li>
+            </ol>
+            <label class="order_btn">
+                <input type="submit" value="주문조회" class="order_btn1">
+            </label>
+        </span>
+        <span class="b_text">주문번호와 비밀번호를 잊으신 경우, 고객센터로 문의하여 주시기 바랍니다.</span>
+    </form>
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let data;
+        // function windowck(){
+        //     if(window.XMLHttpRequest){
+        //         return new XMLHttpRequest();
+        //     }
+        // }
+        // function fileload(){
+        //     if(data.readyState == XMLHttpRequest.DONE && data.status == 200){
+        //         console.log(data)
+        //     }
+        // }
+        // data = windowck();
+        // data.onreadystatechange = fileload;
+        // data.open("GET","https://www.kobis.or.kr/kobis/business/main/searchMainDailyBoxOffice.do",true);
+        // data.setRequestHeader('Access-Control-Allow-Headers','*');
+        // data.send();
+
+        
+        </script>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+        </style>
+</head>
+<body>
+    <iframe src="https://www.kobis.or.kr/kobis/business/main/searchMainDailyBoxOffice.do" id="test">
+</body>
+<script>
+    var a = document.getElementById("test").value;
+    console.log(a)
+
+</script>
+</html>

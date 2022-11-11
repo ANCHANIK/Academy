@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 2일차 (중급 - Object VS NODE)</title>
+    </head>
+    <body>
+        <div>
+            <p>테스트1</p>
+            <p>테   스  트  2</p>
+        </div>
+    </body>
+    <script>
+        // 요소로 찍히는 것
+        var a = document.querySelector("div").children;
+        // 부모요소를 기점으로 자식 요소를 확인하는 사항
+        console.log(a);
+        console.log(a.length); // 자식요소 개수
+        console.log(a[1].innerText); // 자식요소에 있는 텍스트 문구를 출력
+        console.log(a[1].textContent);
+
+        // 노드로 찍히는 것
+        var b = document.querySelector("div").childNodes;
+        // 부모요소 기점으로 자식 노드를 확인하는 사항
+        console.log(b);
+        console.log(b.length); // 자식노드 개수
+        console.log(b[3].innerText); // 자식 노드에 있는 텍스트 문구를 출력
+        console.log(b[3].textContent);  // 사용 안함
+    </script>
+</html>

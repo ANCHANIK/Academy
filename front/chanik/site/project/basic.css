@@ -1,0 +1,14 @@
+ul, ol, dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+span, label {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+/*# sourceMappingURL=basic.css.map */

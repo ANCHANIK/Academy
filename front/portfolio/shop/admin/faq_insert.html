@@ -1,0 +1,58 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>FAQ</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+<article class="faq_list_article">
+    <div class="faq_list_article_text">FAQ 신규등록</div>
+</article>
+<form id="frm_faq" name="frm_faq" method="POST" enctype="application/x-www-form-urlencoded">
+    <input type="hidden" name="fid" value="<?php echo $aid ?>">
+    <input type="hidden" name="fsubject" value="faq_insert">
+    <aside class="faq_insert_aside">
+        <table>
+            <tbody class="faq_insert_table">
+                <tr class="faq_insert_cate">
+                    <td>카테고리</td>
+                    <td>
+                        <select name="fcate">
+                            <option value="">카테고리를 선택하세요</option>
+                            <option value="1">배송문의</option>
+                            <option value="2">반품/교환/환불</option>
+                            <option value="3">주문/결제</option>
+                            <option value="4">회원서비스</option>
+                            <option value="5">안전거래</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="faq_insert_que">
+                    <td>질문내용</td>
+                    <td>
+                        <input type="text" name="fqtext" autocomplete="off">
+                    </td>
+                </tr>
+                <tr class="faq_insert_answ">
+                    <td>답변내용</td>
+                    <td>
+                        <textarea name="fatext" id="fatext" autocomplete="off"></textarea>
+                        <script>
+                            CKEDITOR.replace("fatext",{height:300})
+                        </script>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="faq_insert_btn">
+            <button type="button" class="fpb" id="faq_inok">FAQ 등록</button>
+            <button type="button" class="fpb" id="faq_list">FAQ 목록</button>
+            <input type="hidden" id="faq_modifyok" disabled>
+            <input type="hidden" id="faq_delok" disabled>
+        </div>
+    </aside>
+</form>

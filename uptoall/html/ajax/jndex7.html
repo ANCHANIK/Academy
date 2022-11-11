@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>Ajax (7일차) - 배열 POST</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+                $("#member").click(function(){
+
+                    // 익명함수 (JavaScript 도 가능함! 똑같음)
+                    member = function($data1,$data2,$data3,$data4){ // 배열 함수 (유일하게 Front-end만 할 수 있음). 절대 $.fn을 쓰면 안됨
+                        this.mname = $data1;
+                        this.mid = $data2;
+                        this.memail = $data3;
+                        this.mtel = $data4;
+                        // 여기서 쓰는 this : 배열 key값을 배치시키기 위한 익명의 this
+                    }
+                    var $names = $("#mname").val();
+
+                    let $data = new member($names,"홍길동","hong","hong@gmail.com","010-1234-5678"); // 함수보다 밑에 있어야 하며, 순서를 꼭 지킬 것.
+                    // new member라는 기본 key를 만든다는 뜻.
+                    // member가 key 이다.
+
+                    // console.log($data);
+                    // 배열값으로 데이터를 보낼 경우, 무조건  "POST" 밖에 안됨
+
+                    location.href ="http://naver.com?" + $data;
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <input type="text" id="mname" value="">
+        <input type="button" value="회원가입" id="member">
+    </body>
+</html>

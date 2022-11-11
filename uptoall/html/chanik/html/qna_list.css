@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+ul, ol, dl {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+span, label, main {
+  display: block;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section {
+  height: auto;
+}
+
+.qna_list_aside {
+  width: 1200px;
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+.qna_list_aside > .qna_list_title {
+  width: inherit;
+  height: 80px;
+  display: block;
+  position: "";
+  padding-left: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.qna_list_aside > .qna_list_title > span {
+  width: 400px;
+  height: inherit;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  color: black;
+  line-height: 80px;
+}
+
+.qna_list_aside > .qna_list_div {
+  width: inherit;
+  height: auto;
+  display: block;
+  position: "";
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_title {
+  width: inherit;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  background-color: #CCCCCC;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_title > label {
+  width: "";
+  height: 40px;
+  display: block;
+  position: "";
+  line-height: 40px;
+  text-align: center;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_title > label:nth-of-type(1) {
+  width: 150px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_title > label:nth-of-type(2) {
+  width: 100px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_title > label:nth-of-type(3) {
+  width: 600px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_title > label:nth-of-type(4) {
+  width: 200px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_title > label:nth-of-type(5) {
+  width: 150px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data {
+  width: inherit;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  border: 1px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data > li {
+  width: "";
+  height: 40px;
+  display: block;
+  position: "";
+  line-height: 40px;
+  text-align: center;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data > li:nth-of-type(1) {
+  width: 150px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data > li:nth-of-type(2) {
+  width: 100px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data > li:nth-of-type(3) {
+  width: 600px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data > li:nth-of-type(4) {
+  width: 200px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data > li:nth-of-type(5) {
+  width: 150px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_nodata {
+  width: inherit;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_nodata > label {
+  width: inherit;
+  height: 40px;
+  display: block;
+  position: "";
+  line-height: 40px;
+  text-align: center;
+}
+
+.qna_list_aside > .qna_list_button {
+  margin-top: 50px;
+  width: inherit;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.qna_list_aside > .qna_list_button > span:nth-of-type(1) {
+  width: 350px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.qna_list_aside > .qna_list_button > span:nth-of-type(1) > label:nth-of-type(1) > input {
+  width: 280px;
+  height: 40px;
+  display: block;
+  position: "";
+  border: 1px solid #cccccc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-indent: 7px;
+}
+
+.qna_list_aside > .qna_list_button > span:nth-of-type(1) > label:nth-of-type(2) > button {
+  width: 60px;
+  height: 40px;
+  display: block;
+  position: "";
+  background-color: dimgray;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.qna_list_aside > .qna_list_button > span:nth-of-type(2) {
+  width: 100px;
+  height: 40px;
+  display: block;
+  position: absolute;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: black;
+  border-radius: 3px;
+  background-color: #CCCCCC;
+  right: 0;
+  cursor: pointer;
+  text-align: center;
+  line-height: 40px;
+}
+
+.empty_box1 {
+  width: 30px;
+  height: 30px;
+  display: block;
+  position: "";
+}
+
+.empty_box2 {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: "";
+}
+/*# sourceMappingURL=qna_list.css.map */

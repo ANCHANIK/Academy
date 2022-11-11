@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>7일차 Vue + JavaScript + Jquery 통합 응용</title>
+        <script src="../jq/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <script>
+        // JS
+        function handle(){
+            var ccc ="text"
+            return ccc;  // 리턴의 중요성...
+        }
+
+        // JQ
+        $(function(){
+            
+        })
+    </script>
+    <body>
+        <section id="box">
+            {{abc}}
+        </section>
+    </body>
+    <script>
+        // Vue
+        let vues = new Vue({
+            el:"#box",
+            data:{
+                aaa:""
+            },
+            methods:{
+
+            },
+            components:{
+
+            },
+            computed:{
+                abc(){
+                    this.aaa = handle();
+                    // return으로 회신된 값을 Vue 가상 변수로 이관함
+                    // var a = handle();
+                    console.log(this.aaa);
+                }
+            }
+        });
+    </script>
+</html>

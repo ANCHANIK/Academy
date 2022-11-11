@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>vue 연습 2</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <span>{{dataview}}</span>
+            <button v-bind:type="but" v-on:click="bbb">{{btn}}</button>
+        </section>
+    </body>
+    <script>
+        var data1 = 100;
+        var data2 = 2;
+        let a = new Vue({
+            el:"#box",
+            data:{
+                dataview:"",
+                but:"button",
+                btn:"출력",
+                val1:data1,
+                val2:data2
+            },
+            methods:{
+                bbb:function(){
+                    this.dataview = this.val1 * this.val2;
+                }
+            }
+        });
+    </script>
+</html>

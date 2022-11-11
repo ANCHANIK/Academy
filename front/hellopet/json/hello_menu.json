@@ -1,0 +1,24 @@
+[
+    {"menus":"강아지","cate":[""],"cate_link":["http://runiepet.com/product/list.html?cate_no=26"]},
+    {"menus":"고양이","cate":[""],"cate_link":["http://runiepet.com/product/list.html?cate_no=27"]},
+    {"menus":"장난감","cate":[
+        "강아지",
+        "고양이"
+        ],"cate_link":["http://runiepet.com/product/list.html?cate_no=88","http://runiepet.com/product/list.html?cate_no=87"]
+    },
+    {"menus":"펫사료","cate":[
+        "강아지",
+        "고양이"
+        ],"cate_link":["http://runiepet.com/product/list.html?cate_no=69","http://runiepet.com/product/list.html?cate_no=81"]
+    },
+    {"menus":"미용제품","cate":[
+        ""
+        ],"cate_link":["http://runiepet.com/product/list.html?cate_no=95"]
+    },
+
+    {"menus":"기획전","cate":[
+        "강아지",
+        "고양이"
+        ],"cate_link":["http://runiepet.com/product/list.html?cate_no=168","http://runiepet.com/product/list.html?cate_no=24"]
+    }
+]

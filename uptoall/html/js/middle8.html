@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 3일차 (중급 - return 함수 사용1)</title>
+        <style>
+        </style>
+        <script>
+            function aaa(){
+                var r = bbb(); //bbb라는 확장함수를 호출함 (1번)
+                console.log(r);  // 변수 r로 bbb함수에서 return된 값을 받아 출력함 (5번)
+            }
+
+            function bbb(){ // bbb 함수 실행 (2번)
+                var a = "테스트"; // 변수 a에 "테스트"라는 문자를 실행시킴 (3번)
+                return a;  // return을 이용해 자신을 호출한 함수로 다시 재호출 시킴 (4번)
+            }
+
+            function ccc(){
+                var a = ddd(2,3);
+                console.log(a);
+            }
+
+            function ddd(zz,xx){
+                var c = zz * xx;
+                return c;
+            }
+
+            // 응용문제
+            // 반복문이라는 버튼을 클릭하면 1~10까지 모든 합을 출력하라
+            // 단, return 함수를 이용하라
+
+            function oksign(){
+                var a = qqq(1,10);
+                console.log(a);
+            }
+
+            function qqq(a,b){
+                var h = 0;
+                while(a <= b){
+                    h = h + a;
+                    a++;
+                }
+                return h;
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="실행" onclick="aaa()">
+        <input type="button" value="실행" onclick="ccc()">
+        <br><br><br>
+        <input type="button" value="반복문" onclick="oksign()">
+    </body>
+</html>

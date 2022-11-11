@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 4일차 - Vue components(내장)</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+            .spancss {
+                display: block;
+                width: 200px;
+                height: 40px;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <snow v-text="text1"></snow>
+            <apple></apple>  <!--v-on 만 지워짐-->
+            <front v-text="btn"></front>
+            <calls>
+                <!-- <op></op> 이런식으로 template 안에 template을 쓸 수 없다 -->
+            </calls>
+            <ol>
+                <olli>연습1</olli>
+                <olli>연습2</olli>
+                <olli>연습3</olli>
+                <olli>연습4</olli>
+                <olli>연습5</olli>
+            </ol>
+        </section>
+    </body>
+    <script>
+        let a = new Vue({
+            el:"#box",
+            data:{
+                text1: "연습",
+                btn: "로그인",
+                aa: ""
+            },
+            // 내장 일 때!!!!
+            components:{
+                // HTML 재사용 태그를 보다 쉽게 적용하기 위한 사용자 지정 Element 이다.
+                // template : 해당 태그 기준으로 template를 이용해 정규화 태그명으로 전환시키는 것이다.
+                "snow": {template:"<span class='spancss'></span>"},
+                "apple": {template:"<input type='text' name='mid' id='mid'>"},
+                "front": {template:"<button onclick='a.abc()'></button>"},
+                // a.abc() 라고 써줘야 함수가 발동된다.
+                // @click, v-on:click 인식 안됨.
+                // 즉 components에서는 정규화 속성만 작성해라
+                "calls": {template:"<ul><li>testestest</li></ul>"},
+                // 한 태그 안에 다 넣을 수 있는게 가장 큰 장점
+                // template는 상위 태그에만 적용할 수 있다.
+                // "op": {template:"<li>testestest</li>"}
+                "olli": {template:"<li></li>"}
+            },
+            methods:{
+                abc:function(){
+                    let mid = document.querySelector("#mid").value;
+                    if(mid == ""){
+                        alert("아이디를 입력해 주세요.");
+                    }
+                    else{
+                        location.href = "http://never.com";
+                    }
+                }
+            }
+        });
+    </script>
+</html>

@@ -1,0 +1,151 @@
+@charset "UTF-8";
+@mixin base {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+@mixin object($w, $h){
+   width: $w;
+   height: $h;
+}
+
+@mixin uli {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+
+@mixin trans($times){
+   transition-duration: $times + s;
+   transition-timing-function: ease;
+   transition-property: all;
+}
+
+@mixin flexs($w, $d, $j, $ai, $ac) {
+   flex-wrap: $w;
+   flex-direction: $d;
+   justify-content: $j;
+   align-items: $ai;
+   align-content: $ac;
+}
+.shop_banners_top{
+   @include object(100%, 450px);
+   margin-bottom: 30px;
+}
+.shop_banners{
+   @include object(186px, 450px);
+   float: left;
+   &>.shop_banners_list{
+      @include object(186px, 450px);
+      background-color: #5e5e5e;
+      &>li{
+         @include object(100%, 45px);
+         color: white;
+         line-height: 45px;
+         border-bottom: 1px solid #ccc;
+         box-sizing: border-box;
+         text-indent: 10px;
+         cursor: pointer;
+         &:last-child{
+            border: none
+         }
+         &:hover{
+            background-color: #595834;
+         }
+      }
+   }
+}
+.shop_banners_image{
+   @include object(750px, 450px);
+   overflow: hidden;
+   float: left;
+   margin-right: 30px;
+   &>.shop_banners_images{
+      @include object(100%, inherit);
+      position: relative;
+      &>li{
+         @include object(750px, inherit);
+         position: absolute;
+         font-size: 20px;
+         color: white;
+         text-align: center;
+         line-height: 450px;
+         &:nth-of-type(2){
+            display: none;
+         }
+         &:nth-of-type(3){
+            display: none;
+         }
+      }
+   }
+}
+
+.shop_banners_side{
+   float: left;
+   overflow: hidden;
+   @include object(234px, 450px);
+   position: relative;
+}
+.shop_side_banner{
+   @include object(calc(234px * 2), 224px);
+   position: absolute;
+   &>li{
+      @include object(234px, inherit);
+      float: left;
+      &>img{
+         @include object(100%, inherit);
+         object-fit: cover;
+      }
+   }
+}
+.shop_banners_info{
+   @include object(234px, 211px);
+   position: absolute;
+   top: 238px;
+   padding: 5px;
+   box-sizing: border-box;
+   border: 1px solid black;
+   &>label{
+      display: block;
+      @include object(100%, 30px);
+      font-size: 20px;
+      margin-bottom: 10px;
+   }
+   &>ul>li{
+      @include object(100%, 25px);
+      margin-bottom: 5px;
+      font-size: 12px;
+   }
+   &>span{
+      display: block;
+      @include object(100%, 23px);
+      text-align: right;
+   }
+   .more_btn{
+      @include object(80px, inherit);
+      background-color: #e6e6e6;
+      border: none;
+      border-radius: 10px;
+      font-size: 12px;
+      cursor: pointer;
+   }
+}
+.shop_banners_bot{
+   @include object(100%, 150px);
+   &>.shop_bottom_banners{
+      clear: both;
+      display: block;
+      @include object(1200px, 147px);
+      &>li{
+         display: block;
+         float: left;
+         @include object(285px, 174px);
+         margin-right: 20px;
+         cursor: pointer;
+         &:last-child{
+            margin: 0;
+         }
+      }
+   }
+}

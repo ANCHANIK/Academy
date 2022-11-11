@@ -1,0 +1,142 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>HTML 4.0 8일차 - 페이지 프레임</title>
+        <style>
+            body { margin: 0; padding: 0; position: relative;}
+            div { width: 1000px; }
+            .topmenu {
+                height: 30px;
+                background-color: gray;
+                margin: 0 auto;  /* 부모 기준으로 중앙 정렬 */
+            }
+            .mainmenu {
+                height: 80px;
+                background-color: blue;
+                margin: 0 auto;
+            }
+            .banner {
+                height: 480px;
+                background-color: green;
+                margin: 0 auto;
+            }
+            .board {
+                height: 300px;
+                background-color: pink;
+                margin: 0 auto;
+            }
+            .copy {
+                height: 40px;
+                background-color: black;
+                margin: 0 auto;
+                color: whitesmoke;
+                text-align: center;
+                line-height: 40px;
+                font-size: 17px;
+                font-family: "고딕체";
+            }
+            .ultopmenu {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                float: right;
+            }
+            .litopmenu {
+                width: 70px;
+                height: 30px;
+                font-size: 12px;
+                font-family: "돋움체";
+                text-align: center;
+                line-height: 30px;
+                float: left;
+            }
+            .left_b {
+                width: 300px;
+                height: 300px;
+                background-color: red;
+                display: inline-block;
+            }
+            .right_b {
+                width: 694px;
+                height: 300px;
+                background-color: purple;
+                display: inline-block;
+            }
+            /*
+            inline-block 시 생기는 여백의 공간은 6px (정식은 5.7px)
+            float 만 옆으로 붙일 수 있는게 아님
+            span에 여백 안생기게 하려면 한 줄로 써야 됨 (두 줄 작성)
+            inline-block : 가로형태 정렬하며, 단, 한 객체당 6px 여백 공간이 생김.
+            여백 공간을 사용하지 않을 경우, span 태그를 한 줄로 작성하면 여백이 사라짐.
+            */
+            .popup {
+                width: 300px;
+                height: 550px;
+                background-color: gold;
+                border-radius: 50px;
+                position: absolute;
+                display: block;
+                left: 50%;
+                top: 10%;
+            }
+            .close {
+                width: 30px;
+                height: 30px;
+                background-color: black;
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+                font-family: "궁서체";
+                line-height: 30px;
+                text-align: center;
+                border-radius: 10px;
+                display:block;
+                position: relative;
+                top: 100%;
+                left: 100%;
+                
+            }
+        </style>
+    </head>
+    <!--
+        FHD, UHD, QHD >> 4K, 8K 란 무엇인가?
+        해상도에 따른 용어
+        FHD (Full HD) : 1920 X 1080
+        QHD (Quad HD): 2560 X 1440
+        UHD (Ultra HD): 3840 X 2160 (마케팅 측면에서 4K라고 함)
+        4K UHD (4 kilo pixel) : 4096 X 2160
+        8K UHD (8 kilo pixel) : 7680 X 4320
+    -->
+    <body>
+        <!-- 팝업 -->
+        <span class="popup">
+            <span class="close">X</span>
+        </span>
+        <!--  최상단  -->
+        <div class="topmenu">
+            <span>
+                <!-- 글자크기는 12px, 돋움체, 메뉴형태: 가로형태. 각 메뉴 크기: 100*30 -->
+                <ul class="ultopmenu">
+                    <li class="litopmenu">HOME</li>
+                    <li class="litopmenu">LOGIN</li>
+                    <li class="litopmenu">MEMBER</li>
+                    <li class="litopmenu">CUSTOMER</li>
+                </ul>
+            </span>
+        </div>
+        <!--  상단 메뉴 & CI + BI  -->
+        <div class="mainmenu"></div>
+        <!--  배너 부분  -->
+        <div class="banner"></div>
+        <!--  게시판 및 보도자료  -->
+        <div class="board">
+            <span class="left_b"></span>
+            <span class="right_b"></span>
+        </div>
+        <!--  Copyright  -->
+        <div class="copy">
+            Copyright © 2021 Front-End ACI All Rights Reserved.
+        </div>
+    </body>
+</html>

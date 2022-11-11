@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+.week_product_aside .week_product_div > span:nth-of-type(1) > div:nth-of-type(2) > span > ol {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+}
+
+html, body, header, main, section, article, aside, footer, table, tr, td, dl, dd, dt, span, label {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: black;
+  line-height: "";
+  display: block;
+}
+
+header {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+}
+
+nav {
+  width: "";
+  height: 50px;
+  display: block;
+  position: "";
+  background-color: black;
+}
+
+section {
+  width: "";
+  height: auto;
+  display: block;
+  position: relative;
+}
+
+main {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+main > section {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+main > article {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+footer {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.mdpick_product_title {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: "";
+  margin-top: 80px;
+}
+
+.mdpick_product_title > .mdpick_product_title_img {
+  width: inherit;
+  height: auto;
+  display: block;
+  position: "";
+}
+
+.week_product_aside {
+  width: 1174px;
+  height: 1550px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.week_product_aside .week_product_div {
+  width: 300px;
+  height: auto;
+  display: block;
+  position: "";
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  background-color: whitesmoke;
+  border-radius: 0px 0px 40px 40px;
+}
+
+.week_product_aside .week_product_div > span {
+  width: inherit;
+  height: "";
+  display: block;
+  position: "";
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(1) {
+  width: inherit;
+  height: auto;
+  display: block;
+  position: relative;
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(1):hover {
+  -webkit-transform: scale(1.01, 1.01);
+          transform: scale(1.01, 1.01);
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(1) > div:nth-of-type(1) {
+  width: 100%;
+  height: 300px;
+  display: block;
+  position: "";
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(1) > div:nth-of-type(1) > img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(1) > div:nth-of-type(2) {
+  width: inherit;
+  height: 60px;
+  display: none;
+  position: absolute;
+  z-index: 10;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(1) > div:nth-of-type(2) > span {
+  width: 100%;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(1) > div:nth-of-type(2) > span > ol {
+  width: 150px;
+  height: inherit;
+  display: block;
+  position: "";
+  cursor: pointer;
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(1) > div:nth-of-type(2) > span > ol:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(1) > div:nth-of-type(2) > span > ol:nth-of-type(1) {
+  border-right: 1px dashed rgba(255, 255, 255, 0.7);
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(1) > div:nth-of-type(2) > span > ol > li:nth-of-type(1) {
+  width: 150px;
+  height: 25px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(1) > div:nth-of-type(2) > span > ol > li:nth-of-type(1) > img {
+  position: absolute;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(1) > div:nth-of-type(2) > span > ol > li:nth-of-type(1) > img:nth-of-type(2) {
+  display: none;
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(1) > div:nth-of-type(2) > span > ol > li:nth-of-type(2) {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: white;
+  line-height: "";
+  text-align: center;
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(2) {
+  width: inherit;
+  height: auto;
+  display: block;
+  position: "";
+  cursor: pointer;
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(2) > div:nth-of-type(1) {
+  width: inherit;
+  height: 35px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+  line-height: 35px;
+  text-align: center;
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(2) > div:nth-of-type(2) {
+  width: inherit;
+  height: 25px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: black;
+  line-height: 25px;
+  text-align: center;
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(2) > div:nth-of-type(3) {
+  width: inherit;
+  height: 20px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  color: gray;
+  line-height: 20px;
+  text-align: center;
+}
+
+.week_product_aside .week_product_div > span:nth-of-type(2) > div:nth-of-type(4) {
+  width: inherit;
+  height: 25px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: crimson;
+  line-height: 25px;
+  text-align: center;
+}
+/*# sourceMappingURL=week_product.css.map */

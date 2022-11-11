@@ -1,0 +1,42 @@
+<?php
+    $v = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 6일차 - 중급 (대메뉴 + 소메뉴 배열)</title>
+        <script src="./jquery-2.0.js"></script>
+        <script src="./jquery-ui.js"></script>
+        <script src="./jquery.mobile.js?v=1"></script>
+        <script src="./middle18.js?v=<?php echo $v?>"></script>
+        <link rel="stylesheet" type="text/css" href="./middle18.css?v=<?php echo $v?>">
+    </head>
+    <body>
+        <!-- 대메튜 소메뉴 / 풀페이지 네이게이션-->
+        <div class="menus">
+            <ul class="ulcss" id="ulcss">
+                <!-- <li>대메뉴
+                    <ol class="olcss" id="olcss0">
+                        <li>소메뉴1</li>
+                        <li>소메뉴2</li>
+                        <li>소메뉴3</li>
+                    </ol>
+                </li> -->
+            </ul>
+        </div>
+        <main id="main">
+            <header class="header">
+                <div class="top">
+                    <label class="tbtn" id="tbtn"></label>
+                </div>
+            </header>
+            <section class="product">
+        
+            </section>
+        </main>
+    </body>
+</html>

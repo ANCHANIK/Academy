@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>7일차 Vue + JavaScript + Jquery 통합 응용</title>
+        <script src="../jq/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="http://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+        <style>
+            .board_view {
+                width: 400px;
+                height: auto;
+                border: 1px solid black;
+            }
+            .board_view > ul {
+                width: inherit;
+                height: auto;
+                margin: 0;
+            }
+            .board_view > ul > li {
+                width: 350px;
+                height: 30px;
+                position: relative;
+                line-height: 30px;
+                font-size: 13px;
+            }
+            .board_view > ul > li > span {
+                position: absolute;
+                right: 0;
+                text-decoration: overline;
+            }
+            .search {
+                width: 200px;
+                height: 40px;
+            }
+            .board_css {
+                display: block;
+            }
+        </style>
+    </head>
+    <script>
+        // JS
+        function handle(){
+            var board = [
+                {subject:"졸려요.....",write:"장남혁",upvotes:1},
+                {subject:"다음주 금요일 시험ㅋ",write:"김은진",upvotes:71},
+                {subject:"코로나 1300명 실화?ㅋ",write:"정희조",upvotes:31},
+                {subject:"🎢🎪놀이동산 가고싶당🎠🎡",write:"안찬익",upvotes:112},
+                {subject:"그냥 쭉 자고 싶다",write:"이시우",upvotes:12},
+                {subject:"도대체 쉬운게 HTML 뿐ㅎ",write:"민서현",upvotes:16},
+                {subject:"다음엔 내 셀카로 ㅎㅎ",write:"김은진",upvotes:0}
+            ]
+            return board;
+        }
+
+        // JQ
+        $(function(){
+
+        })
+    </script>
+    <body>
+        <section id="box">
+            {{abc}}
+            <select v-model="search" class="search" v-on:change="sh"> <!--v-model을 안썼을 경우 : v-on:change="sh($event.target.value)" 써서 함수로 보낸다-->
+                <option value="">전체보기</option>
+                <option v-for="wr in free2" v-bind:value="wr.write">{{wr.write}}</option>
+            </select>
+            <div class="board_view">
+                <ul class="board_css">
+                    <li v-for="w in free" v-if="vw && part==1">{{w.subject}} 👍({{w.upvotes}})<span>{{w.write}}</span></li>
+                    <li v-for="w in sfree" v-if="part==2">{{w.subject}} 👍({{w.upvotes}})<span>{{w.write}}</span></li>
+                </ul>
+            </div>
+        </section>
+    </body>
+    <script>
+        // Vue
+        let vues = new Vue({
+            el:"#box",
+            data:{
+                search:"",
+                arrays:"",
+                free:[],
+                free2:[],
+                sfree:[],
+                vw:true,
+                part:1
+            },
+            methods:{
+                sh(){
+                    if(this.search != ""){
+                        this.vw = false;
+                        this.part = 2;
+                        if(this.sfree != ""){ // 기존에 검색했던 데이터 push 값을 초기화 함
+                            this.sfree = [];
+                        }
+                        for(let p in this.arrays){
+                            if(this.arrays[p]["write"] == this.search){
+                                this.sfree.push({
+                                    subject:this.arrays[p]["subject"],
+                                    upvotes:this.arrays[p]["upvotes"],
+                                    write:this.arrays[p]["write"]
+                                });
+                            }
+                        }
+                    }
+                    else{
+                        this.vw = true;
+                        this.part = 1;
+                    }
+                },
+
+                all_list(jdata){
+                    
+                    for(let j in jdata){
+                        this.free.push({
+                            subject:jdata[j]["subject"],
+                            upvotes:jdata[j]["upvotes"],
+                            write:jdata[j]["write"]
+                        });
+                    }
+                    this.free2 = _.uniqBy(jdata,"write");
+                }
+            },
+            components:{
+
+            },
+            computed:{
+                abc(){
+                    this.arrays = handle();
+                    this.all_list(this.arrays);
+                }
+            }
+        });
+    </script>
+</html>

@@ -1,0 +1,106 @@
+<?php
+    $v = date("Ymdhis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="imagetoolbar" content="ko">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Front-End Developer Chanik's</title>
+        <script src="./JS/jquery.js"></script>
+        <script src="./index.js?v=<?php echo $v?>"></script>
+        <link type="text/css" rel="stylesheet" href="./index.css?v=<?php echo $v?>">
+    </head>
+    <body>
+        <header class="pc_header">
+            <div class="header_link">
+                <span title="AN CHAN IK instagram" id="link_instagram">
+                    <img src="./4202090instagramlogosocialsocialmedia-115598_115703.png">
+                </span>
+                <span title="AN CHAN IK facebook" id="link_facebook">
+                    <img src="./facebook.png">
+                </span>
+                <span title="AN CHAN IK GitHub" id="link_github">
+                    <img src="./github_logo_icon_143772.png">
+                </span>
+            </div>
+        </header>
+        <!--mobile 헤더-->
+        <header class="mobile_header">헤더</header>
+
+        <!-- 메인 -->
+        <section class="pc_banner">
+            <div class="banner_img"></div>
+            <div class="banner_text">
+                <div class="banner_span_text1">FRONT-END DEVELOPER</div>
+                <div class="banner_span_text2">http://cksdlr7446.dothome.co.kr/</div>
+            </div>
+        </section>
+        <nav class="menu_nav">
+            <div>
+                <ul>
+                    <li title="프롤로그">Prologue</li>
+                    <li title="기술리스트">Skill</li>
+                    <li title="포트폴리오">Portfolio</li>
+                    <li title="나의소개">Information</li>
+                    <li title="문의사항">Contact</li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <section class="title_text">
+                <div>
+                    "Easy Come, Easy Go"
+                </div>
+            </section><!--하고싶은 말-->
+            <section class="pc_skills">
+                <aside class="my_skills">
+                    <div>
+                        <ol>
+                            <li title="전체목록">ALL</li>
+                            <li title="html,css">HTML & CSS</li>
+                            <li title="자바스크립트(javascript)">Javascript</li>
+                            <li title="제이쿼리(jquery)">Jquery</li>
+                            <li title="통신(ajax)">Ajax</li>
+                            <li title="프레임워크(scss)">Scss</li>
+                            <li title="ECMA,모던스크립트">ECMA</li>
+                            <li title="뷰(Vue.js)">Vue</li>
+                            <li title="데이터(json)">XML & JSON</li>
+                            <li title="각종 api">API</li>
+                            <li title="hit(깃허브)">Git & Github</li>
+                            <li title="반응형 웹">Responsive Web</li>
+                            <li title="에디터, SEO">Etc</li>
+                        </ol>
+                    </div>
+                </aside>
+                <aside class="skills_task">
+                    <div id="skills_task_list">
+                    </div>
+                </aside>
+            </section><!--skill-->
+            <section class="portfolio">
+                <div class="pofol_t">PORTFOLIO</div>
+                <div class="pofol_imp" id="pofol_imp">
+                    <span></span>
+                    <span>
+                        <ul>
+                            <li>TITLE : PC용 고양이,강아지 사료 및 펫용품 판매</li>
+                            <li>SUB-TITLE : PC전용 웹사이트 이며, 조별 Project 쇼핑몰 입니다.</li>
+                            <li>TOOLS : HTML, CSS, Javascript, Jquery, Ajax</li>
+                            <li>DAY : 2Day</li>
+                            <li>CONCEPT : 쇼핑몰 메인페이지를 구성하며, NEW, FOODS등 상품리스트를 출력할 수 있도록 JSON 파서로 로드하였습니다.</li>
+                        </ul>
+                    </span>
+                </div>
+                <div class="pofol_btn">
+                    <span id="left_btn">◀</span>
+                    <span id="rignt_btn">▶</span>
+                </div>
+            </section><!--포트폴리오 소개-->
+            <section></section><!--contact us-->
+        </main>
+        <footer></footer>
+    </body>
+</html>

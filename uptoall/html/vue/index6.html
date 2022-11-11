@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 2일차 - Vue 추가 조건문 & locstion.href에 함수 인자값 적용</title>
+        <!-- <script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 엔진을 너무 맹신하지 말것; 이거 안돼서 밑에꺼 씀;;;;-->
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <section id="vue">
+            <input type="" v-model="text1">
+            <input type="button" v-model="btn" v-on:click="abc(a.text1)">
+            <!-- a라는 변수값에 보면 text1이라는 인스턴스가 있으니까 거기에 사용자가 입력한 값을 함수에 태워서 출력시킨다 -->
+            <!-- a란 vue 전체의 함수를 말하며, text1 HTML이 아닌 Vue 안에 data에 있는 익명의 변수이름을 지칭함 -->
+        </section>
+
+        <section id="vue2">
+            <!--
+                checkbox는 Vue에서는 checked 라는 단어를 사용하지 않는다.
+                v-model에 대해서 ck의 값에 대한 유/무를 별도로 판단하게 된다.
+            -->
+            <input type="checkbox" v-model="ck">동의함
+            <input type="button" v-model="btn2" v-on:click="bbb">
+        </section>
+    </body>
+    <script>
+
+        
+        // check box 확인 유무 쌉 간단;
+        let b = new Vue({
+            el:"#vue2",
+            data:{
+                ck:"", //vue 에서는 ck의 값만 확인한다. false = "". false면 원래 값으로 돌아가는 것이다. ""가 원래의 값임. 
+                btn2:"확인"
+            },
+            methods:{
+                bbb:function(){
+                    if(this.ck == ""){
+                        alert("동의해 주세요");
+                    }
+                    else{
+                        this.ck = "Y"; // this.ck = "Y" -> ck:true 라는 소리임
+                        alert("다음 과정을 진행합니다.");
+                    }
+                }
+            }
+        });
+
+        let a = new Vue({ // vue 안에서는 var, let, const같은 변수를 만들지 못한다.
+            el:"#vue",
+            data:{
+                text1:"",
+                btn:"클릭"
+            },
+            methods:{  // methods 안에는 변수를 못만든다
+                abc:function(aaa){ // 함수에 인자값을 적용함
+                    // 주로 검색할때 이렇게 많이 씀
+                    location.href = "index6.html?search=" + aaa; // 
+                }
+            }
+        });
+    </script>
+</html>

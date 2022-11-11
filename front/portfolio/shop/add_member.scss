@@ -1,0 +1,243 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@mixin base ($w,$h,$display) {
+    width: $w;
+    height: $h;
+    display: $display;
+    box-sizing: border-box;
+}
+@mixin fonts($fs,$fw,$color) {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+}
+%ulol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+img {
+    width: 100%;
+    object-fit: cover;
+}
+ul,ol,dl {
+    @extend %ulol;
+}
+span,label,main {
+    display: block;
+}
+body {
+    @extend %ulol;
+}
+
+// 사이트 이용정보 입력
+.personal_idpw {
+    @include base(1174px, 250px, block);
+    margin: 0 auto;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    & > .personal_idpw_title {
+        @include base(inherit, 50px, flex);
+        background-color: rgb(245, 245, 245);
+        border: 1px solid #ccc;
+        border-bottom: none;
+    }
+    & > .personal_idpw_content {
+        @include base(inherit, 200px, block);
+        border: 1px solid #ccc;
+        & > .personal_idpw_content_ul {
+            @include base(1000px, inherit, flex);
+            margin: 0 auto;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-around;
+            align-content: space-around;
+            & > li {
+                @include base(400px, 50px, flex);
+            }
+        }
+    }
+}
+
+// 개인 정보 입력
+.personal_info {
+    @include base(1174px, auto, block);
+    margin: 0 auto;
+    margin-bottom: 15px;
+    & > .personal_info_title {
+        @include base(inherit, 50px, flex);
+        background-color: rgb(245, 245, 245);
+        border: 1px solid #ccc;
+        border-bottom: none;
+    }
+    & > .personal_info_content {
+        @include base(inherit, inherit, flex);
+        border: 1px solid #ccc;
+        & > .personal_info_content_ul {
+            @include base(1000px, inherit, flex);
+            margin: 0 auto;
+            flex-direction: row;
+            flex-wrap: wrap;
+            & > li {
+                @include base(800px, 50px, flex);
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin-left: 27px;
+            }
+            & > li:nth-of-type(2){
+                height: 70px;
+                & > span:nth-of-type(2) {
+                    & > input {
+                        margin-top: -22px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.input_email {
+    width: 500px !important;
+}
+.input_addr {
+    width: 80px !important;
+}
+.input_addr_dtc1 {
+    width: 600px !important;
+    margin-top: -30px;
+    margin-left: 140px;
+}
+.input_addr_dtc2 {
+    width: 600px !important;
+    margin-top: -60px;
+    margin-left: 140px;
+}
+
+// 기타 개인 설정
+.personal_setting {
+    @include base(1174px, 350px, block);
+    margin: 0 auto;
+    & > .personal_setting_title {
+        @include base(inherit, 50px, flex);
+        background-color: rgb(245, 245, 245);
+        border: 1px solid #ccc;
+        border-bottom: none;
+    }
+    & > .personal_setting_content{
+        @include base(inherit, 300px, flex);
+        border: 1px solid #ccc;
+        & > .personal_setting_content_ul {
+            @include base(1000px, inherit, flex);
+            margin: 0 auto;
+            flex-direction: row;
+            flex-wrap: wrap;
+            & > li {
+                @include base(800px, 50px, flex);
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-content: space-between;
+                margin-left: 27px;
+            }
+            & > li:nth-of-type(4) {
+                height: 80px;
+                & > span:nth-of-type(2) {
+                    width: 180px;
+                }
+            }
+        }
+    }
+}
+.inputs_ck {
+    width: 500px;
+    line-height: 50px;
+    position: relative;
+}
+.security_input {
+    width: 100px !important;
+    height: 60px;
+}
+.refresh_btn {
+    @include base(38px, 38px, block);
+    background-color: rgb(245, 245, 245);
+    cursor: pointer;
+}
+
+// 회원가입 버튼
+.personal_join {
+    @include base(1174px, 120px, flex);
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    & > .join_btn {
+        @include base(180px, 60px, block);
+        @include fonts(17px, 500, white);
+        text-align: center;
+        line-height: 60px;
+        background-color: rgb(59, 67, 75);
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        cursor: pointer;
+        &:hover {
+            background-color: rgb(43, 49, 55);
+        }
+    }
+}
+
+// 개별 class
+.title_icon {
+    @include base(50px, 50px, flex);
+    justify-content: center;
+    align-items: center;
+    & > img {
+        @include base(20px, 20px, block);
+    }
+}
+.title {
+    @include base(auto, 50px, block);
+    @include fonts(16px, 500, block);
+    text-align: center;
+    line-height: 49px;
+}
+.input_title {
+    @include base(120px, inherit, block);
+    @include fonts(15px, 500, black);
+    text-align: right;
+    line-height: 50px;
+    margin-right: 20px;
+}
+.inputs {
+    @include base(auto, inherit, flex);
+    align-items: center;
+    position: relative;
+    border-radius: 2px;
+    & > input {
+        @include base(280px, 30px, block);
+    }
+    & > button {
+        @include base(100px, 30px, block);
+        margin-left: 5px;
+        color: white;
+        background-color: dimgray;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+}
+$i:1;
+$top: 40px,20px,55px;
+@while($i <= 3){
+    .memo#{$i}{
+        width: 700px;
+        height: 10px;
+        @include fonts(12px, 300, gray);
+        position: absolute;
+        top: nth($top,$i);
+        z-index: -1;
+    }
+    $i:$i+1;
+}

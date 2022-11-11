@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript (중급) - 배열 총 복습3</title>
+        <style>
+            
+        </style>
+    <script>
+        /*
+        응용문제3. console.log 로만 출력하라.
+        배열의 데이터를 모두 출력하라.
+        */
+        const array = {
+            "number1":"5",
+            "number2":"10",
+            "number3":"15",
+            "number4":"20",
+            "number5":"25"
+        }
+        let a;
+        for(a in array){
+            // console.log(array[a])
+        }
+        Object.keys(array).forEach(function(a1,b1,c1){
+            // console.log(array[a1])
+        })
+
+        /*
+        응용문제4.
+        다음 배열값을 확인하여 데이터를 모두 출력시켜라.
+        */
+        const user = {
+            "info":[
+                {
+                    "mid":"hong",
+                    "mname":"홍길동",
+                    "mblood":"B형",
+                    "memail":"hong@daum.net"
+                }
+            ]
+            
+        }
+        // console.log(user.info[0])
+        Object.keys(user.info[0]).forEach(function(aa,bb,cc){
+            console.log(user.info[0][aa]);
+        })
+
+        var kk;
+        for(kk in user.info[0]){
+            console.log(user.info[0][kk]);
+        }
+    </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

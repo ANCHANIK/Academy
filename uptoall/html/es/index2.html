@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <!-- 
+        ES5, ES6 : JS 혼용
+    -->
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            ECMA Script 1일차 + 인스턴스 (값 추가하기 + 핸들링 형태)
+        </title>
+        <script>
+            // function abc(){
+            //     console.log("안차닝ㄱ");
+            // }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="클릭" id="btn">
+    </body>
+    <script type="module"> // Vue 처럼 ES도 아래에 써야 함
+        import {ccc,ddd,abc} from "./index2.js";  // 복합 인스턴스도 사용가능 하다. {ccc,ddd}
+        // ccc(2,3,4),ddd(10,20);  //이렇게도 가능
+        ccc(2,3,4);  //해당 함수에 인자값을 적용
+        ddd(10,20);
+        document.querySelector("#btn").addEventListener("click",abc);
+    </script>
+</html>

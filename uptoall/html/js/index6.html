@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 1 일차 - 부등호 및 반복문</title>
+        <script>
+            //  부등호 : < , > , <= , >= , == (같다) , != (같지 않다)
+            //  반복문 (8가지) : 범위의 숫자 내에서 지속적으로 반복하면서 처리하는 문법.
+            var a;   //오름차순
+            for(a=1;a<10;a++){  // (시작값, 범위값, 증가 또는 감소)  ++ : +1 씩 증가 / -- : -1 씩 감소
+                //document.write(a+"<br>");
+            }
+            var b;
+            for(b=10;b>0;b--){  //내림차순  // for문은 절대 문자 안들어감. noly 숫자만
+                //document.write(b+"<br>");
+            }
+
+            /*
+                응용문제7.
+                반복문을 이용하여 다음과 같이 출력하시오
+                10~5 까지 내림차순으로 나오도록 합니다.
+            */
+            var c;
+            for(c=10;c>=5;c--){  // 이 법칙은 무조건 외워야됨
+               // document.write(c+"<br>");
+            }
+
+            // if 문과 for문 결합
+            var d;
+            for(d=1; d<=100; d++){    // 1 ~ 100 까지 숫자를 반복합니다.
+                if(d<=10){    //  조건 : 10 이하의 숫자만 적용
+                    //document.write(d+"<br>");
+                }
+                else if(d>80){  // 조건2 : 80 이상의 숫자만 적용
+                    //document.write(d+"<br>");
+                }
+            }
+
+            /*
+                응용문제8.
+                1 ~ 50 까지 역순으로 숫자를 반복합니다.
+                단, 해당 숫자 중 홀수만 축력되도록 합니다.
+                예시 49, 47, 45, ~ , 1
+            */
+            var e;
+            for(e=50;e>=1;e--){
+                if(e % 2 == 1)
+                document.write(e + "<br>");
+                }
+            
+            
+                
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

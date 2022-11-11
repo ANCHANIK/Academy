@@ -1,0 +1,45 @@
+<?php
+    $date = date("Ymdhis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>쇼핑몰 만들기 - 응용</title>
+        <link type="text/css" rel="stylesheet" href="./index.css?v=<?php echo $date?>">
+        <link type="text/css" rel="stylesheet" href="./top.css?v=<?php echo $date?>">
+        <link type="text/css" rel="stylesheet" href="./menu.css?v=<?php echo $date?>">
+        <link type="text/css" rel="stylesheet" href="./banner.css?v=<?php echo $date?>">
+        <link type="text/css" rel="stylesheet" href="./product.css?v=<?php echo $date?>">
+        <link type="text/css" rel="stylesheet" href="./footer.css?v=<?php echo $date?>">
+        <script src="./JS/jquery.js"></script>
+        <script src="./footer.js"></script>
+    </head>
+    <body>
+        <!-- header : 제일 윗부분에 나타나는 광고 -->
+        <!-- nav : 상단의 메뉴나 목차-->
+        <!-- main : main 항목들 -->
+        <!-- section : 각각의 부분들 -->
+        <!-- article : 사이드의 광고나 팝업 등 -->
+        <header class="shop_header">
+            <?php include "top.html"; ?>
+        </header>  <!--상단 탑 배너 및 탑메뉴-->
+        <nav class="shop_nav">
+            <?php include "menu.html"; ?>
+        </nav>   <!--검색 기능 및 대메뉴 & 소메뉴-->
+        <main class="shop_main">
+            <section class="shop_section">
+                <?php include "banner.html"; ?>
+            </section>   <!--메인 배너-->
+            <article class="shop_article">
+                <?php include "product.html"; ?>
+            </article>   <!--Best product-->
+        </main>
+        <footer class="shop_footer">
+            <?php include "footer.html"; ?>
+        </footer>   <!--Copy Right-->
+    </body>
+</html>

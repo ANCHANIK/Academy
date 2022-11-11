@@ -1,0 +1,74 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+span,
+label,
+main {
+  display: block;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+/*
+height:auto; 사용할 경우는 자식 오브젝트가 모두 height가
+정확하게 적용되어 있을 경우, 부모 오브젝트 높이를 자동으로 맞출 수 있음
+*/
+.box {
+  width: 200px;
+  height: auto;
+  border: 1px solid gray;
+}
+/*
+노드가 1개만 있을 경우는 nth 문법을 사용하지 않음. DOM 객체 그대로 사용
+*/
+.box label {
+  border-bottom: 1px solid purple;
+  text-align: center;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+}
+.box span {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-bottom: 1px dashed gray;
+}
+.box span:last-child {
+  border: 0;
+}
+.box span:nth-of-type(2) {
+  background-color: gray;
+}
+.box span:nth-of-type(4) {
+  background-color: gray;
+}
+.box span:nth-of-type(odd) {
+  font-weight: bold;
+}
+.olcss {
+  width: 200px;
+  height: 150px;
+  border: 1px solid gray;
+}
+.olcss li {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+}
+.olcss li:first-child {
+  background-color: #729df6;
+  text-align: center;
+  color: white;
+}

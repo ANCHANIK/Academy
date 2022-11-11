@@ -1,0 +1,30 @@
+<?php
+    $v = date("YMDHis");
+    include "check.php";
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>쇼핑몰 관리자</title>
+        <script src="../../JS/jquery.js"></script>
+        <script src="./config.js"></script>
+        <link rel="stylesheet" type="text/css" href="./admin.css?v=<?=$v?>">
+        <link rel="stylesheet" type="text/css" href="./main.css?v=<?=$v?>">
+        <link rel="stylesheet" type="text/css" href="./bottom.css?v=<?=$v?>">
+    </head>
+    <body>
+        <header class="header">
+            <?php include "admin_top.html"; ?>
+        </header>
+        <section class="section" id="listview">
+            <?php include "new_info.html"; ?>
+        </section>
+        <footer class="footer">
+            <?php include "admin_bottom.html"; ?>
+        </footer>
+    </body>
+</html>

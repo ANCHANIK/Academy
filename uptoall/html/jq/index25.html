@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 6일차 - 초급코드 오브젝트 연결하기(jquery-ui)</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js"></script>  <!-- Jquery-ui 엔진 -->
+        <script>
+            $(document).ready(function(){
+                var $ea = $(".f").length;
+                var $w = 1;
+                while($w <= $ea){
+                    $("#color" + $w).draggable();
+                    // draggable : Jquery-ui 전용 헨들링 함수
+                    // 해당 오브젝트 마우스로 움직일 수 있음
+                    $w++;
+                }
+
+                $("#box").droppable({
+                    // droppable : Jquery-ui 전용 헨들링 함수
+                    // 해당 오브젝트 안에 다른 객체가 들어오면 세부 핸들링으로 다루어짐
+                    "over":function(){  // 새로운 오브젝트가 들어왔을 때
+                        $(this).css("background-color","red");
+                    },
+                    "out":function(){  // 새로운 오브젝트가 나갔을 때
+                        $(this).css("background-color","");
+                    }
+                });
+
+
+
+            });
+        </script>
+        <style>
+            /*
+            box에는 1px 검정 외각선만 있어야 한다.
+            color1~4번까지 크기는 50*50
+            color1 : red
+            color2 : green
+            color3 : yellow
+            color4 : blue
+            color5 : pink
+            */
+            #box {
+                width: 100px;
+                height: 100px;
+                border: 1px solid black;
+            }
+            #color1 {
+                width: 50px;
+                height: 50px;
+                background-color: red;
+            }
+            #color2 {
+                width: 50px;
+                height: 50px;
+                background-color: green;
+            }
+            #color3 {
+                width: 50px;
+                height: 50px;
+                background-color: yellow;
+            }
+            #color4 {
+                width: 50px;
+                height: 50px;
+                background-color: blue;
+            }
+            #color5 {
+                width: 50px;
+                height: 50px;
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box"></div>
+        <div id="color1" class="f"></div>
+        <div id="color2" class="f"></div>
+        <div id="color3" class="f"></div>
+        <div id="color4" class="f"></div>
+        <div id="color5" class="f"></div>
+    </body>
+</html>

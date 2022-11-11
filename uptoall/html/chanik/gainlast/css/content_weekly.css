@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+/* font-family: 'Noto Sans KR', sans-serif; (100,300,400,500,700,900) */
+ul, ol, dl {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.emptybox {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: "";
+}
+
+.content_new_outline {
+  width: 360px;
+  height: auto;
+  display: block;
+  position: "";
+  margin-top: 10px;
+}
+
+.content_new_outline > .new_outline {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: "";
+}
+
+.content_new_outline > .new_outline > .new_title {
+  width: 100%;
+  height: 60px;
+  display: none;
+  position: "";
+}
+
+.content_new_outline > .new_outline > .new_title > ul {
+  width: 100%;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content_new_outline > .new_outline > .new_title > ul > li:nth-of-type(1) {
+  font-size: 19px;
+  font-weight: 600;
+  color: black;
+}
+
+.content_new_outline > .new_outline > .new_title > ul > li:nth-of-type(2) {
+  font-size: 14px;
+  font-weight: 400;
+  color: black;
+}
+
+.content_new_outline > .new_outline > .new_product_outline {
+  width: 100%;
+  height: 300px;
+  display: block;
+  position: relative;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol {
+  width: 360px;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 {
+  width: 3000px;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 > ul {
+  width: 165px;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  margin-left: 10px;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 > ul > li {
+  width: 165px;
+  height: inherit;
+  display: block;
+  position: "";
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 > ul > li > span:nth-of-type(1) {
+  width: 165px;
+  height: 200px;
+  display: block;
+  position: relative;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 > ul > li > span:nth-of-type(1) > label {
+  width: auto;
+  height: auto;
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 > ul > li > span:nth-of-type(1) > label > img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 > ul > li > span:nth-of-type(1) > img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 > ul > li > span:nth-of-type(2) {
+  width: 165px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 > ul > li > span:nth-of-type(2) > label {
+  width: 100%;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 > ul > li > span:nth-of-type(2) > label:nth-of-type(1) {
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  line-height: 40px;
+  text-align: center;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 > ul > li > span:nth-of-type(2) > label:nth-of-type(2) {
+  height: 30px;
+  font-size: 14px;
+  font-weight: 300;
+  color: gray;
+  line-height: 30px;
+  text-align: center;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 > ul > li > span:nth-of-type(2) > label:nth-of-type(3) {
+  height: 30px;
+  line-height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 > ul > li > span:nth-of-type(2) > label:nth-of-type(3) > span {
+  font-size: 15px;
+  font-weight: 400;
+  color: red;
+}
+
+.content_new_outline > .new_outline > .new_product_outline > .new_outline_sol > .new_outline3 > ul > li > span:nth-of-type(2) > label:nth-of-type(3) > span:nth-of-type(1) {
+  margin-right: 10px;
+}
+
+.content_new_outline > .new_outline > .new_disk {
+  width: 100%;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content_new_outline > .new_outline > .new_disk > span {
+  width: 15px;
+  height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.content_new_outline > .new_outline > .new_disk > span > img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.content_new_outline > .new_outline > .new_disk > ul {
+  width: 190px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content_new_outline > .new_outline > .new_disk > ul > li {
+  width: 15px;
+  height: 15px;
+  display: block;
+  position: "";
+  border-radius: 100%;
+  background-color: #ff8679;
+}
+
+.emptybox {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: "";
+}
+/*# sourceMappingURL=content_new.css.map */

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 3일차 - DISK NODE 사용법</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                var $node = $("#dlcss > .dd").length;
+                console.log($node);
+                $("#disc_del").click(function(){
+                    if($node >= 2){
+                        $node -= 1;
+                        $("#dlcss > .dd").eq($node).fadeOut();
+                    }
+                });
+
+                $("#disc_add").click(function(){
+                    if($node > 3){
+                        alert("더이상 복원할 배너가 없엉.");
+                    }
+                    else{
+                        $("#dlcss > .dd").eq($node).fadeIn();
+                        $node += 1;
+                    }
+                
+                });
+                    
+                $("#reset").click(function(){
+                    //innerText, innerHTML
+                    //$("#ul_id > li").eq(0).text("menu1");
+                    $("#ul_id > li").eq(0).html("<label>menu1</label>")
+                    // innerText(js) = text(jq)
+                    // innerHTML(js) = html(jq)
+                    /*
+                    응용문제1
+                    한글로 되어있는 메뉴1~메뉴4를 menu1~menu4로 변경하라(반복문)
+                    */
+                    var $w = 0;
+                    var $n = $("#ul_id > li").length;
+                    console.log($n);
+                    while($w < $n){
+                        $("#ul_id > li").eq($w).text("menu"+ ($w + 1));
+                        $w++;
+                    }
+                });
+
+                $("#reset2").click(function(){
+                var $a = 0;
+                var $b = $("#ul_id > li").length;
+                while($a < $b){
+                $("#ul_id > li").eq($a).html("<u>메뉴"+($a+1)+"</ul>");
+                $a++;
+                }
+                });
+
+                $("#btn").click(function(){
+                    var $aa = $("#box").html();
+                    // box 안에 있는 태그들 까지 싹 가져오라는 것
+                    // html() 해당 아이디에 포함된 모든 태그를 다 가져옴(텍스트도 가져옴)
+                    // var $aa = $("#box").text();
+                    // 글자만 가져오라는 것
+                    // text() 해당 아이디에 포함된 텍스트만 가져옴
+                    console.log($aa);
+                });
+
+
+
+
+            });
+        </script>
+        <style>
+            .disc {
+                width: 300px;
+                height: 40px;
+                border: 1px solid black;
+                text-align: center;
+            }
+            .dlcss {
+                height: auto;
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                line-height: 45px;  /* 1em(8px) = margin-block*/
+            }
+            .dd {
+                width: 20px;
+                height: 20px;
+                background-color: black;
+                border-radius: 20px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                vertical-align: baseline; /*inline-block 썼을때 가능*/
+            }
+            #disc_del {
+                width: 80px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                font-size: 13px;
+                background-color: black;
+                color: white;
+                display: inline-block;
+                cursor: pointer;
+            }
+            #disc_add {
+                width: 80px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                font-size: 13px;
+                background-color: black;
+                color: white;
+                display: inline-block;
+                cursor: pointer;
+            }
+            .box {
+                width: 200px;
+                height: 200px;
+                border: 1px solid black;
+                position: relative;
+            }
+            .sbox {
+                width: 50px;
+                height: 50px;
+                background-color: green;
+                position: absolute;
+                right: 0;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="disc">
+        <!--disk 적용-->
+            <dl class="dlcss" id="dlcss">
+                <dd class="dd"></dd>
+                <dd class="dd"></dd>
+                <dd class="dd"></dd>
+                <dd class="dd"></dd>
+            </dl>
+        </div>
+        <label id="disc_del">디스크 삭제</label>
+        <label id="disc_add">디스크 복구</label>
+        <!--메뉴 적용-->
+        
+            <ul id="ul_id">
+                <li>메뉴1</li>
+                <li>메뉴2</li>
+                <li>메뉴3</li>
+                <li>메뉴4</li>
+            </ul>
+            <input type="button" value="메뉴리셋" id="reset">
+            <input type="button" value="글자 밑줄넣기" id="reset2">
+
+            <br><br>
+            <input type="button" value="가져오기" id="btn">
+            <div class="box" id="box">
+                <span class="sbox">연습</span>
+            </div>
+    </body>
+</html>

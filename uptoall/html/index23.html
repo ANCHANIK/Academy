@@ -1,0 +1,48 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UAcompatible" content="IE=Edge, chrome=1">
+        <title>HTML 4.0 8일차 - position 응용</title>
+        <style>
+            /*  dic > span  */
+            body { margin: 0; padding: 0; }
+            .sbox1 {
+                width: 160px;
+                height: 240px;
+                background-color: blue;
+                padding-left: 160px;
+                
+            }
+            .sbox2 {
+                width: 160px;
+                height: 240px;
+                background-color: red;
+                position: relative;
+                right: 0;
+            }
+            .sbox3 {
+                width: 80px;
+                height: 120px;
+                background-color: green;
+                position: absolute;
+                bottom: 0;
+            }
+            .sbox4 {
+                width: 80px;
+                height: 120px;
+                background-color: yellowgreen;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sbox1">
+            <div class="sbox2">
+                <div class="sbox3"></div>
+                <div class="sbox4"></div>
+            </div>
+        </div>
+    </body>
+</html>

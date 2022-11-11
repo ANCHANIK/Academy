@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.webmain {
+  width: 1200px;
+  display: -ms-grid;
+  display: grid;
+  margin: 0 auto;
+  grid-template: "h" 100px "s1" 100px "s2" 200px "s3" 250px "f" 100px;
+}
+
+.webmain > header {
+  grid-area: h;
+  background-color: blue;
+}
+
+.webmain > section {
+  background-color: #73c573;
+}
+
+.webmain > section:nth-of-type(1) {
+  grid-area: s1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.webmain > section:nth-of-type(1) > aside {
+  width: 100%;
+  height: 100px;
+  display: block;
+  position: relative;
+}
+
+.webmain > section:nth-of-type(1) > aside:nth-of-type(1) {
+  background-color: pink;
+}
+
+.webmain > section:nth-of-type(1) > aside:nth-of-type(2) {
+  background-color: skyblue;
+}
+
+.webmain > section:nth-of-type(1) > aside:nth-of-type(3) {
+  background-color: yellow;
+}
+
+.webmain > section:nth-of-type(2) {
+  grid-area: s2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.webmain > section:nth-of-type(2) > article {
+  height: 200px;
+}
+
+.webmain > section:nth-of-type(2) > article:nth-of-type(1) {
+  width: 35%;
+  background-color: tomato;
+}
+
+.webmain > section:nth-of-type(2) > article:nth-of-type(2) {
+  width: 65%;
+  background-color: #c04731;
+}
+
+.webmain > section:nth-of-type(3) {
+  grid-area: s3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.webmain > section:nth-of-type(3) > aside {
+  height: 250px;
+}
+
+.webmain > section:nth-of-type(3) > aside:nth-of-type(1) {
+  width: 75%;
+  background-color: #94b651;
+}
+
+.webmain > section:nth-of-type(3) > aside:nth-of-type(2) {
+  width: 25%;
+  background-color: #647c33;
+}
+
+.webmain > footer {
+  grid-area: f;
+  background-color: black;
+}
+/*# sourceMappingURL=index22_1.css.map */

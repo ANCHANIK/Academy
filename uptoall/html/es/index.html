@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMA Script 1일차 (엔진설정 및 import, export)</title>
+    <!--
+        class와 module의 차이
+        JavaScript : var 변수 선언
+        ES : let, const (정식적으로는 ES에서 사용하는 것이다.)
+        ES : map, for in
+        html이 ES 개념이고, htm이 JS 개념이다.
+
+        ES5,6
+        
+        let abc = [1,2,3,4,5]; -> ES 임
+        화살표 함수(=>) -> ES6 임
+
+        ES9 : 선언 형태가 완전하게 변형됨
+    -->
+    <script type="module"> // ES9,10,11 버전
+    /* type="module"
+        module은 ECMA 전용으로 사용하기 위한 기본 엔진 코드!
+        단 IE 작동 X
+        암호화 시켜버리면 js를 어디서 불러오는지 모른다. 보안성 좋음
+    */
+        import a from "./index.js?v=1";
+        // import : 가져오는 부분 파일 로드
+        // a : index.js에 있는 모든 함수 및 데이터를 가져오는 익명 변수
+        // from : 가져올 파일명
+        
+        abc("안찬익입니다."); // abc 함수를 호출하면서 인자값을 던지게 됨. import {abc} from 보다 위에 있던, 아래있던 따로 순서가 없다.
+        import {abc} from "./index.js?v=2"
+        // import를 두 번, 세 번 불러올 수는 없다. why? 같은 익명 변수를 쓰고 있기 때문
+        // {abc}는 abc함수를 호출하는 인스턴스 이다.
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

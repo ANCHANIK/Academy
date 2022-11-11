@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scaleable=no,minimum-scale=1.0,maximum-scale=1.0">
+    <title>문제9 - Javascript</title>
+    <script>
+        function sub(){
+            var name = document.getElementById("name").value;
+            var tel = Number(document.getElementById("tel").value);
+            var mail = document.getElementById("email").value;
+            var rach = document.getElementById("rach").checked;
+            var check_box = fm.sport.value;
+
+            console.log(check_box);
+
+            if(name == ""){
+                alert("이름을 입력해 주세요.");
+                return false;
+            }
+            else if(isNaN(tel)==true){
+                alert("숫자만 입력해 주세요.");
+                return false;
+            }
+            else if(tel > 11){
+                alert("11자리만 입력해 주세요.")
+            }
+            else if(mail == ""){
+                alert("메일을 입력해 주세요.");
+                return false;
+            }
+            else if(rach == false){
+                alert("경로를 체크해 주세요.");
+                return false;
+            }
+
+
+        }
+    </script>
+    <!--
+    문제9 설문조사에 참여 하기 위해서 폼을 모두 작성해야 합니다.
+    전화번호 일 경우 숫자만 입력이 되어야 합니다.
+    radio일 경우 한가지만 선택 되도록 합니다.
+    좋아하는 스포츠 부분은 무조건 2가지를 선택해야 합니다.
+    개인정보 활용이 동의를 해야만 설문조사가 완료 되도록 합니다.
+    -->
+</head>
+<body>
+<h1>설문조사</h1>
+
+아래 항목을 채워주세요.<br>
+<form onsubmit="return sub()" id="fm">
+<h4>신상 정보 : </h4>
+
+이름　　　 <input type="text" maxlength="10" size="15" placeholder="고객명을 입력하세요" id="name"><br>
+전화번호　 <input type="tel" maxlength="11" size="15" placeholder="숫자만 입력하세요" id="tel"><br>
+이메일주소 <input type="text" maxlength="80" size="30" placeholder="메일주소를 입력하세요" id="email"><br>
+<br>
+<h3> 어떤 경로로 알게 되었습니까? </h3>
+<label><input type="radio" name="a" id="rach" value="기사"/>기사</label><br>
+<label><input type="radio" name="a" id="rach" value="광고"/>광고</label><br>
+<label><input type="radio" name="a" id="rach" value="기타"/>기타</label><br>
+
+<h3> 좋아하는 스포츠는 무엇입니까? 2가지를 선택해 주세요</h3>
+<label><input type="checkbox" id="sport0" value="테니스"/>테니스</label>
+<label><input type="checkbox" id="sport1" value="골프"/>골프</label>
+<label><input type="checkbox" id="sport2" value="농구"/>농구</label><br>
+<label><input type="checkbox" id="sport3" value="스쿼시"/>스쿼시</label>
+<label><input type="checkbox" id="sport4" value="볼링"/>볼링</label>
+<label><input type="checkbox" id="sport5" value="축구"/>축구</label>
+<br><br>
+연락방법 
+<select>
+<option value="email"/>email
+<option value="email"/>phone
+</select>
+<br><br>
+<input type="checkbox"> 개인정보 활용에 동의합니다. 
+<br><br>
+<input type="submit" value="submit">
+</form>
+</body>
+</html>

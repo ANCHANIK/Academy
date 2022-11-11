@@ -1,0 +1,65 @@
+{"new_product":[
+    {	  "a_newimg":"./img/mn1.png",
+          "a_newtitle":"체온다운 데님팬츠",
+          "a_newpd":"31,900원",
+          "a_newdp":"7%",
+          "a_newap":"29,800원",
+          "a_newico":"./img/b.png"
+    },
+    {	
+         "a_newimg":"./img/mn2.png",
+         "a_newtitle":"델리엘 에스닉원피스",
+         "a_newpd":"29,800원",
+         "a_newdp":"7%",
+         "a_newap":"27,900원",
+         "a_newico":"./img/h.png"
+    },
+    {	 
+        "a_newimg":"./img/mn3.png",
+        "a_newtitle":"로멘 린넨팬츠",
+        "a_newpd":"24,800원",
+        "a_newdp":"",
+        "a_newap":"22,900원",
+        "a_newico":"./img/b.png"
+    },
+    {	 
+        "a_newimg":"./img/mn4.png",
+        "a_newtitle":"포셀리 반팔티셔츠",
+        "a_newpd":"18,900원",
+        "a_newdp":"7%",
+        "a_newap":"16,500원",
+        "a_newico":"./img/n.png"
+    },
+    {	 
+        "a_newimg":"./img/mn5.png",
+        "a_newtitle":"하벨 코튼스커트",
+        "a_newpd":"14,800원",
+        "a_newdp":"7%",
+        "a_newap":"13,900원",
+        "a_newico":"./img/n.png"
+    },
+    {	 
+        "a_newimg":"./img/mn6.png",
+        "a_newtitle":"커먼스 플라워원피스",
+        "a_newpd":"29,800원",
+        "a_newdp":"7%",
+        "a_newap":"27,900원",
+        "a_newico":"./img/b.png"
+    },
+    {	
+        "a_newimg":"./img/mn7.png",
+        "a_newtitle":"언아웃 소가죽샌들힐",
+        "a_newpd":"46,900원",
+        "a_newdp":"7%",
+        "a_newap":"43,300원",
+        "a_newico":"./img/b.png"
+    },
+    {	 
+        "a_newimg":"./img/mn8.png",
+        "a_newtitle":"솔렌느 슬링백",
+        "a_newpd":"36,800원",
+        "a_newdp":"10%",
+        "a_newap":"34,600원",
+        "a_newico":"./img/b.png"
+    }
+]}

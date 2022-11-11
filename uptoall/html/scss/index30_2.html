@@ -1,0 +1,92 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index30_2.css?v=<?=$data?>">
+    <title>Scss 10일차 - Step 회원가입 페이지 만들기</title>
+    <script src="../jq/jquery.js"></script>
+    <script>
+
+    </script>
+</head>
+<body>
+    <header>
+        <aside class="h"><ins>간편 회원 가입</ins></aside>
+    </header>
+    <section>
+    <form method="POST"id="fm" name="fm" enctype="application/x-www-form-urlencoded" action="memberok.php">
+    <input type="hidden" id="ch" name="agree_check1" value="N">
+    <input type="hidden" id="sms" name="sms_av" value="N">
+    <input type="hidden" id="em" name="email_av" value="N">
+    <input type="hidden" id="ka" name="kako_av" value="N">
+    <div class="boxs">
+        <table border="0" cellpaddin="1" cellspacing="1" class="tables">
+            <tbody>
+                <tr>
+                    <td  colspan="2">[회원가입]</td>
+                </tr>
+                <tr>
+                    <td>회원 아이디</td>
+                    <td><input type="text" placeholder="회원아이디 입력해주세요." name="member_id" id="member_id" class="inp1" autofocus autocomplete="off" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn" id="cks">중복확인</button></td>
+                </tr>
+                <tr>
+                    <td>회원 패스워드</td>
+                    <td><input type="password" placeholder="회원 패스워드 입력해주세요."name="member_pw" id="member_pw" minlength="5" class="inp2" autocomplete="off">&nbsp;&nbsp;*5자 이상 입력</td>
+                </tr>
+                <tr>
+                    <td> 회원 이름</td>
+                    <td><input type="text" placeholder="회원 이름을 입력해주세요." name="member_name" id="member_name" class="inp2" autocomplete="off"></td>
+                </tr>
+                <tr>
+                    <td>회원 닉네임</td>
+                    <td><input type="text" placeholder="회원 닉네임을 입력해주세요." name="member_nick" id="member_nick" class="inp2" autocomplete="off"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit" class="btn">가입완료</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </section>
+    </form>
+    <footer></footer>
+</body>
+<script>
+    const w = window.location.search;
+    // console.log(w);
+    // name값 이 안적힌 값으로 넘어오면 다시 돌린다.
+    // 즉, 보안성을 높임
+    if(w == ""){
+        alert("접근이 잘못 되었습니다.");
+        location.href = 'index29_2.html';
+    }
+    else{
+        var ag = w.split(/&|=/);  // 이렇게 쓰면 split 다 잘려나감
+        // var z = ag.length;
+        for(var z in ag){
+            switch(ag[z]){
+                case "?agree":
+                document.getElementById("ch").value = "Y";
+                break;
+
+                case "sms_av":
+                document.getElementById("sms").value = "Y";
+                break;
+                
+                case "email_av":
+                document.getElementById("em").value = "Y";
+                break;
+                
+                case "kako_av":
+                document.getElementById("ka").value = "Y";
+                break;
+            }
+        }
+    }
+</script>
+</html>

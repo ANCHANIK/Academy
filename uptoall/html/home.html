@@ -1,0 +1,120 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>HTML 4.0 게시판 응용</title>
+        <style>
+            body { margin: 0; padding: 0; position: relative; }
+            div { 
+                width: 570px;
+                height: 30px;
+            }
+            .board {
+                margin: 0 auto;
+                margin-top: 30px;
+            }
+            .box { 
+                background-color: #2651FF;
+                color: white;
+                border-bottom: none;
+            }
+            .font_1 {
+                font-size: 13px;
+                font-family: "돋음체";
+                text-align: center;
+                line-height: 35px;
+            }
+            .font_2 {
+                font-size: 13px;
+                font-family: "돋음체";
+                text-align: left;
+                line-height: 35px;
+            }
+            .ulboard_1 {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .ulboard_2 {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                
+            }
+            .border_b:hover {
+                color: red;
+                background-color: whitesmoke;
+            }
+            /*
+            hover 부분은 마우스 포인터가 적용된 오브젝트만 작동한다.
+            즉, 클래스를 중복 사용하더라도 해당 오브젝트만 작동한다.
+            */
+            .border_b { border-bottom: 1px dashed #2651FF; }
+            .liboard1 { width: 35px; }
+            .liboard2 { width: 295px; }
+            .liboard3 { width: 120px; }
+            .liboard4 { width: 120px; }
+            .a { float: left; }
+            .b { clear: both;}
+
+
+
+            .ul_box {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .li_box {
+                width: 100px;
+                height: 30px;
+                background-color: teal;
+                float: left;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="board">
+            <span>
+                <ul class="ulboard_1">
+                    <li class="liboard1 a font_1 box">번호</li>
+                    <li class="liboard2 a font_1 box">제목</li>
+                    <li class="liboard3 a font_1 box">글쓴이</li>
+                    <li class="liboard4 a font_1 box">등록일</li>
+                </ul>
+                <ul class="ulboard_2">
+                    <li class="liboard1 b a font_1 border_b">2</li>
+                    <li class="liboard2 a font_2 border_b">사이트 리뉴얼 중 입니다.</li>
+                    <li class="liboard3 a font_1 border_b">관리자</li>
+                    <li class="liboard4 a font_1 border_b">2021-03-10</li>
+                </ul>
+                <ul class="ulboard_2">
+                    <li class="liboard1 b a font_1 border_b">1</li>
+                    <li class="liboard2 a font_2 border_b">공지사항 입니다.</li>
+                    <li class="liboard3 a font_1 border_b">홍길동</li>
+                    <li class="liboard4 a font_1 border_b">2021-03-09</li>
+                </ul>
+            </span>
+        </div>
+        <div>
+            <span>
+                <ul class="ul_box">
+                    <li class="li_box a">1</li>
+                    <li class="li_box a">2</li>
+                    <li class="li_box a">3</li>
+                </ul>
+                <ul class="ul_box">
+                    <li class="li_box b a">4</li>
+                    <li class="li_box a">5</li>
+                    <li class="li_box a">6</li>
+                </ul>
+                <ul class="ul_box">
+                    <li class="li_box b a">7</li>
+                    <li class="li_box a">8</li>
+                    <li class="li_box a">9</li>
+                </ul>
+            </span>
+        </div>
+    </body>
+</html>

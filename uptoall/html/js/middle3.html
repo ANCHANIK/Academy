@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 1일차 (중급 - NODE 추가하기(insertBefore))</title>
+        <script>
+            function f(){
+                var a = document.getElementById("list");
+                var b = document.createElement("li");
+                var c = document.createTextNode("이순신");
+                b.appendChild(c);
+                a.insertBefore(b,a.firstChild);  // 무조건 첫 번째 노드 [0] 앞에 노드 생성
+                // a.insertBefore(b,a.childNodes[0]);
+            }
+
+            function b(){
+                var a = document.getElementById("list");
+                var b = document.createElement("li");
+                var c = document.createTextNode("강감찬");
+                b.appendChild(c);
+                a.insertBefore(b,a.childNodes.lastChild); // 무조건 마지막 노드 앞에 생성
+            }
+
+            function z(){
+                var a = document.getElementById("list");
+                var b = document.createElement("li");
+                var c = document.createTextNode("세종대왕");
+                b.appendChild(c);
+                a.insertBefore(b,a.childNodes[2]);
+                // 노드를 해당 위치에 추가 시키는 부분이며, 생성할 노드 숫자 포함하여 위치를 정해야 된다.
+                // 즉, 세종대왕이 들어가면 유관순은 노드2 번이 되기 때문에 미리 2번 앞이라고 위치를 지정해야 된다.
+            }
+
+        </script>
+    </head>
+    <body>
+        <ul id="list">
+            <li>홍길동</li>
+            <li>유관순</li>
+        </ul>
+        <input type="button" value="노드 앞에 추가" onclick="f()">
+        <input type="button" value="노드 뒤에 추가" onclick="b()">
+        <input type="button" value="노드 중간에 추가" onclick="z()">
+    </body>
+</html>

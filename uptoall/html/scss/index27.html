@@ -1,0 +1,98 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="index27.css?v=<?=$data?>">
+        <script src="../jq/jquery.js"></script>
+        <title>
+            Scss 9일차 - 2D 동적 애니메이션 + jquery
+        </title>
+        <script>
+            $(function(){
+                let $a = 0;
+                $("#btn").click(function(){
+                    if($a == 0){
+                        $("#divbox").css({
+                            "transform":"rotateX(180deg)"
+                        });
+                        $("#spanbox").css({
+                            "transform":"rotateX(180deg)"
+                        });
+                        $a = 1;
+                    }
+                    else{
+                        $("#divbox").css({
+                            "transform":"rotateX(0deg)"
+                        });
+                        $("#spanbox").css({
+                            "transform":"rotateX(0deg)"
+                        });
+                        $a = 0;
+                    }
+                    /*
+                    응용문제.
+                    해당 버튼 클릭시 상하 변화된다.
+                    다시 클릭 시 원상복구되게 하라.
+                    */
+                    
+                });
+                $("#ulcss > li").mouseenter(function(){
+                    var $node = $(this).index();
+                    var $text = $("#ulcss > li").eq($node).text();
+                    console.log($text);
+                    $("#ulcss > li").eq($node).css({
+                        "transform":"rotateY(180deg)"
+                    });
+                    $("#ulcss > li:eq("+ $node +") > label").css({
+                        "transform":"rotateY(180deg)"
+                    });
+                });
+                $("#ulcss > li").mouseleave(function(){
+                    var $node = $(this).index();
+                    $("#ulcss > li").eq($node).css({
+                        "transform":"rotateY(0deg)"
+                    });
+                    $("#ulcss > li:eq("+ $node +") > label").css({
+                        "transform":"rotateY(0deg)"
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <section>
+            <div class="divbox" id="divbox">
+                <span class="spanbox" id="spanbox">테스트 메뉴</span>
+            </div>
+            <input type="button" value="EFFECT" id="btn">
+        </section>
+        <!--
+        응용문제 : 다음 오브젝트 적용하시오. 단, flex를 무조건 사용하라.
+        -->
+        <nav>
+            <ul class="ulcss" id="ulcss">
+                <li>
+                    <label>MENU1</label>
+                </li>
+                <li>
+                    <label>MENU2</label>
+                </li>
+                <li>
+                    <label>MENU3</label>
+                </li>
+                <li>
+                    <label>MENU4</label>
+                </li>
+                <li>
+                    <label>MENU5</label>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>

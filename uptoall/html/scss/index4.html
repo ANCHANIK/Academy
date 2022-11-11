@@ -1,0 +1,93 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../jq/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="index4.css?v=<?=$data?>">
+        <title>Scss 2일차 - for문 활용 + 확장함수(addEventListener)</title>
+        <script>
+            $(function(){
+                /*
+                응용문제.
+                해당 메뉴 클릭시,
+                메뉴1번 : google.com으로 이동.
+                메뉴5번 : "서비스 준비중입니다." 메세지 출력
+                핸들링 함수 제작하라. 확장함수 사용
+                */
+                $(".btn").click(function(){
+                    var $s = $(this).attr("id");
+                    var $r = $.fn.src($s);
+                    if($r == "none"){
+                        alert("서비스 준비중입니다.");
+                    }
+                    else{
+                        location.href = $r;
+                    }
+                });
+
+                $.fn.src = function($ss){
+                    var $data = "";
+                    switch($ss){
+                        case "menu0":
+                        $data = location.href = "http://www.google.com";
+                        break;
+                        
+                        case "menu4":
+                        $data = "none";
+                        break;
+                    }
+                }
+                
+            });
+        </script>
+    </head>
+    <body>
+        <ul class="ulcss">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+        </ul>
+        <span style="clear: both;"></span>
+        <label class="btn" id="menu0">메뉴1</label>
+        <label class="btn" id="menu1">메뉴2</label>
+        <label class="btn" id="menu2">메뉴3</label>
+        <label class="btn" id="menu3">메뉴4</label>
+        <label class="btn" id="menu4">메뉴5</label>
+    </body>
+    <script>
+        // var a = document.getElementById("menu0");
+        // var b = document.getElementById("menu1");
+        // a.addEventListener("click",ccc);
+        // b.addEventListener("mouseenter",ccc);
+
+        let f;
+        for(f=0;f<5;f++){
+            // document.getElementById("menu"+f).addEventListener("click",ccc);
+            // addEventListener : 확장함수를 이용해 이벤트를 발생시키는 함수명(ES임. JS쪽 아님!!!)
+            // IE에서 작동안함
+            // document.getElementsByClassName("").addEventListener("click",ccc); 클래스 명으로도 출력가능
+        }
+        // addEventListener 쓸 때는 무조건 확장함수 사용할 것.
+        function ccc(c){ // 확장함수, 이벤트 핸들링 X
+            console.log(c.target.id);
+            switch (c.target.id){
+                case "menu0":
+                    urls = "http://www.naver.com";
+                break;
+                case "menu3":
+                    urls = "http://www.google.com";
+                break;
+            }
+            location.href = urls;
+        }
+    </script>
+</html>

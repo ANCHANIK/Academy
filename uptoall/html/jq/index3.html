@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 1일차 - 객체(DOM) 및 값 전달</title>
+        <script src="./jquery2.js"></script>
+        <script>
+            $(document).ready(function(){
+
+
+                $("#e").change(function(){
+                    var $a = $(this).val();
+                    $("#email").val($a);
+                    console.log($a);
+                });
+
+                $("#box").click(function(){
+                    // $("#box2").css("display","block"); 해당 속성에 값을 입력할때
+                    // ,(콤마) 뒤에 오면 어떤 속성인지 나타냄
+                    // css라는 명령어는 javascript style 과 같은 뜻을 지님.
+                    // var $a = $("#box2").css("display","margin-left:500px;");
+                    // 해당 속성값을 가져올 때
+                    // css 단어 그대로 씀 (js 에서는 대문자로 바꿨다면) display만 쓰면
+                    // 어떤 속성인지 알려줌
+                    // css에는 style에 사용되는 모든 속성을 사용할 수 있다.
+                    // 또한 단어도 동일한 단어를 사용함.
+                    // console.log($a);
+
+                    //RGB = Red, Green, Blue (빛의 3원색)
+                    //CMYK = 파랑, 빨강, 노랑, 검정 (인쇄 4원색)
+                    //HEX = #컬러 000000 ~ FFFFFF
+
+                    // .a 는 빈 class를 사용하여 jquery에서 컨트롤 할 수 있다.
+                    $(".a").css("float","left");
+                    });
+
+            
+
+                $("#box3").click(function(){
+                    $(this).hide(1000);  // hide : 사라지게 하는 효과 (시간) , 크기가 줄어들면서 사라짐
+                });
+
+                $("#box4").click(function(){
+                    $("#box3").show(1000);  // show : 나타나게 하는 효과 (시간) hide와 반대
+                });
+
+
+            });
+        </script>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color:red;
+            }
+            .box2 {
+                width: 100px;
+                height: 100px;
+                background-color:blue;
+                display: block;
+                position: relative;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="email">
+        <select id="e">
+            <option value="">[이메일 선택]</option>
+            <option value="naver.com">NAVER</option>
+            <option value="nate.com">NATE</option>
+            <option value="gmail.com">Gmail</option>
+        </select>
+
+        <br><br>
+    
+        <div class="box a" id="box"></div>
+        <div class="box2 a" id="box2"></div>
+
+        <br><br>
+
+        <div class="box2" id="box3"></div>
+        <div class="box" id="box4"></div>
+
+    </body>
+</html>

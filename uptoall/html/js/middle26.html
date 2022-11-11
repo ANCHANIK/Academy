@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 7일차 (중급 - 애니메이션(Javascript + Filter))</title>
+        <style>
+            body { margin: 0; padding: 0;}
+            ul,ol,dl { list-style: none; margin: 0; padding: 0;}
+            span,label,mail { display: block; }
+            header {
+                margin: 0 auto;
+                width: 1000px;
+                height: 100px;
+                background-color: cyan;
+                position: relative;
+            }
+            main {
+                width: 1000px;
+                height: 300px;
+                background-color: chartreuse;
+                margin: 0 auto;
+            }
+            .box {
+                width: 30px;
+                height: 30px;
+                background-color: black;
+                position: absolute;
+                right: 0;
+                top: 35px;
+                color: white;
+                text-align:center;
+                line-height: 30px;
+                font-size: 20px;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+            .onbox {
+                width: 100px;
+                height: 30px;
+                background-color: tomato;
+                border-radius: 0 0 8px 8px;
+                color: white;
+                font-size: 15px;
+                text-align: center;
+                line-height: 30px;
+                cursor: pointer;
+                position: absolute;
+                right: 50%;
+                margin-right: -50px;
+                display: none;
+            }
+            .onbox:hover {
+                background-color: orangered;
+            }
+            </style>
+            <script src="myjquery.js?v=4"></script>
+            <script>
+                function closes(){
+                    // console.log(a.getAttribute("data"));
+                    slideUp("top");
+                    document.getElementById("onbox").style.display = "blcok";
+                }
+                function onbox(){
+                    slideDown("top");
+                    document.getElementById("onbox").style.display = "";
+                }
+            </script>
+    </head>
+    <body>
+        <div class="onbox" id="onbox" onclick="onbox(this.id);">CLICK</div>
+        <header id="top">
+            <div class="box" onclick="closes();">X</div>
+        </header>
+        <main>
+        </main>
+    </body>
+</html>

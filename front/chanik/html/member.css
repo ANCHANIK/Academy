@@ -1,0 +1,231 @@
+@charset "UTF-8";
+
+.member__admin {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+/**** 전체목록 ****/
+.member__listNo {
+  width: 100%;
+  height: 40px;
+  background-color: rgb(242, 242, 242);
+  font-size: 110%;
+  font-weight: 400;
+}
+.member__listNo > label {
+  display: block;
+  width: 1200px;
+  height: inherit;
+  line-height: 40px;
+  margin: 0 auto;
+}
+.member__listTotal {
+  display: inline-block;
+  width: 75px;
+  font-weight: 400;
+}
+.member__listNo > label > span:nth-child(2) {
+  display: inline-block;
+  padding: 0 25px 0 15px;
+}
+
+
+/**** 회원아이디 검색 ****/
+.member__idSearch {
+  width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  padding: 60px 0 15px 0px;
+}
+.member__idSearch > input,
+.member__idSearch > select {
+  height: 25px;
+  vertical-align: top;
+}
+.member__idSearch > input:nth-of-type(1) {
+  width: 200px;
+  font-size: 90%;
+}
+
+
+/**** 테이블 상단 : 메모 ****/
+.member__memo {
+  width: 1200px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  font-size: 100%;
+  text-indent: 20px;
+  background-color: rgba(112, 140, 132, 0.15);
+}
+
+
+/**** 테이블 ****/
+.member__table {
+  width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgb(242, 242, 242);
+  border: 1px solid rgb(166, 166, 166);
+  margin-bottom: 10px;
+}
+.member__table tr {
+  height: 35px;
+  font-size: 90%;
+}
+.member__table th {
+  font-size: 115%;
+  font-weight: 400;
+  background-color: rgb(166, 166, 166);
+  color: white;
+  border-right: 1px solid white;
+}
+.member__table tr:nth-child(2) th {
+  line-height: 16px;
+  padding: 5px;
+}
+
+/* 테이블 col 비율 */
+.member__table tr:first-child th:nth-of-type(1) {
+  width: 3%;
+}
+.member__table tr:first-child th:nth-of-type(2),
+.member__table tr:first-child th:nth-of-type(3) {
+  width: 12%;
+}
+.member__table tr:first-child th:nth-of-type(4) {
+  width: 28%;
+}
+.member__table tr:first-child th:nth-of-type(5),
+.member__table tr:first-child th:nth-of-type(6),
+.member__table tr:first-child th:nth-of-type(7) {
+  width: 10%;
+}
+
+
+/* 테이블 외곽선 */
+.member__table td {
+  border: 1px solid rgb(166, 166, 166);
+}
+.member__table tr:first-child th:nth-of-type(9) {
+  border-right: 1px solid rgb(166, 166, 166);
+}
+.member__table tr:nth-child(2) th {
+  border-top: 1px solid white;
+}
+
+
+/* 테이블 text 셋팅 */
+.member__name,
+.member__nick {
+  text-align: left;
+  text-indent: 10px;
+}
+.member__mailVerify {
+  color: red;
+}
+.member__tableList > tr > td:nth-child(4) > label:first-child {
+  margin-right: 30px;
+}
+
+
+/* *** 테이블 리스트 없음 *** */
+.member__tableList {
+  display: none;
+}
+/* .member__tableNone {
+  display: block;
+} */
+
+
+/**** 페이지 번호 ****/
+.member__page {
+  height: 30px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+.member__page > li {
+  width: 40px;
+  height: inherit;
+  line-height: 30px;
+  text-align: center;
+  font-size: 85%;
+  background-color: rgb(242, 242, 242);
+  padding: 0 8px 0 8px;
+  margin-right: 8px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 3px;
+}
+.member__page > li:last-child {
+  margin-right: 0;
+}
+.member__page > li:hover {
+  background-color: rgb(112, 140, 132);
+  color: white;
+}
+.pageing { 
+display:flex;
+flex-direction: row;
+justify-content: center;
+width: 1200px; height: 30px; 
+margin: 0 auto;
+}
+.page_btn { 
+  display: block;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background-color: rgb(112, 140, 132);
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.pageing > label { display: inline-block; margin-left: 5px; }
+
+
+
+/**** 버튼 ****/
+.member__idSearchBtn {
+  width: 60px;
+  height: 25px;
+  border-radius: 3px;
+  background-color: rgb(112, 140, 132);
+  color: white;
+  font-size: 90%;
+  border: none;
+  vertical-align: top;
+}
+.member__addMemberBtn,
+.member__tableBtns {
+  display: block;
+  width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  text-align: right;
+}
+.member__addMemberBtn > button,
+.member__tableBtns > button {
+  width: 100px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: rgb(112, 140, 132);
+  color: white;
+  font-size: 90%;
+  border: none;  
+}
+.member__idSearchBtn:hover,
+.member__addMemberBtn > button:hover,
+.member__tableBtns > button:hover {
+  box-shadow: 0 3px 5px 0 rgba(100, 100, 100, 0.35);
+}
+.member__addMemberBtn {
+  padding: 15px 0 15px 0;
+}
+.member__tableBtns {
+  padding: 5px 0 15px 0;
+}

@@ -1,0 +1,112 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+$font_ng:'Nanum Gothic', sans-serif; 
+
+@mixin base{
+    margin: 0;
+    padding: 0;
+}
+@mixin objectsize($w,$h,$display,$position){
+        width: $w;
+        height: $h;
+        display:$display;
+        position:$position;
+}
+
+body{
+    @include base;
+}
+.box {
+    @include objectsize(300px,auto,grid,relative);
+    margin: 0 auto;
+    border:1px solid #ccc;
+    box-sizing: border-box;
+    //grid-template-rows: repeat(4,100px);  //모든 행에 대해 반복하면서 100px을 동일하게 적용
+    grid-template-rows: 50px 100px 100px 150px; //각각의 행에 높이값을 따로 조절한다.
+
+    //grid-template-columns: repeat(2,1fr); 
+        //모든 열에 반복하여 100%(부모기준)를 적용
+        //2개를 100%로 한다? 2fr이면 50%50%씩 나눈다.(?)
+    grid-template-columns: 100px 200px; //각각의 열에 가로값을 따로 조절한다.
+    grid-template-areas: 
+    "h1 h1"
+    "h2 ."      // .  : 공백 오브젝트를 말한다.
+    "h3 h4"
+    "h5 h5"
+    ;
+    & > label {
+        display: block;
+    }
+    $color:royalblue,rgb(88, 107, 157),red,yellow,tomato;
+    $k:1;
+    @while($k <= 5){
+        & > .label#{$k}{
+            background-color: nth($color,$k);
+            grid-area: h#{$k};
+        }
+        $k:$k+1;
+    }
+
+}
+
+.box2{
+    @include objectsize(300px,auto,grid,relative);
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin: 0 auto;
+    grid-template-rows: 80px 300px 100px;
+    grid-template-columns: repeat(3,100px);
+    grid-template-areas: 
+    "lab1 lab2 lab2"
+    "lab3 lab3 lab3"
+    "lab4 lab5 lab6"
+    ;
+    & > label {
+        display: block;
+    }
+    $colors:rgb(25, 51, 131),rgb(88, 107, 157),rgb(84, 129, 153),rgb(111, 163, 191),rgb(25, 88, 123),rgb(141, 188, 213);
+    $num:1;
+    @while($num < 7){
+        & > .la#{$num}{
+            background-color: nth($colors, $num);
+            grid-area: lab#{$num};
+        }
+        $num:$num+1;
+    }
+}
+
+//3번째
+.box3{
+    display: grid;
+    max-width: 560px;    
+    height: auto;
+    margin: 0 auto;
+    
+    grid-template-rows: 80px 300px 100px;
+    grid-template-columns: repeat(3,1fr);   //총 width값인 560을 3으로 나눠라.(1fr 을 쓰면 균등하게 분배할 수 있다.(나눈다는 뜻))
+    grid-template-areas: 
+    "gg1 gg2 gg2"
+    "gg3 gg3 gg3"
+    "gk1 gk2 gk3"
+    ;
+
+    & > label{ display: block; }
+    & > span{ display: block; }
+    $color1:skyblue,yellow,green;
+    $color2:red,darkblue,pink;
+    $g:1;
+    @while($g < 4){
+        & > label:nth-of-type(#{$g}){
+            grid-area: gg#{$g};
+            background-color: nth($color1,$g);
+        }
+        $g:$g+1;
+    }
+    @for $kk from 1 through 3 {
+        & > span:nth-of-type(#{$kk}){
+            grid-area: gk#{$kk};
+            background-color: nth($color2,$kk);
+        }
+    }
+
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 2일차 - 중급 (통신 배열 - fornt-front)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+
+
+                $("#btn2").click(function(){
+                    var $aa = 100;
+                    var $r = ccc($aa);
+                    console.log($r);
+                })
+
+
+
+
+
+
+                $("#btn").click(function(){
+                    var $a = abc();
+                    console.log($a)
+                })
+
+                /* Javascript가 Jquery 안에 들어왔을 때는 Javasccript에서 Jquery 함수 값을 넘겨줄 수 있음
+                    (주의사항) 단, Javascript 함수가 Jquery 함수 밖으로 나갔을 경우엔 작동 안됨
+                $.fn.abc = function(e){
+                    console.log(e)
+                }
+                
+                function bbb(){
+                var array = ["홍길동","25세"];
+                $.fn.abc(array);
+                }
+                bbb();
+                */
+            })
+
+
+            /*// 기본 함수를 이용해 Jquery와 값을 교환
+            function abc(){
+                var array = ["홍길동","25세"];
+                return array;
+            }
+            */
+            /* 이건 막코드임
+            var array = ["홍길동","25세"];
+            function abc(){ // 특히 abc(array) 여기에 값을 태우면 값이 날라감(휘발성)
+                return array;
+            }
+            */
+            
+
+            function ccc(data){
+                var h = 3 * data;
+                return h;
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <input type="button" value="호출" id="btn">
+        <input type="button" value="Jquery > Javasccript > Jquery" id="btn2">
+    </body>
+</html>

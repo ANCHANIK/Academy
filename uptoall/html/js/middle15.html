@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 4일차 (중급 - 배열(1차원 배열 - 반복문))</title>
+        <style>
+            .lists {
+                width: 400px;
+                height: 30px;
+                background-color: cadetblue;
+            }
+            .lists > label {
+                display: inline-block;
+                width: 190px;
+                height: 30px;
+                text-align: center;
+                line-height: 30px;
+            }
+            .lists > label:nth-child(1) {
+                border-right: 1px solid navy;
+            }
+            .list2 {
+                width: 400px;
+                height: auto;
+                background-color: rgb(179,179,179);
+            }
+            .list2 > label {
+                display: inline-block;
+                width: 190px;
+                height: 30px;
+                text-align: center;
+                line-height: 30px;
+            }
+            .list2 > label:nth-child(odd) {
+                border-right: 1px solid navy;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="lists">
+            <label>아이디</label>
+            <label>고객명</label>
+        </div>
+        <div class="list2" id="members">
+            
+        </div>
+    </body>
+    <script>
+        const array = [
+            ["Yoon","윤태식"],
+            ["Lee1","이승구"],
+            ["Lee","이재경"],
+            ["Kim","김학성"],
+            ["Yun","윤채규"],
+            ["Lee2","이태훈"],
+            ["Lee3","이태균"],
+            ["An","안찬익"]
+        ];
+            
+            var aa,html1,html2,label1,label2,xx;
+            for(aa in array){
+                html1 = document.createElement("label");
+                html2 = document.createElement("label");
+                xx = document.getElementById("members");
+                
+                label1 = document.createTextNode(array[aa][0]);
+                label2 = document.createTextNode(array[aa][1]);
+                html1.appendChild(label1);
+                html2.appendChild(label2);
+                xx.append(html1,html2);
+                console.log(array[aa][0],array[aa][1]);
+                
+            }
+            // var aa = 0;
+            // var bb = 1;
+            
+            
+            
+            
+            // console.log(array.data1[0]);
+            // console.log(array.data1[1]);
+            /*
+            const array = [
+            ["Yoon","윤태식"],
+            ["Lee1","이승구"],
+            ["Lee","이재경"],
+            ["Kim","김학성"],
+            ["Yun","윤채규"],
+            ["Lee2","이태훈"],
+            ["Lee3","이태균"],
+            ["An","안찬익"]
+            ];
+            */
+            /*
+            var html1 = "";
+            array.forEach(function(a,b,c){
+            // a[0] : 아이디
+            // a[1] : 이름
+            // array[b][0] : 아이디 가져오는 값
+            // array[b][1] : 이름 가져오는 값
+            console.log(array[b][0]);
+            html1 += "<label>" + a[0] + "</label><label>" + a[1] + "</label>";
+            console.log(html1);
+            
+            document.getElementById("members").innerHTML = html1;
+            */
+            /*
+            label1 = document.createTextNode(a[0]);
+            label2 = document.createTextNode(a[1]);
+            html1.appendChild(label1);
+            html2.appendChild(label2);
+
+            //document.getElementById("members").append(html1,html2);
+            document.getElementById("members").appendChild(html1);
+            document.getElementById("members").appendChild(html2);
+            })
+                */
+            
+
+        
+    </script>
+</html>

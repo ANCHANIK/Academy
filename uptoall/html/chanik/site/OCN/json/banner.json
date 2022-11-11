@@ -1,0 +1,7 @@
+{
+    "banners":[
+        ["./banner/banner_01.jpg","http://program.tving.com/ocn/darkhole","1","yes"],
+        ["./banner/banner_02.jpg","http://program.tving.com/ocn/no1weekend?rcnt=1","2","yes"],
+        ["./banner/banner_03.jpg","https://www.netflix.com/kr/title/81243994","3","yes"]
+    ]
+}

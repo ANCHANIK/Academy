@@ -1,0 +1,69 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./m_agree.css?v=<?php echo $data?>">
+        <title>생활의 건강한 먹거리를 드리는 한우사랑 쇼핑몰 입니다.</title>
+    </head>
+    <body>
+        <form>
+            <section>
+                <div class="membership_title">MEMBER SHIP</div>
+                <div class="membership_terms">
+                    <ul>
+                        <li>이용약관</li>
+                        <li>
+                            <textarea readonly></textarea>
+                        </li>
+                        <li>
+                            <span id="agreebtn1">
+                                <div id="inbtn1" value="N"></div>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <span class="empty_box"></span>
+                <div class="membership_terms">
+                    <ul>
+                        <li>이메일 수신 약관</li>
+                        <li>
+                            <textarea readonly></textarea>
+                        </li>
+                        <li>
+                            <span id="agreebtn2">
+                                <div id="inbtn2" value="N"></div>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <span class="empty_box"></span>
+                <div class="membership_terms">
+                    <ul>
+                        <li>SMS 수신약관</li>
+                        <li>
+                            <textarea readonly></textarea>
+                        </li>
+                        <li>
+                            <span id="agreebtn3">
+                                <div id="inbtn3" value="N"></div>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <span class="empty_box"></span>
+                <div class="membership_join">
+                    <button type="button" id="agree_complete">동의완료</button>
+                </div>
+            </section>
+        </form>
+    </body>
+    <script type="module">
+        import {agrees,aterms1,aterms2,aterms3} from "./m_agree.js?v=<?php echo $data?>";
+    </script>
+</html>

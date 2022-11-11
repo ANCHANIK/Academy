@@ -1,0 +1,43 @@
+.copyright {
+  width: 1200px;
+  height: 150px;
+  background-color: gainsboro;
+  margin: 0 auto;
+}
+
+.copyright > .span_footer {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid dimgray;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.copyright > .span_footer > ol {
+  text-align: center;
+  line-height: 50px;
+}
+
+.copyright > .span_footer > ol > li {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 13px;
+  font-weight: 100;
+  display: inline-block;
+  margin-right: 60px;
+  cursor: pointer;
+  border-bottom: 2px solid dimgray;
+  height: 40px;
+}
+
+.copyright > .span_footer > ol > li:nth-of-type(9) {
+  margin-right: 0px;
+}
+
+.copyright > .span_copyright {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 60px;
+}
+/*# sourceMappingURL=footer.css.map */

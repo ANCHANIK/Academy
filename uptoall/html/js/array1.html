@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript (중급) - 배열 총 복습1</title>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                border: 1px solid black;
+            }
+            .btncss {
+                width: 50px;
+                height: 30px;
+                background-color:greenyellow;
+            }
+        </style>
+        <!-- 
+            응용문제 1.
+            두 개의 버튼을 생성되도록 하라.
+            1개의 버튼 속성은 button이고, 다른 하나는 submit이다.
+            button에 사용되는 단어는 "아이디 찾기"이고
+            submit에 사용되는 단어는 "확인"이다.
+            box 아이디 안에 두 개의 버튼을 생성하라.
+        -->
+    </head>
+    <body>
+        <div id="box"></div>
+    </body>
+        <script>
+            function bbb(){
+                alert("test")
+            }
+            let btn,sub;
+            btn = document.createElement("input");
+            btn.setAttribute("type","button");
+            btn.setAttribute("value","아이디 찾기");
+            btn.setAttribute("onclick","bbb();");
+            btn.className = "btncss";
+            btn.id = "btnid";
+            // btn.type = "button";
+            sub = document.createElement("input");
+            sub.setAttribute("type","submit");
+            sub.setAttribute("value","확인");
+            var box = document.getElementById("box");
+            // box.append(btn,sub);
+            box.appendChild(btn);
+            box.appendChild(sub);
+        </script>    
+</html>

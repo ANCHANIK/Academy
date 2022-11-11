@@ -1,0 +1,111 @@
+<!--middle20.html 팝업창 파트-->
+<!-- 배열 경로 -->
+<meta charset="UTF-8">
+<style>
+    .table {width: 554px; height: 94px; text-align: center;
+        text-indent: 5px;
+    }
+    .ad {text-align: left;}
+    .btn { width: 80px; height: 25px;
+        border: 0;
+        background-color: cornflowerblue;
+        color: white;
+        cursor: pointer;
+    }
+    .box {width: 554px; margin-top: 10px;}
+    .close_btn {width: 80px; height: 25px;
+        border: 0;
+        background-color: cornflowerblue;
+        color: white;
+        float: right;
+        cursor: pointer;
+    }
+    tr { height: 30px; font-size: 12px;}
+    tr > td:nth-child(1) { width: 150px;}
+    tr > td:nth-child(2) { width: 300px;}
+    tr > td:nth-child(3) { width: 100px;}
+</style>
+<body>
+    <table border="1" cellspacing="0" cellpadding="0" class="table" id="table">
+        <thead>
+            <tr>
+                <td>우편번호</td>
+                <td>도로명 주소</td>
+                <td>적용</td>
+            </tr>
+        </thead>
+    </table>
+    <div class="box">
+        <input type="button" value="창닫기" class="close_btn" onclick="ccc();">
+    </div>
+        <!-- <tr>
+            <td class="d">01234</td>
+            <td>서울시 영등포구</td>
+            <td class="d">
+                <input type="button" value="적용" class="btn" onclick="btn()">
+            </td>
+        </tr>
+        <tr>
+            <td class="e" id="e">12345</td>
+            <td id="e">서울시 마포구</td>
+            <td class="d">
+                <input type="button" value="적용" class="btn" onclick="btn()">
+            </td>
+        </tr>
+    </table> -->
+</body>
+<script>
+    
+    // 배열 값
+    let f,f2 // for사용
+    var html1, html2  //html 코드
+    var btns1,btns2;  //함수값에 사용
+    function address(a){
+        for(f in a.addnum){ // 7바퀴
+            html1 = document.createElement("tr");
+            // console.log(a["addnum"][f]);
+            
+            for(f2 in a){ //2 바퀴
+                html2 = document.createElement("td");
+                if(f2 == "adddtc"){
+                    html2.className = "ad";
+                    btns2 = a[f2][f];
+                }
+                else{
+                    btns1 = a[f2][f];
+                }
+                html2.innerText = a[f2][f];
+                html1.appendChild(html2);
+                // console.log(a[f2]) // id 값
+                // console.log(texts.innerText)
+                // console.log(a[f2][f])
+            }
+
+            html2 = document.createElement("td");
+            /* 버튼 생성 */
+            var html3 = document.createElement("input");
+            html3.className = "btn";
+            html3.setAttribute("type","button");
+            html3.setAttribute("value","적용");
+            html3.setAttribute("onclick","ddd('"+ btns1 +"','"+ btns2 +"')")
+            html2.appendChild(html3);
+            /* 버튼 생성 끝 */
+            html1.appendChild(html2);
+            document.getElementById("table").appendChild(html1);
+            
+        }
+    }
+
+    // 창닫기 버튼
+    function ccc(){
+        self.close();
+    }
+
+    // 적용 버튼
+    function ddd(a,b){
+        window.opener.document.getElementById("addr").value = a;
+        window.opener.document.getElementById("addr_dtc").value = b;
+        self.close();
+    }
+</script>
+<script src="http://lovertvtest.dothome.co.kr/js/addr.php"></script>

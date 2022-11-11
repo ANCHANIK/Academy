@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 1 일차 - 반복문3</title>
+        <script>
+            /*
+            응용문제4.
+            1 ~ 100 까지의 합을 구하시오. for문 또는 while 문 둘 중에 하나를 사용하라
+            1+2+3+4+5+6+7+~~~+100 = 5050
+            */
+            // while 문
+            var a = 1;
+            var b = 0;  //초기값을 안넣으면 에러남.
+            while(a <= 100){
+                b = b + a;  //이런걸 치환 변수라고 함
+                a++
+            }
+            //document.write(b);  // document.write() 가 밖으로 나오면 합이 찍힘
+            //응용문제 4-1 (for 문)
+            var c;
+            var d = 0;
+            for(c=1; c<=100; c++){
+                d = d + c;
+            }
+            //document.write(d);
+            
+            //응용문제4-2. while 문으로 다음 문제를 풀어보쇼
+            //1 ~ 5까지 모두 곱한 결과값을 출력해라
+            var e = 1;
+            var f = 1;
+            while(e<=5){
+                f = f * e;
+                e++
+            }
+            document.write(f)
+            </script>
+    </head>
+    <body>
+
+    </body>
+</html>

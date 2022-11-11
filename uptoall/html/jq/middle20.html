@@ -1,0 +1,100 @@
+<?php
+    $v = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 6일차 - 중급 (도로명 API 연결)</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js"></script>
+        <script src="./jquery.mobile.js?v=1"></script>
+        <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+        <!-- API 엔진 -->
+        <script>
+            $(function(){
+                $("#btn").postcodifyPopUp();  // API 엔진
+            })
+        </script>
+        <style>
+            * {box-sizing: border-box;}
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .post_box {
+                width: 500px;
+                height: 150px;
+                margin: 0 auto;
+                margin-top: 70px;
+            }
+            .post_box_ul {
+                width: inherit;
+                height: auto;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content:flex-start;
+                align-content: center;
+            }
+            .post_box_ul > li {
+                width: 100px;
+                height: 50px;
+            }
+            .post_box_ul > li:nth-child(3), .post_box_ul > li:nth-child(4) {
+                width: 100%;
+            }
+            .post_input {
+                width: 100px;
+                height: 40px;
+                border: 1px solid dimgray;
+                border-radius: 5px;
+                box-sizing: border-box;
+                text-indent: 5px;
+            }
+            .btn {
+                border: none;
+                margin-left: 10px;
+                cursor: pointer;
+                background-color: dimgray;
+                color: white;
+            }
+            .post_input2, .post_input3 {
+                width: 100%;
+                height: 40px;
+                border: 1px solid dimgray;
+                border-radius: 5px;
+                text-indent: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="post_box">
+            <ul class="post_box_ul">
+                <li>
+                    <input type="text" readonly class="post_input postcodify_postcode5" id="post_number" placeholder="우편번호" maxlength="5">
+                    <!--
+                        postcodify_postcode5 : 우편번호 5자리
+                    -->
+                </li>
+                <li>
+                    <button type="button" class="post_input btn" id="btn">도로명 검색</button>
+                </li>
+                <li>
+                    <input type="text" class="post_input2 postcodify_address" readonly placeholder="도로명주소">
+                    <!--
+                        postcodify_address : 도로명 주소
+                    -->
+                </li>
+                <li>
+                    <input type="text" class="post_input3" placeholder="상세주소">
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

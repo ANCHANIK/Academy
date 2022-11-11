@@ -1,0 +1,77 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>project</title>
+        <link rel="stylesheet" type="text/css" href="project.css?v=<?=$data?>">
+        <link rel="stylesheet" type="text/css" href="baby.css?v=<?=$data?>">
+        <link rel="stylesheet" type="text/css" href="kid.css?v=<?=$data?>">
+        <link rel="stylesheet" type="text/css" href="child.css?v=<?=$data?>">
+        <link rel="stylesheet" type="text/css" href="boy.css?v=<?=$data?>">
+        <script src="../../jq/jquery.js"></script>
+        <script src="project.js"></script>
+    </head>
+    <body>
+        <!-- 체크박스 사용시 hidden 값으로 데이터 전송? -->
+        <header></header>
+        <main class="maincss">
+            <section class="sectioncss">
+                <aside class="aside_check_outline">
+                    <div class="check_title">
+                        <span>연령에 맞는 의약품</span>
+                    </div>
+                    <div class="section_check">
+                        <span>
+                            <label onclick="all_age()">
+                                <input type="checkbox" id="all_check"> 전체선택
+                            </label>
+                            <label class="age" onclick="age_check()">
+                                <input type="checkbox" id="age0"> 0~3세
+                            </label>
+                            <label class="age" onclick="age_check()">
+                                <input type="checkbox" id="age1"> 3~6세
+                            </label>
+                            <label class="age" onclick="age_check()">
+                                <input type="checkbox" id="age2"> 6~12세
+                            </label>
+                            <label class="age" onclick="age_check()">
+                                <input type="checkbox" id="age3"> 12세 이상
+                            </label>
+                        </span>
+                    </div>
+                </aside>
+                <aside class="section_info">
+                    <div class="drug_list">
+                        <span class="drug_title">
+                            <label>NO.</label>
+                            <label>약 이름</label>
+                            <label>제조회사</label>
+                            <label>제조년도</label>
+                        </span>
+                        <span class="drug_info">
+                            <label class="drug_info_baby" id="drug0">
+                                <?php include "baby.html";?>
+                            </label>
+                            <label class="drug_info_kid" id="drug1">
+                                <?php include "kid.html";?>
+                            </label>
+                            <label class="drug_info_child" id="drug2">
+                                <?php include "child.html";?>
+                            </label>
+                            <label class="drug_info_boy" id="drug3">
+                                <?php include "boy.html";?>
+                            </label>
+                        </span>
+                    </div>
+                </aside>
+            </section>
+        </main>
+        <footer></footer>
+    </body>
+</html>

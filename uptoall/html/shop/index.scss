@@ -1,0 +1,52 @@
+@charset "UTF-8";
+@charset "UTF-8";
+/* Nanum Gothic 글자체 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; (100, 400, 700)*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+/* font-family: 'Nanum Gothic', sans-serif; (400, 700) */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;500&display=swap');
+/* font-family: 'Raleway', sans-serif; (100, 200, 500) */
+
+@mixin base($m,$p,$fs) {
+    margin: $m;
+    padding: $p;
+    font-size: $fs;
+}
+@mixin object($height) {
+    height: $height;
+}
+@mixin uod {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+body {
+    @include base(0, 0, 14px);
+    font-family: 'Noto Sans KR', sans-serif;
+}
+span, label, main {
+    display: block;
+}
+ol, ul, dl {
+    @include uod;
+}
+a {
+    text-decoration: none;
+}
+img {
+    width: 100%;
+    object-fit: cover;
+}
+.clear {clear: both;}
+
+/* 메인 레이아웃 부분 */
+.shop_header {height: 100px;}
+.shop_nav {height: 150px;}
+.shop_main {height: auto;}
+.shop_section {height: 500px;}
+.shop_article {height: 500px;} /* 다른 섹션들 높이를 잡아줬을 경우 auto로 변경. */
+.shop_footer {height: 150px; background-color: gray;}
+
+/* 로그인 서브페이지 */
+.shop_login {height: 500px;}

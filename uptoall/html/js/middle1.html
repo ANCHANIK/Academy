@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 1일차 (중급 - NODE)</title>
+    </head>
+    <body>
+        <div id="box"></div>
+        <div id="box2"></div>
+        <input type="button" value="생성" onclick="abc();">
+    </body>
+        <script>
+            var a = document.getElementById("box");
+            var b = document.createElement("table");
+            b.innerHTML = "<tr><td>테이블</td></tr><tr><td>테이블2</td></tr>"
+            a.append(b);
+            // createElement : 해당 HTML 태그를 생성하는 명령어
+            // append 해당 아이디 값으로 createElement 값을 생성하는 명령어
+            // 응용문제
+            // 다음과 같이 해당 사항을 노드로 스크립트를 이용하여 출력하시오
+            var w = 1;
+            function abc(){
+                var aa = document.getElementById("box2");
+                var bb = document.createElement("ul");
+                var zz;
+                while(w < 5){
+                    zz = "<li>공지사항"+ w +"</li>";
+                    bb.innerHTML += zz;
+                    w++;
+                }
+                aa.append(bb);
+            }
+        </script>
+</html>

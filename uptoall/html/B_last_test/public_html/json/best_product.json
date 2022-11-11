@@ -1,0 +1,35 @@
+{ "best_product":[
+    {
+        "product_nm":"대나무향기가 가득한 삿갓 무드전등",
+        "product_img":"./product/best/product_01.jpg"
+    },
+    {
+        "product_nm":"골드,화이트,블랙 스탠 전등",
+        "product_img":"./product/best/product_02.jpg"
+    },
+    {
+        "product_nm":"식당 및 가정용 맞춤 전등",
+        "product_img":"./product/best/product_03.jpg"
+    },
+    {
+        "product_nm":"민들레 씨앗 천장등",
+        "product_img":"./product/best/product_04.jpg"
+    },
+    {
+        "product_nm":"크리스탈 천장 전구등",
+        "product_img":"./product/best/product_05.jpg"
+    },
+    {
+        "product_nm":"크리스탈 쟁반 천장 무드등",
+        "product_img":"./product/best/product_06.jpg"
+    },
+    {
+        "product_nm":"멜란지 화이트 도자기 천장등",
+        "product_img":"./product/best/product_07.jpg"
+    },
+    {
+        "product_nm":"레트로 감성 글라스 천장등",
+        "product_img":"./product/best/product_08.jpg"
+    }
+    ]
+}

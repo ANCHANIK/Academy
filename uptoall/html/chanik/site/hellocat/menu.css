@@ -1,0 +1,10 @@
+@charset "UTF-8";
+*{box-sizing: border-box;}
+body{margin: 0; padding: 0;}
+ul,ol{list-style: none; margin: 0; padding: 0;}
+.menuborder{width: 1920px; height: 60px; background-color: lavender;margin: 0 auto;}
+.menuborder>ul{width: 1280px; height: inherit; line-height: 60px; margin: 0 auto; }
+.menuborder>ul>li{display: inline-block; width: 200px; text-align: center; margin-right: 9px; position: relative;}
+.menuborder>ul>li:last-child{margin-right: 0;}
+.sub_menu>li{width: 200px; height: 40px; background-color: lavender; text-align: center; line-height: 40px;}
+.sub_menu{display: none; position: absolute;}

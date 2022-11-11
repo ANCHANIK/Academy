@@ -1,0 +1,8 @@
+{
+    "banners":[
+        ["./banner/main_banner1.jpg","http://runiepet.com/product/list.html?cate_no=168","1","yes"],
+        ["./banner/main_banner2.jpg","http://runiepet.com/product/list.html?cate_no=24","2","yes"],
+        ["./banner/main_banner3.jpg","http://runiepet.com/product/list.html?cate_no=43","3","yes"],
+        ["./banner/main_banner4.jpg","http://runiepet.com/product/list.html?cate_no=28","4","no"]
+    ]
+}

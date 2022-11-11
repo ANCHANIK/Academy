@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>HTML & CSS 1일차 중급 태그 및 속성</title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <!--detail : 세부정보를 표시할 때 사용합니다. 모바일 전용 태그. IE (X)-->
+        <details open> <!-- 기본이 close 상태 -->
+            <summary>오늘의 메뉴는?</summary>
+            <!-- summary : 세부 정보에 대한 그룹명 -->
+            <!-- summary를 쓰지 않으면 자동으로 "세부정로" 라는 명이 뜬다 -->
+            <ul>
+                <li>김치 볶음밥</li>
+                <li>참치 볶음밥</li>
+                <li>야채 볶음밥</li>
+            </ul>
+        </details>
+
+        <br><br>
+        <details>
+            <summary style="color:red;">추가 상품 더 보기</summary>
+            <div style="border: 1px solid #ccc; width: 300px; height: auto;">
+                <label style="display: block; width: 50px; height: 50px; background-color: greenyellow;"></label>
+                <label style="display: block; width: 50px; height: 50px; background-color: yellow;"></label>
+                <label style="display: block; width: 50px; height: 50px; background-color: pink;"></label>
+                <label style="display: block; width: 50px; height: 50px; background-color: skyblue;"></label>
+                <label style="display: block; width: 50px; height: 50px; background-color: plum ;"></label>
+            </div>
+        </details>
+    </body>
+</html>

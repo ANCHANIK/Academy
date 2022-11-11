@@ -1,0 +1,400 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap');
+// font-family: 'Roboto Mono', monospace;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+// font-family: 'Noto Sans KR', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap');
+// font-family: 'Playfair Display SC', serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300&display=swap');
+//font-family: 'Roboto', sans-serif;
+
+@mixin base {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin object ($w,$h,$d,$p) {
+    width: $w;
+    height: $h;
+    display: $d;
+    position: $p;
+}
+
+@mixin fonts ($ff,$fs,$fw,$fc,$lh,$ta) {
+    @if ($ff==0) {
+        font-family: 'Roboto Mono', monospace;
+    }
+    @else if ($ff==1) {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    @else if ($ff==2) {
+        font-family: 'Playfair Display SC', serif;
+    }
+    @else {
+        font-family: 'Roboto', sans-serif;
+    }
+    font-size: $fs;
+    font-weight: $fw;
+    color: $fc;
+    line-height: $lh;
+    text-align: $ta;
+}
+
+%ulol {
+    @include base;
+    list-style: none;
+}
+
+* { @include base; }
+html,body,header,nav,main,section,aside,article,footer { @include base; display: block; }
+a { text-decoration: none; }
+label,span { display: block; }
+img { height: 100%; object-fit: contain; }
+
+header {
+    @include object(100%, 74px, flex, sticky);
+    min-width: 400px;
+    top:0;
+    z-index: 5;
+    flex-grow: 0;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    & > div {
+        @include object(1260px, 58px, flex, "");
+        padding: 8px;
+        box-sizing: border-box;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        box-shadow: 0.5px 0.5px 4px rgba(0,0,0,0.5);
+        & > span {
+            @include object("", 100%, block, "");
+            cursor: pointer;
+            &:nth-of-type(1){
+                @include fonts(2, 13px, 700, #000, 40px, left);
+                letter-spacing: 0.5px;
+            }
+            &:nth-of-type(2){
+                @include object(90px, 100%, flex, "");
+                align-items: center;
+                & > button {
+                    @include object(90%, 36px, block, "");
+                    @include fonts(1, 15px, 400, #fff, 36px, center);
+                    transition: all 0.5s ease;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #000;
+                    cursor: pointer;
+                    &:hover {
+                        box-shadow: 0.5px 0.5px 4px 0.5px rgba(0,0,0,0.8);
+                    }
+                }
+            }
+        }
+    }
+}
+
+main {
+    @include object(100%, auto, block, "");
+    & > article {
+        @include object(1260px, 280px, flex, "");
+        margin: 0 auto;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        & > .Text-To-Video{
+            @include object(480px, 280px, block, "");
+            & > .Text-To-Video-title {
+                @include object(480px, 48px, flex, relative);
+                flex-flow: row nowrap;
+                border-bottom: 1px solid #eaeaea;
+                & > label {
+                    @include object(160px, 48px, block, "");
+                    @include fonts(1, 15px, 500, #aaa, 48px, center);
+                    cursor: pointer;
+                    transition: all 0.5s ease;
+                    &:hover {
+                        color: black;
+                    }
+                }
+                & > div {
+                    @include object(160px, 2px, block, absolute);
+                    background-color: #aaa;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+            & > .image-roll {
+                @include object(480px, 232px, block, relative);
+                overflow: hidden;
+                & > ul {
+                    @extend %ulol;
+                    @include object(auto, 100%, flex, absolute);
+                    & > li {
+                        @include object(480px, 100%, flex, "");
+                        flex-flow: row nowrap;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+        & > .Border-Line{
+            @include object("", 280px, block, "");
+            border: 1px solid #eaeaea;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+        & > .The-easiest-way-to-make-videos{
+            @include object(680px, 280px, flex, "");
+            @include fonts(1, 80px, 500, black, 90px, left);
+            align-items: center;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            box-sizing: border-box;
+        }
+    }
+    & > section {
+        @include object(100%, auto, block, "");
+        margin: 0 auto;
+        & > .top-circle {
+            @include object(inherit, 40px, block, "");
+            background-color: #000;
+            border-radius: 100% 100% 0 0;
+        }
+        & > .middle {
+            @include object(inherit, auto, block, "");
+            background-color: #000;
+            & > .contents {
+                @include object("", 640px, block, "");
+                margin: 0 auto;
+                max-width: 1260px;
+                min-width: 400px;
+                background-color: rgb(9, 9, 9);
+                & > .Scripting-Matching-Video {
+                    height: auto;
+                    & > .con_header {
+                        @include object(100%, 72px, flex, "");
+                        padding: 24px;
+                        box-sizing: border-box;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        &:hover {
+                            background-color: rgb(14, 14, 14);
+                        }
+                        & > div:nth-of-type(1) {
+                            @include object(24px, 24px, block, "");
+                            @include fonts(1, 12px, 400, #000, 24px, center);
+                            letter-spacing: 0.0208em;
+                            background-color: #d7ccc8;
+                            margin-right: 12px;
+                            border-radius: 100%;
+                        }
+                        & > div:nth-of-type(2) {
+                            @include object(auto, 24px, block, "");
+                            @include fonts(1, 14px, 500, #fff, 24px, center);
+                            letter-spacing: 0.0208em;
+                        }
+                    }
+                    & > .Scripting-Matching-Video-text {
+                        @include object(100%, 400px, flex, "");
+                        margin-bottom: 24px;
+                        justify-content: center;
+                        transition: all 0.5s ease-in-out;
+                        &::before{
+                            content: "";
+                            border-right: 1px solid rgba(255,255,255,0.3);
+                            height: 100%;
+                            margin-right: 50px;
+                        }
+                        & > ul {
+                            @include object(90%, 100%, flex, "");
+                            @extend %ulol;
+                            flex-flow: column nowrap;
+                            min-width: 640px;
+                            & > li {
+                                @include object(100%, 100%, block, "");
+                                & > textarea {
+                                    @include object(100%, 100%, block, "");
+                                    min-height: 320px;
+                                    min-width: 640px;
+                                    box-sizing: border-box;
+                                    resize: none;
+                                    padding: 2rem;
+                                    border: none;
+                                    border-radius: 2px;
+                                    text-align: left;
+                                }
+                                & > .letter-count {
+                                    @include object(100%, 28px, flex, "");
+                                    justify-content: flex-end;
+                                    padding-top: 8px;
+                                    padding-right: 8px;
+                                    box-sizing: border-box;
+                                    gap:5px;
+                                    & > span {
+                                        @include object(auto, 20px, block, "");
+                                        @include fonts(1, 12px, 400, #fff, 20px, center);
+                                    }
+                                }
+                                & > .Convert-Button {
+                                    @include object(100%, 52px, flex, "");
+                                    padding: 8px 8px 8px 0;
+                                    justify-content: flex-end;
+                                    & > button {
+                                        @include object(82px, 100%, block, "");
+                                        @include fonts(3, 14px, 500, #ffffff4d, 36px, center);
+                                        background-color: #8a8a8a;
+                                        border: none;
+                                        border-radius: 4px;
+                                        cursor: pointer;
+                                        transition: all 0.5s ease;
+                                        &:hover {
+                                            background-color: #808080;
+                                            color: #fff;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        & > .bottom-circle {
+            @include object(inherit, 40px, block, "");
+            background-color: #000;
+            border-radius: 0 0 100% 100%;
+        }
+    }
+}
+
+footer {
+    @include object(100%, auto, block, "");
+    & > .shutterstock {
+        @include object(100%, 140px, flex, "");
+        justify-content: center;
+        border-bottom: 1px solid #eaeaea;
+        & > .shutterstock-logo {
+            width: 100%;
+            max-width: 1260px;
+            height: 100%;
+            & > .powered-by {
+                @include object(100%, 40px, block, "");
+                max-width: 1260px;
+                @include fonts(1, 26px, 400, rgb(36, 36, 36), 40px, center);
+                letter-spacing: -0.0074em;
+                padding-top: 10px;
+                box-sizing: border-box;
+            }
+            & > .shutterstock-logo-img {
+                @include object(100%, 100px, flex, "");
+                max-width: 1260px;
+                justify-content: center;
+                align-items: center;
+                & > img {
+                    width: 350px;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+    & > .bottom-content {
+        @include object(100%, auto, flex, "");
+        justify-content: center;
+        & > .bottom-content-text {
+            @include object(100%, 100%, flex, "");
+            max-width: 1260px;
+            & > .Terms-of-Use {
+                @include object(50%, 100%, block, "");
+                @include fonts(1, 12px, 400, #000, "", left);
+                text-decoration: underline solid 0.2rem;
+                letter-spacing: 0.0208em;
+                padding: 10px;
+                box-sizing: border-box;
+                cursor: pointer;
+            }
+            & > .Contact-info {
+                @include object(50%, 100%, block, "");
+                padding: 10px;
+                box-sizing: border-box;
+                & > ul {
+                    @include object(100%, 100%, flex, "");
+                    flex-flow: column wrap;
+                    flex-grow: 1;
+                    justify-content: flex-start;
+                    @extend %ulol;
+                    & > li {
+                        @include object(100%, auto, block, "");
+                        margin-bottom: 12px;
+                        @include fonts(1, 12px, 400, #000, "", left);
+                        letter-spacing: 0.0208em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.Terms-of-Use-popup {
+    @include object(100%, 1320px, none, absolute);
+    opacity: 0;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 100;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    & > .Terms-of-Use-popup-set {
+        @include object(80%, 100%, flex, relative);
+        align-items: center;
+        & > .popup {
+            position: absolute;
+            top:50%;
+            width: 100%;
+            max-width: 80vw;
+            height: auto;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 24px;
+            box-sizing: border-box;
+            & > .popup-title {
+                @include object(100%, auto, block, "");
+                @include fonts(1, 20px, 500, #000, 32px, left);
+                letter-spacing: 0.0075em;
+                margin-bottom: 16px;
+            }
+            & > .popup-title-Shutterstock {
+                @include object(100%, auto, block, "");
+                @include fonts(1, 16px, 500, #000, 28px, left);
+                letter-spacing: 0.0094em;
+                margin-bottom: 16px;
+            }
+            & > p {
+                @include object(100%, auto, block, "");
+                @include fonts(1, 12px, 400, #000, 20px, left);
+                letter-spacing: 0.0208em;
+                margin-bottom: 12px;
+            }
+            .popup-title-Got-it {
+                @include object(100%, 68px, flex, "");
+                margin-bottom: -24px;
+                justify-content: flex-end;
+                align-items: center;
+                & > button {
+                    @include object(70px, 52px, block, "");
+                    @include fonts(3, 14px, 500, rgb(33, 33, 33), 45px, center);
+                    min-width: 64px;
+                    border-radius: 4px;
+                    border: none;
+                    background-color: none;
+                    box-sizing: border-box;
+                    transition: all 0.5s ease;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #0000;
+                    }
+                }
+            }
+        }
+    }
+}

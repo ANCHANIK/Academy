@@ -1,0 +1,99 @@
+<html lang-"ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>HTML 4.0 7일차 - CSS 2.0 position</title>
+        <style>
+            body { margin: 0; padding: 0;}
+            /* div 객체 2개, 부모 div 객체 크기 (400*500) 자식 div 크기 (80*80) 부모 객체 색상은 black, 자식 객체 색상은 yellow */
+            .mbox {
+                width:400px;
+                height:500px;
+                background-color: black;
+                position: relative;
+            }
+            .sbox {
+                width:80px;
+                height:80px;
+                background-color: yellow;
+                position: absolute;
+                right:0;
+                bottom:0;
+            }
+            /*  자식 객체가 absolute 일 경우는 부모는 무조건 relative가 되어야만 정확하게 원하는 위치에 조정을 할 수 있다.  */
+            /*  부모 : relative, 자식 : absilute 
+            .mbox2 {
+                width: 500px;
+                height: 600px;
+                background-color: yellowgreen;
+                position: relative;
+            }
+            .sbox2 {
+                width: 50px;
+                height: 50px;
+                background-color: black;
+                position: absolute;
+                left: 100%;
+            }
+            */
+            /*  부모 : absolute, 자식 : relative */
+            .mbox2 {
+                width: 500px;
+                height: 600px;
+                background-color: yellowgreen;
+                position: relative;
+                left: 100px;
+                
+            }
+            .sbox2 {
+                width: 50px;
+                height: 50px;
+                background-color: black;
+                position: absolute;
+                left: 100%;
+                color: white;
+                font-size: 30px;
+                font-family: "돋음체";
+                font-weight: bolder;
+                text-align: center;
+                line-height: 50px;
+                border-radius: 25px;
+            } 
+            /*  font-weight 굵은체 (bold, bolder)  */
+            /* 부모 : absolute, 자식 : absolute  위치 잡기 힘듦  */
+            .mbox3 {
+                width: 500px;
+                height: 500px;
+                background-color: blue;
+                position: relative;
+            }
+            .sbox3 {
+                width: 80px;
+                height: 80px;
+                background-color: yellow;
+                position: absolute;
+                right: 0;
+            }
+            .sbox4 {
+                width: 80px;
+                height: 80px;
+                background-color: black;
+                position: absolute;
+                bottom: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mbox">
+            <div class="sbox"></div>
+        </div>
+        <div class="mbox2">
+            <div class="sbox2">X</div>
+        </div>
+        <!--응용문제. -->
+        <div class="mbox3">
+            <div class="sbox3"></div>
+            <div class="sbox4"></div>
+        </div>
+    </body>
+</html>

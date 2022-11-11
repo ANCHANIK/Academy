@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 7일차 (중급 - 부모, 자식창에 대한 통신2)</title>
+        <script>
+            function abc(){
+                window.open("./middle23.html","","width=650, height=600")
+            }
+            function change(a){
+                let total = document.getElementById("money").value;
+                total = total.replace(",","");
+                let mm = Number(total) * Number(a);
+                document.getElementById("totalmoney").value = mm.toLocaleString("ko");
+                // toLocaleString : 천 단위당 ,를 생성하여 출력시킨다.
+                // 단, 숫자로 인식되었을 때만 사용.
+            }
+        </script>
+    </head>
+    <!--middle23.html 공통사용
+    popup 크기 600*600 -->
+    <body>
+        <input type="hidden" name="idx" id="idx">
+        <input type="text" name="product" id="product" placeholder="상품을 선택해 주세요!" readonly onclick="abc()">
+        <input type="text" name="money" id="money" placeholder="상품금액" readonly>
+        <select onchange="change(this.value)">
+            <option value="">수량</option>
+            <option value="1">1EA</option>
+            <option value="2">2EA</option>
+            <option value="3">3EA</option>
+        </select>
+        <input type="text" name="totalmoney" id="totalmoney" placeholder="최종금액" readonly>
+        <input type="button" value="결제하기">
+    </body>
+</html>

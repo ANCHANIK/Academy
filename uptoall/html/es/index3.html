@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            ECMA Script 1일차 + 화살표 함수
+        </title>
+        <script>
+            /*
+            let aaa = function(a1,a2){  // 일반 선언함수 형태
+                var bb = a1 * a2;
+                return bb;
+            }
+            console.log(aaa(10,20));
+            */
+            // 화살표 함수의 기본 베이스는 return 이다.
+            // let aaa = (a1,a2) => a1 * a2;  // 화살표 함수를 이용하여 변수 선언함
+            // var bb = aaa(10,20);
+            // console.log(bb);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+    <script type="module">
+        import {aaa,bbb} from "./index3.js?v=3"; 
+        console.log(aaa(10,30));  // 화살표 함수 호출 인자값이 있을 경우
+        console.log(bbb());  // 화살표 함수 호출 빈 인자값일 경우
+        // 화살표 함수를 쓸 때, 값이 없더라도 빈 인자값을 써야한다.
+    </script>
+</html>

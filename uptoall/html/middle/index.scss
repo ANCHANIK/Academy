@@ -1,0 +1,575 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+// font-family: 'Noto Sans KR', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+// font-family: 'Noto Sans', sans-serif;
+
+@mixin base {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin object($w,$h,$display) {
+    width: $w;
+    height: $h;
+    display: $display;
+}
+@mixin object2($min-w,$max-w,$h,$display,$position) {
+    min-width: $min-w;
+    max-width: $max-w;
+    height: $h;
+    display: $display;
+    position: $position;
+}
+@mixin fonts($fs,$fw,$color) {
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+}
+%ulol {
+    list-style: none;
+    @include base;
+}
+span,label,main {
+    display: block;
+}
+a {
+    text-decoration: none;
+}
+img {
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+body {
+    @include base;
+    position: relative;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.top_scroll {
+    @include object(50px, 50px, block);
+    position: absolute;
+    right: 0;
+    top: 400px;
+    z-index: 10;
+}
+header {
+    margin: 0 auto;
+    @include object(360px, 50px, flex);
+    align-items: center;
+    & > .top_ul {
+        @include object(inherit, 30px, flex);
+        @extend %ulol;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding-left: 5px;
+        padding-right: 5px;
+        box-sizing: border-box;
+        & > li:nth-of-type(1),li:nth-of-type(3) {
+            @include object(30px, inherit, block);
+        }
+        & > li:nth-of-type(2) {
+            @include object(150px, inherit, block);
+        }
+    }
+}
+.empty_box {
+    @include object(100%, 20px, block);
+    background-color: white;
+}
+main {
+    margin: 0 auto;
+    @include object(360px, auto, block);
+    // 퀵메뉴
+    & > .quick_menu {
+        @include object(360px, 80px, block);
+        & > .quick_menu_div {
+            @include object(inherit, 40px, flex);
+            & > span {
+                @include object(120px, inherit, block);
+                @include fonts(14px, 400, black);
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                text-align: center;
+                line-height: 40px;
+            }
+        }
+    }
+    // 검색창
+    & > .search {
+        @include object(inherit, 50px, none);
+        background-color: rgba(0,0,0,0.3);
+        justify-content: center;
+        align-items: center;
+        & > .search_div {
+            @include object(300px, 30px, flex);
+            & > span:nth-of-type(1) {
+                @include object(30px, inherit, block);
+                background-color: #ccc;
+                border-radius: 5px 0 0 5px;
+                text-align: center;
+                line-height: 35px;
+                & > img {
+                    transform: rotateY(180deg);
+                    width: 20px;
+                }
+            }
+            & > span:nth-of-type(2) {
+                @include object(270px, inherit, block);
+                background-color: white;
+                border-radius: 0 5px 5px 0;
+            }
+        }
+    }
+    // 배너
+    & > .section_banner {
+        @include object(360px, 350px, block);
+        position: relative;
+        & > .banner {
+            @include object(100%, inherit, block);
+            position: absolute;
+            &:nth-of-type(2),&:nth-of-type(3) {
+                display: none;
+            }
+            & > img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    // 이벤트 배너
+    & > .event_banner {
+        @include object(360px, 720px, block);
+        & > .event_banner_div {
+            @include object(100%, 180px, flex);
+            & > span {
+                @include object(180px, inherit, flex);
+                max-width: 200px;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-content: center;
+            }
+        }
+        & > .event_banner_div1 {
+            @include object(100%, 180px, flex);
+        }
+    }
+    // NEW PETS
+    & > .new_pets {
+        @include object(100%, auto, block);
+        & > .new_pets_title {
+            margin: 0 auto;
+            @include object(200px, 40px, block);
+            @include fonts(18px, 400, black);
+            border: 1px solid black;
+            text-align: center;
+            line-height: 40px;
+        }
+        & > .new_pets_title_memo {
+            margin: 0 auto;
+            text-align: center;
+            @include fonts(12px, 400, black);
+        }
+    }
+    // dog/cat 소개
+    & > .new_pets_content {
+        @include object2(360px, 480px, 250px, block, relative);
+        & > .product_head {
+            @include object2(360px, 480px, 45px, flex, relative);
+            flex-flow: nowrap row;
+            justify-content: center;
+            & > label {
+                @include object2(30px, 50px, inherit, block, relative);
+                line-height: 45px;
+                text-align: center;
+            }
+            & > div {
+                @include object2(150px, 50px, inherit, block, relative);
+                line-height: 45px;
+                text-align: center;
+            }
+        }
+        & > .product_view {
+            @include object2(360px, 480px, 205px, flex, relative);
+            border: 1px solid #ccc;
+            flex-flow: nowrap row;
+            justify-content: center;
+            align-items: center;
+            padding-left: 10px;
+            padding-right: 10px;
+            box-sizing: border-box;
+            & > .product_list {
+                @include object2(340px, 500px, 130px, block, relative);
+                overflow: hidden;
+                & > .dtc {
+                    @include object2(800px, 800px, 130px, block, absolute);
+                    & > .product_ea {
+                        @extend %ulol;
+                        width: 100%;
+                        display: flex;
+                        flex-flow: nowrap row;
+                        & > li {
+                            @include object2(100px, 100px, 130px, block, relative);
+                            margin-right: 20px;
+                            & > div:nth-of-type(1){
+                                @include object2(100px, 100px, 100px, block, relative);
+                            }
+                            & > div:nth-of-type(2){
+                                @include object2(100px, 100px, 30px, block, relative);
+                                @include fonts(12px, 400, black);
+                                text-align: center;
+                                line-height: 30px;
+                            }
+                            & > div:nth-of-type(3){
+                                @include object2(100px, 100px, 30px, block, relative);
+                                @include fonts(8px, 300, black);
+                                text-align: center;
+                                line-height: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // 상품
+    & > .pet_product {
+        @include object(100%, auto, block);
+        & > div {
+            @include object(inherit, 130px, flex);
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgb(236,234,234);
+            margin-bottom: 10px;
+            & > span:nth-of-type(1) {
+                width: 120px;
+                height: 120px;
+                min-width: 120px;
+                max-width: 150px;
+                background-color: rosybrown;
+            }
+            & > span:nth-of-type(2) {
+                width: 220px;
+                height: inherit;
+                background-color: rgb(236,234,234);
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-content: space-evenly;
+                & > label {
+                    @include object(inherit, 20px, block);
+                    &:nth-of-type(1){
+                        @include fonts(16px, 700, black);
+                    }
+                    &:nth-of-type(2){
+                        @include fonts(11px, 400, black);
+                    }
+                    &:nth-of-type(3){
+                        @include fonts(14px, 700, black);
+                    }
+                }
+            }
+        }
+    }
+    & > .pet_product_btn {
+        @include object(100%, 60px, flex);
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        & > div {
+            @include object(90px, 40px, block);
+            @include fonts(14px, 400, gray);
+            border-radius: 40px;
+            background-color: rgb(230,230,230);
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+    }
+    & > .intro_banner {
+        @include object(100%, 150px, block);
+        background-color: royalblue;
+    }
+    & > .intro_banner_btn {
+        @include object(100%, 50px, flex);
+        justify-content: space-evenly;
+        & > div {
+            @include object(50px, 50px, block);
+        }
+    }
+    // 롤링 리뷰
+    & > .review_roll {
+        @include object(100%, 40px, flex);
+        background-color: rgb(230,230,230);
+        overflow: hidden;
+        & > div {
+            @include fonts(14px, 400, black);
+            text-align: center;
+            line-height: 40px;
+        }
+        & > .review_roll_title {
+            @include object(25%, inherit, block);
+        }
+        & > .review_roll_content {
+            @include fonts(13px, 400, black);
+            @include object(60%, inherit, block);
+            text-align: left;
+            position: relative;
+            & > .review_roll_content_ul {
+                list-style: none;
+                @include base;
+                @include object(100%, inherit, block);
+                position: absolute;
+                & > li {
+                    @include object(100%, inherit, block);
+                }
+            }
+        }
+        & > .review_roll_more {
+            @include object(15%, inherit, flex);
+            justify-content: center;
+            align-items: center;
+            & > span {
+                @include object(45px, 20px, block);
+                background-color: rgb(127, 127, 127);
+                border-radius: 20px;
+                line-height: 11px;
+                color: white;
+            }
+        }
+    }
+    & > .bottom_text {
+        @include object(100%, 20px, flex);
+        justify-content: center;
+        & > span {
+            @include fonts(12px, 400, black);
+            text-align: center;
+        }
+        & > span::after {
+            content: " | ";
+        }
+        & > span:nth-of-type(4):after {
+            content: "";
+        }
+    }
+}
+footer {
+    margin: 0 auto;
+    @include object(360px, auto, block);
+    & > .footer_logo {
+        @include object(100%, 30px, block);
+        & > div {
+            margin: 0 auto;
+            @include object(160px, inherit, flex);
+            justify-content: center;
+        }
+    }
+    & > .footer_text {
+        @include object(100%, 20px, block);
+        text-align: center;
+        line-height: 20px;
+        @include fonts(14px, 400, rgb(75, 75, 75));
+    }
+    & > .footer_info {
+        @include object(100%, auto, flex);
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        & > .footer_info_content {
+            @include object(100%, 20px, block);
+            @include fonts(14px, 400, rgb(75, 75, 75));
+            text-align: center;
+            &:nth-of-type(4) {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+// blackscreen
+.blackscreen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50px;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 7;
+    display: none;
+}
+
+// menu
+.section_menu {
+    position: absolute;
+    width: 0;
+    height: 630px;
+    z-index: 10;
+    background-color: white;
+    top: 51px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    display: none;
+    & > .section_menu_box {
+        @include object(100%, 590px, block);
+        // background-color: hotpink;
+        & > .login_box {
+            @include object(100%, 30px, flex);
+            padding-left: 10px;
+            padding-right: 10px;
+            box-sizing: border-box;
+            justify-content: space-between;
+            & > label {
+                @include object(100px, 30px, block);
+                background-color: black;
+                @include fonts(14px, 400, white);
+                line-height: 30px;
+                text-align: center;
+            }
+        }
+        & > .notice_box {
+            @include object(100%, 60px, flex);
+            padding-left: 10px;
+            padding-right: 10px;
+            box-sizing: border-box;
+            justify-content: space-between;
+            & > label {
+                @include object(60px, 60px, flex);
+                border: 2px solid black;
+                box-sizing: border-box;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: center;
+                & > span:nth-of-type(1){
+                    @include object(25px, 25px, block);
+                }
+                & > span:nth-of-type(2){
+                    @include fonts(14px, 400, black);
+                }
+            }
+            & > .QNA {
+                @include object(100%, 100px, block);
+                border: 2px solid black;
+            }
+        }
+    }
+    // 질문내역
+    .menu_q {
+        @include object(100%, 155px, flex);
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
+        & > .menu_q_list {
+            @include object(100%, 155px, block);
+            @include fonts(14px, 400, black);
+            border: 2px solid black;
+            margin: 0 auto;
+            & > legend {
+                @include object(100px, 30px, block);
+                & > span {
+                    @include object(100px, 30px, block);
+                    @include fonts(14px, 500, black);
+                    line-height: 30px;
+                    text-align: center;
+                }
+            }
+            & > ul {
+                @include object(auto, 130px, flex); // flex 쓰면 디스크 사라짐
+                @include base;
+                list-style: disc;
+                margin-left: 20px;
+                flex-flow: column nowrap;
+                justify-content: space-evenly;
+                & > li {
+                    @include object2(80%, 100%, 20px, flex, "");
+                    flex-flow: row nowrap;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+    // 계좌번호
+    .account {
+        @include object(100%, 60px, block);
+        margin: 0 auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
+        margin-top: 20px;
+        & > span {
+            @include object(100%, inherit, flex);
+            flex-flow: column nowrap;
+            justify-content: space-evenly;
+            box-sizing: border-box;
+            padding-left: 10px;
+            padding-right: 10px;
+            border: 2px solid black;
+            & > label {
+                @include fonts(16px, 300, black);
+            }
+        }
+    }
+    // call center
+    .call_center {
+        @include object(100%, 190px, block);
+        margin: 0 auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
+        & > .call_center_inner {
+            @include object(100%, inherit, flex);
+            flex-flow: row wrap;
+            align-content: space-around;
+            border: 2px solid black;
+            & > span {
+                @include object(100%, "", block);
+                text-align: left;
+                text-indent: 10px;
+            }
+            & > span:nth-child(1) {
+                @include fonts(15px, 300, black);
+                height: 30px;
+                line-height: 30px;
+                text-align: left;
+            }
+            & > span:nth-child(2) {
+                @include fonts(17px, 700, black);
+                height: 30px;
+                line-height: 15px;
+                text-align: left;
+            }
+            & > span:nth-child(3) {
+                height: 42px;
+                & > label {
+                    @include object(100%, 14px, block);
+                    @include fonts(13px, 300, black);
+                    line-height: 14px;
+                    text-align: left;
+                }
+            }
+            & > span:nth-child(4) {
+                height: 55px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                & > label {
+                    @include object(200px, 40px, flex);
+                    border: 2px solid black;
+                    justify-content: center;
+                    align-items: center;
+                    & > a {
+                        @include fonts(14px, 400, black);
+                        text-decoration: none;
+                    }
+                    & > span {
+                        @include object(20px, 20px, block);
+                    }
+                }
+            }
+        }
+    }
+}

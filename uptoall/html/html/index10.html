@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML & CSS 2일차 중급 반응형 (direction + important) + gd</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            /* !important : 우선적용 시킬 때 사용함 */
+            /* div { color: red !important; width: 500px !important;} */
+            .box1 {
+                width: 200px;
+                height: 30px;
+                border: 1px solid black;
+                color: blue;
+                direction: ltr;
+            }
+            .box2 {
+                width: 200px;
+                height: 30px;
+                border: 1px solid black;
+                color: green;
+                direction: rtl;
+                /*
+                direction : 글자의 방향을 지정할 수 있다.
+                right to left : 오른쪽 기준으로 왼쪽 정렬 
+                기호는 앞으로 움직임
+                */
+            }
+            /* linear-gradient : 선모양의 글라이언트. 한 가지 이상의 색상을 조합하여 표현함 */
+            .box3 {
+                width: 700px;
+                height: 100px;
+                background:linear-gradient(purple,navy,blue,green,yellow,orange,red);
+            }
+            .box4 {
+                width: 700px;
+                height: 100px;
+                background:linear-gradient(to right, orange,green);
+                /* linear-gradient (to left) or (to right) */
+            }
+            .box5 {
+                width: 700px;
+                height: 100px;
+                background:linear-gradient(45deg, blue,skyblue);
+                /* deg : degree 각도 */
+            }
+            .box6 {
+                width: 700px;
+                height: 100px;
+                background:linear-gradient(blue 30%,skyblue 70%);
+            }
+            .box7 {
+                width: 1000px;
+                height: 490px;
+                background: linear-gradient(45deg, transparent 95% ,brown 5%),
+                /* transparent 투명하게 표현할 때 사용합니다. */
+                url("../js/banners/banner0.png");
+                position: relative;
+            }
+            .box7:hover {
+                background: linear-gradient(45deg, transparent 95% ,pink 5%),
+                url("../js/banners/banner0.png");
+            }
+            .more {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                color: white;
+                font-size: 12px;
+                cursor: pointer;
+            }
+            .box8 {
+                width: 1000px;
+                height: 490px;
+                /* background: radial-gradient(blue 5%,yellow 95%);
+                radial-gradient : 원형 그라디언트
+                background: radial-gradient(circle, red,blue,yellow);
+                circle : 완전 동그라미 형태로 출력
+                background: radial-gradient(closest-side at -5% 0%, red,blue,yellow);
+                at x축 y축 원형을 움직일 때 사용 */
+                background: repeating-radial-gradient( red 10%, yellow 20%, blue 20%);
+                /* repeating : 반복할 때 사용 */
+            }
+            .box9 { /*background(image,repeat,color,position,size) : 단축명령어 */
+                background-image: url("../js/banners/banner0.png"), url("../js/banners/banner1.png"), url("../js/banners/banner2.png");
+                background-repeat: no-repeat;
+                background-size: 50%,50%,100%;
+                background-position: 0 0, 500px 0; /*첫번째 이미지, 두번째 이미지*/
+                
+                /* background-image : 여러개의 이미지를 사용할 수 있음
+                background-size : 배경 이미지 크기를 조정할 수 있음
+                background-position : 배경 위치조정 x축 y축 구분 */
+                
+                width: 1000px;
+                height: 490px;
+                border: 1px solid gray;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box1">#$TEST%&</div>
+        <div class="box2">&%TEST ABC@#</div>
+        <br><br>
+        <div class="box3"></div>
+        <div class="box4"></div>
+        <div class="box5"></div>
+        <div class="box6"></div>
+        <br><br>
+        <div class="box7">
+            <span class="more">+more</span>
+        </div>
+        <div class="box8"></div>
+        <div class="box9"></div>
+    </body>
+</html>

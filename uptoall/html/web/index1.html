@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>오브젝트 위치선정 및 레이아웃1</title>
+        <style>
+            body { margin: 0; padding: 0; }
+            span { display: block;}
+            .box {
+                width: 500px;
+                height: 300px;
+                border: 1px solid black;
+                margin: 0 auto;
+                position: relative;
+            }
+            .box2 {
+                width: 100px;
+                height: 50px;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin-top: -25px;
+            }
+            .red {
+                width: 50px;
+                height: 50px;
+                background-color: red;
+                float: left;
+            }
+            .blue {
+                width: 50px;
+                height: 50px;
+                background-color: blue;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="box2">
+                <span class="red"></span>
+                <span class="blue"></span>
+            </div>
+        </div>
+    </body>
+</html>

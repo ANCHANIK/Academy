@@ -1,0 +1,165 @@
+.shop_banners_top {
+  width: 100%;
+  height: 450px;
+  margin-bottom: 30px;
+}
+
+.shop_banners {
+  width: 186px;
+  height: 450px;
+  float: left;
+}
+
+.shop_banners > .shop_banners_list {
+  width: 186px;
+  height: 450px;
+  background-color: #5e5e5e;
+}
+
+.shop_banners > .shop_banners_list > li {
+  width: 100%;
+  height: 45px;
+  color: white;
+  line-height: 45px;
+  border-bottom: 1px solid #ccc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-indent: 10px;
+  cursor: pointer;
+}
+
+.shop_banners > .shop_banners_list > li:last-child {
+  border: none;
+}
+
+.shop_banners > .shop_banners_list > li:hover {
+  background-color: #595834;
+}
+
+.shop_banners_image {
+  width: 750px;
+  height: 450px;
+  overflow: hidden;
+  float: left;
+  margin-right: 30px;
+}
+
+.shop_banners_image > .shop_banners_images {
+  width: 100%;
+  height: inherit;
+  position: relative;
+}
+
+.shop_banners_image > .shop_banners_images > li {
+  width: 750px;
+  height: inherit;
+  position: absolute;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  line-height: 450px;
+}
+
+.shop_banners_image > .shop_banners_images > li:nth-of-type(2) {
+  display: none;
+}
+
+.shop_banners_image > .shop_banners_images > li:nth-of-type(3) {
+  display: none;
+}
+
+.shop_banners_side {
+  float: left;
+  overflow: hidden;
+  width: 234px;
+  height: 450px;
+  position: relative;
+}
+
+.shop_side_banner {
+  width: calc(234px * 2);
+  height: 224px;
+  position: absolute;
+}
+
+.shop_side_banner > li {
+  width: 234px;
+  height: inherit;
+  float: left;
+}
+
+.shop_side_banner > li > img {
+  width: 100%;
+  height: inherit;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.shop_banners_info {
+  width: 234px;
+  height: 211px;
+  position: absolute;
+  top: 238px;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid black;
+}
+
+.shop_banners_info > label {
+  display: block;
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.shop_banners_info > ul > li {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.shop_banners_info > span {
+  display: block;
+  width: 100%;
+  height: 23px;
+  text-align: right;
+}
+
+.shop_banners_info .more_btn {
+  width: 80px;
+  height: inherit;
+  background-color: #e6e6e6;
+  border: none;
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.shop_banners_bot {
+  width: 100%;
+  height: 150px;
+}
+
+.shop_banners_bot > .shop_bottom_banners {
+  clear: both;
+  display: block;
+  width: 1200px;
+  height: 147px;
+}
+
+.shop_banners_bot > .shop_bottom_banners > li {
+  display: block;
+  float: left;
+  width: 285px;
+  height: 174px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.shop_banners_bot > .shop_bottom_banners > li:last-child {
+  margin: 0;
+}
+/*# sourceMappingURL=banner.css.map */

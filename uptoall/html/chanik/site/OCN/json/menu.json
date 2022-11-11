@@ -1,0 +1,38 @@
+[
+    {"main_menu":"OCN 소개","menu_list":[
+         "OCN 소개",
+         "OCN 매니페스토"
+        ],"menu_link":["http://ocn.tving.com/ocn/ocn/index","http://ocn.tving.com/ocn/ocn/manifesto"]
+    },
+    {"main_menu":"OCN 편성표","menu_list":[
+         "편성표",
+         "채널번호 안내"
+        ],"menu_link":["http://ocn.tving.com/ocn/schedule","http://info.tving.com/Broadcast/SOChannel?sChannel=ocn&systemCode=ocn"]
+    },
+    {"main_menu":"NO.1 Weekend","menu_list":[
+        "다크홀"
+        ],"menu_link":["http://program.tving.com/ocn/darkhole"]
+    },
+    {"main_menu":"추천 동영상","menu_list":[
+        "추천 동영상",
+        "동영상 전체보기"
+        ],"menu_link":["http://ocn.tving.com/ocn/vod","http://ocn.tving.com/ocn/vod/list"]
+    },
+    {"main_menu":"OCN 스릴러 하우스","menu_list":[
+        ""
+        ],"menu_link":["http://program.tving.com/ocn/ocnthrillerhouse"]
+    },
+
+    {"main_menu":"공식 SNS","menu_list":[
+        "유투브",
+        "페이스북",
+        "트위터"
+        ],"menu_link":["https://www.youtube.com/user/ocn","https://www.facebook.com/OCN.TV","https://twitter.com/No1_OCN"]
+    },
+    {"main_menu":"미드 시리즈","menu_list":[
+        "스파르타쿠스",
+        "프리즌 브레이크2",
+        "NCIS 18"
+        ],"menu_link":["http://program.tving.com/ocnthrills/spartacus1","http://program.tving.com/ocnthrills/prisonbreak2","http://program.tving.com/ocnthrills/ncis18"]
+    }
+]

@@ -1,0 +1,27 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML 4.0 4일차 - 기본 레이아웃 + CSS 2.0</title>
+        <!-- style 태그가 생성 : CSS 2.0 -->
+        <style>
+            /*   . : class 를 뜻함.   # : id 를 뜻함.   */
+            .box { width:100px; height:50px; border:1px solid red; }
+            /* .box2 { width:100px; height:50px; border:1px solid orange; } */
+            #box { width:100px; height:50px; border:1px solid blue; }
+            #box2 { width:100px; height:50px; border:1px solid green; }
+            span { border:1px solid black; }
+            /* # 또는 . 을 사용하지 않을 경우 해당 태그 전체에 적용시키게 됨 */
+            .abc { color:green; }
+            .bbb { color:orange; }
+            
+        </style>
+    </head>
+    <body>
+        <!-- style 속성 : CSS 1.0 -->
+        <div style="width:100px; height:50px; border:1px solid #000000;"></div>
+        <div class="box"></div>
+        <div id="box2"></div>
+        <span class="bbb">홍길동</span>
+        <span class="abc">이순신</span>
+    </body>
+</html>

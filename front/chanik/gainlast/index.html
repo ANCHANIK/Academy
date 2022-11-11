@@ -1,0 +1,43 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="imagetoolbar" content="no">
+	<title>MINIMAL</title>
+	<link rel="stylesheet" type="text/css" href="./css/index.css?v=<?=$data?>">
+	<script src="./js/jquery-2.0.js"></script>
+	<script src="./js/jquery-ui.js"></script>
+	<script src="./js/jquery.mobile.js"></script>
+	<script src="http://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="./js/header_menu.js?v=<?=$data?>"></script>
+	<script src="./js/header_cibi.js?v=<?=$data?>"></script>
+	<script src="./js/pop_menu.js?v=<?=$data?>"></script>
+	<script src="./js/pop_member.js?v=<?=$data?>"></script>
+	<script src="./js/content_mainbanner.js?v=<?=$data?>"></script>
+	<script src="./js/footer_bottom.js?v=<?=$data?>"></script>
+</head>
+<body ng-app="a_napp">
+	<main class="main">
+		<?php include "header_menu.html" ?>
+		<?php include "header_cibi.html" ?>
+		<?php include "pop_menu.html" ?>
+		<?php include "pop_member.html" ?>
+        <?php include "pop_nonmember.html" ?>
+		<?php include "content_mainbanner.html" ?>
+		<?php include "content_bargain.html" ?>
+		<?php include "content_weekly.html" ?>
+		<?php include "content_new.html" ?> 
+		<?php include "content_side.html" ?>
+		<?php include "footer_bottom.html" ?>
+	</main>
+</body>
+<script src="./js/content_bargin.js?v=<?=$data?>"></script>
+<script src="./js/content_weekly.js?v=<?=$data?>"></script>
+<script src="./js/content_new.js?v=<?=$data?>"></script>
+<script src="./js/content_side.js?v=<?=$data?>"></script>
+</html>

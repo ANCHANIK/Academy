@@ -1,0 +1,315 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@mixin base {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin n_fonts($fs,$fw,$color) {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+}
+@mixin n_object($w,$h,$d,$p) {
+    width: $w;
+    height: $h;
+    display: $d;
+    position: $p;
+}
+%ulol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+img {
+    // width: 100%;
+    object-fit: cover;
+}
+ul,ol,dl {
+    @extend %ulol;
+}
+
+.notice_list_article {
+    @include n_object(100%, 40px, block, "");
+    @include n_fonts(110%, 400, black);
+    background-color: #f2f2f2;
+    & > .notice_list_article_text {
+        @include n_object(1200px, inherit, block, "");
+        line-height: 40px;
+        margin: 0 auto;
+    }
+}
+.notice_list_aside {
+    @include n_object(1200px, auto, block, "");
+    margin: 0 auto;
+    // 검색파트
+    & > .notice_list_search {
+        @include n_object(inherit, 70px, flex, "");
+        align-items: center;
+        & > span:nth-of-type(1) {
+            @include n_object(280px, 30px, block, "");
+            & > input {
+                @include n_object(inherit, inherit, block, "");
+                text-indent: 5px;
+                border: none;
+                border-bottom: 1px solid dimgray;
+            }
+        }
+        & > span:nth-of-type(2){
+            @include n_object(260px, 30px, flex, "");
+            & > button {
+                @include n_object(120px, inherit, block, "");
+                @include n_fonts(15px, 300, white);
+                background-color: tomato;
+                border: none;
+                border-radius: 3px;
+                margin-left: 20px;
+            }
+            & > button:hover {
+                background-color: rgb(255, 75, 44);
+            }
+        }
+    }
+    // 테이블
+    & > .notice_list_table {
+        @include n_object(inherit, auto, block, "");
+        & > table {
+            @include n_object(inherit, auto, block, "");
+            & > .notice_list_thead {
+                & > tr {
+                    width: 100%;
+                    height: 30px;
+                    & > th {
+                        border: 1px solid #aaa;
+                        background-color: #cccccc;
+                    }
+                    & > th:nth-of-type(1) {
+                        width: 40px;
+                        border: 1px solid #aaa;
+                    }
+                    & > th:nth-of-type(2) {
+                        width: 50px;
+                        border: 1px solid #aaa;
+                    }
+                    & > th:nth-of-type(3) {
+                        width: 740px;
+                        border: 1px solid #aaa;
+                    }
+                    & > th:nth-of-type(4) {
+                        width: 120px;
+                        border: 1px solid #aaa;
+                    }
+                    & > th:nth-of-type(5) {
+                        width: 160px;
+                        border: 1px solid #aaa;
+                    }
+                    & > th:nth-of-type(6) {
+                        width: 100px;
+                        border: 1px solid #aaa;
+                    }
+                }
+            }
+            & > .notice_list_tbody > tr:nth-of-type(1) {
+                & > td {
+                    border: 1px solid #aaa;
+                    height: 35px;
+                }
+                & > td:nth-of-type(3) {
+                    text-align: left;
+                    text-indent: 10px;
+                    cursor: pointer;
+                }
+                & > td:nth-of-type(3):hover {
+                    font-weight: 700;
+                }
+            }
+            & > .notice_list_notbody > tr {
+                & > td {
+                    border: 1px solid #aaa;
+                    height: 30px;
+                }
+            }
+        }
+    }
+    & > .notice_list_btn {
+        @include n_object(inherit, 60px, flex, "");
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+        & > button {
+            @include n_object(120px, 30px, block, relative);
+            @include n_fonts(14px, 100, white);
+            background-color: tomato;
+            border: none;
+            border-radius: 3px;
+            line-height: 30px;
+            &:nth-of-type(1) {
+                margin-right: 20px;
+                background-color: crimson;
+            }
+            &:nth-of-type(1):hover {
+                background-color: rgb(186, 8, 44);
+            }
+            &:nth-of-type(2):hover {
+                background-color: rgb(255, 75, 44);
+            }
+        }
+    }
+}
+.fimg {
+    height: 100%;
+}
+//------------------------------------------- pageing 번호 ----------------------------------------
+.notice_page {
+    @include n_object(1200px, 30px, block, "");
+    margin: 0 auto;
+    margin-top: 30px;
+    & > ul {
+        @include n_object(100%, inherit, flex, "");
+        flex-flow: row wrap;
+        justify-content: center;
+        & > li {
+            @include n_object(30px, 30px, block, "");
+            @include n_fonts(13px, 400, rgb(46, 46, 46));
+            background-color: #ccc;
+            line-height: 30px;
+            text-align: center;
+            margin-right: 7px;
+            cursor: pointer;
+        }
+        & > li:hover {
+            background-color: gray;
+            color: white;
+        }
+    }
+}
+
+// ------------------------------------------- notice 입력 부분 ------------------------------------
+
+.notice_insert_aside {
+    @include n_object(1200px, auto, block, "");
+    margin: 0 auto;
+    & > table {
+        @include n_object(inherit, auto, block, "");
+        margin-top: 30px;
+        & > .notice_table {
+            @include n_object(inherit, auto, block, "");
+            & > tr {
+                @include n_object(100%, 50px, block, "");
+                & > td {
+                    height: 50px;
+                    border-bottom: 1px solid #ccc;
+                }
+                & > td:nth-of-type(1) {
+                    width: 200px;
+                    text-align: left;
+                    text-decoration: overline;
+                    text-indent: 10px;
+                }
+                & > td:nth-of-type(2) {
+                    width: 1000px;
+                    text-align: left;
+                }
+            }
+            & > .notice_title { // 제묵
+                height: 60px;
+                & > td:nth-of-type(2) {
+                    & > input {
+                        width: 50%;
+                        height: 30px;
+                        text-indent: 10px;
+                    }
+                }
+            }
+            & > .notice_id { // 아이디
+                height: 50px;
+                & > td:nth-of-type(2) {
+                    & > input {
+                        width: 25%;
+                        height: 30px;
+                        text-indent: 10px;
+                    }
+                }
+            }
+            & > .notice_name { // 이름
+                height: 50px;
+                & > td:nth-of-type(2) {
+                    & > input {
+                        width: 25%;
+                        height: 30px;
+                        text-indent: 10px;
+                    }
+                    & > span {
+                        margin-left: 20px;
+                    }
+                }
+            }
+            & > .notice_pw { // 패스워드
+                height: 50px;
+                & > td:nth-of-type(2) {
+                    & > input {
+                        width: 25%;
+                        height: 30px;
+                        text-indent: 10px;
+                    }
+                    & > span {
+                        margin-left: 20px;
+                    }
+                }
+            }
+            & > .notice_content {  // 내용
+                height: auto;
+                border-bottom: none;
+                & > td:nth-of-type(2) {
+                    height: auto;
+                    & > textarea {
+                        width: 100%;
+                        height: auto;
+                        resize: none;
+                        padding: 7px;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+            & > .notice_print {  // 공지출력 유무
+                height: 50px;
+                & > td:nth-of-type(2) > label{
+                    margin-right: 25px;
+                }
+            }
+        }
+    }
+}
+.notice_btn {
+    @include n_object(100%, 80px, flex, "");
+    justify-content: flex-end;
+    align-items: center;
+    & > .npb {
+        @include n_object(120px, 30px, block, "");
+        @include n_fonts(13px, 300, white);
+        background-color: tomato;
+        border: none;
+        border-radius: 3px;
+        &:nth-of-type(1) {
+            margin-right: 20px;
+            background-color: crimson;
+        }
+        &:nth-of-type(1):hover {
+            background-color: rgb(186, 8, 44);
+        }
+        &:nth-of-type(2):hover {
+            background-color: rgb(255, 75, 44);
+        }
+    }
+}
+.np_memo {
+    width: auto;
+    height: auto;
+    @include n_fonts(13px, 300, rgb(248, 33, 76));
+    margin-left: 20px;
+}

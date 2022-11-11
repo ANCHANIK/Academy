@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  width: 200px;
+  height: 300px;
+  display: block;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.box > li {
+  width: 40px;
+  height: 40px;
+}
+
+.box > li:nth-of-type(1) {
+  background-color: red;
+}
+
+.box > li:nth-of-type(2) {
+  background-color: blue;
+}
+
+.box > li:nth-of-type(3) {
+  background-color: green;
+}
+
+.box > li:nth-of-type(4) {
+  background-color: yellow;
+}
+
+.box > li:nth-of-type(5) {
+  background-color: pink;
+}
+/*# sourceMappingURL=index24.css.map */

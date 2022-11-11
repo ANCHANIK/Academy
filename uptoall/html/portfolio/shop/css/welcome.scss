@@ -1,0 +1,96 @@
+@charset "UTF-8";
+@import "./config.scss";
+
+.welcome_aside {
+    @include object(500px, auto, block, "");
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    & > .welcome_title {
+        @include object(100%, 60px, block, "");
+        @include fonts(25px, 500, black, 60px);
+        text-decoration: overline;
+    }
+    & > .welcome_content {
+        @include object(100%, 500px, flex, "");
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: center;
+        border: 1px solid #aaa;
+        & > span:nth-of-type(1) {
+            @include object(80%, 200px, block, "");
+            & > ul {
+                @include object(100%, inherit, block, "");
+                @extend %ulol;
+                & > li:nth-of-type(1) {
+                    @include object(40%, 100px, block, "");
+                    margin: 0 auto;
+                    line-height: 150px;
+                }
+                & > li:nth-of-type(2) {
+                    @include object(100%, 50px, block, "");
+                    @include fonts(16px, 400, "", 50px);
+                    text-align: center;
+                }
+                & > li:nth-of-type(3) {
+                    @include object(100%, 50px, block, "");
+                    text-align: center;
+                    & > span {
+                        @include fonts(12px, 300, gray, "");
+
+                    }
+                }
+            }
+        }
+        & > span:nth-of-type(2) {
+            @include object(90%, 130px, flex, "");
+            border: 1px solid #aaa;
+            justify-content: center;
+            & > ul {
+                @include object(80%, auto, block, "");
+                @extend %ulol;
+                margin-top: 10px;
+                & > li:nth-of-type(1) {
+                    @include object(100%, 40px, block, "");
+                    @include fonts(13px, 500, black, 50px);
+                }
+                & > li:nth-of-type(2) {
+                    @include object(100%, 15px, block, "");
+                    @include fonts(11px, 300, gray, 15px);
+                }
+                & > li:nth-of-type(3) {
+                    @include object(100%, 15px, flex, "");
+                    @include fonts(11px, 300, gray, 15px);
+                    & > span {
+                        cursor: pointer;
+                    }
+                }
+                & > li:nth-of-type(4) {
+                    @include object(100%, 40px, flex, "");
+                    align-items: center;
+                    & > span {
+                        @include object(220px, 20px, flex, "");
+                        text-indent: 10px;
+                        border: 1px solid #aaa;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        & > span:nth-of-type(3) {
+            @include object(70%, 40px, flex, "");
+            justify-content: center;
+            & > button {
+                @include object(170px, inherit, block, "");
+                @include fonts(17px, 400, white, 40px);
+                border: none;
+                background-color: rgb(43, 49, 55);
+                text-align: center;
+                cursor: pointer;
+                &:hover {
+                    background-color: rgb(31, 35, 40);
+                }
+            }
+        }
+    }
+}

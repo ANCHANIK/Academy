@@ -1,0 +1,60 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol,
+dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+span,
+label,
+main {
+  display: block;
+}
+div {
+  text-align: right;
+}
+.box {
+  height: 50px;
+}
+.a0 {
+  width: 500px;
+  background-color: aquamarine;
+}
+.a1 {
+  max-width: 600px;
+  background-color: blueviolet;
+}
+.a2 {
+  width: 800px;
+  min-width: 100px;
+  background-color: coral;
+}
+.a3 {
+  max-width: 700px;
+  min-width: 600px;
+  background-color: greenyellow;
+}
+.bbox {
+  height: 40px;
+  background-color: black;
+  padding: 5px;
+  max-width: 550px;
+  min-width: 400px;
+}
+.bbox > span {
+  width: 40px;
+  height: 40px;
+}
+.bbox > span:nth-of-type(1) {
+  background-color: yellow;
+  float: left;
+}
+.bbox > span:nth-of-type(2) {
+  background-color: yellow;
+  float: right;
+}

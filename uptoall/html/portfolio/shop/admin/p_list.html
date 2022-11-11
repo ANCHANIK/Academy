@@ -1,0 +1,70 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>상품 관리</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+<article class="product_list_article">
+    <div class="product_list_article_text">상품 관리 리스트</div>
+</article>
+<form name="cfrm" id="cfrm" @submit.prevent="pro_search">
+    {{lists}}
+    <aside class="product_list_aside">
+        <div class="product_list_search">
+            <span>
+                <input v-bind:type="tx" name="pnm" ref="pnm" v-model="word" autocomplete="off" placeholder="검색할 상품을 입력해주세요">
+            </span>
+            <span>
+                <button v-bind:type="sbtn">{{btn_nm}}</button>
+                <button v-bind:type="cbtn" @click="all_list">{{btn_all}}</button>
+            </span>
+        </div>
+        <div class="product_list_table">
+            <table>
+                <thead class="product_list_thead">
+                    <tr>
+                        <th>NO</th>
+                        <th>상품코드</th>
+                        <th>상품명</th>
+                        <th>상품가격</th>
+                        <th>할인가격</th>
+                        <th>대표이미지</th>
+                        <th>출력 유/무</th>
+                        <th>삭제</th>
+                    </tr>
+                </thead>
+                <tbody class="product_list_tbody" v-if="part==1">
+                    <tr v-for="(data,index) in arrays">
+                        <td>{{ea-index}}</td>
+                        <td @click="view_product(data.pidx)">{{data.goodsno}}</td>
+                        <td align="left" @click="view_product(data.pidx)">{{data.productnm}}</td>
+                        <td align="right">{{data.product_money.toLocaleString()}} 원</td>
+                        <td v-if="data.product_sales==''"> - </td>
+                        <td align="right" v-else>{{data.product_sales.toLocaleString()}} 원</td>
+                        <td><img v-bind:src="data.product_img" @click="popup_pro(data.product_img)" class="pdimg"></td>
+                        <td >{{data.product_use}}</td>
+                        <td><button v-bind:type="cbtn" @click="product_del(data.pidx)">삭제</button></td>
+                    </tr>
+                </tbody>
+                <tbody class="product_list_tbody" v-else-if="part==2">
+                    <tr>
+                        <td colspan="7">등록된 상품이 없습니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="product_page">
+            <ul>
+                <li v-for="p in paging" @click="gopage(p);">{{p}}</li>
+            </ul>
+        </div>
+        <div class="product_list_btn">
+            <button v-bind:type="cbtn" @click="new_pro">{{pro_sign}}</button>
+        </div>
+    </aside>
+</form>

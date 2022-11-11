@@ -1,0 +1,12 @@
+@charset "utf-8";
+*{box-sizing: border-box;}
+body{margin: 0; padding: 0;}
+ul,ol{list-style: none; margin: 0; padding: 0;}
+.menubar{width: 1200px; height: 70px; margin: 0 auto; padding-left: 225px;}
+.menubar>ul{width: 960px; height: inherit; line-height: 70px;}
+.menubar>ul>li{width: 115px; text-align: center; float: left; position: relative; cursor: pointer; font-weight: bold;}
+.menubar>ul>li:last-child{margin-right: 0;}
+.sub_menu>li{width: 115px; height: 30px; line-height: 30px; text-align: center;
+    background-color: rgba(240, 241, 245, 0.8); font-weight: normal;}
+.sub_menu>li:last-child{border: 0; border-radius: 0 0 10px 10px;}
+.sub_menu{display: none; position: absolute; border-top:2px solid #ccc;}

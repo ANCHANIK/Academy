@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 4일차 - Vue components(전역4) & 지역+내부 component</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+            label {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="box3">
+            <ul>
+                <gom v-bind:aaa="list" v-for="list in arrs"></gom>
+                <!-- 같은 list를 썼다는건 v-for의 list를 v-bind:aaa의 list로 바로 넘기겠다는 것 -->
+            </ul>
+        </section>
+        <section id="box4">
+            <!-- 
+                응용문제.
+                다음 배열 중에서 이름만 리스트 출력 되도록 
+                지역 component로 코드를 작성 완료하라.
+                단, 실제 tag는 label로 하라
+            -->
+            <div>
+                <pink v-bind:ppp="pname" v-for="pname in lists"></pink>
+            </div>
+        </section>
+    </body>
+    <script>
+        /*
+        [순서가 굉장히 중요함]
+        *Vue Code 순서*
+        1) 배열(Ajax)
+        2) component
+        3) new Vue
+        => 이 순서를 안지키면 코드가 맞더라도 작동을 안함!!
+        */
+        // 배열은 맨 위에 있어야 한다.
+        const arr = [
+            ["이은미","A형"],
+            ["안찬익","B형"],
+            ["민서현","B형"],
+            ["이시우","O형"],
+            ["정아름","A형"]
+        ];
+
+        var apink = {
+            props:["ppp"],
+            template:"<label>{{ppp[0]}}</label>"
+        }
+
+        let b = new Vue({
+            el:"#box4",
+            data:{
+                lists:arr
+            },
+            components:{
+                "pink":apink
+            }
+        });
+        
+        // 지역 component (다른 새로운 vue 에서 또 쓸 수 있다.)
+        var area = {
+            props:["aaa"],
+            template:"<li>{{aaa[0]}}-{{aaa[1]}}</li>"
+        }
+        // 전역 component는 딱 그 안에서 출력시키고 보여주고 다 쓰이고 끝임.
+        // 다른데에서 또 쓰일 수 없음. (index26.html 참고)
+        
+        let a = new Vue({
+            el:"#box3",
+            data:{
+                arrs:arr
+            },
+            components:{  // 내부 component (지역 component와 함께 사용)
+                "gom":area
+            }
+        });
+    </script>
+</html>

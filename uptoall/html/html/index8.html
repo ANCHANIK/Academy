@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML & CSS 2일차 중급 반응형 파일첨부 기능</title>
+        <link type="text/css" rel="stylesheet" href="index8.css">
+        <script>
+            function file_upload(){
+                var file = document.getElementById("img").value;
+                if(file == ""){
+                    alert("이미지 파일을 첨부하세요.");
+                }
+                else{
+                    f.submit();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!--
+            enctype="multipart/form-data"
+            input type="file" 이라는 속성이 있을 경우 무조건 사용해야만
+            정상적으로 파일이 서버에 업로드 된다.
+            * 퍼미션 세팅 필수!!
+        -->
+        <form id="f" name="f" method="POST" action="fileup.php" enctype="multipart/form-data">
+            <!-- file 속성은 css 로는 못 꾸밈. 단 JS로 꾸밈 가능 -->
+            <p>이미지 업로드</p>
+            <div class="box">
+                <span class="span1">
+                    <input type="file" name="pic" class="file" accept="image/*" id="img">
+                    <label class="text">
+                        ※ 첨부파일은 이미지만 등록이 가능합니다.
+                    </label>
+                </span>
+                <span class="span2">
+                    <button type="button" class="btn" onclick="file_upload();">파일업로드</button>
+                </span>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그래프 그리기</title>
+    <script src="../jq/jquery.js"></script>
+    <script>
+        $(function(){
+            draw(95,'.pic-1','blue');
+            draw(45,'.pic-2','green');
+            draw(25,'.pic-3','orange');
+        });
+        
+        function bgcolor(a,b,c){
+            $(a).css({
+                "background":"conic-gradient("+c+" 0%" +b+"%, #fff "+b+"% 100%)"
+            });
+        }
+        function draw(r,cl,bcolor){
+            var z = 1;
+            var timer = setInterval(function(){
+                if(z<r){
+                    bgcolor(cl,z,bcolor);
+                    z++;
+                }else{
+                    clearInterval(timer);
+                }
+            },10);
+        }
+    </script>
+    <style>
+        .chart {
+            position: relative;
+            display: inline-block;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            transition: 0.5s;
+        }
+        .chart > span {
+            background-color: white;
+            display: block;
+            position: absolute;
+            font-size: 15px;
+            color: red;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="chart pic-1"><span>95%</span></div>
+    <div class="chart pic-2"><span>45%</span></div>
+    <div class="chart pic-3"><span>25%</span></div>
+</body>
+</html>

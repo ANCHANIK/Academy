@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+span,
+label,
+main {
+  display: block;
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+.member {
+  height: 800px;
+}
+.view {
+  width: 500px;
+  height: 800px;
+  border: 1px solid red;
+  margin: 0 auto;
+}
+.view > p {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-family: "돋움체";
+  font-size: 20px;
+  font-weight: bold;
+}
+.ul_member {
+  width: 100%;
+  height: auto;
+}
+.ul_member > li {
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+}
+.input1 {
+  width: 480px;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #eee;
+  font-size: 17px;
+  font-weight: bold;
+  text-indent: 5px;
+}
+.btn {
+  display: inline-block;
+  width: 480px;
+  height: 50px;
+  border: 1px solid darkblue;
+  background-color: #65a9e3;
+  border-radius: 5px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+}

@@ -1,0 +1,99 @@
+
+<!DOCTYPE HTML>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge,chrome=1">
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <title>vue 5일차 비회원 주문조회 입력파트 (샘 코드)</title>
+        <style>
+            .box{width: 300px; height: 500px; text-align: center; margin: 0 auto; text-align: center;}
+            .divcss{width: 290px; height: 40px; display: inline-block; text-align: center; line-height: 40px; 
+            border: 5px double rebeccapurple ; margin-bottom: 40px;}
+            .inputcss{width: 300px; height: 40px; display: block; margin-bottom: 10px; border-radius: 5px; border: 1px solid black;
+            text-indent: 10px; box-sizing: border-box;}
+            .alerts{width: 300px; height: 30px; line-height: 30px; font-size: 14px;
+            color: purple; font-weight: bold; display: inline-block; margin-bottom: 10px;
+        }
+        .aaa{
+            width: 300px; height: 40px; display: block; background-color: rebeccapurple; border-radius: 20px;
+            color: white; border: 1px solid rebeccapurple; cursor: pointer;
+        }
+        </style>
+    </head>
+    
+    <section id="box" class="box">
+        <div class="divcss">비회원 배송 조회 서비스</div>
+        <input type="text" class="inputcss" v-model="midcu" placeholder="주문자명을 입력하세요" maxlength="30">
+        <input type="text" class="inputcss" v-model="midnm" placeholder="주문번호 8자리를 입력하세요" maxlength="8">
+        <input type="password" class="inputcss" v-model="midpa" placeholder="비회원 주문 비밀번호를 4자리를 입력하세요" maxlength="4">
+        <span v-bind:class="al" >{{alert}}</span>
+        <btn v-bind:type="btns" v-text="btnnm"></btn> 
+    </section>
+    </body>
+    <!--
+        Javascript & Jquery 렌더링
+        HTML + CSS
+
+        Vue + 자체 렌더링 template -> component
+        Vue는 template와 component를 얼마나 잘쓰느냐에 따라 달라진다.
+        ` (역따옴표) : Vue에서만 쓸 수 있는 역슬레쉬처럼 쓰임. 단 일일히 안 넣어도 됨
+    -->
+    <script>
+    
+    let temps = {
+        template:"<button @click='aaa' class='aaa'></button>",
+        methods:{
+            aaa:function(){
+                a.logins();
+            }
+        },
+    }
+    
+    let a = new Vue({
+        el:"#box",
+        data:{  // Javascript 또는 Jquery에서 값을 받을 때도 data 이용. data() 이거는 함수임
+            al:"alerts",
+            btns:"button",
+            midcu:"",  // 주문자명
+            midnm:"",  // 주분번호
+            midpa:"",  // 주문비밀번호
+            btnnm:"비회원 로그인",
+            alert:""  // 오류 메세지
+        },
+        methods:{
+            logins:function(){
+                if(this.midcu==""){
+                    this.alert = "주문자명을 입력하세요";
+                }
+                else if(this.midnm==""){
+                    this.alert = "주문번호8자리를 입력하세요.";
+                }
+                else if(this.midpa==""){
+                    this.alert = "비회원 주문 비밀번호를 입력하세요";
+                }
+                else{
+                    if(this.midnm.length < 8){
+                        this.alert = "주문번호 8자리를 맞게 입력해주세요";
+                    }
+                    else if(isNaN(this.midnm)==true){
+                        this.alert = "주문번호는 숫자만 입력해주세요 ";
+                    }
+                    else{
+                        this.alert = "";  // setTimeout으로 글자를 지우삼
+                        location.href="./index34_1.html?mid="+this.midcu+"&order="+this.midnm+"&pw="+btoa(this.midpa);
+                        // btoa() : 암호화, atob() : 복호화
+                    }
+                }
+    
+            }
+        },
+        components:{
+            "btn":temps
+        },
+        computed:{
+    
+        }
+    });
+    </script>
+</html>

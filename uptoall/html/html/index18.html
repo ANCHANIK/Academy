@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML&CSS 4일차 중급 반응형 (full banner)</title>
+        <script src="../jq/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                // $("#banner0").fadeOut(2000);
+                // $("#banner1").fadeIn(2000);
+                var $node = 0;
+                $("#btn").click(function(){
+                    $("#banner" + $node).stop().fadeOut(1500);
+                    $node += 1;
+                    // $node = $node + 1;
+                    // $node++;
+                    if($node > 1){
+                        $node = 0;
+                    }
+                    $("#banner" + $node).stop().fadeIn(1500);
+                });
+
+                $("#btn2").click(function(){
+                    $("#banner" + $node).stop().fadeOut(1500);
+                    $node += 1;
+                    // $node = $node + 1;
+                    // $node++;
+                    if($node > 1){
+                        $node = 0;
+                    }
+                    $("#banner" + $node).stop().fadeIn(1500);
+                    console.log($node);
+                });
+
+
+                $("#banner").mouseenter(function(){
+
+
+                    $("#btn").css({
+                        "left":"100px",
+                        "opacity":"1"
+                    })
+                    $("#btn2").css({
+                        "right":"100px",
+                        "opacity":"1"
+                    })
+                });
+                $("#banner").mouseleave(function(){
+
+                    $("#btn").css({
+                        "left":"",
+                        "opacity":""
+                    })
+                    $("#btn2").css({
+                        "right":"",
+                        "opacity":""
+                    })
+                });
+
+
+            })
+        </script>
+        <style>
+            body { margin:0; padding: 0;}
+            .banner {
+                height: 613px;
+                max-width: 2560px;
+                /* overflow: hidden; */
+                margin: 0 auto;
+                position: relative;
+            }
+            span,label {display: block;}
+            ul {list-style: none; margin: 0; padding: 0;}
+            /* 풀 배너는 슬라이드 배너 X, fadein,out으로  */
+            .banner > label {
+                position: absolute;
+            }
+            
+            /* .b_span {
+                width: 1920px;
+                height: inherit;
+                position: absolute;
+                z-index: 10;
+                display: flex;
+                flex-wrap: wrap;
+                align-content: center;
+                justify-content: space-around;
+                flex-direction: row;
+            } */
+            /* .b_ul {
+                width: inherit;
+            }
+            .b_ul > li {
+                float: left;
+            }
+            .b_ul > li:nth-child(2) {
+                float: right;
+            } */
+            .a {
+                width: 100px;
+                height: 100px;
+            }
+            .b {
+                /* absolute 쓰면 inherit 작동X */
+                width: 100%;
+                max-width: inherit;
+                height: inherit;
+                background-image: url("./full_banner0.jpg");
+                background-position: 50%;
+                background-size: cover;
+                /* contain : 가로, 세로 크기가 서로 조건이 다를 경우 비율에 맞춰서 가로, 세로 사이즈로 조정된다. 해상도를 조절하면 이미지가  달라짐*/
+                /* cover : 가로, 세로 크기 조건이 달라도 비율에 맞춰서 오브젝트 이미지가 크키를 조절한다. */
+                background-repeat: no-repeat;
+                display: block;
+            }
+            .c {
+                width: 100%;
+                height: inherit;
+                background-image: url("./full_banner1.jpg");
+                max-width: inherit;
+                background-position: 50%;
+                background-size: cover;
+                background-repeat: no-repeat;
+                display: none;
+            }
+            .btn{
+                position: absolute;
+                width:100px;
+                height: 100px;
+                top:50%;
+                margin-top: -50px;
+                left: 0;  /*left값을 꼭 넣어줘야 위에 jq에서 작동 가능함*/
+                transition-duration: 2s;
+                cursor: pointer;
+                opacity: 0;
+            }
+            .btn2 {
+                position: absolute;
+                width:100px;
+                height: 100px;
+                top:50%;
+                margin-top: -50px;
+                right: 0;
+                transition-duration: 2s;
+                cursor: pointer;
+                opacity: 0;
+            }
+            img { width: 100%; }
+        </style>
+    </head>
+    <body>
+        <!-- <img src="full_banner0.jpg"> -->
+        <section class="banner" id="banner">
+            <!-- <span class="b_span">
+                <ul class="b_ul">
+                    <li>
+                        <img src="./leftbtn.svg" class="a">
+                    </li>
+                    <li>
+                        <img src="./rightbtn.svg" class="a">
+                    </li>
+                </ul>
+            </span> -->
+            <label class="b" id="banner0"></label>
+            <label class="c" id="banner1"></label>
+            <div class="btn" id="btn"><img src="./leftbtn.svg"></div>
+            <div class="btn2" id="btn2"><img src="./rightbtn.svg"></div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 2일차 (중급 - 속성 추가하기)</title>
+        <style>
+            body { margin: 0; padding: 0; }
+            .box {
+                width: 100px;
+                height: 100px;
+                border: 1px solid black;
+            }
+            .s {
+                width: 10px;
+                height: 10px;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box" class="box"></div>
+        <br><br><br>
+        <input type="button" value="인증메일발송" onclick="abc()">
+        <div class="check_num" id="sc">
+        </div>
+    </body>
+    <script>
+        var a = document.createElement("div");
+        a.className = "s";
+        // 해당 태그에 class를 생성
+        a.id = "span_box";
+        // 해당 태그에 id를 생성
+        a.setAttribute("name","box");
+        // 해당 태그에 name을 생성
+        // setAttribute(JS) = attr(JQ)
+        document.getElementById("box").append(a);
+        
+        // input 추가하기
+        var b = document.createElement("input");
+        b.type = "text";
+        document.getElementById("span_box").append(b);
+
+        // 응용문제
+        // 버튼 클릭시 input "text" 와 "button"이 생성 되도록 하며
+        // input 입력값으 name="sc_mail" 이다
+        function abc(){
+            var aa = document.createElement("input");
+            var bb = document.createElement("button");
+            aa.type = "text";
+            aa.setAttribute("name","sc_mail");
+            document.getElementById("sc").appendChild(aa);
+            document.getElementById("sc").appendChild(bb);
+            bb.innerText = "인증완료";
+
+        }
+        
+    </script>
+</html>

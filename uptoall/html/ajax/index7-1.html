@@ -1,0 +1,186 @@
+<?php
+    $date = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+<title>Ajax (2일차) - Javascript (json-회원가입)</title>
+<link rel="stylesheet" type="text/css" href="./index7-1.css?v=<?=$date?>">
+</head>
+<body>
+    <form id="heal" name="heal" enctype="application/x-www-form-urlencoded">
+        <section class="sbody">
+        <div class="member_view">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr class="thead_tr">
+                        <td colspan="2" align="center">건강보험 회원가입</td>
+                    </tr>
+                </thead>
+                <tbody class="tbody_tr">
+                    <tr>
+                        <td>아이디</td>
+                        <td>
+                            <input type="text" name="user_id" id="user_id" class="input1"> 
+                            <input type="button" value="중복확인" class="idbtn">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>패스워드</td>
+                            <td>
+                                <input type="password" name="user_pw" id="user_pw" class="input1"> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>이메일</td>
+                            <td>
+                            <input type="email" name="user_email" id="user_email" class="input2"> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>전화번호</td>
+                            <td>
+                            <input type="tel" name="user_tel" id="user_tel" class="input2"> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>거주지역</td>
+                            <td>
+                                <select name="user_area" id="user_area" class="input3">
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>관심분야<br>(한가지만 선택)</td>
+                            <td class="td_flex">
+                                <span>
+                                    <label><input type="checkbox" name="user_field" id="user_field0" value="악성신생물 (각종 암)">악성신생물 (각종 암)</label>
+                                    <label><input type="checkbox" name="user_field" id="user_field1" value="정신 및 행동장애">정신 및 행동장애</label>
+                                </span>
+                                <span style="margin-top: 10px;">
+                                    <label><input type="checkbox" name="user_field" id="user_field2" value="순환계통 질환">순환계통 질환</label>
+                                    <label><input type="checkbox" name="user_field" id="user_field3" value="소화계통 질환">소화계통 질환</label>
+                                    <label><input type="checkbox" name="user_field" id="user_field4" value="호흡계통 질환">호흡계통 질환</label>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>현재연령</td>
+                            <td>
+                                <select name="user_age" id="user_age" class="input3">
+                                </select>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <span style="margin-top: 20px;">
+                <button type="button" class="btn" onclick="member_ship()">회원가입</button>
+                <button type="reset" class="btn">가입취소</button>
+            </span>
+        </div>
+        </section>
+    </form>
+</body>
+<script>
+    let get_data;
+    function windowck(){
+        if(window.XMLHttpRequest){
+            return new XMLHttpRequest();
+        }
+    }
+    function fileget(){
+        if(get_data.readyState == XMLHttpRequest.DONE && get_data.status == 200){
+            // console.log(this)
+            html_write(this);
+        }
+    }
+    get_data = windowck();
+    get_data.onreadystatechange = fileget;
+    get_data.open("GET","./member_ship.json",true);
+    get_data.send();
+
+    function html_write(data){
+        const json = JSON.parse(data.response)
+        var html1 = "";
+        var html2 = "";
+        // console.log(json)
+
+        json["area"].forEach(function(a,b,c){
+            html1 += "<option value='"+ a +"'>"+ a +"</option>";
+            console.log(a);
+        });
+        document.getElementById("user_area").innerHTML = html1;
+        // createElement를 써야 appendChild, append를 쓸 수 있다.
+        // innerHTML 은 DOM 객체고
+        // createElement는 NODE 객체라 서로 안맞음
+
+        json["age"].forEach(function(a,b,c){
+            html2 += "<option value='"+ a +"'>"+ a +"</option>";
+            console.log(a);
+        });
+        document.getElementById("user_age").innerHTML = html2;
+    }
+
+    /* 입력 검토 */
+    function member_ship(){
+        if(heal.user_id.value == ""){
+            alert("아이디를 입력하세요")
+        }
+        else if(heal.user_pw.value == ""){
+            alert("패스워드를 입력세요")
+        }
+        else if(heal.user_tel.value == ""){
+            alert("전화번호를 입력하세요")
+        }
+        // 다 입력했다 치고!
+        else{
+            // 전화번호 입력상태를 확인하는 2차 작업
+            var tels = Number(heal.user_tel.value);
+            var tels_length = (heal.user_tel.value).length;
+
+            console.log(tels_length);
+            
+            // true or false를 썼을 땐 else를 밖이 아닌 안에 else if 안에 써야된다.
+            // 왜냐하면 true,false는 두가지 뿐 이후엔 아무것도 없기 때문인다.
+            // 만약 true false가 아닌 숫자 0,1 이렇게 쓰면 else를 밖에 써도 된다.
+            if(isNaN(tels) == true){
+                alert("올바른 전화번호를 입력하세요")
+            }
+            else if(isNaN(tels) == false){
+                if(tels_length < 10){
+                    alert("올바른 전화번호를 입력하세요")
+                }
+
+                else{ // 관심분야 체크
+                    let field_ea = heal.user_field.length;
+                    // console.log(field_ea);
+                    var w = 0;
+
+                    do{ // 전체 체크 유/무 확인
+                        var ck = document.getElementById("user_field" + w).checked;
+                        if(ck == true){  // 체크 확인시 조건문 실행
+                            var ff;
+                            for(ff=w+1;ff<field_ea;ff++){  // 해당 노드 숫자외 보다 큰 값들을 반복함
+                                document.getElementById("user_field" + ff).checked = false;
+                            }
+                            break;
+                            // break : 반복문 실행시 조건에 맞을 경우 더 이상 반복하지 않고
+                            // 반복문을 강제 종료함
+                        }
+                        w++;
+                    }while(w < field_ea)
+
+                    heal.method = "POST";
+                    heal.action = "./nhiss_memberok.php";
+                    heal.submit();
+                }
+            }
+
+        }
+    }
+
+
+</script>
+</html>

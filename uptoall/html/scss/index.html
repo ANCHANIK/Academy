@@ -1,0 +1,36 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="index.css?v=<?=$data?>">
+        <title>Scss 1일차</title>
+    </head>
+    <body>
+        <!--
+            CSS > 프레임워크
+
+            ■ Front-end - [컴파일하지 않음]
+            LESS : 프론트 엔드가 작성 -> 컴파일(Back-end) -> CSS [프론트엔드가 다루지 않는 것으로 알고있다.]
+
+            ■ Front-end - [cmd에서 컴파일 함]
+            SASS : 프론트엔드가 작성 -> 컴파일(Front-end) - DOS -> css
+            
+            ■ Front-end - [Editor에서 바로 컴파일 함]
+            SCSS : 프론트엔드가 작성 -> 컴파일(Front-end) -> css
+
+            - watching이 된 상태에서 해야 적용이 된다.
+            - SCSS는 작업후에 FTP에 안남기고 다 지워야된다. 안그러면 다 복사해서 가져감
+            - SCSS에 주석을 달면 CSS에 주석이 안남는다.
+            - SCSS에다가 주석을 달아서 확인하면 남들이 CSS에서 확인할때 주석이 안남기에 보안이 좋다.
+            - 단, 만들어놓은 SCSS는 ftp에서 지워서 다른곳에 저장해야된다.
+        -->
+        <div class="box"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </body>
+</html>

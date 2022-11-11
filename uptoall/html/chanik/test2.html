@@ -1,0 +1,42 @@
+<?php
+    $v = date("Ymdhis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="imagetoolbar" content="ko">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>코딩테스트 문제 2</title>
+        <script>
+            // 2번 문제
+
+//example1
+var target = "cloud";
+var words = ['card','cd','lol','doc'];  //7
+var count = 0;
+for(var a=0; a<words.length; a++){
+    var wordscount =0;
+    for(var b=0; b<words[a].length; b++){
+        var chk = false;
+        for(var c=0; c<target.length; c++){
+            if(words[a][b]==target[c]){
+                wordscount++;
+            }
+            if(wordscount==words[a].length){
+                chk=true;
+            }
+        }
+        if(chk){
+            count++;
+        }
+    }
+}
+console.log(count)
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 6일차 (중급 - 부모, 자식창에 대한 통신) - 응용</title>
+        <style>
+            * { box-sizing: border-box;}
+            body { margin: 0; padding: 0;}
+            ul,ol {list-style: none; margin: 0; padding: 0;}
+            .ulcss {
+                width: 600px; height: 140px;
+                margin: 0 auto;
+            }
+            .ulcss > li { height: auto; margin-bottom: 5px;}
+            .addr {
+                width: 100px; height: 40px;
+                text-indent: 5px;
+                float: left;
+            }
+            .btn {
+                clear: both;
+                width: 100px;
+                height: 40px;
+                background-color: #ccc;
+                border: none;
+                margin-left: 5px;
+                cursor: pointer;
+            }
+            .addr_dtc {
+                width: 600px; height: 40px;
+                text-indent: 5px;
+            }
+            .addr_dtc2 {
+                width: 600px; height: 40px;
+                text-indent: 5px;
+            }
+            
+            
+        </style>
+        <script>
+            function btn(){
+                window.open("./middle21.html","","width=715, height=600")
+            }
+        </script>
+    </head>
+    <body>
+        <!--다음과 같이 퍼블리싱 하라-->
+        <ul class="ulcss">
+            <li>
+                <input type="text" id="addr" class="addr" readonly placeholder="우편번호">
+            </li>
+            <li>
+                <input type="button" class="btn" value="주소찾기" onclick="btn()">
+            </li>
+            <li>
+                <input type="text" id="addr_dtc" class="addr_dtc" readonly placeholder="도로명 주소">
+            </li>
+            <li>
+                <input type="text" id="addr_dtc2" class="addr_dtc2"  placeholder="상세주소를 입력해 주세요">
+            </li>
+        </ul>
+    </body>
+</html>

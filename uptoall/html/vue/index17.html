@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 3일차 - Vue 배열 + splice + push</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <p>전체 데이터 총 {{data_ea}}개 입니다.</p>
+            <button v-on:click="abc" v-text="btn"></button>
+            <ul>
+                <!-- <li v-for="(subject,index) in arr">{{subject}}</li> 이렇게 써두 됨-->
+                <li v-for="(subject,index) in arr"  v-text="subject">{{subject}}</li>
+            </ul>
+        </section>
+    </body>
+    <script>
+        const datas = ["HTML","CSS","SCSS","JAVASCRIPT","JQUERY","AJAX"];
+        let datas2 = "HTML,CSS,SCSS,JAVASCRIPT,JQUERY,AJAX";
+        // datas 안에 datas로 재배열을 가져올 때는 const로 사용시 변경하지 못하는 사항이 발생한다.
+        var nos = 0;
+        let a = new Vue({
+            el:"#box",
+            data:{
+                arr:null,
+                data_ea:datas.length,  // 배열 갯수 출력
+                btn:"more",
+                no:0
+            },
+            methods:{
+                abc:function(){
+                    this.arr = datas.splice(0,2);
+                    // this.no+=2;  이걸 쓸 필요가 없음
+                    // console.log(this.no)
+                    /*
+                    splice(x,y) : x는 시작 노드 번호, y는 몇번째 까지 출력시킬 갯수.
+                    - 배열에스 사용하는 명령어 이며, 해당 데이터를 갯수만큼 끊어서 보여줌
+                    - remove 기능이 있으며, 해당 배열 순번을 다시 초기화 시킬 수 있다.
+                    - splice도 노드를 삭제하기 때문에, 삭제하면 노드를 다시 처음부터 시작하게 됨.
+                    */
+                    var dd = datas2.split(",");
+                    nos++;
+                    datas.push(dd[nos]);
+                }
+            }
+        });
+    </script>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 6일차 - 초급코드 (Javascript + Jquery 확장 함수 응용) </title>
+        <script src="./jquery.js"></script>
+        <script>
+            function popup(){  // 헨들링 검토 함수
+                var width = Number(document.getElementById("pop_width").value);
+                var height = Number(document.getElementById("pop_height").value);
+                var left = Number(document.getElementById("pop_left").value); // 팝업창 가로 위치
+                var top = Number(document.getElementById("pop_top").value); // 팝업창 세로 위치
+
+                // console.log(isNaN(width)); ture = 문자 , false = 숫자
+
+                if(isNaN(width) == true || isNaN(height) == true || isNaN(left) == true || isNaN(top) == true ){
+                    alert("숫자를 입력해 주세요.");
+                }
+                else{
+                    if(width < 100){
+                    alert("100px 이상을 입력해 주세요.");
+                    }
+                    else if(height < 30){
+                    alert("30px 이상을 입력해 주세요.");
+                    }
+                    else if(left < 0 || top < 0){
+                        alert("팝업창 위치는 0보다 큰 수를 입력하세요.")
+                    }
+                    else{
+                        $.fn.makebox(width,height,left,top);
+                    }
+                }
+                
+
+
+                /*
+                if(width == "" || height == ""){
+                    alert("숫자를 입력해 주세요.");
+                }
+                else if(width < 100){
+                    alert("100px 이상 입력해 주세요.");
+                }
+                else if(height < 30){
+                    alert("30px 이상 입력해 주세요.");
+                }
+                */
+            }
+
+
+            $(document).ready(function(){
+
+                $.fn.makebox = function($width,$height,$left,$top){
+                    
+                    $("#popup").stop().animate({
+                        "width" : $width + "px",
+                        "height" : $height + "px",
+                        "left" : $left + "px",
+                        "top" : $top + "px"
+                    },500,function(){
+                        $(this).css("background-color","pink");
+                    });
+
+                }
+
+
+
+                /*
+                $("#btn").click(function(){
+                    var $width = Number($("#pop_width").val());
+                    var $height = Number($("#pop_height").val());
+
+                    $.fn.bbb($width,$height);
+
+                });
+
+                $.fn.bbb = function($a,$b){
+                    $("#popup").animate({
+                        "width":$a + "px",
+                        "height":$b + "px"
+                    },500,function(){
+                        $("#popup").css("background-color","pink");
+                    });
+                };
+                */
+            });
+
+
+
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            span,label,main { display: block; }
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .box {
+                background-color: darkblue;
+                width: 0px;
+                height: 0px;
+                position: absolute;
+            }
+            .text {
+                width: 150px;
+                height: 30px;
+                text-indent: 5px;
+                line-height: 30px;
+                margin-top: 10px;
+            }
+            .btn {
+                width: 100px;
+                height: 40px;
+                background-color: black;
+                color: white;
+                text-align: center;
+                line-height: 40px;
+                border: none;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <span style="position: relative; display: inline-block; margin-bottom: 250px;">
+            <div id="popup" class="box"></div>
+        </span>
+        
+        <input type="text" id="pop_width" class="text" placeholder="팝업창 가로 크기"> * 최소 100px 이상 입니다. 숫자만 입력<br>
+        <input type="text" id="pop_height" class="text" placeholder="팝업창 세로 크기"> * 최소 30px 이상 입니다. 숫자만 입력<br>
+        <input type="text" id="pop_left" class="text" placeholder="팝업창 가로 위치"><br>
+        <input type="text" id="pop_top" class="text" placeholder="팝업창 세로 위치"><br>
+        <button type="button" id="btn" class="btn" onclick="popup();">팝업창 설정</button>
+        
+    </body>
+</html>

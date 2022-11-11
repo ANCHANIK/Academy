@@ -1,0 +1,340 @@
+@charset "UTF-8";
+@import "./config.scss";
+
+.product_detail_aside {
+    @include object(1174px, auto, flex, "");
+    margin: 0 auto;
+    margin-top: 50px;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    margin-bottom: 50px;
+    & > .product_detail_imgpart {
+        @include object(50%, 600px, flex, relative);
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-around;
+        & > span:nth-of-type(1) {
+            @include object(400px, auto, block, "");
+            box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+            & > img {
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+        & > span:nth-of-type(2) {
+            @include object(450px, auto, block, "");
+            & > ul {
+                @include object(inherit, inherit, flex, "");
+                @extend %ulol;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                align-items: center;
+                & > li {
+                    @include object(100px, 80px, block, "");
+                    cursor: pointer;
+                    border: 1px solid #aaa;
+                    box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+                    & > img {
+                        width: 100%;
+                        object-fit: contain;
+                    }
+                    &:nth-of-type(1){
+                        height: 100px;
+                    }
+                }
+            }
+        }
+    }
+    & > .product_detail_textpart {
+        @include object(40%, 600px, block, "");
+        & > span:nth-of-type(1){
+            @include object(100%, 500px, block, "");
+            & > ul {
+                @include object(inherit, 100%, flex, "");
+                @extend %ulol;
+                flex-flow: column nowrap;
+                justify-content: space-between;
+                // background-color: cadetblue;
+                & > li {
+                    @include object(inherit, 35px, flex, "");
+                    flex-flow: row nowrap;
+                    justify-content: space-between;
+                    // border: 1px solid #aaa;
+                    & > span {
+                        @include object("", inherit, block, "");
+                        // background-color: burlywood;
+                        &:nth-of-type(1){
+                            width: 110px;
+                            @include fonts(14px, 500, black, 35px);
+                            text-align: left;
+                        }
+                        &:nth-of-type(2){
+                            width: 340px;
+                            @include fonts(14px, 400, black, 35px);
+                            text-align: left;
+                        }
+                    }
+                    &:nth-of-type(1){
+                        height: 55px;
+                        border-bottom: 1px solid #aaa;
+                        & > label {  // 상품명
+                            @include object(100%, 55px, block, "");
+                            @include fonts(20px, 500, black, 55px);
+                        }
+                    }
+                    &:nth-of-type(5){
+                        & > span:nth-of-type(2) {
+                            font-weight: 500;
+                            color: crimson;
+                        }
+                    }
+                    &:nth-of-type(6){
+                        border-top: 1px solid #aaa;
+                    }
+                    &:nth-of-type(8){  // 옵션
+                        & > span > select {
+                            @include object(100px, inherit, block, "");
+                            border: none;
+                            border-bottom: 1px solid dimgray;
+                        }
+                    }
+                    &:nth-of-type(9){  // 구매 갯수
+                        & > span:nth-of-type(2){
+                            height: 35px;
+                            display: flex;
+                            & > .goods_buy {
+                            @include object(40px, 35px, block, "");
+                            text-align: center;
+                            border: none;
+                            border: 1px solid dimgray;
+                            border-radius: 2px;
+                            margin-right: 10px;
+                            }
+                        }
+                    }
+                    &:nth-of-type(10){
+                        height: 35px;  // 총 결제 금액
+                        & > span:nth-of-type(1) {
+                            @include fonts(17px, 600, black, 35px);
+                        }
+                        & > span:nth-of-type(2) {
+                            @include fonts(15px, 600, crimson, 35px);
+                        }
+                    }
+                }
+            }
+        }
+        & > span:nth-of-type(2){
+            @include object(100%, 100px, flex, "");
+            flex-flow: row nowrap;
+            align-items: center;
+            & > label {
+                @include object(100%, 50px, flex, "");
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                & > span {
+                    @include object(130px, inherit, block, "");
+                    @include fonts(16px, 400, black, 50px);
+                    text-align: center;
+                    cursor: pointer;
+                    border: 1px solid black;
+                    &:hover {
+                        border: none;
+                        background-color: rgb(26, 26, 41);
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.product_page_change {
+    @include object(1174px, auto, block, "");
+    margin: 0 auto;
+    margin-bottom: 50px;
+    & > div:nth-of-type(1) {
+        @include object(inherit, 50px, flex, "");
+        flex-flow: row nowrap;
+        & > span {
+            @include object(25%, inherit, block, "");
+            @include fonts(15px, 500, black, 50px);
+            text-align: center;
+            cursor: pointer;
+            border-left: none;
+            background-color: rgb(228, 228, 228);
+        }
+    }
+    & > div:nth-of-type(2) {
+        @include object(inherit, auto, block, relative);
+        & > span {
+            @include object(inherit, auto, none, "");
+            border: 1px solid rgb(167, 167, 167);
+            border-top: none;
+            background-color: white;
+            &:nth-of-type(1){
+                height: auto;
+            }
+            &:nth-of-type(2){
+                height: auto;
+                border: 1px solid rgb(167, 167, 167);
+                border-top: 1px solid white;
+                & > .delchre {
+                    @include object(90%, auto, block, "");
+                    margin: 0 auto;
+                    margin-top: 20px;
+                    & > ul {
+                        @include object(100%, inherit, block, "");
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        & > li {
+                            margin-bottom: 20px;
+                        }
+                        & > li:nth-of-type(1) {
+                            @include object(100%, auto, flex, "");
+                            flex-flow: row nowrap;
+                            & > span:nth-of-type(1) {
+                                @include object(20%, inherit, block, "");
+                                @include fonts(15px, 400, black, 120px);
+                                text-align: center;
+                                background-color: rgb(210, 210, 210);
+                            }
+                            & > span:nth-of-type(2) {
+                                @include object(80%, inherit, block, "");
+                                border: 1px solid rgb(210, 210, 210);
+                                & > ul {
+                                    @include object(80%, inherit, flex, "");
+                                    margin-left: 20px;
+                                    padding: 0;
+                                    flex-flow: column nowrap;
+                                    & > li {
+                                        margin-top: 10px;
+                                        &:nth-of-type(4){
+                                            margin-bottom: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        & > li:nth-of-type(2) {
+                            @include object(100%, auto, flex, "");
+                            flex-flow: row nowrap;
+                            & > span:nth-of-type(1) {
+                                @include object(20%, inherit, block, "");
+                                @include fonts(15px, 400, black, 150px);
+                                text-align: center;
+                                background-color: rgb(210, 210, 210);
+                            }
+                            & > span:nth-of-type(2) {
+                                @include object(80%, inherit, block, "");
+                                border: 1px solid rgb(210, 210, 210);
+                                & > ul {
+                                    @include object(80%, inherit, flex, "");
+                                    margin-left: 20px;
+                                    padding: 0;
+                                    flex-flow: column nowrap;
+                                    & > li {
+                                        margin-top: 10px;
+                                        &:nth-of-type(4){
+                                            margin-bottom: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        & > li:nth-of-type(3) {
+                            @include object(100%, auto, flex, "");
+                            flex-flow: row nowrap;
+                            & > span:nth-of-type(1) {
+                                @include object(20%, inherit, block, "");
+                                @include fonts(15px, 400, black, 150px);
+                                text-align: center;
+                                background-color: rgb(210, 210, 210);
+                            }
+                            & > span:nth-of-type(2) {
+                                @include object(80%, inherit, block, "");
+                                border: 1px solid rgb(210, 210, 210);
+                                & > ul {
+                                    @include object(80%, inherit, flex, "");
+                                    margin-left: 20px;
+                                    padding: 0;
+                                    flex-flow: column nowrap;
+                                    & > li {
+                                        margin-top: 10px;
+                                        &:nth-of-type(3){
+                                            margin-bottom: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        & > li:nth-of-type(4) {
+                            @include object(100%, auto, flex, "");
+                            flex-flow: row nowrap;
+                            & > span:nth-of-type(1) {
+                                @include object(20%, inherit, block, "");
+                                @include fonts(15px, 400, black, 150px);
+                                text-align: center;
+                                background-color: rgb(210, 210, 210);
+                            }
+                            & > span:nth-of-type(2) {
+                                @include object(80%, inherit, block, "");
+                                border: 1px solid rgb(210, 210, 210);
+                                & > ul {
+                                    @include object(80%, inherit, flex, "");
+                                    margin-left: 20px;
+                                    padding: 0;
+                                    flex-flow: column nowrap;
+                                    & > li {
+                                        margin-top: 10px;
+                                        &:nth-of-type(3){
+                                            margin-bottom: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        & > li:nth-of-type(5) {
+                            @include object(100%, 150px, flex, "");
+                            flex-flow: row nowrap;
+                            & > span:nth-of-type(1) {
+                                @include object(20%, inherit, block, "");
+                                @include fonts(15px, 400, black, 150px);
+                                text-align: center;
+                                background-color: rgb(210, 210, 210);
+                            }
+                            & > span:nth-of-type(2) {
+                                @include object(80%, inherit, block, "");
+                                border: 1px solid rgb(210, 210, 210);
+                                & > ul {
+                                    @include object(80%, inherit, flex, "");
+                                    margin-left: 20px;
+                                    padding: 0;
+                                    flex-flow: column nowrap;
+                                    & > li {
+                                        margin-top: 10px;
+                                        &:nth-of-type(3){
+                                            margin-bottom: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(3){
+                height: 100px;
+                @include fonts(15px, 400, black, 100px);
+                text-align: center;
+            }
+            &:nth-of-type(4){
+                height: 100px;
+                @include fonts(15px, 400, black, 100px);
+                text-align: center;
+            }
+        }
+    }
+}

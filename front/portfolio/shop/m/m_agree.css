@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media screen and (min-width: 340px) and (max-width: 480px) {
+  section {
+    min-width: 340px;
+    max-width: 480px;
+    height: auto;
+    display: block;
+    position: "";
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  section > .membership_title {
+    width: 100%;
+    height: 60px;
+    display: block;
+    position: "";
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    line-height: 60px;
+    text-align: center;
+  }
+  section > .membership_terms {
+    width: 100%;
+    height: 200px;
+    display: block;
+    position: "";
+    line-height: 30px;
+  }
+  section > .membership_terms > ul {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    height: inherit;
+    display: block;
+    position: "";
+    list-style: none;
+  }
+  section > .membership_terms > ul > li {
+    width: 100%;
+    height: "";
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  section > .membership_terms > ul > li:nth-of-type(1) {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 5px;
+  }
+  section > .membership_terms > ul > li:nth-of-type(2) {
+    height: 120px;
+  }
+  section > .membership_terms > ul > li:nth-of-type(2) > textarea {
+    width: inherit;
+    height: inherit;
+    display: block;
+    position: "";
+    resize: none;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  section > .membership_terms > ul > li:nth-of-type(3) {
+    height: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  section > .membership_terms > ul > li:nth-of-type(3) > span {
+    width: 60px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    background-color: gray;
+    border-radius: 15px;
+    right: 0;
+    padding: 2px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  section > .membership_terms > ul > li:nth-of-type(3) > span > div {
+    width: 26px;
+    height: 26px;
+    display: block;
+    position: absolute;
+    background-color: aliceblue;
+    border-radius: 100%;
+    right: 2px;
+  }
+  section > .membership_join {
+    width: 100%;
+    height: 80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: "";
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  section > .membership_join > button {
+    width: 120px;
+    height: 40px;
+    display: block;
+    position: "";
+    background-color: tomato;
+    color: white;
+    border: none;
+  }
+}
+
+.empty_box {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: "";
+}
+/*# sourceMappingURL=m_agree.css.map */

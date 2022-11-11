@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 6일차 - 초급코드 (Javascript + Jquery 확장 함수값 넘기기) </title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                $("#btn").click(function(){
+                    //$.fn.abc("홍길동");  //JQ 로 값을 던짐
+                    abc("홍길동");  // JS 로 값을 던짐
+
+                });
+
+                $.fn.abc = function($user){  // JQ 확장 함수
+                    alert($user);
+                }
+
+                $.fn.ccc = function($name){  // JS 에서 호출하는 JQ 확장 함수
+                    alert($name);
+                }
+
+
+            });
+
+            function abc(user){  // 확장 함수 (JS)
+                alert(user);
+            }
+
+            function bbb(){  // JS 이벤트 헨들링 함수
+                $.fn.ccc("이순신");  // JQ 확장 함수로 값을 넘김
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <input type="button" value="버튼" id="btn">
+        <br><br>
+        <input type="button" value="JS" onclick="bbb()">
+    </body>
+</html>

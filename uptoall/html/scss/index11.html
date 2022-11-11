@@ -1,0 +1,216 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../jq/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="index11.css?v=<?=$data?>">
+        <title>
+            SCSS 6일차 - HTML ~ SCSS 복습(모바일) & em 태그 & 회원가입(확장함수)
+        </title>
+        <script>
+            $(function(){
+                // JQ
+                // const $data = [
+                //     {
+                //         "tels":["SKT","KT","LGT","알뜰폰"],
+                //         "emails":["naver.com","nate.com","gmail.com","hotmail.com","직접입력"]
+                //     }
+                // ]
+                // Object.keys($data[0]["emails"]).map(function($d,$n){
+                //     // console.log($d);
+                //     let $options = "<option value='"+ $d +"'>"+ $data[0]["emails"][$d] +"</option>";
+                //     $("#e_sel").append($options);
+                //     console.log($options)
+                // });
+                // Object.keys($data[0]["tels"]).map(function($d,$n){
+                //     // console.log($d);
+                //     let $options = "<option value='"+ $d +"'>"+ $data[0]["tels"][$d] +"</option>";
+                //     $("#t_sel").append($options);
+                //     console.log($options)
+                // });
+                // $("#e_sel").change(function(){
+                //     var $e_sel_val = $("#e_sel").val();
+                //     console.log($e_sel_val);
+                //     if($e_sel_val == 4){
+                //         $("#e_sel").css("display","none");
+                //         $(".e_input").css("display","inline-block");
+                //     }
+                // });
+            });
+            // JS
+
+            let $data;
+            $data = [
+                {
+                    "tels":["SKT","KT","LGT","알뜰폰"],
+                    "emails":["naver.com","nate.com","gmail.com","hotmail.com","직접입력"]
+                }
+            ]
+            function aa(){
+                var f;
+                var w = 0;
+                var z = 0;
+                for(f in $data){
+                    let tel_length = $data[f]["tels"].length;
+                    let email_length = $data[f]["emails"].length;
+                    // console.log(tel_length);
+                    while(w < tel_length){
+                        var html = document.createElement("option");
+                        html.setAttribute("value",$data[f]["tels"][w]);
+                        html.innerText = $data[f]["tels"][w];
+                        document.getElementById("t_sel").append(html);
+                        w++;
+                    }
+                    while(z < email_length){
+                        var html = document.createElement("option");
+                        html.setAttribute("value",$data[f]["emails"][z]);
+                        html.innerText = $data[f]["emails"][z];
+                        document.getElementById("e_sel").append(html);
+                        z++;
+                    }
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <nav></nav>
+        <form id="frm" name="frm" method="POST" action="../portfolio/shop/memberok.php" enctype="application/x-www-form-urlencoded">
+            <article class="mlogin">
+                <input type="hidden" name="M_email" id="M_email" value="">
+                <ul>
+                    <li>
+                        <p>간편회원가입</p>
+                    </li>
+                    <li>아이디</li>
+                    <li>
+                        <input type="text" placeholder="아이디를 입력하세요" name="M_id" id="M_id">
+                    </li>
+                    <li>이름</li>
+                    <li>
+                        <input type="text" placeholder="고객명을 입력하세요" name="M_name" id="M_name">
+                    </li>
+                    <li>패스워드</li>
+                    <li>
+                        <input type="password" placeholder="패스워드를 입력하세요" name="M_pass" id="M_pass">
+                    </li>
+                    <li>이메일</li>
+                    <li>
+                        <span>
+                            <input type="email" id="email1"><em> @</em>
+                        </span>
+                        <span>
+                            <select id="e_sel" onchange="mailch(this.value)">
+                                <option value="">[이메일]</option>
+                            </select>
+                            <input type="text" class="e_input" id="email2">
+                        </span>
+                    </li>
+                    <li>
+                        <span>연락처</span><em></em>
+                        <span>
+                            <select id="t_sel" onchange="telch(this.value)">
+                                <option value="">[통신사]</option>
+                            </select>
+                        </span>
+                    </li>
+                    <li>
+                        <input type="tel" placeholder="연락처를 입력하세요" name="M_tel" id="M_tel" maxlength="13" minlength="10">
+                    </li>
+                    <li>
+                        <button type="button" id="s_member">회원가입</button>
+                    </li>
+                </ul>
+            </article>
+        </form>
+        <footer></footer>
+    </body>
+    <script>
+        aa();
+        // option 추가
+        function mailch(mail){
+            if(mail == "직접입력"){
+                document.getElementById("e_sel").style.display = "none";
+                document.getElementById("email2").style.display = "block";
+                document.getElementById("email2").focus();
+            }
+            else{
+                document.getElementById("e_sel").value;
+            }
+        }
+        function telch(tel){
+            console.log(tel);
+        }
+        
+        // POST 값 전달
+        let member = document.getElementById("s_member");
+        member.addEventListener("click",join);
+        
+        function join(){
+            var id = document.getElementById("M_id").value;
+            var name = document.getElementById("M_name").value;
+            var pass = document.getElementById("M_pass").value;
+            var email1 = document.getElementById("email1").value;
+            var sel_mail = document.getElementById("e_sel").value;
+            var sel_tel = document.getElementById("t_sel").value;
+            var email2 = document.getElementById("email2").value;
+            var tel = document.getElementById("M_tel").value.replaceAll("-","");
+            
+            if(!id){
+                alert("아이디를 입력하세요");
+            }
+            else if(!name){
+                alert("이름을 입력하세요");
+            }
+            else if(!pass){
+                alert("패스워스를 입력하세요");
+            }
+            else if(!tel || tel < 10 || isNaN(tel) == true){
+                alert("정확한 번호를 입력하세요");
+            }
+            else if(!sel_tel){
+                alert("통신사를 선택하세요");
+            }
+            else if(!email1){
+                alert("이메일을 입력하세요");
+            }
+            else {
+                let views = document.getElementById("email2").value;
+                if(views == "직접입력"){
+                    mail_recheck(1);
+                }
+                else{
+                    mail_recheck(0);
+                }
+            }
+        }
+
+        // 확장함수 사용
+        function mail_recheck(part){
+            if(part == 0){
+                if(document.getElementById("email2").value == ""){
+                    alert("이메일 주소를 정확하게 입력하세요");
+                }
+                else{
+                    frm.M_email.value = document.getElementById("email1").value + "@" + document.getElementById("email2").value;
+                    frm.submit();
+                }
+            }
+            else if(part == 1){
+                if(document.getElementById("e_sel").value == ""){
+                    alert("이메일 주소를 선택하세요");
+                }
+                else{
+                    frm.M_email.value = document.getElementById("email1").value + "@" + document.getElementById("e_sel").value;
+                    frm.submit();
+                }
+            }
+        }
+
+    </script>
+</html>

@@ -1,0 +1,285 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="index.css?v=<?=$data?>">
+        <link rel="stylesheet" type="text/css" href="jquery-ui.css?v=<?=$data?>">
+        <script src="jquery.js"></script>
+        <script src="jquery-ui.js"></script>
+        <script src="./index.js?v=<?=$data?>"></script>
+    </head>
+    <body>
+        <!-- floating button -->
+        <div class="top_scroll" id="top_scroll">
+            <img src="./images/scrolltop.png">
+        </div>
+        <header>
+            <ul class="top_ul">
+                <li id="ham_btn">
+                    <img src="./images/category.png">
+                </li>
+                <li>
+                    <img src="./logo/hellopet_logo_en.png">
+                </li>
+                <li id="search_btn">
+                    <img src="./images/search.png">
+                </li>
+            </ul>
+        </header>
+        <!-- blackscreen -->
+        <div class="blackscreen" id="black"></div>
+        <section class="section_menu" id="section_menu">
+            <div class="section_menu_box">
+                <span class="login_box">
+                    <label>로그인</label>
+                    <label>회원가입</label>
+                </span>
+                <div class="empty_box"></div>
+                <!-- notice button -->
+                <div class="notice_box">
+                    <label>
+                        <span>
+                            <img src="btn/mic.svg">
+                        </span>
+                        <span>공지</span>
+                    </label>
+                    <label>
+                        <span>
+                            <img src="btn/help.svg">
+                        </span>
+                        <span>문의</span>
+                    </label>
+                    <label>
+                        <span>
+                            <img src="./btn/review.svg">
+                        </span>
+                        <span>후기</span>
+                    </label>
+                    <label>
+                        <span>
+                            <img src="./btn/faq.svg">
+                        </span>
+                        <span>FAQ</span>
+                    </label>
+                </div>
+                <div class="empty_box"></div>
+                <!-- 질문내역 -->
+                <div class="menu_q">
+                    <fieldset class="menu_q_list">
+                        <legend>
+                            <span>질문내역</span>
+                        </legend>
+                        <ul id="q_list">
+                        </ul>
+                    </fieldset>
+                </div>
+                <div class="empty_box"></div>
+                <!-- 계좌번호 -->
+                <div class="account">
+                    <span>
+                        <label>ACCOUNT NO.</label>
+                        <label>예금주 :</label>
+                    </span>
+                </div>
+                <div class="empty_box"></div>
+                <!-- 고객센터 -->
+                <div class="call_center">
+                    <div class="call_center_inner">
+                        <span>CS CNETER</span>
+                        <span>070-2021-0630</span>
+                        <span>
+                            <label>MON-FRI AM09:00 ~ PM06:00</label>
+                            <label>LUNCH 12:00 ~ 13:00</label>
+                            <label>SAT,SUN,HOLIDAY OFF</label>
+                        </span>
+                        <span>
+                            <label>
+                                <span>
+                                    <img src="./btn/headset.svg">
+                                </span>
+                                <a href="tel:070-2021-0630">고객센터 연결</a>
+                            </label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <main>
+            <!-- 퀵메뉴 -->
+            <section class="quick_menu">
+                <div class="quick_menu_div">
+                    <span>강아지</span>
+                    <span>고양이</span>
+                    <span>장난감</span>
+                </div>
+                <div class="quick_menu_div">
+                    <span>펫사료</span>
+                    <span>미용제품</span>
+                    <span>기획전</span>
+                </div>
+            </section>
+            <!-- 검색창 -->
+            <section class="search" id="search">
+                <div class="search_div">
+                    <span>
+                        <img src="images/search.png">
+                    </span>
+                    <span></span>
+                </div>
+            </section>
+            <!-- 배너 -->
+            <section class="section_banner" id="section_banner">
+                <div class="banner" id="banner0">
+                    <img src="banner/mbanner_01.jpg">
+                </div>
+                <div class="banner" id="banner1">
+                    <img src="banner/mbanner_02.jpg">
+                </div>
+                <div class="banner" id="banner2">
+                    <img src="banner/mbanner_03.jpg">
+                </div>
+            </section>
+            <!-- 이벤트 배너 -->
+            <section class="event_banner">
+                <div class="event_banner_div">
+                    <span>
+                        <img src="banner/event_banner01.jpg">
+                    </span>
+                    <span>
+                        <img src="banner/event_banner02.jpg">
+                    </span>
+                </div>
+                <div class="event_banner_div">
+                    <span>
+                        <img src="banner/event_banner03.jpg">
+                    </span>
+                    <span>
+                        <img src="banner/event_banner04.jpg">
+                    </span>
+                </div>
+                <div class="event_banner_div1">
+                    <img src="banner/event_banner05.jpg">
+                </div>
+                <div class="event_banner_div1">
+                    <img src="banner/event_banner06.jpg">
+                </div>
+            </section>
+            <div class="empty_box"></div>
+            <section class="new_pets">
+                <div class="new_pets_title">NEW PETS</div>
+                <div class="new_pets_title_memo">신규분양중인 귀여운 아가펫 입니다.</div>
+            </section>
+            <div class="empty_box"></div>
+            <!-- dog/cat 소개 -->
+            <section class="new_pets_content">
+                <div class="product_head">
+                    <label id="leftbtn">◀</label>
+                    <div>PET LIST</div>
+                    <label id="rightbtn">▶</label>
+                </div>
+                <div class="product_view">
+                    <span class="product_list">
+                        <label class="dtc" id="dtc">
+                            <ul class="product_ea" id="product_ea">
+                                <!-- new pet 출력 -->
+                            </ul>
+                        </label>
+                    </span>
+                </div>
+            </section>
+            <div class="empty_box"></div>
+            <!-- 상품출력 -->
+            <section class="new_pets">
+                <div class="new_pets_title">BEST PRODUCT</div>
+                <div class="new_pets_title_memo">맛과 영양이 가득한 사료 입니다.</div>
+            </section>
+            <div class="empty_box"></div>
+            <section class="pet_product" id="pet_product">
+            </section>
+            <div class="empty_box"></div>
+            <section class="pet_product_btn">
+                <div class="pet_product_left">< prev</div>
+                <div class="pet_product_right">next ></div>
+            </section>
+            <section class="intro_banner">
+                <div>
+                    <a href=""><img src="./intro/intro_01.jpg"></a>
+                </div>
+            </section>
+            <div class="empty_box"></div>
+            <section class="intro_banner_btn">
+                <div>
+                    <img src="./intro/intro_02.png">
+                </div>
+                <div>
+                    <img src="./intro/intro_03.png">
+                </div>
+                <div>
+                    <img src="./intro/intro_04.png">
+                </div>
+                <div>
+                    <img src="./intro/intro_05.png">
+                </div>
+                <div>
+                    <img src="./intro/intro_06.png">
+                </div>
+            </section>
+            <div class="empty_box"></div>
+            <!-- review 롤링 -->
+            <section class="review_roll">
+                <div class="review_roll_title">REVIW</div>
+                <div class="review_roll_content" id="review">
+                    <ul class="review_roll_content_ul" id="review_ul">
+                    </ul>
+                </div>
+                <div class="review_roll_more">
+                    <span>...</span>
+                </div>
+            </section>
+            <div class="empty_box"></div>
+            <!-- 하단 퀵메뉴 -->
+            <section class="quick_menu">
+                <div class="quick_menu_div">
+                    <span>회원가입</span>
+                    <span>주문조회</span>
+                    <span>쿠폰</span>
+                </div>
+                <div class="quick_menu_div">
+                    <span>공지사항</span>
+                    <span>문의/답변</span>
+                    <span>상품후기</span>
+                </div>
+            </section>
+            <div class="empty_box"></div>
+            <div class="bottom_text">
+                <span>이용안내</span>
+                <span>&nbsp;이용약관 </span>
+                <span>&nbsp;개인정보처리방침</span>
+                <span>&nbsp;PC화면</span>
+            </div>
+            <div class="empty_box"></div>
+        </main>
+        <footer>
+            <section class="footer_logo">
+                <div>
+                    <img src="logo/hellopet_logo_ko.png">
+                </div>
+            </section>
+            <div class="empty_box"></div>
+            <section class="footer_text">(주)헬로우 펫 | 대표 : 안찬익</section>
+            <div class="empty_box"></div>
+            <section class="footer_info">
+                <div class="footer_info_content">사업자번호 : 123-21-12345</div>
+                <div class="footer_info_content">통신판매업신고 : 제21호 223-11-24545</div>
+                <div class="footer_info_content">대표번호 : 070-3301-1004</div>
+                <div class="footer_info_content">Copyright ⓒ hellopet.co.kr All rights reserved.</div>
+            </section>
+        </footer>
+    </body>
+</html>

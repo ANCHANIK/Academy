@@ -1,0 +1,58 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Q&A list</title>
+        <link rel="stylesheet" type="text/css" href="./qna_list.css?v=<?php echo $data?>">
+        <script src="../jq/jquery.js"></script>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <section id="qna_list">
+            {{QNALIST}}
+            <span class="empty_box1"></span>
+            <aside class="qna_list_aside">
+                <div class="qna_list_title">
+                    <span>{{q_title}}</span>
+                </div>
+                <div class="qna_list_div">
+                    <span class="qna_list_title">
+                        <label>문의날짜</label>
+                        <label>카테고리</label>
+                        <label>제목</label>
+                        <label>작성자</label>
+                        <label>문의상태</label>
+                    </span>
+                    <ul class="qna_list_data">
+                        <li>2017-01-19</li>
+                        <li>답변좀</li>
+                        <li>아니 좀 답볌좀 해주세요</li>
+                        <li>안난익</li>
+                        <li>미답변</li>
+                    </ul>
+                    <span class="qna_list_nodata">
+                        <label>게시글이 존재하지 않습니다.</label>
+                    </span>
+                </div>
+                <div class="qna_list_button">
+                    <span>
+                        <label>
+                            <input v-bind:type="q_in">
+                        </label>
+                        <label>
+                            <button v-bind:type="q_sea">{{q_sea_nm}}</button>
+                        </label>
+                    </span>
+                    <span @click="qna_register">글쓰기</span>
+                </div>
+            </aside>
+        </section>
+    </body>
+    <script src="./qna_list.js?v=<?php echo $data?>"></script>
+</html>

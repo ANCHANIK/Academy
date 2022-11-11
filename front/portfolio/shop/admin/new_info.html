@@ -1,0 +1,118 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>관리자 메인</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+<!-- 회원 리스트 -->
+<aside class="aside_admin_member_list">
+    <div class="aside_admin_count_div">신규가입회원 <label id="new_member">0</label>건 목록</div>
+    <span class="aside_admin_count_span">총 회원수 <label id="total_member">0</label>명 중 휴면 <label id="reset_member">0</label>명, 탈퇴 <label id="leave_member">0</label>명</span>
+    <table>
+        <thead class="admin_table_thead">
+            <tr align="center">
+                <th>회원아이디</th>
+                <th>이름</th>
+                <th>닉네임</th>
+                <th>권한</th>
+                <th>포인트</th>
+                <th>수신</th>
+                <th>공개</th>
+                <th>인증</th>
+                <th>휴면</th>
+                <th>그룹</th>
+            </tr>
+        </thead>
+        <tbody class="admin_table_member_data">
+            <tr>
+                <td>hong</td>
+                <td>홍길동</td>
+                <td>길동</td>
+                <td>2</td>
+                <td></td>
+                <td>Y</td>
+                <td>N</td>
+                <td>Y</td>
+                <td>N</td>
+                <td>실버그룹</td>
+            </tr>
+        </tbody>
+        <tbody class="admin_table_no_member">
+            <tr>
+                <td colspan="10">등록된 회원이 없습니다.</td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="admin_table_btn">회원 전체보기</button>
+</aside>
+<!-- Q&A 신규 질문 목록 -->
+<aside class="aside_admin_member_qna">
+    <div class="aside_admin_count_div">Q & A 신규질문 <label id="new_question">0</label>건</div>
+    <span class="aside_admin_count_span">질문 대기 <label id="waiting_question">0</label>건수, 완료 <label id="complete_question">0</label>건수</span>
+    <table>
+        <thead class="member_qna_thead">
+            <tr>
+                <th>아이디</th>
+                <th>질문사항</th>
+                <th>첨부파일</th>
+                <th>질문일자</th>
+                <th>답변일자</th>
+                <th>답변현황</th>
+            </tr>
+        </thead>
+        <tbody class="member_qna_tbody" id="member_qna">
+            <tr align="center">
+                <td>hong</td>
+                <td id="qna_title">신용카드 결제 취소는 어떻게 해야 하나요?</td>
+                <td></td>
+                <td>2021-06-08</td>
+                <td>-</td>
+                <td>N</td>
+            </tr>
+        </tbody>
+        <tbody class="member_no_qna_tbody" id="member_no_qna">
+            <tr>
+                <td colspan="6" align="center">문의 내역이 없습니다.</td>
+            </tr>
+        </tbody>
+    </table>
+</aside>
+<aside class="member_point">
+    <div class="aside_admin_count_div">최근 포인트 발생내역</div>
+    <span class="aside_admin_count_span">전체<label id="total_point">0</label>건</span>
+    <table>
+        <thead class="member_point_thead">
+            <tr>
+                <th>아이디</th>
+                <th>이름</th>
+                <th>닉네임</th>
+                <th>일시</th>
+                <th>포인트 내용</th>
+                <th>포인트</th>
+                <th>포인트 합계</th>
+            </tr>
+        </thead>
+        <tbody class="member_point_tbody">
+            <tr>
+                <td>hong</td>
+                <td>홍길동</td>
+                <td>길동</td>
+                <td>2021-06-08</td>
+                <td>첫 가입고객 포인트 제공</td>
+                <td>100</td>
+                <td>52,000</td>
+            </tr>
+        </tbody>
+        <tbody class="member_no_point_tbody">
+            <tr>
+                <td colspan="7">발생한 포인트 내역이 없습니다.</td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="admin_table_btn">포인트 내역보기</button>
+</aside>

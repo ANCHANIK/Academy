@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML&CSS 4일차 중급 반응형 (flex)</title>
+<script src="../jq/jquery.js"></script>
+<style>
+    .box {
+        width: 50px;
+        height: 300px;
+        background-color: black; 
+        display: flex;
+        /* flex : 레이아웃 block + inline-block */
+        flex-wrap: wrap; /* flex-wrap : 줄바꿈 (nowrap - 줄바꿈 사용안함) */
+        align-content: center; 
+        /* align-items:center; */
+        /* 
+        align-content : flex-warp:wrap (nowrap X)과 함께 사용해야함 (1줄이상)
+        align-items : flex-warp(X) 1줄일때 사용하는 속성 (line-height와 같음)
+        */
+        /* align-content: space-around; */
+        /* align-content: 세로로 정렬 . justify-content와 속성이 같음. 사용시 row 로 사용. 두줄 이상 때 사용 */
+        justify-content: center; 
+        /* justify-content : 가로정렬일 때 사용. IE (작동안됨)
+        flex-start = left
+        flex-end = right or bottom
+        center = text-align:center or maring:0 auto;
+        space-around = 균등하게 오브젝트 공백을 만들게 됩니다.
+        space-between = 시작점과 끝점을 기준으로 정렬하게 됩니다.
+    */
+    flex-direction: row;
+    /* flex-direction : 정렬방식 (row-가로, column-세로) */
+    }
+    .sbox { width: 50px; height: 50px; background-color: yellow;}
+</style>
+</head>
+<body>
+<div class="box">
+    <div class="sbox"></div>
+    <div class="sbox"></div>
+    <div class="sbox"></div>
+</div>
+</body>
+</html>

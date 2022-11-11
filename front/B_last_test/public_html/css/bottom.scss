@@ -1,0 +1,144 @@
+@charset "UTF-8";
+@mixin base {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+@mixin object($w, $h){
+   width: $w;
+   height: $h;
+}
+
+@mixin uli {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+}
+
+@mixin trans($times){
+   transition-duration: $times + s;
+   transition-timing-function: ease;
+   transition-property: all;
+}
+
+@mixin flexs($w, $d, $j, $ai, $ac) {
+   flex-wrap: $w;
+   flex-direction: $d;
+   justify-content: $j;
+   align-items: $ai;
+   align-content: $ac;
+} 
+
+.span30{
+   width: 30px;
+   height: 30px;
+   display: block;
+}
+.shop_footer_top{
+   border-bottom:1px solid black;
+   & > ul{
+      width: 1200px;
+      height: 60px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      & >li {
+         height: 60px;
+         text-align: center;
+         line-height: 60px;
+         font-size: 12px;
+      }
+      & >li::after{
+         content: "|";
+      }
+      & >li:last-child::after{
+         content: "";
+      }
+   }
+} 
+
+
+.shop_footer_cs{
+   display: flex;
+   flex-direction: row;
+   align-content: space-between;
+ 
+   & >ul:nth-of-type(1){
+      width: 250px;
+      height: 100px;
+      border-right:1px solid black;
+      margin-left: 30px;
+      & >li{
+         font-size: 15px;
+      }
+      & >li:nth-of-type(2){
+         font-size: 25px;
+         font-weight:bold;
+      }
+      & >li:nth-of-type(3){
+         font-size: 12px;
+         margin-top: 10px;
+      }
+      & >li:nth-of-type(4){
+         font-size: 12px;
+      }
+   }
+   & >ul:nth-of-type(2){
+      border-right:1px solid black;
+      margin-left: 30px;
+      width: 350px;
+      height: inherit;
+      & >li:nth-of-type(1){
+         font-size: 15px;
+      }
+      & >li{
+         font-size: 12px;
+      }
+   }
+   & > ul:nth-of-type(3){
+      width: 600px;
+      height: inherit;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-left: 30px;
+      & >li {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-between;
+         & >span{
+            font-size: 15px;
+            &>img{
+               object-fit: cover;
+            }
+         }
+      }
+      & >li:nth-of-type(1){
+         margin-right: 30px;
+      }
+   }
+} 
+
+.shop_footer_text{
+   & >ul{
+      &>li{
+         font-size: 12px;
+         text-align: center;
+      }
+   }
+}
+
+.pop_cpno{
+   border: 1px solid #5e5e5e;
+   border-radius: 10px;
+   background-color: grey;
+   display: inline-block;
+   cursor: pointer;
+}
+.pop_cpno:hover{
+   background-color: #5e5e5e;
+   color: white;
+} 
+

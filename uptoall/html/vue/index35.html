@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>6일차 Vue + Ajax 기본 형태</title>
+        <style>
+            .banner {
+                width: calc(1000px*4);
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .banner > li {
+                height: 300px;
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <input type="button" value="Ajax 로드" @click="abc">
+            <ul class="banner" >
+                <!--
+                    push 사용시 텍스트로 출력시 {{}} 를 이용한다.
+                    단, v-bind를 사용시에는 {{}} 를 사용하지 않는다.
+                -->
+                <li v-for="b in barray" v-on:click="gopage(b.link)"><img v-bind:src="b.img"></li>
+            </ul>
+        </section>
+    </body>
+    <!--
+        fatch : 1) json,xml 등 모든 파일을 로드할 수 있다.
+                2) axios 없이 쓰는 vue의 ajax 불러오는 함수
+        .then : 1) fetch라는 함수에 '그리고' 라는 뜻임
+                2) 해당 함수 실행 후에 작동하는 함수를 말함
+                3) 일반 함수에도 사용이 가능하다.
+                4) 정상적으로 사용할 때 적용
+        .catch : then의 반대말이며, 로드가 error일 경우 처리하는 함수 부분
+                error가 뜰때 사용되는 함수
+        .ok : ture, false를 확인 가능.  ture가 뜨면 정상적으로 작동한다는 것.
+
+        Vue에서의 Ajax는 push로 
+        push 는 거의 append와 비슷함
+    -->
+    <script>
+        let a = new Vue({
+            el:"#box",
+            data:{
+                barray:[]
+            },
+            methods:{
+                // bbb:function(){
+
+                // }.then(function(error){
+
+                // }),
+                abc(){
+                    // 일반적으로 쓰는 함수
+                    // fetch("./banner.json").then(function(response){
+
+                    // 화살표 함수
+                    fetch("./banner.json").then((response)=>{
+                        // console.log(response.ok);
+                        // console.log(response.json());  // Vue에서는 따로 JSON.parse 가 없다. 저렇게 json() 쓰면 됨
+                        return response.json(); // json 형태
+                        // return response.text(); //XML 형태
+                    }).then(function(data){  // json()으로 return된 값을 받아서 최종 배열을 출력시킴
+                        // console.log(data);
+                        a.bbb(data);  // bbb라는 함수로 배열값을 넘김
+                    })
+                    .catch(function(error){
+                        console.log("DATA ERROR");
+                    });
+                    // 불러오고 보내고 다 할 수 있음
+                },
+                bbb(ajax){  // 최종 json 파일을 받아서 처리
+                    // console.log(ajax.mainbanner[0][0]);
+                    var f;
+                    for(f in ajax.mainbanner){
+                        console.log(f)
+                        this.barray.push({  // push 안에는 this. 을 사용하지 못한다.
+                            img:ajax.mainbanner[f][0],
+                            link:ajax.mainbanner[f][1]
+                        });
+                    }
+                },
+                gopage(gogo){
+                    location.href = gogo;
+                }
+            },
+            components:{
+
+            },
+            computed:{
+
+            }
+        });
+    </script>
+</html>

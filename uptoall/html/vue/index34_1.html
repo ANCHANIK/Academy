@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>
+            Vue 5일차 - Vue 비회원 주문조회 출력파트(B part)
+            파라미터 체크 & split & toLocaleString()
+        </title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <script>
+            const arrays = [
+            {
+                "numbers":"20210707",
+                "product_nm":"그린 도브비누",
+                "product_code":"1234456",
+                "product_money":34200,
+                "product_process":"배송중"
+            },
+            {
+                "numbers":"20210707",
+                "product_nm":"바디샴푸 1EA",
+                "product_code":"225566",
+                "product_money":12000,
+                "product_process":"배송중"
+            },
+            {
+                "numbers":"20210708",
+                "product_nm":"제로세정티슈 5EA",
+                "product_code":"030101",
+                "product_money":40000,
+                "product_process":"배송준비중"
+            },
+        ];
+        </script>
+        <style>
+            .chart1, .chart2 {
+                width: 800px;
+                height: 40px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-flow: wrap row;
+                justify-content: center;
+                background-color: tomato;
+            }
+            .chart1 > li, .chart2 > li {
+                height: inherit;
+                border: 1px solid white;
+                text-align: center;
+                line-height: 40px;
+                box-sizing: border-box;
+            }
+            .chart1 > li:nth-of-type(1), .chart2 > li:nth-of-type(1){
+                width: 10%;
+            }
+            .chart1 > li:nth-of-type(2), .chart2 > li:nth-of-type(2){
+                width: 25%;
+            }
+            .chart1 > li:nth-of-type(3), .chart2 > li:nth-of-type(3){
+                width: 25%;
+            }
+            .chart1 > li:nth-of-type(4), .chart2 > li:nth-of-type(4){
+                width: 25%;
+            }
+            .chart1 > li:nth-of-type(5), .chart2 > li:nth-of-type(5){
+                width: 15%;
+            }
+            .chart2 {
+                background-color: thistle;
+            }
+        </style>
+    </head>
+    <body>
+    <!--
+        1) 파라미터로 넘길것.
+        2) 3개의 값을 넘길것
+    -->
+        <section id="product_list">
+            {{number_ck}}
+            <!-- 주문 번호가 잘못되었으면 반려시키기 위해 사용 -->
+            <span v-if="list_views">
+                <p>[주문내역 리스트]</p>
+                <pnumbers></pnumbers>
+                <ul v-bind:class="table">
+                    <li>번호</li>
+                    <li>상품코드</li>
+                    <li>상품명</li>
+                    <li>상품가격</li>
+                    <li>배송상태</li>
+                </ul>
+                <ul v-bind:class="table2" v-for="code in lists">
+                    <li>{{code.a1}}</li>
+                    <li>{{code.a2}}</li>
+                    <li>{{code.a3}}</li>
+                    <li>{{code.a4}} 원</li>
+                    <li>{{code.a5}}</li>
+                </ul>
+            </span>
+        </section>
+    </body>
+    <script>
+        // // [참고] 이렇게도 쓴다.
+        // Vue.component("pnumber",{
+        //     template:"<label>주문코드: {{codenumber}}</label>",
+        //     data:function(){
+        //          return [codenumber:"123123123"] 이렇게 써도 됨
+        //         return {codenumber:"123123123"}
+        //     }
+        // });
+            //다 암호화 하는데 좋음
+        const urls = window.location.search;
+        let postdata = urls.split(/=|&/g);
+        var order = postdata[3];  // 주문 번호
+        var person = decodeURI(postdata[1]); // 사용자 이름
+        var pw = atob(postdata[5]); // 페스워드 복호화
+
+        let aa = {
+            template:"<label>주문코드: {{codenumber}}</label>",
+            data(){
+                return{
+                    codenumber:order
+                }
+            }
+        }
+
+        let a = new Vue({
+            el:"#product_list",
+            data:{
+                table:"chart1",
+                table2:"chart2",
+                arrs:arrays,
+                lists:[],
+                aw:"",
+                list_views:false
+            },
+            methods:{
+                // function이 있는 상태에서만 this. 을 쓸 수 있다
+            },
+            components:{
+                "pnumbers":aa
+            },
+            computed:{
+                number_ck(){
+                    // order : 파라미터로 넘어온 주문 번호
+                    // var ea = this.lists.length;  // 배열 갯수. 함수 안에 들어왔기 때문에 변수 사용 가능
+                    var k;
+                    for(k in this.arrs){
+                        // console.log(this.arrs[k]["numbers"]);
+
+                        if(this.arrs[k]["numbers"] == order && pw == "vues"){
+                            this.aw = "ok";
+                        }
+                    }
+                    // 앞 페이지에서 정상적인 입력값이 아닐 경우 페이지를 렌더링할지
+                    // 전 페이지로 다시 빠꾸시킬지 설정하는 조건 부분이다.
+                    if(this.aw == ""){
+                        alert("주문번호 및 고객정보를 확인하세요.");
+                        history.go(-1);
+                    }
+                    else{
+                        this.list_views = true;
+                        // 배열 출력부분
+                        var j;
+                        let count = 1;
+                        for(j in this.arrs){
+                            if(this.arrs[j]["numbers"] == order){
+                                this.lists.push({
+                                    a1:count++,
+                                    a2:this.arrs[j]["product_code"],
+                                    a3:this.arrs[j]["product_nm"],
+                                    a4:this.arrs[j]["product_money"].toLocaleString(),
+                                    a5:this.arrs[j]["product_process"],
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</html>

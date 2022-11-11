@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scaleable=no,minimum-scale=1.0,maximum-scale=1.0">
+    <title>문제4 - Javascript</title>
+    <style>
+        body { margin: 0; padding: 0;}
+        .top { margin:0 auto; width:1000px; height:200px; background-color: teal;}
+        .main { margin:0 auto; width:1000px; height:800px; background-color: gray;
+        position: relative;
+        }
+        .footer { margin:0 auto; width:1000px; height:200px; background-color: black;}
+        #rightbanner { display: block; width:100px; height:300px;
+        position: relative; left: 100%; margin-left:20px;
+        }
+    </style>
+</head>
+<!-- 문제4
+right_banner1.png
+right_banner2.png
+right_banner3.png
+right_banner4.png
+
+4개의 날개 배너가 있습니다.
+해당 배너가 1~4번까지 10초에 한번씩 자동으로 변경되도록 하십시오.
+-->
+<body>
+    <header>
+    <div class="top"></div>
+</header>
+<section>
+    <div class="main">
+        <span id="rightbanner"><img id="img" src="./image/right_banner1.png"></span>        
+    </div>
+</section>
+<footer>
+    <div class="footer"></div>
+</footer>
+</body>
+    <script>
+        /*
+        var n = nuul; // null, true-false의 확인인 안됐을 때 null
+        var n = ""; // 문자 공백
+        var n = 0; // 값이 0 상태
+        var n; // 변수명만 정한 상태
+        */
+        var timer;
+        var bb = 0;
+        function ad_chage(){
+            var img = document.getElementById("img");
+            bb = bb + 1;
+            if(bb > 4){
+                bb = 1;
+            }
+            img.setAttribute("src","./image/right_banner"+ bb +".png")
+            timer = setTimeout(ad_chage,10000)
+            console.log(bb)
+        }
+        ad_chage();
+    </script>
+</html>

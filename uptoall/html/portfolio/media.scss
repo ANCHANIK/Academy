@@ -1,0 +1,105 @@
+// PC
+$view_width1: 100%;  //1440(QHD)
+$view_width2: 1024px;
+// 테블릿
+$view_width3: 960px;  
+$view_width4: 768px;
+// 모바일
+$view_width5: 600px;  // 모바일 최대 사이즈
+$view_width6: 480px;
+$view_width7: 340px;  // 모바일 최소 사이즈
+
+@mixin pc1 {
+    @media (max-width: $view_width1) {
+        .mobile_header {
+            display: none;
+        }
+    }
+}
+@mixin pc2 {
+    @media (min-width: $view_width3) and (max-width: $view_width1) {
+        .mobile_header {
+            @include object(100%, 6vh, none, sticky);
+            top:0;
+            z-index: 50;
+            background-color: white;
+            & > div {
+                @include object(inherit, inherit, flex, "");
+                & > .mobile_main_menu_nav {
+                    @include object(100%, inherit, flex, "");
+                    & > ul {
+                        @include object(100%, inherit, flex, "");
+                        @include flex(0, row, space-around, center, "", "");
+                        & > li {
+                            @include font("two", 2vw, 700);
+                            transition: all 0.3s ease;
+                            cursor: pointer;
+                            &:hover {
+                                color: rgb(210, 22, 22);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin tab1 {
+    @media (min-width: ($view_width5) + 1px) and (max-width: ($view_width3) - 1px) {
+        .mobile_header {
+            @include object(100%, 6vh, none, sticky);
+            top:0;
+            z-index: 50;
+            background-color: white;
+            & > div {
+                @include object(inherit, inherit, flex, "");
+                & > .mobile_main_menu_nav {
+                    @include object(100%, inherit, flex, "");
+                    & > ul {
+                        @include object(100%, inherit, flex, "");
+                        @include flex(0, row, space-around, center, "", "");
+                        & > li {
+                            @include font("two", 2vw, 700);
+                            transition: all 0.3s ease;
+                            cursor: pointer;
+                            &:hover {
+                                color: rgb(210, 22, 22);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@mixin mobile1 {
+    @media (min-width: $view_width7) and (max-width: $view_width5) {
+        .menu_nav {display: none;}
+        .mobile_header {
+            @include object(100%, 6vh, block, sticky);
+            top:0;
+            z-index: 50;
+            background-color: white;
+            & > div {
+                @include object(inherit, inherit, flex, "");
+                & > .mobile_main_menu_nav {
+                    @include object(100%, inherit, flex, "");
+                    & > ul {
+                        @include object(100%, inherit, flex, "");
+                        @include flex(0, row, space-around, center, "", "");
+                        & > li {
+                            @include font("two", 2vw, 700);
+                            transition: all 0.3s ease;
+                            cursor: pointer;
+                            &:hover {
+                                color: rgb(210, 22, 22);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .social_go_site {display: none;}
+    }
+}

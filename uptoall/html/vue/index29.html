@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 5일차 - Vue 복습 및 응용 & select - multiple</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>  <!--body에 Vue 엘리먼트를 적용하지 못함-->
+        <section id="box">
+            <button @click="[abc(),bbb()]">{{btn}}</button>
+            <input type="text" id="mid" v-model="mid">
+            <div>{{msg}}</div>
+
+            <!-- 응용1. 버튼 클릭시 0~10까지 찍히는 vue 코드를 작성하라. 한 번 클릭시 +1 -->
+            <input type="button" @click="ccc" value="클릭">
+            <span>{{countnum}}</span><br>
+
+            <!-- 응용2. 다음 항목을 선택시 해당 값이 출력되도록 하라 -->
+            <select v-on:change="ttt" v-model="sel" multiple>  <!--vue에서의 this.value는 못가져옴. onchange에서는 되는데-->
+                <option value="">[선택항목을 지정하세요]</option> <!--option에 v-model ㄴㄴ, 그냥 value-->
+                <option value="반품/취소">반품/취소</option> <!--또한 vue에서는 value값을 비워두면 값이 없다시 보단 사용을 안한다고 인식-->
+                <option value="결제오류">결제오류</option>
+                <option value="배송안내">배송안내</option>
+                <option value="상품가격">상품가격</option>
+                <option value="이벤트">이벤트</option>
+            </select>
+            <input type="text" v-model="text" readonly>
+        </section>
+    </body>
+    <script>
+        let data = "회원등록현황";
+        let count = 0;
+        let a = new Vue({
+            el:"#box",
+            data:{
+                btn:"클릭",
+                msg:data,  // 전역변수로 바로 가져와서 사용할 수 있다.
+                countnum:count,
+                sel:"",
+                text:""
+            },
+            methods:{
+                abc(){
+                    alert("test");
+                },
+                bbb(){
+                    return this.mid="test";
+                },
+                ccc(){
+                    if(this.countnum < 10){
+                        count++;
+                        this.countnum = count;
+                    }
+                },
+                ttt(){
+                    this.text = this.sel;
+                }
+            },
+            components:{
+
+            },
+            computed:{
+
+            }
+        });
+    </script>
+</html>

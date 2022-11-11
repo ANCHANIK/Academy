@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.divbox {
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: relative;
+  -webkit-transition: 2s all ease;
+  transition: 2s all ease;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: rotateX(45deg) rotateY(45deg);
+          transform: rotateX(45deg) rotateY(45deg);
+  margin: 0 auto;
+  top: 100px;
+}
+
+.divbox:hover {
+  -webkit-transform: rotateX(90deg) rotateY(-45deg);
+          transform: rotateX(90deg) rotateY(-45deg);
+}
+
+.divbox > label {
+  width: 100px;
+  height: 100px;
+}
+
+.top {
+  background-color: blue;
+  -webkit-transform: rotateX(-90deg) translate3d(0, 0, -50px);
+          transform: rotateX(-90deg) translate3d(0, 0, -50px);
+  display: block;
+  position: absolute;
+}
+
+.front {
+  background-color: green;
+  -webkit-transform: translate3d(0, 0, -50px);
+          transform: translate3d(0, 0, -50px);
+  display: block;
+  position: absolute;
+}
+
+.right {
+  background-color: pink;
+  -webkit-transform: rotateY(-90deg) translate3d(0, 0, -50px);
+          transform: rotateY(-90deg) translate3d(0, 0, -50px);
+  display: block;
+  position: absolute;
+}
+/*# sourceMappingURL=index25.css.map */

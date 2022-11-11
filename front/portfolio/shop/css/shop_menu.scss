@@ -1,0 +1,54 @@
+@charset "UTF-8";
+@import "./config.scss";
+
+.main_menu_aside {
+    @include object(1174px, 50px, flex, "");
+    margin: 0 auto;
+    & > .main_menu_list {
+        @include object(85%, inherit, flex, "");
+        background-color: black;
+        & > .main_menu_title {
+            @include object(840px, inherit, flex, "");
+            & > span {
+                @include object(140px, inherit, block, relative);
+                & > label {
+                    @include object(inherit, inherit, block, "");
+                    @include fonts(16px, 100, white, 50px);
+                    text-align: center;
+                    cursor: pointer;
+                }
+// ------------------------------------ serve 메뉴 -------------------------------------------
+                & > ul {
+                    @include object(inherit, auto, none, absolute);
+                    z-index: 100;
+                    @extend %ulol;
+                    & > li {
+                        @include object(inherit, 40px, block, "");
+                        line-height: 40px;
+                        text-align: center;
+                        color: white;
+                        background-color: rgba(0,0,0,0.6);
+                        cursor: pointer;
+                        &:hover {
+                            transform: scale(1.03,1.03);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    & > .main_menu_QNA {
+        @include object(15%, inherit, block, "");
+        background-color:#c3222b;
+        & > span {
+            @include object(100%, inherit, block, "");
+            @include fonts(16px, 100, white, 50px);
+            text-align: center;
+            cursor: pointer;
+        }
+        &:hover {
+            background-color:#d52c35;
+            transform: scale(1.03,1.03);
+        }
+    }
+}

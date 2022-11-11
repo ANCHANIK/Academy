@@ -1,0 +1,31 @@
+.m {
+  width: 250px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.btn {
+  background-color: hotpink;
+  color: white;
+  height: 34px;
+}
+
+.olcss {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 30px;
+}
+
+.olcss > li {
+  display: block;
+  width: 260px;
+  height: inherit;
+  float: left;
+}
+
+.olcss > li:nth-of-type(1) {
+  width: 90px;
+}
+/*# sourceMappingURL=index5.css.map */

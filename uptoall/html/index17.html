@@ -1,0 +1,64 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>HTML 4.0 6일차 - CSS 2.0 style 응용 (퀵 메뉴)</title>
+        <style>
+            body { margin:0; padding:0; }
+            .box { width:200px; height:150px; background-color: blue; display:block;}
+            .list { list-style: none; margin:0; padding:0; }
+            .box2 { width:150px; height:150px; background-color: blue; border-radius:25px 25px 0 0; }
+            .quickmenu { width:330px; height:90px; border:1px solid black; }
+            .img { width:110px; height:45px;  }
+            .logo_quick_01 { width:110px; height:45px;}
+            .logo_quick_02 { width:110px; height:45px; margin:-45px 0 0 110px; }
+            .logo_quick_03 { width:110px; height:45px; margin:-45px 0 0 220px; }
+            .logo_quick_04 { width:110px; height:45px; }
+            .logo_quick_05 { width:110px; height:45px; margin:-45px 0 0 110px; }
+            .logo_quick_06 { width:110px; height:45px; margin:-45px 0 0 220px; }
+        </style>
+    </head>
+    <!--  span, img 태그 연속으로 사용할 경우 Editor특성상 공백이 생김  
+    공백을 없애기 위해 태그를 연속적으로 붙여서 사용할 것
+    예) <span></span><span></span>  (O)
+        <span></span>
+        <span></span>  (X , 상하좌우 공백이 생김)
+    
+    * border 사용시 좌우상단 px 또한 width, height 반영이 된다.  -->
+    <body>
+        <span class="box"></span>
+        
+        <br>
+        <br>
+        <br>
+
+        <p>[설문조사 - 현재 사용하고 있는 통신사는?]</p>
+        <ul class="list">
+            <li><input type="radio" name="a">SKT</li>
+            <li><input type="radio" name="a">LGT</li>
+            <li><input type="radio" name="a">KT</li>
+            <li><input type="radio" name="a">알뜰폰</li>
+            <li><input type="radio" name="a">기타</li>
+        </ul>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="box2"></div>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="quickmenu">
+            <div class="img logo_quick_01"><a href="http://www.gmarket.co.kr/" target="_blank"><img src="../images/logo_quick_01.png"></div></a>
+            <div class="img logo_quick_02"><a href="http://auction.co.kr/ target="_black"><img src="../images/logo_quick_02.png"></div></a>
+            <div class="img logo_quick_03"><a href="http://www.halfclub.com/" target="_blank"><img src="../images/logo_quick_03.png"></div></a>
+            <div class="img logo_quick_04"><a href="http://www.11st.co.kr/" target="_blank"><img src="../images/logo_quick_04.png"></div></a>
+            <div class="img logo_quick_05"><a href="http://front.wemakeprice.co.kr/" target="_blank"><img src="../images/logo_quick_05.png"></div></a>
+            <div class="img logo_quick_06"><a href="http://www.coupang.com/" target="_blank"><img src="../images/logo_quick_06.png"></div></a>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scaleable=no,minimum-scale=1.0,maximum-scale=1.0">
+    <title>문제8 - Javascript</title>
+    <!-- 문제8
+    해당 게시글 작성 폼입니다.
+    모든 필수 항목을 검사하며, 완료 되었을 경우
+    post로 전송되도록 하면됩니다. 전송 페이지는 index8.html로 이동되도록 하면 됩니다.
+    단, 등록 버튼 클릭시에만 이동되며, 다시 작성하기 클릭시 모든 내용은
+    초기화 됩니다.
+    취소 버튼 클릭시 이전 페이지로 이동 되도록 제작하세요
+    -->
+    <script>
+        function sub(){
+            var mtt = document.getElementById("mtitle").value;
+            var mid = document.getElementById("mid").value;
+            var mpass = document.getElementById("mpass").value;
+            var mcon = document.getElementById("mcon").value;
+
+            if(mtt == ""){
+                alert("제목을 입력해 주세요.");
+                return false;
+            }
+            else if(mid == ""){
+                alert("아이디를 입력해 주세요.");
+                return false;
+            }
+            else if(mpass == ""){
+                alert("비밀번호를 입력해 주세요.");
+                return false;
+            }
+            else if(mcon == ""){
+                alert("내용을 입력해 주세요.");
+                return false;
+            }
+            else{
+                alert("정상적으로 등록되었습니다.");
+                // fm.submit();
+                return true;
+            }
+        }
+
+        function back(){
+            if(confirm("등록을 취소하시겠어요? 이전페이지로 이동합니다.")){
+                history.back();
+            }
+        }
+    </script>
+    <style>
+        * {box-sizing: border-box;}
+        body { margin: 0; padding: 0;}
+        .btn{
+    margin-top: 15px;
+    width: 120px;
+    height: 35px;
+    font-size: 17px;
+}
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <h2>게시글 작성</h2>
+        <form method="post" action="index8.html" enctype="application/x-www-form-urlencoded" onsubmit="return sub();">
+        	<input type="hidden" value="board_write" name="command">
+            <table>
+                <tr>
+                    <th>제목 *</th>
+                    <td><input type="text" name="title" id="mtitle"></td>
+                </tr>
+                <tr>
+                    <th>아이디 *</th>
+                    <td><input type="text" name="name" id="mid"></td>
+                </tr>
+                <tr>
+                    <th>비밀번호 *</th>
+                    <td><input type="password" name="pass" id="mpass"></td>
+                </tr>
+                <tr>
+                    <th>내용 *</th>
+                    <td><textarea cols="100" rows="30" name="content" id="mcon"></textarea></td>
+                </tr>
+            </table>
+            <input class="btn" type="submit" value="등록">
+            <input class="btn" type="reset" value="다시작성하기">
+            <input class="btn" type="button" value="취소" onclick="back()">
+        </form>
+    </div>
+</body>
+</html>

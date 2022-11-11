@@ -1,0 +1,86 @@
+<?php
+    $date = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <title>Ajax 4일차 - JavaScript (json - 지역별 회원 분석)</title>
+        <link rel="stylesheet" type="text/css" href="./index8.css?v=<?=$date?>">
+    </head>
+    <body>
+        <section class="section">
+            <div class="dataview" id="dataview">
+                <!-- <p>건강보험 지역별</p> -->
+                <!--sample
+                    <dl class="dlcss">
+                        <dt>서울특별시</dt>
+                        <dd>
+                            <span class="gp"></span>
+                        </dd>
+                    </dl>
+                -->
+            </div>
+        </section>
+        <div class="total_member" id="total_member"></div>
+        <div class="total_member">
+            <input type="button" value="가입페이지" onclick="javascript:location.href='index7.html';">
+        </div>
+    </body>
+    <script>
+        const area = ["서울특별시","세종","인천","대전","울산","부산","경기도","강원도","충정도","경상도","전라도","제주도"];
+        var html = "<p>건강보험 지역별</p>";
+        area.forEach(function(d1,d2,d3){
+            // console.log(d1); // |(역슬래쉬) : 줄바꿈
+            html += "<dl class='dlcss'>\
+                <dt>"+ d1 +"(<span id='per"+ d2 +"'>0</span>명)</dt>\
+                <dd><span class='gp' id='gp"+ d2 +"'></span></dd>\
+                </dl>";
+            });
+            document.getElementById("dataview").innerHTML = html;
+
+        let data;
+        function windowck(){
+            if(window.XMLHttpRequest){
+                return new XMLHttpRequest();
+            }
+        }
+        function fileopen(){
+            if(data.readyState == XMLHttpRequest.DONE && data.status == 200){
+                // console.log(this);
+                dataview(this);
+            }
+        }
+        data = windowck();
+        data.onreadystatechange = fileopen;
+        data.open("GET","nhiss.json?v=<?=$data?>",true);
+        data.send();
+
+        function dataview(data_0){
+            const data_v = JSON.parse(data_0.response);
+            // console.log(data_v.length);
+            var area_ea = area.length; // 지역 데이터 갯수
+            document.getElementById("total_member").innerText = "전체 가입자 수: "+ data_v.length +"명";
+            var w = 0;
+            // 더블 반복문 - 큰 반복문(area), 작은 반복문(list)
+            do{
+                var area_data = area[w];  // 지역 배열 값을 적용하는 변수
+                var ea = data_v.length;  // json 데이터 갯수. do-while문 밖에 있으면 데이터가 초기화 될 수 있다
+                var z = 0;  // 작은do-while문에 사용되는 변수
+                let count = 0;
+                do{
+                    // console.log(data_v[z]["user_area"]);
+                    if(area_data == data_v[z]["user_area"]){  // 지역과 사용자가 가입한 지역을 비교하는 조건문
+                        count += 1;
+                        document.getElementById("per" + w).innerHTML = count;
+                    }
+                    z++;
+                }while(z < ea)
+                document.getElementById("gp" + w).style.width = count*3 + "px";
+                w++;
+            }while(w < area_ea)
+
+        }
+    </script>
+</html>

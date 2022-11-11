@@ -1,0 +1,78 @@
+@charset "UTF-8";
+@import "./config.scss";
+
+.agree_view {
+    @include object(1174px, auto, block, "");
+    margin: 0 auto;
+    & > p {
+        @include object(100%, 70px, block, "");
+        @include fonts(25px, 600, black, 70px);
+        text-align: left;
+        text-decoration: overline;
+    }
+    & > ul {
+        @include object(100%, auto, block, "");
+        @extend %ulol;
+        // border: 1px solid #aaa;
+        & > li {
+            &:nth-of-type(1) {
+                @include object(100%, 30px, block, "");
+                & > label {
+                    @include object(100%, 30px, block, "");
+                    @include fonts(13px, 500, black, 30px);
+                    border-bottom: 1px solid #aaa;
+                }
+            }
+            &:nth-of-type(2) {
+                @include object(100%, 50px, block, "");
+                & > label {
+                    @include object(100%, 50px, flex, "");
+                    @include fonts(13px, 500, black, "");
+                    justify-content: flex-end;
+                    padding-top: 15px;
+                    box-sizing: border-box;
+                }
+            }
+            &:nth-of-type(3) {
+                @include object(100%, 50px, block, "");
+                & > label {
+                    @include object(100%, 50px, flex, "");
+                    @include fonts(13px, 500, black, "");
+                    justify-content: flex-end;
+                    padding-top: 15px;
+                    box-sizing: border-box;
+                }
+            }
+        }
+    }
+    & > .text_box {
+        @include object(100%, 300px, block, "");
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #aaa;
+        margin-bottom: 60px;
+        overflow-x: auto;
+    }
+}
+.agree_btn {
+    @include object(1174px, 50px, flex, "");
+    margin: 0 auto;
+    margin-bottom: 30px;
+    justify-content: center;
+    & > span {
+        @include object(200px, 50px, block, "");
+        @include fonts(20px, 400, white, 50px);
+        background-color: rgb(59, 67, 75);
+        text-align: center;
+        cursor: pointer;
+        
+        &:hover {
+            background-color: rgb(43, 49, 55);
+        }
+    }
+}
+
+// 전체보기
+.uall {
+    cursor: pointer;
+}

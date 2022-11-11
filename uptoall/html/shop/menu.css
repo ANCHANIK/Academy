@@ -1,0 +1,115 @@
+.menus_css {
+  width: 1200px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.menus_css > label {
+  cursor: pointer;
+}
+
+.menus_css > .logo_layout {
+  width: 130px;
+  height: 30px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.menus_css > .search_layout {
+  width: 700px;
+  height: 30px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.menus_css > .search_layout > ol {
+  width: 100%;
+  height: 30px;
+}
+
+.menus_css > .search_layout > ol > li {
+  height: 30px;
+  float: left;
+}
+
+.menus_css > .search_layout > ol > li > .search {
+  width: 600px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Noto Sans KR", sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-indent: 5px;
+}
+
+.menus_css > .search_layout > ol > li > .search_btn {
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Noto Sans KR", sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: darkblue;
+  color: white;
+  border: 1px solid darkblue;
+  cursor: pointer;
+}
+
+.menus_css > .menu_layout {
+  width: 100%;
+  height: 40px;
+  background-color: skyblue;
+  position: relative;
+}
+
+.menus_css > .menu_layout > ul {
+  width: 100%;
+  height: 40px;
+}
+
+.menus_css > .menu_layout > ul > li {
+  width: 120px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Noto Sans KR", sans-serif;
+  color: darkblue;
+  text-align: center;
+  line-height: 40px;
+  float: left;
+}
+
+.menus_css > .menu_layout > ul > li:hover {
+  background-color: steelblue;
+}
+
+.menus_css > .menu_layout > ul > li:hover .somenu {
+  display: block;
+}
+
+.menus_css > .menu_layout > ul > li:nth-of-type(1) > ol {
+  width: 120px;
+  height: auto;
+  border: 1px solid #cccccc;
+  background-color: lightblue;
+  position: absolute;
+  z-index: 5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: none;
+}
+
+.menus_css > .menu_layout > ul > li:nth-of-type(1) > ol > li {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+}
+
+.menus_css > .menu_layout > ul > li:nth-of-type(1) > ol > li:hover {
+  background-color: cornflowerblue;
+}
+/*# sourceMappingURL=menu.css.map */

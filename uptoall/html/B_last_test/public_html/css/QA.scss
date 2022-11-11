@@ -1,0 +1,222 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@mixin base {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin q_object($w,$h,$d,$p) {
+    width: $w;
+    height: $h;
+    display: $d;
+    position: $p;
+}
+@mixin q_fonts($fs,$fw,$fc) {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: $fs;
+    font-weight: $fw;
+    color: $fc;
+}
+%ulol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul,ol,dl {
+    @extend %ulol;
+}
+span,label,main {
+    display: block;
+}
+body {
+    @include base;
+}
+section {
+    height: auto;
+}
+// QA list
+.qna_list_aside {
+    @include q_object(1000px, 400px, block, "");
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    & > .qna_list_title {
+        @include q_object(960px, auto, block, "");
+        & > span {
+            @include q_object(400px, 40px, block, "");
+            @include q_fonts(20px, 500, black);
+            line-height: 40px;
+        }
+    }
+    & > .qna_list_div {
+        @include q_object(960px, auto, block, "");
+        & > .qna_list_name {
+            @include q_object(inherit, 40px, flex, "");
+            background-color: #e0e0e0;
+            & > label {
+                @include q_object("", 20px, block, "");
+                @include q_fonts(12px, 300, black);
+                line-height: 40px;
+                text-align: center;
+            }
+            & > label:nth-of-type(1){
+                width: 130px;
+            }
+            & > label:nth-of-type(2){
+                width: 130px;
+            }
+            & > label:nth-of-type(3){
+                width: 500px;
+            }
+            & > label:nth-of-type(4){
+                width: 100px;
+            }
+            & > label:nth-of-type(5){
+                width: 100px;
+            }
+        }
+        & > .qna_list_data {
+            @include q_object(inherit, 40px, flex, "");
+            border-bottom: 1px solid gray;
+            & > li {
+                @include q_object("", 40px, block, "");
+                @include q_fonts(12px, 300, black);
+                line-height: 40px;
+                text-align: center;
+            }
+            & > li:nth-of-type(1){
+                width: 130px;
+            }
+            & > li:nth-of-type(2){
+                width: 130px;
+            }
+            & > li:nth-of-type(3){
+                width: 500px;
+                text-align: left;
+                text-indent: 10px;
+            }
+            & > li:nth-of-type(4){
+                width: 100px;
+            }
+            & > li:nth-of-type(5){
+                width: 100px;
+            }
+        }
+        & > .qna_list_nodata{
+            @include q_object(inherit, 40px, block, "");
+            border-bottom: 2px solid #cccccc;
+            & > label {
+                @include q_object(inherit, 40px, block, "");
+                @include q_fonts(12px, 300, black);
+                line-height: 40px;
+                text-align: center;
+            }
+        }
+    }
+    & > .qna_list_button {
+        @include q_object(960px, 40px, block, relative);
+        justify-content: center;
+        align-items: center;
+        & > span {
+            @include q_object(120px, inherit, block, absolute);
+            @include q_fonts(14px, 400, white);
+            background-color: #5e5e5e;
+            cursor: pointer;
+            text-align: center;
+            line-height: 40px;
+            right: 0;
+        }
+    }
+}
+// 빈 박스
+.empty_box1 {
+    @include q_object(30px, 30px, block, "");
+}
+.empty_box2 {
+    @include q_object(20px, 20px, block, "");
+}
+.empty_box3 {
+    @include q_object(10px, 10px, block, "");
+}
+
+//QNA input
+.QA_config {
+    @include q_object(1000px, 620px, block, "");
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    & > .qna_input_div {
+        @include q_object(960px, auto, block, "");
+        & > .qna_input_ul {
+            @include q_object(inherit, auto, block, "");
+            & > li {
+                @include q_object(inherit, 50px, flex, "");
+                border-bottom: 1px solid #CCCCCC;
+                & > span:nth-of-type(1) {
+                    @include q_object(160px, inherit, block, "");
+                    @include q_fonts(12px, 300, black);
+                    line-height: 50px;
+                    text-indent: 5px;
+                    background-color: #e0e0e0;
+                }
+                & > span:nth-of-type(2) {
+                    @include q_object(800px, inherit, flex, "");
+                    padding-left: 10px;
+                    box-sizing: border-box;
+                    align-items: center;
+                }
+            }
+            & > li:nth-of-type(1) {
+                border-top: 1px solid #CCCCCC;
+            }
+            & > li:nth-of-type(6) {
+                @include q_object(inherit, 200px, flex, "");
+                & > span:nth-of-type(1){
+                    line-height: 200px;
+                }
+                & > span:nth-of-type(2) > textarea{
+                    @include q_object(790px, 180px, blocl, "");
+                    resize: none;
+                    padding: 5px;
+                    box-sizing: border-box;
+                }
+            }
+        }
+    }
+    & > .qna_input_btns {
+        @include q_object(960px, 40px, flex, "");
+        justify-content: center;
+        & > span {
+            @include q_object(260px, inherit, flex, "");
+            justify-content: space-around;
+            & > button:nth-of-type(1) {
+                @include q_object(120px, 40px, block, "");
+                background-color: #5e5e5e;
+                border: 1px solid #5e5e5e;
+                font-size: 14px;
+                color: white;
+            }
+            & > button:nth-of-type(2) {
+                @include q_object(120px, 40px, block, "");
+                background-color: white;
+                border: 1px solid #5e5e5e;
+            }
+        }
+    }
+}
+
+.qna_input_1 {
+    @include q_object(500px, 30px, block, "");
+    text-indent: 3px;
+}
+.qna_input_2 {
+    @include q_object(200px, 30px, block, "");
+    text-indent: 3px;
+}
+.qna_sel_2 {
+    @include q_object(208px, 36px, block, "");
+    box-sizing: border-box;
+}

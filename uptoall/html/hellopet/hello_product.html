@@ -1,0 +1,48 @@
+<?php
+   $v = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="imagetoolbar" content="no">
+      <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+      <script src="./jq/external/jquery/jquery.js"></script>
+      <link rel="stylesheet" type="text/css" href="./hello_product.css?v=<?=$v?>">
+   </head>
+   <body>
+      <!-- 상품 목록 파트 -->
+      <div class="hello_pet_shop" id="hello_pet_shop">
+         <!-- 상품 리스트 제목 -->
+         <div class="hello_pet_shop_title" id="hello_pet_shop_title">
+            <label>PET FOODS & TOY</label>
+            <label>펫을 위한 냠냠 맛있는 사료 & 장난감</label>
+         </div>
+         <!-- 상품 목록 리스트 -->
+         <div class="hello_pet_shop_main" id="hello_pet_shop_main">
+            <!-- 상품 목록 view -->
+            <div class="shop_product_banner" id="shop_product_banner">
+               <!-- 상품 목록 (너비 넓음 overflow : hidden) -->
+               <span class="shop_product_banner_span">
+                  <ul class="shop_product_list" id="shop_product_list">
+                     <!--
+                        <li>
+                           <dl class="shop_product" id="shop_product8">
+                              <dt>
+                              </dt>
+                              <dd class="pd_name" id="pd_name8"></dd>
+                              <dd class="pd_info" id="pd_info8"></dd>
+                              <dd class="pd_price" id="pd_price8">
+                                 <span></span>
+                              </dd>
+                           </dl> 
+                        </li> -->
+                  </ul>
+               </span>
+               <span class="left_btn btn" id="left_btn"><img src="./banner/left.svg"></span>
+               <span class="right_btn btn" id="right_btn"><img src="./banner/right.svg"></span>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

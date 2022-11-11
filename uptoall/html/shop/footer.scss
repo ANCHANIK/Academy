@@ -1,0 +1,40 @@
+@charset "UTF-8";
+@mixin base($w,$h) {
+    width: $w;
+    height: $h;
+}
+@mixin font ($fs,$fw) {
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: $fs;
+    font-weight: $fw;
+}
+.copyright {
+    @include base(1200px, 150px);
+    background-color: gainsboro;
+    margin: 0 auto;
+    & > .span_footer {
+        @include base(100%, 50px);
+        border-bottom: 1px solid dimgray;
+        box-sizing: border-box;
+        & > ol {
+            text-align: center;
+            line-height: 50px;
+            & > li {
+                @include font(13px, 100);
+                display: inline-block;
+                margin-right: 60px;
+                cursor: pointer;
+                border-bottom: 2px solid dimgray;
+                height: 40px;
+            }
+            & > li:nth-of-type(9) {
+                margin-right: 0px;
+            }
+        }
+    }
+    & > .span_copyright {
+        @include font(12px, 400);
+        text-align: center;
+        margin-top: 60px;
+    }
+}

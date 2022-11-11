@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <title>Ajax 2일차 - JavaScript (json)</title>
+    </head>
+    <style>
+        .datalist { height:auto; }
+        .member_list { width:1000px; height:auto; border:1px solid #ccc;
+        margin: 0 auto;
+        }
+        .ulcss { list-style: none; margin: 0; padding: 0; 
+        width: 100%; height: 30px; font-size: 13px;
+        background-color: azure;
+        }
+        .ulcss > li { float: left; height: 30px; line-height: 30px; 
+            text-align: center; }
+        .ulcss > li:nth-of-type(1) { width:50px; }
+        .ulcss > li:nth-of-type(2) { width:150px; }
+        .ulcss > li:nth-of-type(3) { width:150px; }
+        .ulcss > li:nth-of-type(4) { width:350px; }
+        .ulcss > li:nth-of-type(5) { width:200px; }
+        .ulcss > li:nth-of-type(6) { width:100px; }
+        /* 고객정보 리스트 출력 css 부분 */
+        .viewcss { list-style: none; margin: 0; padding: 0; 
+        width: 100%; height: auto;
+        }
+        .viewcss > li { width: 100%; height:30px; 
+        border-bottom: 1px dashed #ccc;}
+        .viewcss > li:nth-of-type(even) { background-color:cornsilk; }
+        .viewcss > li:last-child { border: 0;}
+        .viewcss > li > span { display: block; float: left;
+        height: 30px; line-height: 30px; text-align: center;
+        font-size: 13px; }
+        .viewcss > li > span:nth-of-type(1){width:50px;}
+        .viewcss > li > span:nth-of-type(2){width:150px;}
+        .viewcss > li > span:nth-of-type(3){width:150px;}
+        .viewcss > li > span:nth-of-type(4){width:350px;}
+        .viewcss > li > span:nth-of-type(5){width:200px;}
+        .viewcss > li > span:nth-of-type(6){width:100px;}
+    </style> 
+    <body>
+        <section class="datalist">
+            <div class="member_list">
+                <ul class="ulcss">
+                    <li>NO</li>
+                    <li>아이디</li>
+                    <li>고객명</li>
+                    <li>이메일</li>
+                    <li>전화번호</li>
+                    <li>지역</li>
+                </ul>
+                <ul class="viewcss" id="viewcss">
+                    <!--
+                        <li>
+                            <span>5</span>
+                            <span>아이디</span>
+                            <span>고객명</span>
+                            <span>E-mail</span>
+                            <span>전화번호</span>
+                            <span>지역</span>
+                        </li>
+                    -->
+                </ul>
+            </div>
+        </section>
+    </body>
+    <script>
+        // 회원리스트 출력
+        let mdata;
+        function windowck(){
+            if(window.XMLHttpRequest){
+                return new XMLHttpRequest();
+            }
+        }
+        function memberset(){
+            if(mdata.readyState == XMLHttpRequest.DONE && mdata.status == 200){
+                // console.log(this);
+                member_list(this);
+            }
+        }
+        mdata = windowck();
+        mdata.onreadystatechange = memberset;
+        mdata.open("GET","./index5.json",true);
+        mdata.send();
+
+        function member_list(data){
+            const list = JSON.parse(data.response);
+            var total = list.members.length;
+
+            // 더블 foreach 로 제작하라
+            var li,span;
+ 
+            list.members.forEach(function(a,b,c){
+                li = document.createElement("li");
+                li.innerHTML = "<span>"+ total +"</span>";
+                console.log(a);
+                
+                Object.keys(list["members"][b]).forEach(function(x,y,z){
+                    // console.log(a[x]);
+                    console.log(list.members[b][x]);
+                    span = document.createElement("span");
+                    if(x =="area"){
+                        x = "phone";
+                    }
+                    else if(x =="phone"){
+                        x = "area";
+                    }
+                    span.append(a[x]);
+                    li.append(span);
+                    document.getElementById("viewcss").append(li);
+                });
+                total -= 1;
+            });
+            /*
+            let qq,ww;
+            var li,span;
+            for(qq in list.members){
+                // console.log(qq)
+                li = document.createElement("li");
+                li.innerHTML = "<span>"+ total +"</span>"; //number출력
+
+                // 작은 for문을 설정할 때 중요한 사항이 됨
+                for(ww in list.members[qq]){
+                    span = document.createElement("span");
+
+                    // 목록과 배열 순서가 다르기 때문에 조건문으로 재조정 함
+                    if(ww == "area"){
+                        ww = "phone";
+                    }
+                    else if(ww == "phone"){
+                        ww = "area";
+                    }
+
+                    span.append(list.members[qq][ww]);
+                    li.append(span);
+                    document.getElementById("viewcss").append(li);
+                }
+                total--;
+            }
+            */
+            
+
+        }
+    </script>
+</html>

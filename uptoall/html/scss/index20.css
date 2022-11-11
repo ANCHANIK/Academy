@@ -1,0 +1,56 @@
+.cycle {
+  width: 500px;
+  height: 500px;
+  display: block;
+  position: relative;
+  border-radius: 500px;
+  border: 1px solid black;
+}
+
+.cycle > span {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: absolute;
+  border-radius: 0 50px 0 50px;
+  background-color: blue;
+  left: 50%;
+  top: 50%;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+  -webkit-transition-duration: 3s;
+          transition-duration: 3s;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+}
+
+.cycle:hover > span {
+  -webkit-transform: rotate(580deg);
+          transform: rotate(580deg);
+}
+
+.box1 {
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  background-color: pink;
+}
+
+.box2 {
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  background-color: salmon;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+}
+
+.box2:hover {
+  -webkit-transform: translate(10px, 10px);
+          transform: translate(10px, 10px);
+}
+/*# sourceMappingURL=index20.css.map */

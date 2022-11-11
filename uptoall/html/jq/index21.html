@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 6일차 - 초급코드 (확장 함수값 넘기기) </title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+            /*
+                [document]
+                1. 전체 문서 크기 : 창크기에 상관없이 일정한 값을 가짐 
+                - 스크롤에 의해 보이지 않은 영역까지 포함
+                $(document).height();
+                $(document).width();
+
+                [window]
+                2. 메뉴바, 툴바, 스크롤바를 제외한 크기 : 창크기에 따라 값이 변경 
+                - 스크롤에 의해 보이지 않는 영역은 미포함
+                - 윈도우를 쓰게 되면 스크롤 부분의 값이 잘 나오지 않음
+                $(window).height();
+                $(window).width();
+            */
+                $("#btn").click(function(){
+                    var $a = 200;
+                    var $b = 400;
+                    $.fn.bbb($a,$b);  // 버블링 함수
+                    
+                });
+                
+                
+                $.fn.abc = function($aa,$bb){  // 확장 함수 (더하기)
+                    var $c = $aa + $bb;
+                    console.log($c);
+                }
+
+                $.fn.bbb = function($aa,$bb){  // 확장 함수 (곱하기)
+                    var $c = $aa * $bb;
+                    console.log($c);
+                }
+                
+                /*
+                click 누르면 작동됨
+                $a $b 변수 값을 넘기고 
+                fn = function
+                $.fn : 확장함수
+                $.fn.abc($a,$b) : $a, $b 변수 값을 함수 abc에다가 보내라라는 뜻
+                던져진 값을 $.fn.abc = function($aa,$bb) 여기에 사용
+                확장 함수 : 중복되게 발생되는 일들을 처리해 주는 함수 . 중복나지 않게 주의
+                ex) 회원가입, 게시판, 고객센터 등에 대해
+                확장함수를 만들어 놓으면 값만 던지면 쉽게 검토될 수 있음
+                */
+
+                /*
+                응용문제
+                첫번째 숫자와 두번째 숫자 중 첫번째 숫자가 두번째 숫자보다
+                클 경우 첫번때 숫자에서 두번째 숫자까지 내림차순으로 나오게 하며,
+                두 번째 숫자가 첫 번째 숫자보다 클 경우 올림차순으로 나오게 하라
+                확장함수를 2 개 사용하라. (힌트- 핸들링 함수 1, 확장 함수 2)
+                */
+
+                $("#btn2").click(function(){
+                    var $t1 = Number($("#n1").val());
+                    var $t2 = Number($("#n2").val());
+                    //console.log($t1);
+                    if($t1 > $t2){
+                        $.fn.ccc($t1,$t2);
+                    }
+                    else if($t1 < $t2){
+                        $.fn.ddd($t1,$t2)
+                    }
+                    else{
+                        alert("서로다른 값을 입력해줬으면 좋겠다.");
+                    }
+                    
+                });
+
+                $.fn.ccc = function($ww,$ss){
+                    while($ww >= $ss){
+                        console.log($ww);
+                        $ww--;
+                    }
+                }
+
+                $.fn.ddd = function($ww,$ss){
+                    while($ww <= $ss){
+                        console.log($ww);
+                        $ww++;
+                    }
+                }
+
+            });
+        </script>
+    </head>
+    <body>
+        <input type="button" value="확인" id="btn">
+        <br><br><br>
+        <input type="text" id="n1">
+        <input type="text" id="n2">
+        <input type="button" value="계산" id="btn2">
+    </body>
+</html>

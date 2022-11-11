@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../jq/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="http://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script> <!--vue router : single page 만들때 사용-->
+        <title>8일차 Vue + 보강 (Vue single Page 응용) + <!--<script src="index44.html"></script>--></title>
+        <style>
+            .ulcss {
+                width: 450px;
+                height: 40px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .ulcss li {
+                /* > 쓰면 적용안됨. 나중에 태그가 생겼기 때문 */
+                width: 150px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                border: 1px solid black;
+                box-sizing: border-box;
+                font-size: 12px;
+                float: left;
+            }
+            .login {
+                width: 300px;
+                height: 300px;
+                border: 1px solid tomato;
+            }
+            .event {
+                width: 300px;
+                height: 300px;
+                border: 1px solid tomato;
+            }
+            .divcss {
+                width: 600px;
+                height: 600px;
+                border: 1px solid crimson;
+            }
+            iframe {
+                width: inherit;
+                height: inherit;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <ul class="ulcss">
+                <!--
+                    to : 페이지 로드하는 속성
+                -->
+                <router-link to="/shop" v-html="menu1"></router-link>
+                <router-link to="/review" v-html="menu2"></router-link>
+                <router-link to="/page" v-html="menu3"></router-link>
+            </ul>
+            <!--
+                싱글페이지는 해당 메뉴를 클릭시 보여지는 view가 달라짐
+                단, 사용하는 이유는 빠른 페이지 이동 및 출력을 위해 사용하게 된다.
+            -->
+            <router-view name="single"></router-view>
+        </section>
+    </body>
+    <!-- <script src="index44.html"></script> 이런식으로 scr에 html을 쓸 수 있음 -->
+    <!-- JS -->
+    <script>
+        var login = '<div class="login">\
+                        <input type="text">\
+                        <input type="button" value="로그인">\
+                    </div>';
+        var board = '<div class="event">\
+                        <ul>\
+                            <li>공지사항1</li>\
+                            <li>공지사항2</li>\
+                        </ul>\
+                    </div>';
+    </script>
+    <!-- Vue -->
+    <script>
+        var web = {template:login};
+        var web2 = {template:board};
+        var web3 = {template:`
+            <div class="divcss"><iframe src='http://www.moel.go.kr'></iframe></div>`
+        };
+
+        var r = new VueRouter({
+            routes:[   // router-link 사용시 path는 모두 배열 형태로 적용해야 된다.
+                {
+                    path:"/shop",  // path에서 / : "현재페이지 에서" 라는 의미
+                    components:{
+                        single:web
+                    }
+                },
+                {
+                    path:"/review",
+                    components:{
+                        single:web2
+                    }
+                },
+                {
+                    path:"/page",
+                    components:{
+                        single:web3
+                    }
+                }
+            ]
+        });
+
+        var vues = new Vue({
+            router: r,  // vuerouter 를 호출하는 부분
+            el:"#box",
+            data:{
+                menu1: "<li>로그인</li>",
+                menu2: "<li>이벤트 게시판</li>",
+                menu3: "<li>노동부 사이트</li>"
+            }
+        });
+    </script>
+</html>

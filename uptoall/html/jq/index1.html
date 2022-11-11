@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 1일차</title>
+        <!-- jquery 엔진은 ready 보다 위에 코드가 위치해야 함 -->
+        <script src="./jquery2.js"></script>
+        <script>
+            // $ : 함수 또는 변수 설정하는 형태도 있으며,
+            // css에 대한 class, id를 접근할 수 있도록 하는 기호 ( $ == jquery )
+            $(document).ready(function(){
+                // jquery 특징 - HTML & CSS를 얼만큼 잘 설계하느냐에 따라 코트가 간편화해짐
+                // $(document).ready : 현재 페이지에서 jquery를 로드하여 준비단계이다.
+
+                var $a = Number("1"); // jq에서는 $ 가 붙는다.
+                var $b = Number("5");
+                var $c = $a + $b;
+                console.log($c);
+
+                $d = "홍 길 동";
+                $d = $d.replace(/" "/g,""); // 띄어쓰기 제거
+                if($d == "홍길동"){
+                    alert("동일한 이름이 있습니다.");
+                }
+                else{
+                    alert("가입되지 않았습니다.")
+                }
+
+                /*
+                응용문제 1. 1~10 까지 차례로 찍히는 console.log를 출력하라.(오름차순-for문, do~while문)
+                */
+                var $e;
+                for($e=1;$e<11;$e++){
+                    console.log($e);
+                }
+
+                var $f = 1;
+                do{
+                    console.log($f);
+                    $f ++;
+                }while($f < 11);
+                
+
+                // 이벤트 핸들링 형태
+                $("#btn").click(function(){   // $("#(id), .(class)")
+                    var $a = $("#a").val();  // 아이디 a 라는 값을 가져옴
+                    var $b = $("#b").val();  // val() = value와 같음
+                    var $c = $a + $b;
+                    console.log($c);
+                });
+
+                $("#btn2").click(function(){
+                    $("#a").val("홍길동");
+                    // 해당 아이디를 가진 input에 값을 입력할 경우
+                });
+
+            });
+            // js 사용하려면 $(document).ready 밖에 사용할 것. 안에서는 js작동 안됨.
+            /*
+            function abc(){
+                
+            }
+            */
+        </script>
+    </head>
+    <body>
+        <input type="text" id="a">
+        <input type="text" id="b">
+        <input type="button" value="Click" id="btn" class="atn">
+        <input type="button" value="입력" id="btn2">
+    </body>
+</html>

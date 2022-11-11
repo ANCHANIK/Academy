@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Song+Myung&display=swap");
+.alertre {
+  width: 100%;
+  line-height: 80px;
+  display: inline-block;
+  text-align: center;
+  color: tomato;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.login_buisness_aside {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+.login_buisness_aside > .login_buisness {
+  width: 500px;
+  height: auto;
+  display: block;
+  position: "";
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.login_buisness_aside > .login_buisness > .login_buisness_title {
+  width: 200px;
+  height: 20px;
+  display: block;
+  position: "";
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+}
+
+.login_buisness_aside > .login_buisness > .login_buisness_radio {
+  width: 100%;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+  line-height: 20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login_buisness_aside > .login_buisness > .login_buisness_radio > span {
+  width: 350px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.login_buisness_aside > .login_buisness > .personal_login {
+  width: 100%;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login_buisness_aside > .login_buisness > .personal_login > span {
+  width: 410px;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.login_buisness_aside > .login_buisness > .personal_login > span > ul {
+  width: 270px;
+  height: 80px;
+  display: block;
+  position: "";
+}
+
+.login_buisness_aside > .login_buisness > .personal_login > span > ul > li {
+  width: inherit;
+  height: 30px;
+  display: block;
+  position: "";
+}
+
+.login_buisness_aside > .login_buisness > .personal_login > span > ul > li > input {
+  width: inherit;
+  height: 30px;
+  display: block;
+  position: "";
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-indent: 3px;
+}
+
+.login_buisness_aside > .login_buisness > .personal_login > span > .login_aaa {
+  width: 100px;
+  height: 80px;
+  display: block;
+  position: "";
+}
+
+.login_buisness_aside > .login_buisness > .personal_login > span > .login_aaa > input {
+  width: 100px;
+  height: 80px;
+  display: block;
+  position: "";
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  background-color: #404040;
+  border: none;
+}
+
+.login_buisness_aside > .login_buisness > .company_login {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login_buisness_aside > .login_buisness > .company_login > span {
+  width: 410px;
+  height: 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.login_buisness_aside > .login_buisness > .company_login > span > ul {
+  width: 270px;
+  height: inherit;
+  display: block;
+  position: "";
+}
+
+.login_buisness_aside > .login_buisness > .company_login > span > ul > li {
+  width: inherit;
+  height: 30px;
+  display: block;
+  position: "";
+}
+
+.login_buisness_aside > .login_buisness > .company_login > span > ul > li > input {
+  width: inherit;
+  height: 30px;
+  display: block;
+  position: "";
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-indent: 3px;
+}
+
+.login_buisness_aside > .login_buisness > .company_login > span > .login_b_btn {
+  width: 100px;
+  height: 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  background-color: #404040;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.login_buisness_aside > .login_buisness > .company_login > span > .login_b_btn > span {
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+
+.login_l_ul {
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+  margin-left: 20px;
+  float: left;
+}
+
+.login_l_ul > li:nth-of-type(1) {
+  display: inline-block;
+}
+
+.login_l_ul > li:nth-of-type(1) > input {
+  width: 270px;
+  height: 27px;
+  margin-bottom: 20px;
+}
+
+.login_l_ul > li:nth-of-type(2) {
+  display: inline-block;
+}
+
+.login_l_ul > li:nth-of-type(2) > input {
+  width: 270px;
+  height: 27px;
+}
+
+.login_aaa {
+  width: 100px;
+  height: 85.9px;
+  display: inline-block;
+}
+
+.login_aaa > input {
+  width: 100px;
+  height: inherit;
+  background-color: #404040;
+  color: white;
+}
+
+.btn_join3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.btn_join3 > label > input {
+  width: 120px;
+  height: 60px;
+  border: 1px solid #5e5e5e;
+  background-color: white;
+}
+
+.btn_join3 > label > input:hover {
+  background-color: #5e5e5e;
+}
+
+.join_text {
+  width: 410px;
+  height: 20px;
+  display: block;
+  position: "";
+  font-size: 14px;
+  font-weight: 300;
+  color: black;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.loempty30 {
+  width: 30px;
+  height: 30px;
+  display: block;
+  position: "";
+}
+
+.loempty20 {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: "";
+}
+/*# sourceMappingURL=login.css.map */

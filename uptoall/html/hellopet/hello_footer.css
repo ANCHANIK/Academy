@@ -1,0 +1,111 @@
+@charset "UTF-8";
+.pet_footer_box {
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+}
+.empty_box {
+    width: inherit;
+    height: 40px;
+}
+/* FOOTER -nav */
+.pet_footer_nav_box {
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 0 auto;
+}
+.pet_footer_nav_box > ul {
+    width: 1200px;
+    height: inherit;
+    line-height: 45px;
+    margin: 0 auto;
+}
+.pet_footer_nav_box > ul > li {
+    display: inline-block;
+    color: dimgray;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+.pet_footer_nav_box > ul > li:hover {
+    font-weight: 800;
+}
+/* FOOTER - copy */
+.pet_footer_copy {
+    width: 1200px;
+    height: 250px;
+    margin: 0 auto;
+}
+.pet_footer_copy > ul {
+    width: inherit;
+    height: inherit;
+}
+.pet_footer_copy > ul > li {
+    height: inherit;
+    float: left;
+    color: gray;
+}
+.pet_footer_copy > ul > li:nth-of-type(1) {
+    width: 50%;
+}
+.pet_footer_copy > ul > li:nth-of-type(2), .pet_footer_copy > ul > li:nth-of-type(3) {
+    width: 25%;
+}
+/* FOOTER - copy_1 */
+.pet_footer_copy_ol1 {
+    margin-top: 35px;
+}
+.pet_footer_copy_ol1 > li > label {
+    display: inline;
+    font-weight: 300;
+}
+.pet_footer_logo {
+    width: 225px;
+    height: 60px;
+    position: relative;
+}
+.pet_footer_logo > span {
+    position: absolute;
+}
+.logo_ko {
+    display: none;
+}
+.pet_footer_copy_ol1 > li {
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+/* FOOTER - copy_2 */
+.pet_footer_copy_ol2 {
+    margin-top: 60px;
+}
+.pet_footer_copy_ol2 > li {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.pet_footer_copy_ol2 > li:nth-of-type(1) {
+    font-weight: bold;
+}
+.pet_footer_copy_ol2 > li:nth-of-type(2) {
+    margin-bottom: 10px;
+}
+.pet_footer_copy_ol2 > li:nth-of-type(3) {
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+/* FOOTER - copy_3 */
+.pet_footer_copy_ol3 {
+    margin-top: 60px;
+}
+.pet_footer_copy_ol3 > li {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.pet_footer_copy_ol3 > li:nth-of-type(4) > label, .pet_footer_copy_ol3 > li:nth-of-type(5) > label {
+    display: inline;
+}
+.pet_footer_copy_ol3 > li:nth-of-type(1) {
+    font-weight: bold;
+}

@@ -1,0 +1,104 @@
+@charset "UTF-8";
+body {
+    margin: 0;
+    padding: 0;
+}
+ul,ol,dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+span,label,main{
+    display: block;
+}
+.notice {
+    height: auto;
+}
+.notice_box {
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+}
+.thead > tr > td {
+    width: 1000px;
+
+}
+.thead > tr > td > p {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "굴림체";
+}
+.tbody > tr {
+    border: 1px solid #ccc;
+}
+.tbody > tr > td:nth-of-type(1){
+    width: 200px;
+    height: 50px;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color:cornflowerblue;
+    color: white;
+}
+.tbody > tr > td:nth-of-type(2){
+    width: 800px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.tbody > tr:nth-of-type(4){
+    height: 400px;
+}
+.input1, .input2, .input3 {
+    width: 200px;
+    height: 35px;
+    border: 1px solid #ccc;
+}
+.input1 {
+    width: 500px;
+}
+.input3 {
+    width: 770px;
+    height: 380px;
+}
+.btn_box {
+    width: 100%;
+    height: 50px;
+    margin-top: 15px;
+    text-align: right;
+}
+.security {
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: royalblue;
+    color:white;
+    font-size: 12px;
+    float: left;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+}
+.se_btn {
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: royalblue;
+    color:white;
+    font-size: 14px;
+    cursor: pointer;
+}
+.sub_btn {
+    width: 100px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: royalblue;
+    color:white;
+    font-size: 14px;
+    cursor: pointer;
+}

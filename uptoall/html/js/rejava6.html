@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 2일차 초급 (JavaScript & jQuery)</title>
+        <script src="../jq/jquery.js"></script>
+        <script>
+            /*
+            function abc(){
+                var a = 0;
+                var b = 0;
+                var c = document.querySelectorAll("#fm > label").length;
+                //console.log(c);
+
+                while(b < c){
+                    var ck = document.getElementById("ck" + b).checked;
+
+                    if(ck == true){
+                        a++;
+                    }
+                    b++;
+
+                }
+                if(a == 2){
+                    document.getElementById("fm").submit();
+                }
+                else{
+                    alert("2가지를 선택해 주세요.");
+                }
+
+            }
+            
+            */
+
+            var aa = 0;
+            function ddd(g){
+                var ck = document.getElementById("ck"+g).checked;
+                console.log(ck);
+                
+                if(ck == true){
+                    aa++;
+                }
+                else{
+                    aa--;
+                }
+                
+            }
+            function bbb(){
+                if(aa == 2){
+                    fm.submit();
+                }
+                else{
+                    alert("2가지를 선택해 주세요.");
+                }
+            }
+        </script>
+    </head>
+    <!--
+        응용문제6.
+        해당 과목 중 온라인 설문조사로 2가지를 선택하는 설문조사 프로그램이다.
+        데이터 전송 url은 rejava6.php 이며, POST로 전송하라.
+        무조건 2가지가 선택되어야 하며, 해당 value 값은 checkbox에 있는 텍스트 과목명과 동일하다.
+        name값은 subject0 ~ subject8까지 이다.
+        jquery로 작성하라
+    -->
+    <body>
+        <form id="fm" name="fm" enctype="application/x-www-form-urlencoded" method="POST" action="./rejava6.php"> <!--name이랑 id 를 같이 적어줘야됨-->
+            <p>[자신이 좋아하는 과목을 2가지를 선택해 주세요]</p>
+            <label for="ck0"><input type="checkbox" id="ck0" name="subject0" onclick="ddd(0)" value="HTML">HTML</label> <!-- 실무에선 name을 name="subject[]" 이렇게 씀-->
+            <label for="ck1"><input type="checkbox" id="ck1" name="subject1" onclick="ddd(1)" value="CSS">CSS</label>
+            <label for="ck2"><input type="checkbox" id="ck2" name="subject2" onclick="ddd(2)" value="JavaScript">JavaScript</label>
+            <label for="ck3"><input type="checkbox" id="ck3" name="subject3" onclick="ddd(3)" value="jQuery">jQuery</label>
+            <label for="ck4"><input type="checkbox" id="ck4" name="subject4" onclick="ddd(4)" value="Ajax">Ajax</label>
+            <label for="ck5"><input type="checkbox" id="ck5" name="subject5" onclick="ddd(5)" value="Vue">Vue</label>
+            <label for="ck6"><input type="checkbox" id="ck6" name="subject6" onclick="ddd(6)" value="ES9">ES9</label>
+            <label for="ck7"><input type="checkbox" id="ck7" name="subject7" onclick="ddd(7)" value="TS">TS</label>
+            <label for="ck8"><input type="checkbox" id="ck8" name="subject8" onclick="ddd(8)" value="SCSS">SCSS</label>
+            <br>
+            <input type="button" value="참여하기" onclick="bbb();">
+        </form>
+        <!-- <form id="fm" enctype="application/x-www-form-urlencoded" method="POST" action="./rejava6.php">
+            <p>[자신이 좋아하는 과목을 2가지를 선택해 주세요]</p>
+            <label><input type="checkbox" id="ck0" name="subject0" value="HTML">HTML</label>
+            <label><input type="checkbox" id="ck1" name="subject1" value="CSS">CSS</label>
+            <label><input type="checkbox" id="ck2" name="subject2" value="JavaScript">JavaScript</label>
+            <label><input type="checkbox" id="ck3" name="subject3" value="jQuery">jQuery</label>
+            <label><input type="checkbox" id="ck4" name="subject4" value="Ajax">Ajax</label>
+            <label><input type="checkbox" id="ck5" name="subject5" value="Vue">Vue</label>
+            <label><input type="checkbox" id="ck6" name="subject6" value="ES9">ES9</label>
+            <label><input type="checkbox" id="ck7" name="subject7" value="TS">TS</label>
+            <label><input type="checkbox" id="ck8" name="subject8" value="SCSS">SCSS</label>
+            <br>
+            <input type="button" value="참여하기" id="btn">
+        </form> -->
+    </body>
+    <!--
+        <script>
+            $(document).ready(function(){
+    
+                var $h = 0;
+                $("#fm > label > input").click(function(){
+                    var $ck = $(this).is(":checked");
+                    if($ck == true){
+                        $h++;
+                    }
+                    else{
+                        $h--;
+                    }
+                });
+    
+                $("#btn").click(function(){
+                    if($h == 2){
+                        $("#fm").submit();
+                    }
+                    else{
+                        alert("과목 두가지만 선택해 주세요.");
+                    }
+                });
+            });
+
+        </script>
+    -->
+</html>

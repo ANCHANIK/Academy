@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scaleable=no,minimum-scale=1.0,maximum-scale=1.0">
+    <title>문제6 - Javascript</title>
+    <!-- 문제6
+    동영상 skip 버튼을 사용할 수 있도록 합니다.
+    최초 skip_btn1 에 5,4,3,2,1 형태로 카운터가 나오게 됩니다.
+    그리고 나서 skip_btn2 출력되어 클릭시 https://www.youtube.com/ 이동 되도록
+    합니다.
+    -->
+    <style>
+        body { margin: 0; padding: 0;}
+        .video { width:800px; height:600px; background-color: black;
+        margin: 0 auto; margin-top:30px; position: relative;
+        }
+        .skip_btn { width: 100px; height: 30px; border:1px solid #fff;
+        color: white; display: block; line-height: 30px;
+        text-align: center; font-size: 13px; position: absolute;
+        right: 20px; bottom: 20px;
+        }
+        .skip_btn1 { display: block;}
+        .skip_btn2 { display: none; cursor: pointer;}
+    </style>
+</head>
+<body>
+    <div class="video">
+        <span class="skip_btn skip_btn1" id="skip"></span>
+        <span class="skip_btn skip_btn2" id="skip_btn">SKIP&nbsp;&nbsp;▶▶</span>
+    </div>
+</body>
+    <script>
+        var time;
+        var aa = 5;
+        function ttt(){
+            var skip = document.getElementById("skip");
+            var s_btn = document.getElementById("skip_btn");
+            var bb = "SKIP "+ aa +"초 후";
+            time = setTimeout(ttt,1000);
+            aa = aa - 1;
+            skip.innerText = bb;
+            console.log(bb);
+            if(aa < 0){
+                clearTimeout(time);
+                skip.style.display = "none";
+                s_btn.style.display = "block";
+                s_btn.setAttribute("onclick","ggg()")
+            }
+            
+        }
+        ttt();
+        function ggg(){
+            location.href = "https://www.youtube.com/";
+            
+        }
+    </script>
+</html>

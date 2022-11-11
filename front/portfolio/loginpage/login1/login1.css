@@ -1,0 +1,64 @@
+@import url("./font.css");
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ul, ol, dl {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+}
+
+span, label, main {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  display: block;
+}
+
+main {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+section {
+  width: 100%;
+  height: 700px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: slategray;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section > .login_box {
+  width: 400px;
+  height: 500px;
+  display: block;
+  background-color: fuchsia;
+}
+
+footer {
+  width: 100%;
+  height: 100px;
+  display: block;
+}
+/*# sourceMappingURL=login1.css.map */

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 5일차 - 중급 (모바일 배너 핸들링 + blackscreen + bind)</title>
+        <script src="./jquery-2.0.js"></script>
+        <script src="./jquery-ui.js"></script>
+        <script src="./jquery.mobile.js?v=1"></script>
+        <script>
+            $(function(){
+                let $a = 0;
+                /*
+                $("#menu").tap(function(){
+                    if($a == 0){
+                        $("#menubar").css("display","block");
+                        $("#menubar").stop().animate({
+                            "width":"90%"
+                        },500,function(){
+                            $a++;
+                        });
+                    }
+                    else{
+                        $("#menubar").stop().animate({
+                            "width":"0px"
+                        },500,function(){
+                            $("#menubar").css("display","none");
+                            $a--;
+                        });
+                        
+                    }
+                });
+                */
+                // bind를 이용한 메뉴 만들기
+                $("#main").bind({
+                    "swiperight":function(){
+                        $("#menubar").css("display","block");
+                        $("#black").css("display","block");
+                        $("#menubar").stop().animate({
+                            "width":"90%"
+                        },500,function(){
+                            $a++;
+                        });
+                    },
+                    "swipeleft":function(){
+                        $("#menubar").stop().animate({
+                            "width":"0px"
+                        },500,function(){
+                            $("#menubar").css("display","none");
+                            $("#black").css("display","none");
+                            $a--;
+                        });
+                    }
+                });
+            });
+
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            .header { height: 60px; position: relative; }
+            .top {
+                position: absolute;
+                z-index: 3;
+                background-color: black;
+                width: 100%;
+                max-width: 620px;
+                height: inherit;
+            }
+            .ulcss {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                width: inherit;
+                height: 60px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .ulcss > li:nth-child(1) { margin-left: 5px; width: 10vw; min-width: 50px; max-width: 80px; height: 50px; background-color: yellow; }
+            .ulcss > li:nth-child(2) { width: 40vw; min-width: 200px; max-width: 300px; height: 50px; background-color: greenyellow; }
+            .ulcss > li:nth-child(3) { margin-right: 5px; width: 10vw; min-width: 50px; max-width: 80px; height: 50px; background-color: pink; }
+
+            .main {
+                height: 1600px;
+                background-color: skyblue;
+                position: relative;
+            }
+            .menubar {
+                position: absolute;
+                height: 500px;
+                width: 0;
+                background-color: gray;
+                display:none;
+                z-index: 4;
+            }
+            .black {
+                position: absolute;
+                width: 100%;
+                box-shadow: 0 0 0 9000px rgba(0,0,0,0.6); /* 0 ~ 255 */
+                /* 0(x축) 0(y축) 0 9000px */
+                z-index: 2;
+                display: none;
+                height: 0.1px;
+            }
+            .footer {
+                width: 100%;
+                height: 150px;
+                background-color: burlywood;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="top">
+                <ul class="ulcss">
+                    <li id="menu"></li>
+                    <li></li>
+                    <li id="quick"></li>
+                </ul>
+            </div>
+        </header>
+        <!-- black screen -->
+        <div class="black" id="black"></div>
+        <section class="main" id="main">
+            <!-- 메뉴 슬라이드 -->
+            <div class="menubar" id="menubar"></div>
+        </section>
+        <footer class="footer"></footer>
+    </body>
+</html>

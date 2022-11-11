@@ -1,0 +1,29 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE-Edge, chrome=1">
+        <title>HTML 4.0 6일차 - CSS 2.0 position</title>
+        <style>
+            /* CI & BI 는 뭔지 알아올 것 */
+            /* web-colorpicker */
+            body { margin:0; padding:0; }
+            /*  span 크기 : 100*100 총 3개의 객체를 만들어라. (red, blue, black) */
+            .box { width:100px; height:100px; display:block; }
+            .c1 { background-color:red; position: static; }
+            .c2 { background-color:blue; position: relative; left:100%; margin-left:-100px; }
+            .c3 { background-color:black; position: absolute; right:100px; }
+            /* 
+            position : 객체를 배치하는 형태를 말한다.
+            static : 자신의 규격 아웃 라인이 확실히 있는 상태 (margin)
+            relative : 자신의 규격은 있지만 어느정도 자유롭게 배치시킬 수 있는 상태 (top, lefr, right, bottom + margin) (left - margin-left 사용)
+            absolute : 자유분방하게 배치를 시킬 수 있는 상태 (규격 X) (top, left, ringt, bottom)
+            
+            */
+        </style>
+    </head>
+    <body>
+        <span class="box c1"></span>
+        <span class="box c2"></span>
+        <span class="box c3"></span>
+    </body>
+</html>

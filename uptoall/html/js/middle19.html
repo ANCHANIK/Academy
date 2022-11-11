@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 6일차 (중급 - 부모, 자식창에 대한 통신)</title>
+        <script>
+            function popup(){
+                window.open("./popup.html","","width=500,height=500")
+            }
+        </script>
+    </head>
+    <!--자식창 크기 : 500*500-->
+    <body>
+        <!--
+            <form id="f" name="f">
+            </form>
+        -->
+        <input type="text" name="product" id="product" readonly>
+        <input type="button" value="데이터 출력" onclick="popup()">
+    </body>
+</html>

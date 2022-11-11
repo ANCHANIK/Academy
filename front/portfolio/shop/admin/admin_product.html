@@ -1,0 +1,37 @@
+<?php
+    $v = date("YMDHis");
+    include "check.php";
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>쇼핑몰 관리자</title>
+        <script src="../../JS/jquery.js"></script>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <link rel="stylesheet" type="text/css" href="./admin.css?v=<?=$v?>">
+        <link rel="stylesheet" type="text/css" href="./main.css?v=<?=$v?>">
+        <link rel="stylesheet" type="text/css" href="./product.css?v=<?=$v?>">
+        <link rel="stylesheet" type="text/css" href="./bottom.css?v=<?=$v?>">
+    </head>
+    <script>
+        let days = new Date();  // 데이터 갱신
+        var nos = days.getMonth() + '' +  days.getDay() + '' + ('0' + days.getHours()).slice(-2) + '' + ('0' + days.getMinutes()).slice(-2) + '' + ('0' + days.getSeconds()).slice(-2);
+    </script>
+    <body>
+        <header class="header">
+            <?php include "admin_top.html"; ?>
+        </header>
+        <section class="section" id="pd">
+            <?php include "p_list.html"; ?>
+        </section>
+        <footer class="footer">
+            <?php include "admin_bottom.html"; ?>
+        </footer>
+    </body>
+    <script src="./p_list.js?v=<?=$v?>"></script>
+    <script src="./product.js?v=<?=$v?>"></script>
+</html>

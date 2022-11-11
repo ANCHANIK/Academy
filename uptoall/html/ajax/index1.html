@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <title>Ajax 1일차 - JavaScript (Node와 연결)</title>
+        <!--
+            Ajax : JavaScript & JQuery (통신언어) - XML, Json (비동식 방식)
+            - Ajax도 동기 방식이 있음. 이를 Node.js와 순서에 맞춰서 데이터를 실시간으로 반영하는 형태임.
+            - 동기와 비동기를 같이 쓰는 경우는 없다.
+        -->
+        <script>
+            var html1;
+            var w = 1;
+            function nodes(){
+                var body = document.getElementById("bodys");
+                var ul = document.createElement("ul");
+                body.append(ul);
+                while(w < 5){
+                    var text1 = "공지사항" + w;
+                    var html1 = "<li>"+ text1 +"</li>";
+                    ul.innerHTML += html1;
+
+                    w++;
+                }
+                
+            }
+        </script>
+    </head>
+    <body id="bodys">
+        <input type="button" value="통신" onclick="nodes()">
+        <!--
+            응용문제. 다음과 같이 출력하라
+            공지사항1
+            공지사항2
+            공지사항3
+            공지사항4
+        -->
+    </body>
+</html>

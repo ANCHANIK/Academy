@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html land="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jquery 4일차 - 중급 (롤링배너 원리) & 글자 대체 원리</title>
+        <script src="./jquery.js"></script>
+        <script>
+            // 무작정 만드는게 아니라 순서대로 데이터들을 만들어 놓고 하나씩 들어가라
+            
+            $(function(){
+                var $test = "홍길동";
+                console.log($test.substr(1,2)) //((시작 노드 번호),(출력 개수)) (노드 시작 번호)에서 부터 (몇 개를 출력)시킬 것인지
+
+
+
+
+                const $node_ea = $("#banners > li").length;  // 노드 갯수
+                const $node_width = $("#banners > li").eq(0).width();  // 배너 한개의 가로 길이
+                var $null = 0; // 노드 초기 번호값
+                $("#disc > li").eq(0).css({"background-color":"red"});
+
+                // setInterval로 자동 롤링
+                var $timer;
+                var $timer = 0;  // setInterval을 새롭게 적용하기 위해 초기화 시킴
+                $.fn.auto = function(){
+                    $timer = setInterval(function(){
+                        $("#banners").stop().animate({
+                            "left": -$node_width + "px"
+                        },700,function(){
+                            var $cp = $("#banners > li").eq(0).clone();
+                            $("#banners").append($cp);
+                            $("#banners > li").eq(0).remove();
+                            $("#banners").css("left","0px");
+                        });
+                        $null += 1;
+                        if($null > 3){
+                            $null = 0;
+                        }
+                        $("#disc > li").css({"background-color":""})
+                        $("#disc > li").eq($null).css({"background-color":"red"});
+                    },3000);
+                }
+                setTimeout($.fn.auto,3000);
+
+                    // 마우스 오버시 setInterval 정지
+                    // banner
+                    $("#banners").bind({
+                        "mouseenter":function(){
+                            clearInterval($timer);
+                        },
+                        "mouseleave":function(){
+                            setTimeout($.fn.auto,3000);
+                        }
+                    });
+                    // disc
+                    $("#disc > li").bind({
+                        "mouseenter":function(){
+                            clearInterval($timer);
+                        },
+                        "mouseleave":function(){
+                            setTimeout($.fn.auto,3000);
+                        }
+                    });
+
+                $("#right").click(function(){
+                    $null += 1;
+                    if($null == $node_ea-1 ){
+                        $null = 0;
+                    }
+                    $("#disc > li").css({"background-color":""})
+                    $("#disc > li").eq($null).css({"background-color":"red"});
+
+                    $("#banners").stop().animate({
+                        "left": -$node_width + "px"
+                    },700,function(){
+                        var $cp = $("#banners > li").eq(0).clone();
+                        $("#banners").append($cp);
+                        $("#banners > li").eq(0).remove();
+                        $("#banners").css("left","0px");
+                    })
+                })
+
+                $("#left").click(function(){
+                    $null -=  1;
+                    if($null == -1){
+                        $null = $node_ea-1;
+                    }
+                    $("#disc > li").css({"background-color":""})
+                    $("#disc > li").eq($null).css({"background-color":"red"});
+
+                    var $r_cp = $("#banners > li").eq($node_ea - 1).clone();
+                    $("#banners > li").eq($node_ea - 1).remove();
+                    $("#banners").css("left",-$node_width + "px")
+                    $("#banners").prepend($r_cp);
+                    $("#banners").stop().animate({
+                        "left":"0px"
+                    },700)
+                });
+
+                $("#disc > li").click(function(){
+                    var $disc_num = $(this).index();
+                    $null = $disc_num; // left & right 디스크 번호 공유
+                    // #banners > li 안에 node라는 값을 가져옴.
+                    // 단, 문자라서 숫자처리 해야됨 (Number)
+                    // console.log($node);
+                    // 사용자 해당 디스크 클릭시 해당 디스크만 red로 변경
+                    $("#disc > li").css({"background-color":""})
+                    $("#disc > li").eq($disc_num).css({"background-color":"red"});
+
+                    var $ck;   // 배너 천체를 반복시키는 변수
+                    var $nos;  // html에 있는 node라는 속성 값을 입력시키기 위한 변수
+                    for($ck=0;$ck<$node_ea;$ck++){  // 배너를 모두 검토함
+                        // 검토하는 이유? 사용자가 어떤 디스크를 클릭할지 모르기 때문
+                        
+                        $nos = $("#banners > li").eq($ck).attr("node");
+                        // 반복문을 통해서 해당 node의 실제 번호를 모두 확인함
+
+                        if($disc_num == $nos){
+                            // $disc_num : 사용자가 disc 클릭
+                            // $nos : 배너 html 노드 번호와 같은 경우
+
+                            var $or = Math.ceil($("#banners").offset().left);
+                            // margin: 0 auto : 정확한 ul 위치를 확인하게 된다.
+                            
+                            var $offset = String(Math.ceil($("#banners > li").eq($ck).offset().left-$or));
+                            console.log($offset)
+                            // 현재 li의 노드(사용자가 클릭한 노드) 위치 - ul 위치
+                            // String으로 처리하면 숫자 카운터가 된다.
+                            // 콘솔로 찍으면 : 100,200,300 이렇게 찍힘
+
+                            
+                            var $substr;
+                            var $left_offset;
+                            var $clickno = $ck;
+                            $substr = Number($offset.substr(0,1));  // 위에 100,200,300을 substr 함수를 쓰면 -> 1,2,3로 바뀜
+                            $left_offset = $node_width * $substr;  // 수식 계산
+                            // 총 움직일 px = 한 개의 배너 사이즈 * 노드 위치에 해당되는 값
+
+                            $("#banners").stop().animate({
+                                "left":-$left_offset + "px"
+                            },700,function(){
+                                var $index_no = $("#banners > li").eq($clickno).index();
+                                // 해당 노드의 위치를 확인해서 재카운팅을 함
+
+                                var $n;
+                                for($n=0;$n<$index_no;$n++){
+                                    var $cp = $("#banners > li").eq(0).clone();
+                                    $("#banners > li").eq(0).remove();
+                                    $("#banners").append($cp);
+                                }
+                                $("#banners").css("left","0px");
+                                // ul의 원래 위치로 재조정 함
+                            });
+                            
+                        }
+                    }
+                });
+            });
+        </script>
+        <style>
+            .banner_part {
+                height: 100px;
+            }
+            .banner_box {
+                width: 100px;
+                height: 100px;
+                border: 1px solid red;
+                margin: 0 auto;
+                position: relative;
+            }
+            .banners {
+                width: 400px;
+                height: 100px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                position: absolute;
+            }
+            .banners > li {
+                width: 100px;
+                height: inherit;
+                float: left;
+            }
+            .b0 { background-color: pink; }
+            .b1 { background-color: orange; }
+            .b2 { background-color: yellowgreen; }
+            .b3 { background-color: skyblue; }
+
+            .disc_box {
+                width: 200px;
+                height: 30px;
+                margin: 0 auto;
+                margin-top: 40px;
+            }
+            .disc {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: inline;
+                height: 30px;
+            }
+            .disc > li {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="banner_part">
+            <aside class="banner_box" id="banner_box">
+                <ul class="banners" id="banners">
+                    <li node="0" class="b0">box0</li>
+                    <li node="1" class="b1">box1</li>
+                    <li node="2" class="b2">box2</li>
+                    <li node="3" class="b3">box3</li>
+                </ul>
+            </aside>
+            <article class="disc_box">
+                <ol class="disc" id="disc">
+                    <li>0</li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ol>
+            </article>
+            <input type="button" id="left" value="<<">
+            <input type="button" id="right" value=">>">
+        </section>
+    </body>
+</html>

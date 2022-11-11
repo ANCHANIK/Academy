@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 3</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <input v-bind:type="in1" v-model="texts" ref="mm">
+            <input v-bind:type="bb" @click="nbt" v-model="alal">
+            <div>{{gont}}</div>
+        </section>
+    </body>
+    <script>
+        let vues = new Vue({
+            el:"#box",
+            data:{
+                in1:"text",
+                bb:"button",
+                texts:"",
+                alal:"클릭",
+                gont:""
+            },
+            methods:{
+                nbt(){
+                    if(this.texts == ""){
+                        var timer;
+                        var t = 1;
+                        timer = setInterval(function(){
+                            this.gont = "아이디를 입력해 주세요.";
+                            console.log(t);
+                            // t++;
+                        },1000);
+                        this.$refs.mm.focus();
+                    }
+                    else{
+                        console.log("good");
+                    }
+                }
+            },
+            components:{
+
+            },
+            computed:{
+
+            }
+        });
+    </script>
+</html>

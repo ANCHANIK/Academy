@@ -1,0 +1,43 @@
+<?php
+    $date = date("Ymdhis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <title>Ajax 7일차 - 쇼핑몰 상품파트</title>
+        <link rel="stylesheet" type="text/css" href="./product.css?v=<?php echo $date?>">
+        <script src="./jquery.js"></script>
+        <script src="./product.js?v=<?php echo $date?>" charset="UTF-8"></script>
+            <!-- 
+                gif : 퀄리티가 떨어짐
+                webp (IE 작동 X) : gif + jpg (or) gif + png
+                wenm (IE 작동 X), webm (IE 작동 X) : mp4 + H.264, 용량은 최소 화질은 고퀄리티 
+                (mp4 -> H.264로 변환하면 화질이 저하된다. 단, 위에서 처럼 사용하면 용량은 low, 퀄리티는 high)
+            -->
+            <!--
+                Back-End Key값(product) : p_name(상품명), p_info(상품 간편 설명), p_price(판매가), p_salse(할인가),
+                p_percent(할인률), p_img(상품 이미지), p_review(리뷰 글 수), p_link(상품 상세 페이지)
+            -->
+    </head>
+    <body>
+        <section class="scss" id="scss">
+            <!--[sample]
+                <div>
+                <label>
+                    <span>리뷰수</span>
+                    <img src="./product/product1.webp">
+                </label>
+                <label>
+                    <span>상품명</span>
+                    <span>상품간편소개</span>
+                    <span>소비자가격</span>
+                    <span>할인가격</span>
+                    <span>할인율</span>
+                </label>
+            </div>
+        -->
+        </section>
+    </body>
+</html>

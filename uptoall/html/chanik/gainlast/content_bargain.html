@@ -1,0 +1,26 @@
+<?php
+    $data = date("YMDHis");
+?>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="./css/content_bargin.css?v=<?=$data?>">
+<section class="content_bargain_outline" id="bargin">
+	<div @click="golink('1')">
+		<img v-bind:src="sb">
+	</div>
+	<div>
+		<ul>
+            <li @click="golink('2')">
+				<img v-bind:src="sb1">
+			</li>
+			<li @click="golink('3')">
+				<img v-bind:src="sb2">
+			</li>
+			<li @click="golink('4')">
+				<img v-bind:src="sb3">
+			</li>
+		</ul>
+	</div>
+</section>
+<script>
+
+</script>

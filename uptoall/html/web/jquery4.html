@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 5일차 - 응용연습4</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                $("#btn").click(function(){
+                    //var $width = $("inbox").width();
+                    var $text = "이동";
+                    $("#inbox").delay(100).animate({
+                        "width":"100%"
+                    },1500,function(){
+                        $("#text").text($text);
+                    });
+                    
+                    
+                });
+
+                
+                var $node = "off";
+                $("#click").click(function(){
+                    if($node == "off"){
+                        $(this).animate({
+                            "right":"520px"
+                        },500,function(){
+                            $(this).css("background-color","coral");
+                            $(this).text("ON");
+                            $node = "on";
+                        });
+                    }
+
+                    else if($node == "on"){
+                        $(this).animate({
+                            "right":"20px"
+                        },500,function(){
+                            $(this).css("background-color","");
+                            $(this).text("OFF");
+                            $node = "off";
+                        });
+                    }
+                });
+                    
+                    
+                    
+                    
+                    
+                
+
+
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            span,label,main {display: block;}
+            .box {
+                width: 500px;
+                height: 70px;
+                border: 1px solid black;
+                margin: 0 auto;
+            }
+            .inbox {
+                width: 0px;
+                height: 40px;
+                background-color: gray;
+            }
+            .text {
+                width: 70px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                background-color: black;
+                color: white;
+                margin: 0 auto;
+                margin-top: 20px;
+                cursor: pointer;
+            }
+
+            .button {
+                width: 860px;
+                height: 360px;
+                background-color:paleturquoise;
+                border-radius: 400px;
+                padding: 20px;
+                position: relative;
+            }
+            .button > span {
+                width: 360px;
+                height: 360px;
+                border-radius: 100%;
+                background-color: gray;
+                color: white;
+                font-size: 150px;
+                text-align: center;
+                line-height: 360px;
+                position: absolute;
+                right: 20px;
+                cursor: pointer;
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+        <div class="box" id="btn"></div>
+        <label class="text" id="text">접속
+            <span class="inbox" id="inbox"></span>
+        </label>
+
+        <br><br><br>
+
+        <div class="button">
+            <span id="click">OFF</span>
+        </div>
+    </body>
+</html>

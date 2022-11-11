@@ -1,0 +1,74 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/* font-family : 'Noto Sans KR', sans-serif */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+/* font-family : 'Nanum Gothic' , sans-serif*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/* font-family : 'Roboto' , sans-serif*/
+* { font-size: 14px;}
+body, html,div, span, label, section, aside, footer, header, nav, video, table, tr, td, th { 
+   margin: 0; padding: 0; border: 0; font-size: 100%; font-family: 'Noto Sans KR', sans-serif;
+   -ms-text-size-adjust: 100%;      /* IE */
+   -webkit-text-size-adjust: 100%;  /* 크롬, 사파리 */
+   -o-text-size-adjust: 100%;       /* 오페라 */
+   -moz-text-size-adjust: 100%;     /* 파이어폭스 */
+}
+a { background-color: transparent; text-decoration: none; color: white;}
+a:active, a:hover { outline: 0; color: white; text-decoration: none;}
+a:visited { text-decoration: none;}
+input, textarea { outline: 0;}
+input:focus, textarea:focus { outline: 0;}
+button, input[type="button"], input[type="submit"], input[type="reset"], input[type="checkbox"], input[type="radio"]{
+   cursor: pointer;
+}
+legend { border: 0; padding: 0;}
+textarea { overflow: auto;}
+table { border-collapse: collapse; border-spacing: 0;}
+ul, ol { margin: 0; padding: 0; list-style: none;}
+.clear { clear: both;}
+address, caption, cite, code, dfn, em, var { font-style: normal;}
+img { width: 100%; object-fit: cover;}
+label, span { display: block;}
+
+/* 갤러리 파트 전체 */
+.hello_newpets { 
+   width: 1200px; height: auto; border: 1px solid #ccc;
+   box-sizing: border-box; padding: 10px; margin: 0 auto;
+   margin-bottom: 50px;
+}
+
+/* 갤러리 파트 제목 */
+.hello_newpets_title {
+   width: 250px; height: auto; font-size: 13px; text-align: center; 
+   margin: 0 auto; margin-top: 40px; margin-bottom: 40px;
+}
+
+.hello_newpets_title>label { 
+   width: 100%; height: 35px; line-height: 35px; 
+   text-align: center; font-size: 18px; font-weight: bold;
+}
+
+/* 갤러리 메뉴 */
+.hello_newpets_menu { width: 100%; height: auto; text-align: center; margin-bottom: 40px;}
+.hello_newpets_menu > ul > li { 
+   display: inline-block; width: 150px; height: 40px; line-height: 40px; cursor: pointer;
+   text-align: center; margin-right: 20px; border: 1px solid #ccc; border-radius: 10px;
+}
+.hello_newpets_menu > ul > li:last-child{margin: 0;}
+
+/* 갤러리 */
+.new_pets_list { width: 100%; height: auto; text-align: center; }
+.new_pets_list > li { 
+   width: 230px; height: 230px; display: inline-block; cursor: pointer;
+}
+.new_pet_pic { width: 100%; height: inherit; position: relative; }
+.new_pet_black { 
+   width: 100%; height: inherit; background-color: rgba(0, 0, 0, 0.5);
+   position: absolute; top: 0; color: white; display: none;
+}
+
+.new_pet_black>span { width: 100%; height: 20px; text-align: left;}
+.new_pet_black>span:first-child { font-size: 12px;}
+.new_pet_black>span:nth-child(2) { margin-bottom: 125px;}
+.new_pet_black>label { width: 100%; height: 20px; text-align: right;}
+.new_pet_black>label>img { width: 20px; height: 20px;}

@@ -1,0 +1,48 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>로그인1</title>
+        <link rel="stylesheet" type="text/css" href="login1.css?v=<?=$data?>">
+        <script src="../../JS/jquery.js"></script>
+        <script>
+            $(function(){
+                
+            });
+        </script>
+    </head>
+    <body>
+        <header></header>
+        <main>
+            <section>
+                <div class="login_box">
+                    <label>LOGIN</label>
+                    <label>
+                        <span>
+                            <div>
+                                <input type="text" placeholder="ID">
+                            </div>
+                            <div>
+                                <input type="password" placeholder="PASSWORD">
+                            </div>
+                        </span>
+                        <span>
+                            <button type="button">LOGIN</button>
+                        </span>
+                    </label>
+                    <label>
+                        <span>아이디/비밀번호찾기</span>
+                        <span>회원가입</span>
+                    </label>
+                </div>
+            </section>
+        </main>
+        <footer></footer>
+    </body>
+</html>

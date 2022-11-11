@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+ul, ol, dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+span, label {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 150px;
+  display: block;
+  background-color: dimgray;
+}
+
+main {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+footer {
+  width: 100%;
+  height: 200px;
+  display: block;
+  background-color: gray;
+}
+
+.maincss > section {
+  width: 1200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.maincss > section > .aside_check_outline {
+  width: 1000px;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  border-bottom: 2px solid dimgray;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  margin-bottom: 35px;
+}
+
+.maincss > section > .aside_check_outline > .check_title {
+  width: inherit;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: 2px solid #ccc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.maincss > section > .aside_check_outline > .check_title > span {
+  width: auto;
+  height: 64px;
+  display: block;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: left;
+  line-height: 64px;
+  text-indent: 20px;
+}
+
+.maincss > section > .aside_check_outline > .section_check {
+  width: inherit;
+  height: 30px;
+  display: block;
+}
+
+.maincss > section > .aside_check_outline > .section_check > span {
+  width: inherit;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.maincss > section > .aside_check_outline > .section_check > span > label {
+  width: "";
+  height: 40px;
+  display: block;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 40px;
+  text-decoration: overline;
+}
+
+.maincss > section > .section_info {
+  width: inherit;
+  height: "";
+  display: block;
+  min-height: 300px;
+}
+
+.maincss > section > .section_info > .drug_list {
+  width: 1000px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.maincss > section > .section_info > .drug_list > .drug_title {
+  width: inherit;
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #f0f0f0;
+  margin-bottom: 10px;
+}
+
+.maincss > section > .section_info > .drug_list > .drug_title > label {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 35px;
+  height: inherit;
+  display: block;
+  border-right: 1px solid white;
+}
+
+.maincss > section > .section_info > .drug_list > .drug_title > label:nth-of-type(1) {
+  width: 100px;
+}
+
+.maincss > section > .section_info > .drug_list > .drug_title > label:nth-of-type(2) {
+  width: 600px;
+}
+
+.maincss > section > .section_info > .drug_list > .drug_title > label:nth-of-type(3) {
+  width: 150px;
+}
+
+.maincss > section > .section_info > .drug_list > .drug_title > label:nth-of-type(4) {
+  width: 150px;
+}
+
+.maincss > section > .section_info > .drug_list > .drug_info {
+  width: inherit;
+  height: auto;
+  display: block;
+  background-color: burlywood;
+  margin-bottom: 10px;
+}
+
+.maincss > section > .section_info > .drug_list > .drug_info > .drug_info_baby {
+  width: inherit;
+  height: auto;
+  display: none;
+}
+
+.maincss > section > .section_info > .drug_list > .drug_info > .drug_info_kid {
+  width: inherit;
+  height: auto;
+  display: none;
+}
+
+.maincss > section > .section_info > .drug_list > .drug_info > .drug_info_child {
+  width: inherit;
+  height: auto;
+  display: none;
+}
+
+.maincss > section > .section_info > .drug_list > .drug_info > .drug_info_boy {
+  width: inherit;
+  height: auto;
+  display: none;
+}
+/*# sourceMappingURL=project.css.map */

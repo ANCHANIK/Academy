@@ -1,0 +1,53 @@
+@charset "UTF-8";
+@import url("./font.css");
+
+@mixin base{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin object($w,$h,$display) {
+    width: $w;
+    height: $h;
+    display: $display;
+}
+@mixin font($ff,$fs,$fw) {
+    font-family: $ff;
+    font-size: $fs;
+    font-weight: $fw;
+}
+body {
+    @include base;
+}
+ul,ol,dl {
+    @include base;
+    list-style: none;
+}
+span,label,main {
+    display: block;
+}
+a {
+    text-decoration: none;
+}
+header {
+    @include object(100%, 100px, block);
+}
+main {
+    @include object(100%, auto, block);
+}
+section {
+    @include object(100%, 700px, flex);
+    background-color: slategray;
+    justify-content: center;
+    align-items: center;
+    & > .login_box {
+        @include object(400px, 500px, block);
+        background-color:fuchsia;
+        // & > label {
+
+        // }
+    }
+}
+footer {
+    @include object(100%, 100px, block);
+}

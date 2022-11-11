@@ -1,0 +1,45 @@
+<!-- 회원가입 약관 -->
+<form name="member_agree" id="member_agree">
+    <div class="agree_view">
+        <p>MEMBER JOIN</p>
+        <ul>
+            <li>
+                <label>서비스 이용 약관동의</label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" id="allagree" onclick="agree_all()">전체동의 (선택항목도 포함됩니다.)
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" id="agree1" name="agree1" value="Y" onclick="agree_ne()"><b>(필수)</b>이용약관<u class="uall">전체보기</u>
+                </label>
+            </li>
+        </ul>
+        <span class="text_box" id="agree_txt1">
+    
+        </span>
+    
+    <!-- 개인정보 처리 방침 -->
+        <ul>
+            <li>
+                <label>개인정보처리방침</label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox" id="agree2" name="agree2" value="Y" onclick="agree_ne()"><b>(필수)</b>개인정보처리방침<u class="uall">전체보기</u>
+                </label>
+            </li>
+        </ul>
+        <span class="text_box" id="agree_txt2">
+    
+        </span>
+    </div>
+    <div class="agree_btn">
+        <span onclick="agree_btn()">다음단계</span>
+    </div>
+</form>
+<script>
+    agree_text()
+</script>

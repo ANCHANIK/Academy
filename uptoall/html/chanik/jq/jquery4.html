@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 2일차 - 애니메이션3</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+
+
+                var $w = 0;
+                var $d = 500;
+                var $height = "320px,200px,50px,390px,420px,10px,130px";
+                var $s_height = $height.split(",");
+                $("#btn").click(function(){
+                    while($w < 7){
+                        var $ee = "#q" + $w;
+                        var $delay = $d * ($w + 1);
+                    $($ee).delay($delay).animate({"width":$s_height[$w]},1000);
+                    $w++;
+                    }
+                });
+
+
+            });
+        </script>
+        <style>
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .box {
+                width: 500px;
+                height: auto;
+                border: 1px solid red;
+            }
+            .box > ul > li {
+                width: 0px;
+                height: 30px;
+                margin-bottom: 20px;
+            }
+            .box > ul > li:nth-child(1){
+                background-color: coral;
+            }
+            .box > ul > li:nth-child(2){
+                background-color: cornflowerblue;
+            }
+            .box > ul > li:nth-child(3){
+                background-color: crimson;
+            }
+            .box > ul > li:nth-child(4){
+                background-color:darkmagenta;
+            }
+            .box > ul > li:nth-child(5){
+                background-color:forestgreen ;
+            }
+            .box > ul > li:nth-child(6){
+                background-color:hotpink ;
+            }
+            .box > ul > li:nth-child(7){
+                background-color:palegoldenrod;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box">
+            <ul>
+                <li id="q0"></li>
+                <li id="q1"></li>
+                <li id="q2"></li>
+                <li id="q3"></li>
+                <li id="q4"></li>
+                <li id="q5"></li>
+                <li id="q6"></li>
+            </ul>
+            <button type="button" id="btn">결과확인</button>
+        </div>
+    </body>
+</html>

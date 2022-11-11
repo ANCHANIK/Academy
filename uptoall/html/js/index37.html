@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 7 일차 - 초급코드(split select사용)</title>
+        <script>
+            // 브랜드 바로가기, MNET, MWAVE,tvN, tvnD, O tvn, Xtvn
+            var a = "브랜드 바로가기,MNET,MWAVE,tvN,tvnD,O tvn,Xtvn";
+            var b = a.split(",");
+            var m_ea = b.length; //7개
+            function abc(){
+                var w = 0;
+                var rr = document.getElementById("sel");
+                rr.innerHTML = "";
+                while(w < m_ea){
+                    var ss = "<option value="+w+">"+b[w]+"</option>";
+                    rr.innerHTML += ss;
+                    w++;
+                    // 힌트 : bbb 함수에 숫자로 1,2,3으로 보내게 된다.
+                    // option value값은 무엇이 되어야 하는가?
+                }
+            }
+            
+            function bbb(w){
+                // console.log(typeof(w)) typeof로 문자인지 숫자인지 확인해서 작업해야됨. 아 다 맞았는데 ㄲㄲ
+                switch(Number(w)){
+                    case 1:
+                        location.href = "http://www.mnet.com";
+                    break;
+
+                    case 2:
+                        location.href = "http://www.m-wav.com";
+                    break;
+                    
+                    case 3:
+                        location.href = "http://tvn.tving.com/tvn";
+                    break;
+                    
+                    case 4:
+                        location.href = "http://tvnd.tving.com/tvnd";
+                    break;
+
+                    case 5:
+                        location.href = "http://otvn.tving.com/otvn";
+                    break;
+
+                    case 6:
+                        location.href = "http://xtvn.tving.com";
+                    break;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <select id="sel" onchange="bbb(this.value);">
+        </select>
+        <input type="button" value="슝슝~" onclick="abc();">
+        <script>
+            abc();
+        </script>
+    </body>
+</html>

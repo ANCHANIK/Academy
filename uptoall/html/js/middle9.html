@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 3일차 (중급 - return 함수 사용2)</title>
+        <style>
+        </style>
+        <script>
+            function aaa(){
+                var a = bbb("22a");
+                var b = bbb("33")
+                if(a == false){
+                    alert("숫자만 입력하세요.");
+                }
+                console.log(b);
+            }
+
+            function bbb(b){
+                console.log(b)
+                var c = Number(b);
+                if(isNaN(c) == true){
+                    return false;
+                }
+                else{
+                    return "숫자입니다.";
+                }
+            }
+
+            function ddd(){
+                var k = fff();
+                console.log(k[0],k[1],k[2]);
+                // return 함수에서 결과값을 가져올때는 노드 번호형태로 출력하면 된다.
+            }
+
+            function fff(){
+                var a = 1;
+                var b = 2;
+                var c = 3;
+                return [a,b,c];
+                // return값이 1개 이상일 경우 []를 이용하여 배열형태로 보낸다.
+            }
+
+            function cals(){
+                var x = Number(document.getElementById("num1").value);
+                var y = Number(document.getElementById("num2").value);
+                var z = tcal(x,y);
+                //var z = 계산(x,y); -  한글 function 값이 있음 '계산'
+                console.log(z[0],z[1],z[2],z[3]);
+            }
+
+            function tcal(x,y){
+                var a = x + y;
+                var b = x - y;
+                var c = x * y;
+                var d = x / y;
+                return [a,b,c,d];
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="실패" onclick="aaa()">
+        <br>
+        <input type="button" value="더블값" onclick="ddd()">
+        <br>
+        <!-- 응용문제.
+        두 값에 숫자를 입력라하.
+        결과확인 클릭시 +,-,*,/ 값을 계산하여 각각의 결과를 출력하라
+        return 함수 사용할 것 -->
+        <input type="text" id="num1">
+        <input type="text" id="num2">
+        <input type="button" value="결과확인" onclick="cals()">
+    </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 1일차 - Vue 핸들링3 - 사용자가 입력한 값을 이용하기</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            .login_box {
+                width: 455px;
+                height: 130px;
+                border: 1px solid black;
+                padding-left: 10px;
+                padding-right: 10px;
+                box-sizing: border-box;
+            }
+            .login_box > span {
+                height: 90px;
+                display: inline-block;
+            }
+            .login_box > span:nth-child(1){
+                width: 230px;
+                background-color: brown;
+            }
+            .login_box > span:nth-child(1) > ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .login_box > span:nth-child(1) > ul > li {
+                height: 45px;
+            }
+            .login_box > span:nth-child(2){
+                width: 150px;
+                background-color:cadetblue;
+            }
+            .inputs {
+                width: 230px;
+                height: 40px;
+            }
+            .btn {
+                width: 150px;
+                height: 90px;
+                border: 1px solid black;
+            }
+            em {
+                display: block;
+                font-style: normal;
+                width: 450px;
+                height: 10px;
+                clear: both;
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <input type="text" name="text1" v-model="text1" placeholder="숫자입력">
+            <input type="text" name="text2" v-model="text2" placeholder="숫자입력">
+            <input type="button" v-model="btn" v-on:click="abc">
+            <span>{{text3}}</span>
+        </div>
+
+        <!-- 응용문제1 -->
+        <div class="login_box" id="lbox">
+            <span>
+                <ul>
+                    <li>
+                        <input v-bind:type="input1" v-model="mid" class="inputs" placeholder="아이디를 입력하세요">
+                    </li>
+                    <li>
+                        <input v-bind:type="input2" v-model="mpass" class="inputs" placeholder="비밀번호를 입력하세요">
+                    </li>
+                </ul>
+            </span>
+            <span>
+                <input v-bind:type="input3" v-model="btn" v-on:click="login" class="btn">
+            </span>
+            <em>{{error_msg}}</em>
+        </div>
+    </body>
+    <script>
+        let bb = new Vue({
+            el:"#lbox",
+            data:{
+                mid:null,
+                mpass:null,
+                input1:"text",
+                input2:"password",
+                input3:"submit",
+                error_msg:"",
+                btn:"로그인"
+            },
+            methods:{
+                login:function(){
+                    if(this.mid == null){
+                        this.error_msg = "아이디를 입력하세요";
+                    }
+                    else if(this.mpass == null){
+                        this.error_msg = "비밀번호를 입력하세요";
+                    }
+                    else{
+                        this.error_msg = null;
+                        // location.href = "http://naver.com";
+                    }
+                }
+            }
+        });
+
+
+        let a = new Vue({
+            el:"#box",
+            data:{
+                text1:null,
+                text2:null,
+                text3:"",
+                btn:"클릭"
+            },
+            methods:{
+                abc:function(){
+                    if(this.text1 == null || this.text2 == null){  // value를 적지 않아도 적용이 가능하다
+                        alert("숫자를 모두 입력해 주세요");
+                    }
+                    else{
+                        this.text3 = Number(this.text1) + Number(this.text2);
+                    }
+                }
+            }
+        });
+    </script>
+</html>

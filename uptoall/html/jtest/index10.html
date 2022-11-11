@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scaleable=no,minimum-scale=1.0,maximum-scale=1.0">
+    <title>문제10 - Javascript</title>
+    <script>
+        function change(){
+            document.getElementById("box").style.backgroundColor = document.getElementById("cp").value;;
+        }
+    </script>
+<!--
+문제10
+해당 컬러를 선택시 box 안에 리스트에 맞는 색상으로 
+변경 되어야 합니다.
+-->
+    <style>
+        * {box-sizing: border-box;}
+        body { margin: 0; padding: 0; text-align: center;}
+        .views { width: 200px; height: 150px; display: block;
+        margin: 0 auto; text-align: center;
+        border:1px solid #ccc; border-radius: 5px;
+        padding-top: 5px; box-sizing: border-box;
+        }
+        .box { width: 100px; height: 100px;
+        border:1px solid black; margin: 0 auto; margin-bottom: 5px;
+        }
+        .colorpick { width:150px; height:30px; text-indent: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<p>해당 컬러를 선택하면 컬러를 확인 하실 수 있습니다.</p>
+<span class="views">
+<div class="box" id="box"></div>
+<select class="colorpick" id="cp" onchange="change()">
+    <option value="">[컬러를 선택하세요]</option>
+    <option value="red">red</option>
+    <option value="blue">blue</option>
+    <option value="yellow">yellow</option>
+    <option value="green">green</option>
+    <option value="pink">pink</option>
+</select>
+</span>
+</body>
+</html>

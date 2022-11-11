@@ -1,0 +1,139 @@
+<?php
+    $date = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <title>Ajax 연습 3</title>
+        <link rel="stylesheet" type="text/css" href="./index4.css?v=<?=$date?>">
+    </head>
+    <body>
+        <form id="data" name="data" enctype="application/x-www-form-urlencoded">
+            <section class="sbody">
+                <div class="member_view">
+                    <table cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr class="thead_tr">
+                                <td colspan="2" align="center">
+                                    건강보험 회원가입
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody_tr">
+                            <tr>
+                                <td>아이디</td>
+                                <td>
+                                    <input type="text" id="user_id" name="user_id" class="input1">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>패스워드</td>
+                                <td>
+                                    <input type="password" id="user_pw" name="user_pw" class="input1">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>이메일</td>
+                                <td>
+                                    <input type="email" id="user_email" name="user_email" class="input2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>전화번호</td>
+                                <td>
+                                    <input type="tel" id="user_tel" name="user_tel" class="input2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>거주지역</td>
+                                <td>
+                                    <select id="user_area" name="user_area" class="input1">
+                                        <option value="">[지역]</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>관심분야<br>(한 가지만 선택)</td>
+                                <td class="td_flex">
+                                    <span>
+                                        <label><input type="checkbox" id="user_field0" name="user_field" value="악성신생물 (각종 암)"> 악성신생물 (각종 암)</label>
+                                        <label><input type="checkbox" id="user_field1" name="user_field" value="정신 및 행동 장애"> 정신 및 행동 장애</label>
+                                    </span>
+                                    <span>
+                                        <label><input type="checkbox" id="user_field2" name="user_field" value="순환계통 질환"> 순환계통 질환</label>
+                                        <label><input type="checkbox" id="user_field3" name="user_field" value="소화계통 질환"> 소화계통 질환</label>
+                                        <label><input type="checkbox" id="user_field4" name="user_field" value="호흡계통 질환"> 호흡계통 질환</label>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>현재연령</td>
+                                <td>
+                                    <select id="user_age" name="user_age" class="input1">
+                                        <option value="">[나이]</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <span style="margin-top: 20px;">
+                        <input type="button" value="회원가입" class="join_btn" onclick="join();">
+                        <input type="reset" value="가입취소" class="join_btn">
+                    </span>
+                </div>
+            </section>
+        </form>
+    </body>
+    <script>
+        let list_data;
+        function windowck(){
+            if(window.XMLHttpRequest){
+                return new XMLHttpRequest();
+            }
+        }
+        function fileopen(){
+            if(list_data.readyState == XMLHttpRequest.DONE && list_data.status == 200){
+                // console.log(this);
+                member_data(this);
+            }
+        }
+        list_data = windowck();
+        list_data.onreadystatechange = fileopen;
+        list_data.open("GET","./member_ship.json",true);
+        list_data.send();
+
+        function member_data(get_data){
+            let option_area,option_age;
+            const data = JSON.parse(get_data.response);
+            // console.log(data["area"]); // area
+            // console.log(data["age"]); // age
+            option_area = document.getElementById("user_area");
+            option_age = document.getElementById("user_age");
+
+            // area
+            data["area"].forEach(function(d1,d2,d3){
+                var area_list = document.createElement("option");
+                area_list.setAttribute("value",d1);
+                area_list.innerText = d1;
+                // console.log(area_list);
+                option_area.append(area_list);
+            });
+
+            // age
+            data["age"].forEach(function(d1,d2,d3){
+                var age_list = document.createElement("option");
+                age_list.setAttribute("value",d1);
+                age_list.innerText = d1;
+                // console.log(age_list);
+                option_age.append(age_list);
+            });
+        }
+
+        function join(){
+            console.log(location.search);
+            data.submit();
+        }
+    </script>
+</html>

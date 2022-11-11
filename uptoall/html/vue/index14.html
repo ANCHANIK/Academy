@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 2일차 - Vue HTML 출력 [응용파트] & v-text, v-html</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <span v-text="texts"></span>
+            <span v-html="htmls"></span>
+        </div>
+        <div id="box2">
+            <ul v-html="lists"></ul>
+            <button v-bind:type="btn" v-on:click="bbb">list 출력</button>
+        </div>
+    </body>
+    <script>
+        let a = new Vue({
+            el:"#box",
+            data:{
+                texts:"홍길동",  // v-text : innerText와 같은 속성
+                htmls:"<input type='text'>" // v-html : innerHTML과 같은 속성
+            },
+            methods:{
+
+            }
+        });
+
+        let b = new Vue({
+            el:"#box2",
+            data:{
+                btn:"button",
+                lists:"",
+                lists2:"<li>세종대왕</li>"
+            },
+            methods:{
+                bbb:function(){
+                    this.lists = "<li>홍길동</li><li>강감찬</li><li>유관순</li>" + this.lists2;
+                }
+            }
+        });
+    </script>
+</html>

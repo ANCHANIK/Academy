@@ -1,0 +1,85 @@
+<?php
+    include "./minfo.php";
+
+?>
+<!-- mid : 아이디, mname : 고객명 -->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 8일차 (중급 - 로그인)</title>
+        <style>
+            .logout {
+                width: 300px;
+                height: 200px;
+                border: 1px solid black;
+                display: block;
+            }
+            .login {
+                width: 300px;
+                height: 200px;
+                border: 1px solid black;
+                display: none;
+            }
+        </style>
+        <script>
+            let mid,mpass,user;
+            function log(){
+                mid = document.getElementById("mid").value;
+                mpass = document.getElementById("mpass").value;
+                console.log(mid,mpass);
+                
+                if(mid ==""){
+                    alert("아이디를 입력해 주세요");
+                    return false;
+                }
+                else if(mpass == ""){
+                    alert("패스워드를 입력해 주세요");
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+            
+            // 로그아웃 버튼 클릭시 "로그아웃 하시겠습니까?" 메세지 출력 후 확인 누르면 로그아웃
+            // mlogout.php
+            function logout(){
+                // 로그아웃은 form 을 사용하지 않는다.
+                if(confirm("로그아웃 하시겠습니까?") == true){
+                    location.href = './mlogout.php';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <!-- post, middle28.php -->
+        <form id="fm" method="POST" action="./middle28.php" enctype="application/x-www-form-urlencoded" onsubmit="return log();">
+            <div class="logout" id="logout">
+                <input type="text" name="mid" id="mid" placeholder="아이디를 입력해 주세요">
+                <input type="password" name="mpass" id="mpass" placeholder="패스워드를 입력해 주세요">
+                <input type="submit" value="로그인">
+            </div>
+        </form>
+            <div class="login" id="login">
+                <span id="user"></span>
+                <input type="button" value="로그아웃" onclick="logout()">
+            </div>
+    </body>
+    <script>
+            var mname = "<?php echo $mname?>";
+            // 해당 값을 백엔드에 변수를 받아서 Javascript 변수값으로 이관한다.
+            if(mname != ""){
+                document.getElementById("logout").style.display = "none";
+                document.getElementById("login").style.display = "block";
+                let nametext = mname + "님 환영합니다!";
+                document.getElementById("user").innerText = nametext;
+                //appendChild 는 createElements를 써야 사용 가능
+            }
+
+
+    </script>
+</html>

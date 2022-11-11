@@ -1,0 +1,76 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol,
+dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+span,
+label,
+main {
+  display: block;
+}
+p {
+  text-align: center;
+}
+.box {
+  width: 500px;
+  height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 10px;
+}
+.btn {
+  width: 150px;
+  height: 30px;
+  background-color: #ccc;
+  border: 1px solid gray;
+}
+.span1 {
+  width: inherit;
+  height: 40px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.span2 {
+  width: inherit;
+  height: 40px;
+}
+.text {
+  display: inline;
+}
+@media screen and (min-width: 320px) and (max-width: 560px) {
+  .box {
+    width: 95%;
+    height: 150px;
+    padding-top: 15px;
+  }
+  .span1 {
+    width: 100%;
+    height: 80px;
+    display: block;
+  }
+  .span2 {
+    width: 100%;
+    height: 80px;
+    display: block;
+  }
+  .text {
+    width: 100%;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+  }
+}

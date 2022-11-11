@@ -1,0 +1,70 @@
+<meta charset="UTF-8">
+<span class="loempty30"></span>
+<form name="lofrm" @submit.prevent=login();>
+    <aside class="login_buisness_aside">
+        <input type="hidden" name="login_part" value="person">
+        <div class="login_buisness">
+            <div class="login_buisness_title">
+                {{login_title}}
+            </div>
+            <span class="loempty20"></span>
+            <!--radio  -->
+            <div class="login_buisness_radio">
+                <span>
+                    <label><input type="radio" name="login_b" checked @click="click_lo(0)">개인 회원</label>
+                    <label><input type="radio" name="login_b" @click="click_lo(1)">사업자 회원</label>
+                </span>
+            </div>
+            <span class="loempty20"></span>
+            <div class="personal_login" v-if="on==0">
+                <span>
+                    <ul>
+                        <li>
+                            <input type="text" name="person_id" ref="person_id" v-model="lo_name" placeholder="로그인 이메일을 입력해 주세요" autocomplete="off">
+                        </li>
+                        <span class="loempty20"></span>
+                        <li>
+                            <input type="password" name="person_pw" ref="person_pw" v-model="lo_pass" placeholder=" 패스워드를 입력해 주세요">
+                        </li>
+                    </ul>
+                    <label class="login_aaa">
+                        <input type="submit" value="로그인">
+                    </label>
+                </span>
+            </div>
+            <div class="company_login" v-if="on==1">
+                <span>
+                    <ul class="bu_class_input">
+                        <li>
+                            <input type="text" v-model="bu_name" ref="bu_name" placeholder="사업자 이메일을 입력하세요" autocomplete="off">
+                        </li>
+                        <span class="loempty20"></span>
+                        <li>
+                            <input type="text" v-model="bu_num" ref="bu_num" placeholder="사업자 등록번호를 입력하세요" maxlength="15" autocomplete="off">
+                        </li>
+                        <span class="loempty20"></span>
+                        <li>
+                            <input type="password" v-model="bu_pass" ref="bu_pass" placeholder="패스워드를 입력하세요">
+                        </li>
+                    </ul>
+                    <label class="login_b_btn" @click=login_buisness()>
+                        <span>사업자</span>
+                        <span>로그인</span>
+                    </label>
+                </span>
+            </div>
+            <!--alert-->
+            <span class="alertre" ref="alertre">{{alert}}</span>
+            <div class="btn_join3">
+                <label><input type="button" value="회원가입"></label>
+                <label><input type="button" value="아이디찾기"></label>
+                <label><input type="button" value="패스워드 찾기"></label>
+            </div>
+            
+            <span class="loempty20"></span>
+
+            <div class="join_text">{{lo_memo}}</div>
+        </div>
+    </aside>
+</form>
+<span class="loempty30"></span>

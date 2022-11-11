@@ -1,0 +1,61 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>HTML 4.0 6일차 - CSS 2.0 position (응용)</title>
+        <style>
+            /*
+            ul, ol 사용시 li의 각각의 가로 크기에 맞춰서 ul, ol width를 정확하게 수치를 입력해야 됨
+            부모객체와 자식객체 float를 따로따로 사용할 수 있다.
+            */
+            body { margin:0; padding:0; }
+            .ulcss {
+                list-style: none;
+                margin:0;
+                padding:0;
+                float:right;
+                }
+            .licss {
+                width:60px;
+                height:25px;
+                border:1px solid black;
+                border-right:none;
+                float: left; 
+                text-align: center;
+                line-height:25px;
+                font-size:12px;
+                font-family: "돋음체";
+                }
+                .b { border-right:1px solid black; }
+                .ulcss2 { clear:both; list-style: none; margin:0; height:0; float:right;}
+                .licss2 {
+                    width:60px;
+                    height:25px;
+                    float: left;
+                    text-align: center;
+                    font-size: 12px;
+                    font-family: "굴림체";
+                    line-height: 25px;
+                    border-right:1px solid black;
+                }
+                .br_clear { border-right: none;}
+        </style>
+    </head>
+    <body>
+        <ul class="ulcss">
+            <li class="licss">HOME</li>
+            <li class="licss">LOGIN</li>
+            <li class="licss">MEMBER</li>
+            <li class="licss">MYINFO</li>
+            <li class="licss b">CS</li>
+        </ul>
+        <br><br><br>
+        <ul class="ulcss2">
+            <li class="licss2">HOME</li>
+            <li class="licss2">LOGIN</li>
+            <li class="licss2">MEMBER</li>
+            <li class="licss2">MYINFO</li>
+            <li class="licss2 br_clear">CS</li>
+        </ul>
+    </body>
+</html>

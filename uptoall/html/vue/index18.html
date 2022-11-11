@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 3일차 - Vue 배열 + splice + push + slice + shift</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <p>전체 데이터 총 {{data_ea}}개 입니다.</p>
+            <button v-on:click="abc" v-text="btn"></button>
+            <ul>
+                <!-- <li v-for="(subject,index) in arr">{{subject}}</li> 이렇게 써두 됨-->
+                <li v-for="(subject,index) in arr"  v-text="subject">{{subject}}</li>
+            </ul>
+        </section>
+    </body>
+    <script>
+        /*
+        - 배열로 사용하는 형태
+        - splite : 배열 생성
+        - push : 배열에 맨 끝에 데이터를 추가
+        - splice : 배열에 특정 값만큼 나눠서 출력 (단, remove기능 있음)
+        - slice : 배열에 특정 값만큼 분활하여 출력 (단, 시작값과 출력값을 모두 변화되어야 함. remove 기능 없음)
+        - shift : 특정 배열값을 삭제할 때 사용함 (맨 앞에 있는 값을 삭제)
+        - unshift : 배열값을 추가할 때 사용함
+        */
+        const datas = ["HTML","CSS","SCSS","JAVASCRIPT","JQUERY","AJAX"];
+        var s_no = 0;  // 배열 출력 번호 값
+        var e_no = 2;  // 배열 출력 끝 값
+        let a = new Vue({
+            el:"#box",
+            data:{
+                arr:null,
+                data_ea:datas.length,  // 배열 갯수 출력
+                btn:"more",
+                no:0
+            },
+            methods:{
+                abc:function(){
+                    if(e_no > this.data_ea){
+                        // 해당 배열값조다 클 경우 다시 배열의 처음 값으로 전환
+                        s_no = 0;
+                        e_no = 2;
+                    }
+                    this.arr = datas.slice(s_no,e_no); //(시작값,종료값)
+                    s_no += 2;
+                    e_no += 2;
+                }
+            }
+        });
+    </script>
+</html>

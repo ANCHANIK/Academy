@@ -1,0 +1,67 @@
+{"best_product":[
+    {	
+        "a_wkimg":"./img/mw1.png",
+        "a_wktitle":"볼티아 트임 부츠컷 팬츠",
+        "a_wkpd":"24,200원",
+        "a_wkdp":"40%",
+        "a_wkap":"14,500원",
+        "a_wkico":"./img/b.png"
+    },
+    {	 
+        "a_wkimg":"./img/mw2.png",
+        "a_wktitle":"로멘 린넨팬츠",
+        "a_wkpd":"24,800원",
+        "a_wkdp":"10%",
+        "a_wkap":"24,800원",
+        "a_wkico":"./img/h.png"
+    },
+    {	 
+        "a_wkimg":"./img/mw3.png",
+        "a_wktitle":"쿨네드 레터링티셔츠",
+        "a_wkpd":"",
+        "a_wkdp":"",
+        "a_wkap":"6,800원",
+        "a_wkico":"./img/b.png"
+    },
+   {	 
+    "a_wkimg":"./img/mw4.png",
+    "a_wktitle":"더보이핏 데님팬츠",
+    "a_wkpd":"34,800원",
+    "a_wkdp":"10%",
+    "a_wkap":"31,400원",
+    "a_wkico":"./img/b.png"
+    },
+    {	
+        "a_wkimg":"./img/mw5.png",
+        "a_wktitle":"더네프 플라워원피스",
+        "a_wkpd":"22,000원",
+        "a_wkdp":"15%",
+        "a_wkap":"18,700원",
+        "a_wkico":"./img/n.png"
+       },
+   
+   {	
+    "a_wkimg":"./img/mw6.png",
+    "a_wktitle":"데일오픈 썸머가디건",
+    "a_wkpd":"15,800원",
+    "a_wkdp":"50%",
+    "a_wkap":"7,900원",
+    "a_wkico":"./img/b.png"
+    },
+    {	 
+        "a_wkimg":"./img/mw7.png",
+        "a_wktitle":"로멘 린넨팬츠",
+        "a_wkpd":"24,800원",
+        "a_wkdp":"10%",
+        "a_wkap":"22,400원",
+        "a_wkico":"./img/h.png"
+    },
+   {	 
+    "a_wkimg":"./img/mw8.png",
+    "a_wktitle":"밀리언 플라워원피스",
+    "a_wkpd":"29,800원",
+    "a_wkdp":"10%",
+    "a_wkap":"26,900원",
+    "a_wkico":"./img/b.png"
+    }
+]}

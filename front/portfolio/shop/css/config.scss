@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+// font-family: 'Noto Sans KR', sans-serif;
+
+@mixin base {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin object($w,$h,$d,$p) {
+    width: $w;
+    height: $h;
+    display: $d;
+    position: $p;
+}
+@mixin fonts($fs,$fw,$fc,$lh) {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: $fs;
+    font-weight: $fw;
+    color: $fc;
+    line-height: $lh;
+}
+%ulol {
+    @include base;
+    list-style: none;
+}
+html,body,header,main,section,article,aside,footer,table,tr,td,dl,dd,dt,span,label {
+    @include base;
+    @include fonts(12px, 400, black, "");
+    display: block;
+}
+header {
+    @include object("", auto, block, "");
+}
+nav {
+    @include object("", 50px, block, "");
+    background-color: black;
+}
+section {
+    @include object("", auto, block, relative);
+}
+main {
+    @include object("", auto, block, "");
+    margin: 0 auto;
+    & > section {
+        @include object("", auto, block, "");
+        margin: 0 auto;
+    }
+    & > article {
+        @include object("", auto, block, "");
+        margin: 0 auto;
+    }
+}
+footer {
+    @include object(100%, auto, block, "");
+    margin: 0 auto;
+    background-color: white;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+img {
+    width: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,176 @@
+@charset "UTF-8";
+@import "./config.scss";
+
+//----------------------------------------- Fade in effect --------------------------------------------------
+
+.shop_banner_aside_Fade {
+    @include object(100%, 534px, none, "");
+//  ---------------------------button-----------------------------
+    & > div:nth-of-type(1){
+        @include object(100%, 57px, flex, absolute);
+        top: 50%;
+        margin-top: -29px;
+        z-index: 10;
+        justify-content: space-between;
+        & > span {
+            background-image: url("../banner/arrow.png");
+            background-repeat: no-repeat;
+            cursor: pointer;
+            opacity: 0;
+        }
+        & > span:nth-of-type(1) {
+            @include object(30px, 57px, block, "");
+            margin-left: 4%;
+        }
+        & > span:nth-of-type(2) {
+            @include object(30px, 57px, block, "");
+            margin-right: 4%;
+            background-position-x: -30px; 
+        }
+    }
+ // -----------------------------banner-------------------------------
+    & > div:nth-of-type(2){
+        @include object(100%, 534px, block, "");
+        // overflow: hidden;
+        & > .main_banner_ul {
+            @extend %ulol;
+            margin: 0 auto;
+            min-width: 1174px;
+            min-height: 534px;
+            position: relative;
+            & > li {
+                @include object(100%, 534px, none, absolute);
+                & > img {
+                    min-height: 534px;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+// -----------------------------disc-------------------------------
+    & > div:nth-of-type(3){
+        @include object(100%, auto, flex, relative);
+        bottom: 25px;
+        justify-content: center;
+        & > .main_banner_disc_ol              {
+            @include object(auto, auto, flex, relative);
+            @extend %ulol;
+            left: -30%;
+            & > li {
+                width: 110px;
+                height: 5px;
+                background-color: rgba(0,0,0,1);
+                cursor: pointer;
+                margin-left: 4px;
+            }
+            & > li:nth-of-type(1) {
+                background-color: red;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+
+//----------------------------------------- rolling effect --------------------------------------------------
+
+.shop_banner_aside_Rolling {
+    @include object(100%, 534px, none, relative);
+
+// ---------------------- main banner ------------------
+    & > .main_banner {
+        @include object(100%, inherit, block, relative);
+        overflow: hidden;
+        & > .main_banner_ul {
+            @include object(100%, inherit, block, absolute);
+            @extend %ulol;
+            z-index: 10;
+            & > li {
+                @include object(100%, 534px, block, "");
+                & > img {
+                    min-height: 534px;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+// -----------------------rolling disc-------------------
+    & > .main_banner_rolling_disc {
+        @include object(10px, 12%, block, absolute);
+        top: 10px;
+        z-index: 10;
+        left: 10px;
+        & > span {
+            @include object(100%, 100%, flex, "");
+            justify-content: center;
+            align-items: center;
+            & > .main_banner_rolling_disc_ul{
+                @include object(8px, 100%, flex, "");
+                @extend %ulol;
+                flex-flow: column nowrap;
+                justify-content: space-between;
+                & > li {
+                    @include object(100%, 8px, block, "");
+                    background-color: white;
+                    border: 1px solid #aaa;
+                    cursor: pointer;
+                    border-radius: 30px;
+                }
+            }
+        }
+    }
+    // ---------------좌우 버튼-----------------
+    & > .main_banner_roll_button {
+        @include object(30px, 70px, flex, absolute);
+        z-index: 20;
+        bottom: 20px;
+        & > ul {
+            @include object(inherit, 70px, flex, relative);
+            @extend %ulol;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            left: 0px;
+            opacity: 0;
+            & > li:nth-of-type(1) {
+                @include object(28px,30px,block,relative);
+                background-color: rgba(255,255,255,0.6);
+                border-radius: 100%;
+                border: 1px solid #aaa;
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.92);
+                }
+                & > span {
+                    @include object(inherit,10px,block,relative);
+                    overflow: hidden;
+                    top: 9px;
+                    cursor: pointer;
+                    opacity: 1;
+                    & > img {
+                        transform: rotate(90deg);
+                        margin-top: 2px;
+                    }
+                }
+            }
+            & > li:nth-of-type(2){
+                @include object(28px,30px,block,relative);
+                background-color: rgba(255,255,255,0.6);
+                border-radius: 100%;
+                border: 1px solid #aaa;
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.92);
+                }
+                & > span{
+                    @include object(inherit,10px,block,relative);
+                    overflow: hidden;
+                    top: 12px;
+                    cursor: pointer;
+                    opacity: 1;
+                    & > img {
+                        transform: rotate(90deg);
+                        margin-top: -18px;
+                    }
+                }
+            }
+        }
+    }
+}

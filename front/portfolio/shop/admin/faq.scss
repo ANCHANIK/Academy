@@ -1,0 +1,320 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@mixin base {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin f_fonts($fs,$fw,$color) {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+}
+@mixin f_object($w,$h,$d,$p) {
+    width: $w;
+    height: $h;
+    display: $d;
+    position: $p;
+}
+%ulol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    // color: dodgerblue;
+}
+img {
+    // width: 100%;
+    object-fit: cover;
+}
+ul,ol,dl {
+    @extend %ulol;
+}
+.faq_list_article {
+    @include f_object(100%, 40px, block, "");
+    @include f_fonts(110%, 400, black);
+    background-color: #f2f2f2;
+    & > .faq_list_article_text {
+        @include f_object(1200px, inherit, block, "");
+        line-height: 40px;
+        margin: 0 auto;
+    }
+}
+.faq_list_aside {
+    @include f_object(1200px, auto, block, "");
+    margin: 0 auto;
+    // 검색파트
+    & > .faq_list_search {
+        @include f_object(inherit, 70px, flex, "");
+        align-items: center;
+        & > span:nth-of-type(1) {
+            @include f_object(280px, 30px, block, "");
+            & > input {
+                @include f_object(inherit, inherit, block, "");
+                text-indent: 5px;
+                border: none;
+                border-bottom: 1px solid dimgray;
+            }
+        }
+        & > span:nth-of-type(2){
+            @include f_object(260px, 30px, flex, "");
+            & > button {
+                @include f_object(120px, inherit, block, "");
+                @include f_fonts(15px, 300, white);
+                background-color: tomato;
+                border: none;
+                border-radius: 3px;
+                margin-left: 20px;
+            }
+            & > button:hover {
+                background-color: rgb(255, 75, 44);
+            }
+        }
+    }
+    // category 버튼
+    &  > .cate_button{
+        @include f_object(850px, 100px, flex, "");
+        align-items: center;
+        // background-color: aqua;
+        & > ul {
+            @include f_object(100%, 55px, flex, "");
+            justify-content: space-between;
+            // background-color: brown;
+            & > li {
+                @include f_object(130px, inherit, block, "");
+                @include f_fonts(17px, 500, black);
+                border: 1px solid gray;
+                border-radius: 5px;
+                line-height: 53px;
+                text-align: center;
+                cursor: pointer;
+                &:hover {
+                    background-color: dimgray;
+                    color: white;
+                    border: 1px solid #CCCCCC;
+                }
+            }
+        }
+    }
+    // 테이블
+    & > .faq_list_table {
+        @include f_object(inherit, auto, block, "");
+        margin-top: 15px;
+        & > table {
+            @include f_object(inherit, auto, block, "");
+            & > .faq_list_thead {
+                & > tr {
+                    width: 100%;
+                    height: 30px;
+                    & > th {
+                        border: 1px solid #aaa;
+                        background-color: #cccccc;
+                    }
+                    & > th:nth-of-type(1) {
+                        width: 150px;
+                        border: 1px solid #aaa;
+                    }
+                    & > th:nth-of-type(2) {
+                        width: 700px;
+                        border: 1px solid #aaa;
+                    }
+                    & > th:nth-of-type(3) {
+                        width: 150px;
+                        border: 1px solid #aaa;
+                    }
+                    & > th:nth-of-type(4) {
+                        width: 200px;
+                        border: 1px solid #aaa;
+                    }
+                }
+            }
+            & > .faq_list_tbody > tr:nth-of-type(1) {
+                & > td {
+                    border: 1px solid #aaa;
+                    height: 35px;
+                }
+                & > td:nth-of-type(2) {
+                    cursor: pointer;
+                    text-align: left;
+                    text-indent: 10px;
+                }
+                & > td:nth-of-type(2):hover {
+                    font-weight: 700;
+                }
+                & > td:nth-of-type(3) {
+                    cursor: pointer;
+                }
+                & > td:nth-of-type(3):hover {
+                    font-weight: 700;
+                }
+            }
+            // answer
+            & > .faq_list_tbody > tr:nth-of-type(2) {
+                display: none;
+                & > td {
+                    height: 35px;
+                    &:nth-of-type(1) > img {
+                        height: 50%;
+                    }
+                    &:nth-of-type(2){
+                    text-align: left;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    letter-spacing: 1px;
+                    }
+                }
+            }
+            & > .faq_list_notbody > tr {
+                & > td {
+                    border: 1px solid #aaa;
+                    height: 30px;
+                }
+            }
+        }
+    }
+    & > .faq_list_btn {
+        @include f_object(inherit, 60px, flex, "");
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+        & > button {
+            @include f_object(120px, 30px, block, relative);
+            @include f_fonts(15px, 300, white);
+            background-color: crimson;
+            border: none;
+            border-radius: 3px;
+            line-height: 30px;
+        }
+        & > button:hover {
+            background-color: rgb(186, 8, 44);
+        }
+    }
+}
+.fimg {
+    height: 100%;
+}
+//------------------------------------------- pageing 번호 ----------------------------------------
+.faq_page {
+    @include f_object(1200px, 30px, block, "");
+    margin: 0 auto;
+    margin-top: 30px;
+    & > ul {
+        @include f_object(100%, inherit, flex, "");
+        flex-flow: row wrap;
+        justify-content: center;
+        & > li {
+            @include f_object(30px, 30px, block, "");
+            @include f_fonts(13px, 400, rgb(46, 46, 46));
+            background-color: #ccc;
+            line-height: 30px;
+            text-align: center;
+            margin-right: 7px;
+            cursor: pointer;
+        }
+        & > li:hover {
+            background-color: gray;
+            color: white;
+        }
+    }
+}
+//---------------------------------------- FAQ 신규 등록 ------------------------------------------
+.faq_insert_aside {
+    @include f_object(1200px, auto, block, "");
+    margin: 0 auto;
+    & > table {
+        @include f_object(inherit, auto, block, "");
+        margin-top: 30px;
+        & > .faq_insert_table {
+            @include f_object(inherit, auto, block, "");
+            & > tr {
+                @include f_object(100%, 50px, block, "");
+                & > td {
+                    height: 50px;
+                    border-bottom: 1px solid #ccc;
+                }
+                & > td:nth-of-type(1) {
+                    width: 200px;
+                    text-align: left;
+                    text-decoration: overline;
+                    text-indent: 10px;
+                }
+                & > td:nth-of-type(2) {
+                    width: 1000px;
+                    text-align: left;
+                }
+            }
+            & > .faq_insert_cate { // 카테고리
+                height: 50px;
+                & > td:nth-of-type(2) {
+                    padding: 5px;
+                    box-sizing: border-box;
+                    & > select {
+                        width: auto;
+                        height: 30px;
+                        text-align: center;
+                    }
+                }
+            }
+            & > .faq_insert_que { // 질문내용
+                height: 50px;
+                & > td:nth-of-type(2) {
+                    padding: 5px;
+                    box-sizing: border-box;
+                    & > input {
+                        width: 100%;
+                        height: 30px;
+                        text-indent: 5px;
+                    }
+                }
+            }
+            & > .faq_insert_answ {  // 답변내용
+                height: auto;
+                & > td:nth-of-type(2) {
+                    height: 300px;
+                    padding: 5px;
+                    box-sizing: border-box;
+                    & > textarea {
+                        @include f_object(100%, inherit, block, "");
+                        resize: none;
+                        padding: 5px;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+    }
+}
+.faq_insert_btn {
+    @include f_object(100%, 80px, flex, "");
+    justify-content: flex-end;
+    align-items: center;
+    & > .fpb {
+        @include f_object(120px, 30px, block, "");
+        @include f_fonts(13px, 300, white);
+        border: none;
+        border-radius: 3px;
+        margin-left: 20px;
+        &:nth-of-type(1) {
+            background-color: tomato;
+        }
+        &:nth-of-type(2) {
+            background-color: crimson;
+        }
+        &:nth-of-type(3) {
+            background-color: cornflowerblue;
+        }
+        &:nth-of-type(1):hover {
+            background-color: rgb(255, 75, 44);
+        }
+        &:nth-of-type(2):hover {
+            background-color: rgb(186, 8, 44);
+        }
+        &:nth-of-type(3):hover {
+            background-color: rgb(67, 115, 203);
+        }
+    }
+}

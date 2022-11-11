@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 7일차 (중급 - 배열 이미지 적용)</title>
+        <style>
+            body { margin: 0; padding: 0;}
+    .divcss { width: 1200px; height: 800px; border:1px solid red;
+    margin: 0 auto;
+    padding: 40px; box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    }
+    .products {
+    display: block;
+    width:250px;
+    height:400px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: 12px;
+    }
+    .products > ul { width: inherit; height: auto; list-style: none;
+    margin: 0; padding: 0; }
+    .products > ul > li:nth-of-type(1){
+        width: 100%;
+        height: 250px;
+    }
+    .products > ul > li:nth-of-type(1) > img {
+        width: 100%;
+        object-fit:contain;
+    }
+    .products > ul > li:nth-of-type(2){
+        width: inherit;  height: 75px; text-align: center;
+        display: table-cell; vertical-align: middle;
+    }
+    .products > ul > li:nth-of-type(3){
+        width: 100%;  height: 75px; text-align: center; 
+        line-height: 75px;
+    }
+        </style>
+    </head>
+    <body>
+        <div class="divcss" id="divcss">
+            <!-- <span class="products">
+                <ul>
+                    <li><img src="./product/product0.jpg"></li>
+                    <li>T-BUC 운동화</li>
+                    <li>47,300 원</li>
+                </ul>
+            </span> -->
+        </div>
+    </body>
+        <script>
+            const product = {
+                "pd":["T-BUC 운동화","트래커 하이캐리어 메이트","Aptamil 프로푸트라<br>어드밴스 분유","앱솔루트 유기농 분유"],
+                "img":["./product/product0.jpg","./product/product1.jpg","./product/product2.jpg","./product/product3.jpg"],
+                "money":["47,300","69,000","13,470","21,200"]
+            }
+
+            let bfor,sfor;
+            var span,ul,li,html1,imgs,pdname,pmoney;
+            for(bfor in product.pd){ // 큰 for 4개
+                span = document.createElement("span");
+                span.className = "products";
+                ul = document.createElement("ul");
+                // console.log(product);
+
+                for(sfor in product){
+                    // 키 값과 출력하는 값의 순서가 다르므로 재배열하여
+                    // 순서에 맞게 출력하기 위한 조건 형태
+                    
+                    // console.log(product[sfor][bfor]);
+                    if(sfor == "img"){
+                        imgs = "<li><img src='"+ product[sfor][bfor] +"'></li>";
+                    }
+                    else if(sfor == "pd"){
+                        pdname = "<li>"+ product[sfor][bfor] +"</li>";
+                    }
+                    else if(sfor == "money"){
+                        pmoney = "<li>"+ product[sfor][bfor] +"</li>";
+                    }
+                }
+                ul.innerHTML = imgs + pdname + pmoney;
+                span.appendChild(ul);
+                document.getElementById("divcss").appendChild(span);
+            }
+        </script>
+</html>

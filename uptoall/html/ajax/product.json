@@ -1,0 +1,48 @@
+{
+    "product": [
+        {
+                "p_name": "로이스 버튼 니트원피스",
+                "p_info": "톡톡하고 깔끔한 니트소재",
+                "p_price": "38,000",
+                "p_sales" : "34,900",
+                "p_percent" : "8% 할인",
+                "p_img": "./product/product1.webp",
+                "p_review" : "86",
+                "p_link" : "https://loveparis.net/product/new8%ED%95%A0%EC%9D%B8-128%ED%99%94%EB%B6%80%ED%84%B0-%EC%A0%95%EC%83%81%EA%B0%80-38000%EC%9B%90%EB%A1%9C%EC%9D%B4%EC%8A%A4-%EB%B2%84%ED%8A%BC-%EB%8B%88%ED%8A%B8%EC%9B%90%ED%94%BC%EC%8A%A4/14684/category/1/display/3/"
+                
+        },
+       {
+                "p_name": "밍키 하운드 트위드 울스커트",
+                "p_info": "핫핑크 하운드투스패턴!",
+                "p_price": "46,000",
+                "p_sales" : "42,300",
+                "p_percent" : "8% 할인",
+                "p_img": "./product/product2.webp",
+                "p_review" : "116",
+                "p_link" : "https://loveparis.net/product/%EB%9F%AC%ED%8C%A8%EC%A0%9C%EC%9E%91new8%ED%95%A0%EC%9D%B8-128%ED%99%94%EB%B6%80%ED%84%B0-%EC%A0%95%EC%83%81%EA%B0%8046000%EC%9B%90%EB%B0%8D%ED%82%A4-%ED%95%98%EC%9A%B4%EB%93%9C-%ED%8A%B8%EC%9C%84%EB%93%9C-%EC%9A%B8%EC%8A%A4%EC%BB%A4%ED%8A%B8/14697/category/1/display/3/"
+                
+        },
+        {
+                "p_name": "케이트 슈트 셋업",
+                "p_info": "타협하지 않은 간지와 기모의 따뜻함까지",
+                "p_price": "168,000",
+                "p_sales" : "148,000",
+                "p_percent" : "20,000원 할인",
+                "p_img": "./product/product3.webp",
+                "p_review" : "107",
+                "p_link" : "https://loveparis.net/product/%EB%9F%AC%ED%8C%A8%EC%A0%9C%EC%9E%91%EC%84%B8%ED%8A%B8%ED%95%A0%EC%9D%B8new20000%EC%9B%90%ED%95%A0%EC%9D%B8127%EC%9B%94%EB%B6%80%ED%84%B0-%EC%A0%95%EC%83%81%EA%B0%80168000%EC%9B%90%EC%BC%80%EC%9D%B4%ED%8A%B8-%EC%8A%88%ED%8A%B8-%EC%85%8B%EC%97%85/14694/category/1/display/3/"
+                
+        },
+        {
+                "p_name": "케이트 버튼 정장자켓",
+                "p_info": "간지나는 겨울 기모 정장 블랙 슈트!!",
+                "p_price": "114,000",
+                "p_sales" : "109,000",
+                "p_percent" : "5,000원 할인",
+                "p_img": "./product/product4.webp",
+                "p_review" : "79",
+                "p_link" : "https://loveparis.net/product/%EB%9F%AC%ED%8C%A8%EC%A0%9C%EC%9E%91new5000%EC%9B%90%ED%95%A0%EC%9D%B8127%EC%9B%94%EB%B6%80%ED%84%B0-%EC%A0%95%EC%83%81%EA%B0%80114000%EC%9B%90%EB%B2%A8%ED%8A%B8%EC%84%B8%ED%8A%B8-%EC%BC%80%EC%9D%B4%ED%8A%B8-%EB%B2%84%ED%8A%BC-%EC%A0%95%EC%9E%A5%EC%9E%90%EC%BC%93/14692/category/1/display/3/"
+                
+        }       
+    ]
+}

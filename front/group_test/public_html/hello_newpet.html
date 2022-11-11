@@ -1,0 +1,49 @@
+
+<?php
+   $v = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="imagetoolbar" content="no">
+      <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+      <script src="./jq/external/jquery/jquery.js"></script>
+      <script src="./hello_newpet.js?v=<?=$v?>"></script>
+      <link rel="stylesheet" type="text/css" href="./hello_newpet.css?v=<?=$v?>">
+   </head>
+   <body>
+      <!-- 갤러리 전체 사이즈 -->
+      <div class="hello_newpets" id="hello_neswpets">
+         <!-- 갤러리 파트 제목 -->
+         <div class="hello_newpets_title" id="hello_newpets_title">
+            <label>NEW PETS</label>
+            <span>신규분양중인 귀여운 아가펫입니다</span>
+         </div>
+         <!-- 갤러리 파트 메뉴 -->
+         <div class="hello_newpets_menu" id="hello_newpets_menu">
+            <ul>
+               <!-- 쿼리로 마우스오버 효과 줄것 -->
+               <li>사랑스런 강아지</li>
+               <li>매력만점 고양이</li>
+               <li>다른 귀여운 동물</li>
+            </ul>
+         </div>
+         <!-- 갤러리 그 자체 -->
+         <div class="hello_newpets_list" id="hello_newpets_list">
+            <ul class="new_pets_list" id="new_pets_list">
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+               <li></li>
+            </ul>
+         </div>
+      </div>
+   </body>
+</html>

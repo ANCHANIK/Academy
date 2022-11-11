@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <title>Ajax 4일차 - Ajax POST 통신(아이디)</title>
+        <script>
+            function abc(){
+                var name = "mname=" + document.getElementById("mname").value;
+                var mail = "&memail=" + document.getElementById("memail").value;
+                const data = name + mail;
+                // postajax(name,mail); 이렇게 보내면 데이터 에러남. 값이 한 개일 땐 관계없지만, 두 개 이상일때 따로 보내면 에러남
+                postajax(data);
+            }
+            let post_data;
+            function postajax(data){
+                function windowck(){
+                    if(window.XMLHttpRequest){
+                        return new XMLHttpRequest();
+                    }
+                }
+                function filepost(){
+                    if(post_data.readyState == XMLHttpRequest.DONE && post_data.status == 200){
+                        findid(this.response);
+                    }
+                }
+                post_data = windowck();
+                post_data.onreadystatechange = filepost;
+                post_data.open("POST","./index11.php",true);
+                post_data.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                post_data.send(data);
+            }
+
+            function findid(find_data){
+                if(find_data == "error"){
+                    alert("데이터 오류");
+                }
+                else if(find_data == "user_error"){
+                    alert("사용자의 이름과 가입된 이메일이 일치하지 않습니다.");
+                }
+                else{
+                    // 이름 : 홍길동, 이메일 : hong@gmail.com
+                    var strlen = find_data.length;  // 해당 사용자 아이지 길이 값
+                    // 앞에서부터 잘라서 뒤에 특수문자 출력
+                    // var word = find_data.substring(0,strlen-3) + "***";
+                    // console.log(find_data.substring(0,strlen-3));
+                    // document.getElementById("box").innerHTML = "가입된 아이디 : " + word;
+
+                        // substring(0,strlen-3);  // 앞에서 자르는 형태
+                        // substring(strlen-3);    // 뒤에서 자르는 형태
+
+                    // 뒤에서 부터 자른 단어를 replace(치환) 특수문자로 변환 후 사용자에게 출력
+                    var word = find_data.substring(strlen-3);
+                    word = find_data.replace(word,"***"); // replace(/~/g,"") /~/g 를 넣으면 글자로 인식해서 변수 적용이 안됨
+                    // 최종결과 : hong_gildo***
+                    console.log(word);
+                    document.getElementById("box").innerHTML = "가입된 아이디 : " + word;
+                    
+                }
+            }
+        </script>
+        <style>
+            .box {
+                width: 300px;
+                height: 40px;
+                border:1px solid #ccc; 
+                line-height: 40px;
+                text-align: center;
+    }
+        </style>
+    </head>
+    <body>
+        <!--
+            응용문제. name은 다음과 같이 POST로 전송하라.
+            mname, memail을 적용시켜라.
+        -->
+        [아이디 찾기]
+        <input type="text" id="mname">
+        <input type="text" id="memail">
+        <input type="button" value="아이디 찾기" onclick="abc()">
+        <div class="box" id="box"></div>
+    </body>
+</html>

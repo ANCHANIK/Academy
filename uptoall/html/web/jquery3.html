@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 5일차 - 응용연습3</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                $("#box > span").click(function(){
+                    var $node = $(this).index();
+                    console.log($node);
+                    if($node == 0){
+                        $(".box1").fadeOut(1500);
+                    }
+                    else if($node == 1){
+                        $(".box2").slideUp(1500);
+                    }
+                    else if($node == 2){
+                        $(".box3").animate({
+                        "width":"0px"
+                        },1500);
+                    }
+                    else if($node == 3){
+                        $(".box4").animate({
+                        "height":"0px",
+                        "width":"0px"
+                        },1500);
+                    }
+                });
+
+                // $(".box1").click(function(){
+                //     $(this).fadeOut(1500);
+                // });
+                
+                // $(".box2").click(function(){
+                //     $(this).slideUp(1500);
+                // });
+
+                // $(".box3").click(function(){
+                //     $(this).animate({
+                //         "width":"0px"
+                //     },1500);
+                // });
+
+                // $(".box4").click(function(){
+                //     $(this).animate({
+                //         "height":"0px",
+                //         "width":"0px"
+                //     },1500);
+                // });
+
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            span,label,main {display: block;}
+            .box1 {
+                width: 100px;
+                height: 100px;
+                background-color: orange;
+            }
+            .box2 {
+                width: 100px;
+                height: 100px;
+                background-color: navy;
+            }
+            .box3 {
+                width: 100px;
+                height: 100px;
+                background-color: purple;
+            }
+            .box4 {
+                width: 100px;
+                height: 100px;
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+        <span class="box1"></span>
+        <span class="box2"></span>
+        <span class="box3"></span>
+        <span class="box4"></span>
+        </div>
+    </body>
+</html>

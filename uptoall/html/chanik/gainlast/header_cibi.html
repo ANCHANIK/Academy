@@ -1,0 +1,37 @@
+<?php
+    $data = date("YMDHis");
+?>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="./css/header_cibi.css?v=<?=$data?>">
+<section class="header_cibi_outline">
+	<div class="c_cibidiv">
+		<ul>
+			<li class="c_mmenuli1">
+				<span class="c_menu">
+					<img src="img/mmenu.png" id="c_menu">
+				</span>
+			</li>
+			<li class="c_mmenuli2">
+				<img src="img/mlogo.png" class="c_mlogo" id="c_mlogo">
+			</li>
+			<li class="c_mmenuli1">
+				<span class="c_search">
+					<img src="img/msearch.png" id="c_search">
+				</span>
+			</li>
+		</ul>
+    </div>
+	<form name="sfrm" onsubmit="return search_val();">
+		<div class="c_searchdiv" id="c_searchdiv">
+			<ul>
+				<li class="c_seachli1">
+					<input type="text" class="c_searchtxt" id="search_name" name="search_name" placeholder="검색할 상품명을 입력하세요">
+				</li>
+				<li class="c_seachli2">
+					<button type="submit" class="c_searchbtn">검색</button>
+				</li>
+			</ul>
+		</div>
+	</form>
+</section>
+

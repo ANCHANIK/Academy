@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 7 일차 - 초급코드(match-정규식코드)</title>
+        <script>
+            function abc(){
+                var word = "이순신님은 A형 입니다.";
+                var word2 = "홍길동님은 O형 입니다. 소심하지 않습니다. 용감,무상 합니다.";
+
+                var a = word.match(/님은/g);
+                // match : 단어를 g(gruop) 라는 부분으로 전체 문장을 확인 후
+                // 해당 단어가 있는지 유/무를 확인. 없을 경우 = null을 쓰고, "" 쓰지 않는다.
+                // console.log(a);
+                var b = word2.match(/소심|용감|무상/g);
+                // match |(파이프)는 여러단어를 한 번에 검색할 때 
+                if(b != null){
+                    alert("해당 단어는 사용하실 수 없습니다.");
+                }
+                else{
+                    alert("정상적으로 등록되었습니다.");
+                }
+            }
+            function bbb(){  
+                // 확인버튼 클릭시 해당 부분에 아무것도 입력하지 않았을 경우
+                // "인증번호 6자리를 입력하세요" 라고 메세지를 출력하게 하라.
+                // 6자리 이하인 경우 "인증번호는 6자리 입니다."를 출력하게 하라.
+                var z = document.getElementById("tel").value;
+                var w = z.length;
+                if(w < 6){
+                    alert("인증번호는 6자리란다.");
+                }
+                else{
+                    if(z == ""){
+                        alert("인증번호 6자리 입력하란말 못봤어?");
+                    }
+                    // 휴대폰 번호, 고객명, 등 쓸 때
+                    else{
+                        // match : 정규식 코드
+                        var word = z.match(/[a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-히]/g)
+                        // []로 구분형태를 설정하게 된다. - 는 단어범위를 말하게 된다.
+                        // 한글은 자음,모음,받침 모두 범위를 지정해야만 한다.
+                        console.log(word);
+                        if(word!=null){
+                            alert("인증번호는 숫자만 입력하자.");
+                        }
+                        else{
+                            alert("올ㅋ 인증완료")
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="click" onclick="abc();">
+        <br><br>
+        <p>인증번호 6자리 입력해라.콱씨</p>
+        <input type="text" id="tel" maxlength="6">
+        <input type="button" value="확인" onclick="bbb();">
+    </body>
+</html>

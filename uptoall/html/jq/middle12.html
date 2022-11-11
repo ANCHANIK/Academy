@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html land="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jquery 3일차 - 중급 (배열 + 롤링배너 + bind)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+                const $banner = [
+                    {"img":"./main_banner/main_0.jpg","link":"http://coupang.com"},
+                    {"img":"./main_banner/main_1.jpg","link":"http://naver.com"},
+                    {"img":"./main_banner/main_2.jpg","link":"http://google.com"},
+                    {"img":"./main_banner/main_3.jpg","link":"http://nate.com"}
+                ]
+
+                
+                // 배너 전체 사이즈 체크
+                let $view_width = $(".banner").width();
+                // console.log($view_width)
+                let $array_ea = $banner.length;  // 배너 개수 : 4 개
+                $("#banner_image").width($view_width * $array_ea + "px")
+
+
+                // banner html 생성
+                $.each($banner,function($a,$b){
+                    // console.log($banner[$a]["img"]);
+                    var $img = "<img src='"+$banner[$a]["img"]+"'>";
+                    var $link = $banner[$a]["link"];
+                    var $li = "<li link="+ $link +" node='"+$a+"'>"+ $img +"</li>";
+                    $("#banner_image").append($li);
+                    var $disc_li = "<li dnode='" + $a + "'></li> ";
+                    $("#disc").append($disc_li);
+                });
+                
+                // 디스크 노드 초기 번호
+                var $disc_node = 0; // 두번째 배너부터 시작되게 할 때 "1"을 넣어라
+                $("#disc > li").css("background-color","gray");
+                $("#disc > li").eq($disc_node).css("background-color","red");
+
+                //롤링 배너
+                //right 버튼
+                $("#right").click(function(){
+                    $("#banner_image").stop().animate({
+                        "left": -$view_width + "px"
+                    },700,function(){
+                        var $copy = $("#banner_image > li").eq(0).clone();
+                        $("#banner_image > li").eq(0).remove();  // 첫번째 배너는 무조건 삭제
+                        $("#banner_image").css("left","0px")  // ol 위치를 다시 원상태 0px로 재세팅
+                        $("#banner_image").append($copy);  // 첫번째 노드에 복사된 html 태그 전체를 맨 마지막 노드에 추가
+                    });
+
+                    $disc_node += 1;
+                    if($disc_node >= $array_ea){
+                        $disc_node = 0;
+                    }
+                    $("#disc > li").css("background-color","gray");
+                    $("#disc > li").eq($disc_node).css("background-color","red");
+
+                });
+
+                //left 버튼
+                $("#left").click(function(){
+                    var $copy = $("#banner_image > li").eq($array_ea - 1).clone();
+                    $("#banner_image > li").eq($array_ea - 1).remove();  // 첫번째 배너는 무조건 삭제
+                    $("#banner_image").css("left", - $view_width + "px")  // ol 위치를 다시 원상태 0px로 재세팅
+                    $("#banner_image").prepend($copy);
+                    $("#banner_image").stop().animate({
+                        "left": "0px"
+                    },700);  // 첫번째 노드에 복사된 html 태그 전체를 맨 마지막 노드에 추가
+
+                    $disc_node -= 1;  // 최초 디스크 노드 번호를 연산한다.
+                    if($disc_node < 0){  // 0보다 작은 숫자일 경우
+                        $disc_node = $array_ea - 1;  // 전체 배열 값 - 1 = 마지막 노드번호를 적용
+                    }
+                    $("#disc > li").css("background-color","gray");
+                    $("#disc > li").eq($disc_node).css("background-color","red");
+                });
+
+                // 버튼 나타남
+                $("#banner").bind({
+                    "mouseenter":function(){
+                        $("#right").css({"right":"20px","opacity":"1"}),
+                        $("#left").css({"left":"20px","opacity":"1"}),
+                        $("#disc").css({"bottom":"20px","opacity":"1"})
+                    },
+                    "mouseleave":function(){
+                        $("#right").css({"right":"","opacity":""}),
+                        $("#left").css({"left":"","opacity":""}),
+                        $("#disc").css({"bottom":"","opacity":""})
+                    }
+                });
+                
+                /*
+                $("#banner_image > li").click(function(){})
+                기존의 핸들링한 함수가 노드 변경시 핸들링 되지 않는 현상이 발생한다.
+                해당 되는 함수는 최초 페이지 로드시에만 적용되는 핸들링으로
+                강제 노드 변경시 click 자체 핸들링이 정지된다.
+                */
+                
+                
+                $(document).on("click","#banner_image > li",function(){
+                    // addEventListener : Javascript 같은 형태
+                    // 노드 삭제, 생성, 수정과 관계없이 기존 핸들링을 메모리에 지정해서 사용
+                        var $node = $(this).index();
+                        // console.log($node)
+                        var $href = $("#banner_image > li").eq($node).attr("link");
+                        // console.log($href)
+                        window.open($href,"_blank");
+                        
+                })
+
+                $("#disc > li").click(function(){
+                    var $disc_n = $(this).index();
+                    $disc_node = $disc_n;
+                    $("#disc > li").css("background-color","gray");
+                    $("#disc > li").eq($disc_n).css("background-color","red");
+                    // offset 사용
+                    // $("#disc > li").eq($disc_n).offset($view_width); (X)
+                    // 반복문 이용해 #banner_image > li node라는 태그 속성 값을 가져와
+                    // 위치를 출력하라
+                    //※주의) 디스크의 노드번호 = #banner_image > li html속성(node)
+                    var $w = 0;
+                    var $nos;
+                    while($w < $array_ea){
+                        $nos = $("#banner_image > li").eq($w).attr("node");
+
+                        if($disc_n == $nos){
+                            
+                            // 해상도가 변경될 때마다 left 가 변경됨
+                            var $or = Math.ceil($("#banner_image").offset().left);
+                            var $offset = Math.ceil($("#banner_image > li").eq($w).offset().left) - $or;
+                            var $clickno = $w;  // animate에서 function 값을 사용하기 위한 변수
+                            
+                            $("#banner_image").stop().animate({
+                            "left": -$offset + "px"
+                            },700,function(){
+                                //추가 작업 필요 (middle13.html 참고)
+
+
+
+
+
+
+                            });
+                            // var $substr;
+                            // var $left_offset;
+                            // $substr = Number($offset.substr(0,1));
+
+
+                        }
+                        $w++;
+                    }
+                });
+
+                /*
+                var $test = $("#banner_image > li").eq(3).attr("node");
+                var $off = $view_width * Number($test)
+                console.log($off)
+                */
+            });
+        </script>
+        <style>
+        body { margin: 0; padding: 0; }
+        span { display: block;} 
+        ol, ul { list-style: none; margin: 0; padding: 0; }
+        img { width: 100%; height: 100%; }
+        .banner { 
+            width: 960px; 
+            height: 400px; 
+            margin: 0 auto;
+            position: relative;
+            /* overflow: hidden; */
+        }
+        .banner_image { 
+            height: inherit;
+            position: absolute;
+            left: 0;
+        }
+        .banner_image > li { 
+            width: 960px; height: 400px;
+            float: left;
+        }
+        .banner_image > li > img { width: 960px; height: 400px; } 
+        .left { 
+            width: 46px; 
+            height: 70px;  
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -35px;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.7s;
+        }
+        .right { 
+            width: 46px; 
+            height: 70px; 
+            position: absolute;
+            top: 50%; 
+            right: 0;
+            margin-top: -35px;
+            cursor: pointer;
+            opacity: 0;
+            transition: 0.7s;
+        }
+        .disc { 
+            position: absolute; 
+            bottom: 10px; 
+            width: 100%; 
+            height: 20px;
+            text-align: center;
+            opacity: 0;
+            transition: 0.7s;
+            bottom: 0;
+        }
+        .disc > li { 
+            width: 20px;
+            height: 20px; 
+            border-radius: 20px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        </style>
+    </head>
+    <body>
+        <section class="banner" id="banner">
+            <ol class="banner_image" id="banner_image">
+                <!--
+                    <li><img src="./main_banner/main_0.jpg"></li>
+                    <li><img src="./main_banner/main_1.jpg"></li>
+                    <li><img src="./main_banner/main_2.jpg"></li>
+                    <li><img src="./main_banner/main_3.jpg"></li>
+                -->
+            </ol>
+            <span class="left" id="left"><img src="./main_banner/left_btn.svg"></span>
+            <span class="right" id="right"><img src="./main_banner/right_btn.svg"></span>
+            <ul class="disc" id="disc">
+                <!--
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                -->
+            </ul>
+        </section>
+    </body>
+</html>

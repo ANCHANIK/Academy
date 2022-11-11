@@ -1,0 +1,56 @@
+<?php
+    $data = date("YMDHis");
+?>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="./css/content_new.css?v=<?=$data?>">
+<section class="content_new_outline" id="new">
+	{{newproduct}}
+	<div class="new_outline">
+		<div class="new_title" id="new_title">
+			<ul id="new_pd_titles">
+				<li>2 DAY NEW 7%</li>
+				<li>깐깐하게 고른 퍼플 신상</li>
+			</ul>
+		</div>
+		<span class="emptybox"></span>
+		<div class="new_product_outline">
+        	<div class="new_outline_sol" id="new_outline">
+        		<div class="new_outline3" id="new_products">
+					<ul v-for="ndata in narray" id="new_products_ul">
+						<li>
+							<span>
+								<label>
+									<img v-bind:src="ndata.a_newico">
+								</label>
+								<img v-bind:src="ndata.a_newimg">
+							</span>
+							<span>
+								<label>{{ndata.a_newtitle}}</label>
+								<label><s>{{ndata.a_newpd}}</s></label>
+								<label>
+									<span>{{ndata.a_newdp}}</span>
+									<span>{{ndata.a_newap}}</span>
+								</label>
+							</span>
+						</li>
+					</ul>
+        		</div>
+			</div>
+		</div>
+		<span class="emptybox"></span>
+		<div class="new_disk"> <!-- 하단 디스크 -->
+			<span id="nlbtn">
+				<img v-bind:src="nimg1">
+			</span>
+			<ul id="newdisc">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<span id="nrbtn">
+				<img v-bind:src="nimg2">
+			</span>
+		</div>
+	</div>
+</section>

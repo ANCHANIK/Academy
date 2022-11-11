@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+html, body, header, main, section, article, aside, footer, table, tr, td, dl, dd, dt, span, label {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: black;
+  line-height: "";
+  display: block;
+}
+
+header {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+}
+
+nav {
+  width: "";
+  height: 50px;
+  display: block;
+  position: "";
+  background-color: black;
+}
+
+section {
+  width: "";
+  height: auto;
+  display: block;
+  position: relative;
+}
+
+main {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+main > section {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+main > article {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+footer {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.notice_review_aside {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: "";
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.notice_review_aside > div {
+  width: 1174px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  margin: 0 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.notice_review_aside > div > .notice_box {
+  width: 370px;
+  height: 180px;
+  display: block;
+  position: "";
+  border: 1px solid #CCCCCC;
+}
+
+.notice_review_aside > div > .notice_box > ul {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: "";
+}
+
+.notice_review_aside > div > .notice_box > ul > li {
+  width: inherit;
+  height: 30px;
+  display: block;
+  position: "";
+  line-height: 30px;
+}
+
+.notice_review_aside > div > .review_box {
+  width: 370px;
+  height: 180px;
+  display: block;
+  position: "";
+  padding-left: 25px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #CCCCCC;
+}
+
+.notice_review_aside > div > .review_box > ol {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: "";
+}
+
+.notice_review_aside > div > .review_box > ol > li {
+  width: inherit;
+  height: 30px;
+  display: block;
+  position: "";
+  line-height: 30px;
+}
+
+.notice_review_aside > div > .info_box {
+  width: 370px;
+  height: 180px;
+  display: block;
+  position: "";
+}
+
+.notice_review_aside > div > .info_box > img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.nr_box_title {
+  width: 90%;
+  height: 40px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: black;
+  line-height: 50px;
+  padding-left: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 1px solid #CCCCCC;
+  text-decoration: overline;
+}
+/*# sourceMappingURL=notice_review.css.map */

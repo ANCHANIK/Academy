@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>6일차 Vue + Ajax 응용</title>
+        <style>
+            .all {
+                width: 600px;
+                height: auto;
+                border: 1px solid black;
+                border-right: none;
+                border-top: none;
+            }
+            .box {
+                width: 600px;
+                height: 60px;
+                display: flex;
+            }
+            .box > span:nth-child(1){
+                display: block;
+                width: 200px;
+                height: 60px;
+                border-right: 1px solid black;
+                border-top: 1px solid black;
+                border-bottom: 1px solid white;
+                text-align: center;
+                line-height: 60px;
+                box-sizing: border-box;
+            }
+            .box > span:nth-child(2){
+                display: block;
+                width: 400px;
+                height: 60px;
+                border-bottom: 1px solid black;
+            }
+            .nbox {
+                width: 600px;
+                height: 200px;
+                border-right: 1px solid black;
+            }
+            .no_ul {
+                width: inherit;
+                height: inherit;
+                margin: 0;
+                list-style: disc;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: space-around;
+            }
+            .no_ul > li {
+                width: 550px;
+                height: 30px;
+                background-color: khaki;
+                line-height: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="noice_box">
+            {{abc}}
+            <div class="all">
+                <div class="box">
+                    <span>{{text}}</span>
+                    <span></span>
+                </div>
+                <div class="nbox">
+                    <ul class="no_ul">
+                        <li v-for="list in arr">{{list.sun}}</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </body>
+    <script>
+        let a = new Vue({
+            el:"#noice_box",
+            data:{
+                text:"공지사항",
+                arr:[]
+            },
+            methods:{
+                bbb(data){
+                    console.log(data);
+                    var j;
+                    for(j in data["notice"]){
+                        console.log(j)
+                        this.arr.push({
+                            sun:data.notice[j][0]
+                        });
+                    }
+                }
+            },
+            components:{
+                
+            },
+            computed:{
+                abc(){
+                    fetch("./notice.json").then(function(response){
+                        return response.json();
+                    }).then(function(data){
+                        a.bbb(data);
+                    })
+                    .catch(function(error){
+                        console.log("DATA ERROR");
+                    })
+                }
+            }
+        });
+    </script>
+</html>

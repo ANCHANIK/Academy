@@ -1,0 +1,103 @@
+@charset "UTF-8";
+@import "./config.scss";
+
+.mdpick_product_title {
+    @include object(100%, auto, block, "");
+    margin-top: 80px;
+    & > .mdpick_product_title_img {
+        @include object(inherit, auto, block, "");
+    }
+}
+.week_product_aside {
+    @include object(1174px, 1550px, flex, "");
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    .week_product_div {
+        @include object(300px, auto, block, "");
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+        background-color: rgb(245, 245, 245);
+        border-radius: 0px 0px 40px 40px;
+        & > span {
+            @include object(inherit, "", block, "");
+            &:nth-of-type(1){ // 상품 이미지 출력 파트
+                @include object(inherit, auto, block, relative);
+                &:hover {
+                    transform: scale(1.01,1.01)
+                }
+                & > div:nth-of-type(1) {  // 이미지
+                    @include object(100%, 300px, block, "");
+                    & > img {
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+                & > div:nth-of-type(2) { // blacksreen
+                    @include object(inherit, 60px, none, absolute);
+                    z-index: 10;
+                    bottom: 0px;
+                    background-color: rgba(0,0,0,0.6);
+                    & > span {
+                        @include object(100%, inherit, flex, "");
+                        & > ol {
+                            @include object(150px, inherit, block, "");
+                            @extend %ulol;
+                            cursor: pointer;
+                            &:hover {
+                                background-color: rgba(0,0,0,0.8);
+                            }
+                            &:nth-of-type(1){
+                                border-right: 1px dashed rgba(255,255,255,0.7);
+                            }
+                            & > li:nth-of-type(1) {
+                                width: 150px;
+                                height: 25px;
+                                margin-top: 10px;
+                                position: relative;
+                                & > img {
+                                    position: absolute;
+                                    height: 100%;
+                                    object-fit: contain;
+                                    &:nth-of-type(2){
+                                        display: none;
+                                    }
+                                }
+                            }
+                            & > li:nth-of-type(2) {
+                                @include fonts(12px, 400, white, "");
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(2){  // 상품 가격 출력 파트
+                @include object(inherit, auto, block, "");
+                cursor: pointer;
+                & > div:nth-of-type(1) {  // 상품명
+                    @include object(inherit, 35px, block, "");
+                    @include fonts(15px, 500, black, 35px);
+                    text-align: center;
+                }
+                & > div:nth-of-type(2) {  // 상품 간편 설명
+                    @include object(inherit, 25px, block, "");
+                    @include fonts(13px, 300, black, 25px);
+                    text-align: center;
+                }
+                & > div:nth-of-type(3) {  // 소비자 가격
+                    @include object(inherit, 20px, block, "");
+                    @include fonts(11px, 300, gray, 20px);
+                    text-align: center;
+                }
+                & > div:nth-of-type(4) {  // 세일가격 또는 소비자 가격
+                    @include object(inherit, 25px, block, "");
+                    @include fonts(13px, 500, crimson, 25px);
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

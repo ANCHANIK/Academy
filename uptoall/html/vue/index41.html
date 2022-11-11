@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>8일차 Vue + 보강 (filter + v-model + v-bind)</title>
+        <script src="../jq/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="http://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+        <style>
+        </style>
+        <!--
+            1) v-model : value와 같은 형태로 보이지만,
+            vue 상황에서 함수를 거치지 않아도 실시간으로 값이 변화되는 것을 인지함.
+            - 그니까 ex), 셀렉트에서 v-model="abc"을 쓰면, 옵션의 벨류를 함수로 값을 넘겨서 받는 것이 아니라
+            <option value=""></option> value값이 v-model의 abc로 실시간으로 넘어가서 확인 가능하다는 것.
+            - v-model은 실시간으로 사용자가 입력된 값을 받아서 프론트가 사용하는 속성이지,
+            backend에게 넘기는 속성이 아님.
+            - boacend와는 전혀 무관한 속성임
+            - backend로 넘기고 싶으면 무조건 v-bind:value로 넘겨야 한다.
+            
+            2) v-bind : 속성을 적용할 때 사용. 실시간 반영된 값을 적용함
+
+            사용자의 실시간 value값을 v-model="abc"로 태우면,
+            이 value값을 backend에게 보내기 위해선 v-model을 쓰는게 아니라,
+            v-bind:value="abc" 값으로 값을 넘긴 다음에 name값으로 넘기는 것이다.
+        -->
+    </head>
+    <body>
+        <section id="box">
+            <select v-model="abc">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <!-- <input type="text" v-model="abc"> -->
+            <input type="text" v-bind:value="abc">
+            <input type="button" @click="aaa" value="클릭">
+        </section>
+    </body>
+    <script>
+        var a = new Vue({
+            el:"#box",
+            data:{
+                abc:""
+            },
+            methods:{
+                aaa(){
+                    
+                }
+            },
+            components:{
+
+            },
+            computed:{
+
+            }
+        });
+    </script>
+</html>

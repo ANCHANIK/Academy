@@ -1,0 +1,297 @@
+<?php
+    $date = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <title>Ajax 2일차 - JavaScript (json - 회원가입)</title>
+        <style>
+            * {box-sizing: border-box;}
+            body { margin: 0; padding: 0; }
+            span,label,main { display: block; }
+            ul,ol,dl { list-style: none; margin: 0; padding: 0; }
+            .join_box {
+                width: 800px;
+                height: auto;
+                
+                margin: 0 auto;
+            }
+            .join_text {
+                width: inherit;
+                height: 60px;
+                text-align: center;
+                font-size: 30px;
+                margin-top: 10px;
+            }
+            .ulcss {
+                width: inherit;
+                height: inherit;
+            }
+            .ulcss > li {
+                width: inherit;
+                height: 60px;
+                border-bottom: 1px solid #ccc;
+                line-height: 60px;
+            }
+            .ulcss > li:nth-child(1){
+                border-top: 1px solid #ccc;
+            }
+            .ulcss > li:nth-child(6){
+                height: 90px;
+            }
+            .olcss {
+                height: 40px;
+            }
+            .olcss_in {
+                width: inherit;
+                height: inherit;
+                
+            }
+            .olcss > li {
+                float: left;
+                height: 40px;
+                
+            }
+            .olcss > li:nth-child(1){
+                width: 150px;
+                margin-left: 10px;
+            }
+            .olcss > li:nth-child(2){
+                margin-left: 30px;
+            }
+            .licss_in {
+                width: 150px;
+                height: 90px;
+                margin-top: 22px;
+                line-height: 20px;
+            }
+            .user_id, .user_pw {
+                width: 300px;
+                height: 40px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                text-indent: 10px;
+            }
+            .user_field {
+                width: 480px;
+                height: 90px;
+                margin-top: 5px;
+                line-height: 40px;
+            }
+            .user_email, .user_tel {
+                width: 600px;
+                height: 40px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                text-indent: 10px;
+            }
+            .user_area, .user_age {
+                width: 150px;
+                height: 40px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            .t_btn {
+                width: 800px;
+                height: 40px;
+                text-align: center;
+                
+            }
+            .join_btn, .cancel_btn {
+                width: 100px;
+                height: 40px;
+                font-size: 14px;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                margin-top: 15px;
+                cursor: pointer;
+            }
+            .join_btn {
+                background-color: skyblue;
+                margin-right: 10px;
+            }
+            .cancel_btn {
+                background-color: slategray;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="fm" name="fm" method="POST" action="http://jnh1207.dothome.co.kr/ajax/nhiss_memberok.php" enctype="application/x-www-form-urlencoded">
+            <div class="join_box">
+                <span class="join_text">
+                    건강보험 회원가입
+                </span>
+                <ul class="ulcss">
+                    <li>
+                        <ol class="olcss">
+                            <li>아이디</li>
+                            <li>
+                                <input type="text" class="user_id" id="user_id" name="user_id" placeholder="아이디를 입력하세요">
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <ol class="olcss">
+                            <li>패스워드</li>
+                            <li>
+                                <input type="password" class="user_pw" id="user_pw" name="user_pw" placeholder="패스워드를 입력하세요">
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <ol class="olcss">
+                            <li>이메일</li>
+                            <li>
+                                <input type="text" class="user_email" id="user_email" name="user_email" placeholder="이메일을 입력하세요">
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <ol class="olcss">
+                            <li>전화번호</li>
+                            <li>
+                                <input type="text" class="user_tel" id="user_tel" name="user_tel" placeholder="숫자만 입력하세요">
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <ol class="olcss">
+                            <li>거주지역</li>
+                            <li>
+                                <select class="user_area" id="user_area" name="user_area">
+                                    <option value="">[거주지역]</option>
+                                </select>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <ol class="olcss olcss_in">
+                            <li class="licss_in">
+                                관심분야<br>
+                                (한가지만 선택)
+                            </li>
+                            <li class="user_field" id="user_field">
+                                <input type="checkbox" id="user_field0" name="user_field" value="악성신생물(각종 암)"> 악성신생물(각종 암)
+                                <input type="checkbox" id="user_field1" name="user_field" value="정신 및 행동장애"> 정신 및 행동장애
+                                <input type="checkbox" id="user_field2" name="user_field" value="순환계통 질환"> 순환계통 질환
+                                <input type="checkbox" id="user_field3" name="user_field" value="소화계통의 질환"> 소화계통의 질환
+                                <input type="checkbox" id="user_field4" name="user_field" value="호흡계통 질환"> 호흡계통 질환
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <ol class="olcss">
+                            <li>현재연령</li>
+                            <li>
+                                <select class="user_age" id="user_age" name="user_age">
+                                    <option value="">[나이]</option>
+                                </select>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+                <span class="t_btn">
+                    <button type="button" class="join_btn" onclick="join()">회원가입</button>
+                    <button type="reset" id="cancel_btn" class="cancel_btn">가입취소</button>
+                </span>
+            </div>
+        </form>
+    </body>
+    <script>
+        let zdata;
+        function windowck(){
+            if(window.XMLHttpRequest){
+                return new XMLHttpRequest();
+            }
+        }
+        function memberfile(){
+            if(zdata.readyState == XMLHttpRequest.DONE && zdata.status == 200){
+                datainsert(this);
+                // console.log(this.response)
+            }
+        }
+        zdata = windowck();
+        zdata.onreadystatechange = memberfile;
+        zdata.open("GET","./member_ship.json?v=<?=$date?>",true);
+        zdata.send();
+
+        function datainsert(list){
+            const data = JSON.parse(list.responseText);
+            // console.log(data["area"])
+            data["area"].forEach(function(a,b,c){
+                // console.log(a)
+                var op = "<option value='"+ a +"'>" + a + "</option>";
+                // console.log(op)
+                var pp = document.getElementById("user_area").innerHTML += op;
+            });
+            data["age"].forEach(function(x,y,z){
+                // console.log(x)
+                var op2 = "<option value='"+ x +"'>"+ x +"</option>";
+                document.getElementById("user_age").innerHTML += op2;
+            })
+        }
+
+        function join(){
+            var mid = document.getElementById("user_id").value;
+            var mpass = document.getElementById("user_pw").value;
+            var memail = document.getElementById("user_email").value;
+            var memail_m = memail.match(/@/g);
+            var mtel = document.getElementById("user_tel").value;
+            var mtel_length = mtel.length;
+            var mtel_match = mtel.match(/[a-z,A-Z]/g);
+            var marea = document.getElementById("user_area").value;
+            var mfield_length = document.getElementById("user_field").children;
+            var mfield;
+            // console.log(mfield)
+            var mage = document.getElementById("user_age").value;
+            // console.log(marea,mage)
+            var w = 0;
+            var check = 0;
+            while(w < 5){
+                mfield = document.getElementById("user_field" + w).checked;
+                console.log(mfield);
+                if(mfield == true){
+                    check++;
+                }
+                w++;
+            }
+
+            if(mid == ""){
+                alert("아이디를 입력하세요");
+            }
+            else if(mpass == ""){
+                alert("패스워드를 입력하세요");
+            }
+            else if(memail ==""){
+                alert("이메일을 입력하세요");
+            }
+            else if(memail_m == null){
+                alert("정확한 이메일을 입력하세요");
+            }
+            else if(mtel == ""){
+                alert("전화번호를 입력하세요");
+            }
+            else if(mtel_length < 10 || mtel_length > 11){
+                alert("전화번호는 10 ~ 11 자리만 가능합니다");
+            }
+            else if(mtel_match != null){
+                alert("숫자만 입력하세요");
+            }
+            else if(marea == ""){
+                alert("거주 지역을 선택하세요");
+            }
+            else if(check > 1){
+                alert("관심분야는 한 가지만 선택하세요");
+            }
+            else if(mage == ""){
+                alert("나이를 선택하세요");
+            }
+            else{
+                fm.submit();
+            }
+        }
+    </script>
+</html>

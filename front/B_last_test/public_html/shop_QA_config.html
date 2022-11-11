@@ -1,0 +1,25 @@
+<?php
+   $v = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="imagetoolbar" content="no">
+      <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+      <title>메인페이지</title>
+      <script src="./js/jquery.js"></script>
+      <script src="./js/main.js?v=<?=$v?>"></script>
+      <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+      <link rel="stylesheet" type="text/css" href="./css/main.css?v=<?=$v?>">   
+      <link rel="stylesheet" type="text/css" href="./css/top.css?v=<?=$v?>">  
+      <link rel="stylesheet" type="text/css" href="./css/QA.css?v=<?=$v?>">
+      <link rel="stylesheet" type="text/css" href="./css/bottom.css?v=<?=$v?>"> 
+   </head>
+   <body>
+      <header class="header"><?php include "shop_top.html"; ?></header>
+      <section class="section" id="QNA_input"><?php include "QA_config.html"; ?></section>
+      <footer class="footer"><?php include "shop_footer.html"; ?></footer>
+   </body>
+   <script src="./js/QAVue_input.js?v=<?=$v?>"></script>
+</html>

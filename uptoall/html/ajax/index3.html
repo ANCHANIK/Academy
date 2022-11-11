@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <title>Ajax 1일차 - JavaScript (namedItem + 더블 함수)</title>
+        <script>
+            function f(){
+                // var a = document.getElementsByTagName("label").namedItem("test");
+                // console.log(a.innerText);
+                // nameItem : id 값이 있어야만 가져올 수 있는 명령어
+                // 응용문제. item으로 출력하라
+                // var b = document.getElementsByTagName("label");
+                // console.log(b.item(0).innerText);
+                // var c = document.getElementsByTagName("label").item(0);
+                // console.log(c.innerText);
+            }
+
+            function abc(){
+                function bbb(z1,z2){ // bbb 함수는 외부에서 한 번에 들어올 수 없는 함수. abc가 먼저 작동을 해야 bbb가 작동함
+                    var a = z1 + z2; // 이 변수 a는 함수 bbb의 지역변수. const, let도 지역으로 빠지기 때문에 괜찮
+                    console.log(a);
+                }
+                var a = 25; // 이 변수 a는 함수 bbb 한테는 전역변수이지만 bbb함수안에 있는 변수 a가 지역변수로 있기 때문에 괜찮
+                var b = 40;
+                bbb(a,b);
+            }
+
+            function bbb(){  // abc함수 안의 bbb 함수와는 관계없이 독립적인 bbb 함수임
+                alert("test");
+            }
+
+            var uu = function ccc(){  // 변수형태의 함수는 보안이 좋다
+                function ddd(){
+                    alert("test");
+                }
+                ddd();
+            }
+
+            fff = (e) => {  // 화살표 함수
+                alert(e);
+            }
+
+        </script>
+    </head>
+    <body>
+        <label id="test">Ajax 통신 기술 item, NamedItem 두 가지 출력 사항이 있습니다.</label>
+        <label id="test2">데이터 연습 중</label>
+        <button type="button" onclick="f()">CLICK</button>
+        <br><br>
+        <input type="button" value="출력" onclick="abc()">
+        <input type="button" value="출력2" onclick="bbb()">
+        <input type="button" value="출력3" onclick="uu()">
+        <input type="button" value="출력4" onclick="fff('홍길동')">
+        <!-- abc 부모 함수가 있기 때문에  -->
+    </body>
+</html>

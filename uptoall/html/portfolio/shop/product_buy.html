@@ -1,0 +1,358 @@
+<form name="orders" id="orders" method="POST" enctype="application/x-www-form-urlencoded">
+    <input type="hidden" name="product_img" id="product_img" value="<?php echo $_POST['product_img']?>">
+    <input type="hidden" name="goodsno" id="goodsno" value="<?php echo $_POST['goodsno']?>">
+    <input type="hidden" name="version" value="1.0">
+    <input type="hidden" name="mid" value=""><!--빈값-->
+    <input type="hidden" name="goodname" id="goodname" value="<?php echo $_POST['goodname']?>">
+    <input type="hidden" name="oid" value=""><!--빈값-->
+    <input type="hidden" name="price" id="price" value="<?php echo $_POST['price']?>">
+    <input type="hidden" name="goodea" id="goodea" value="<?php echo $_POST['goodea']?>">
+    <input type="hidden" name="currency" value="WON">
+    <input type="hidden" name="mkey" value=""><!--빈값-->
+    <input type="hidden" name="offerPeriod" value=""><!--빈값-->
+    <input type="hidden" name="payViewType" value="overlay">
+    <input type="hidden" name="charset" value="UTF-8">
+    <input type="hidden" name="product_option" id="product_option" value="<?php echo $_POST['product_option']?>">
+    
+    <aside class="order_title">
+        <div class="order_title_div">ORDER</div>
+    </aside>
+    <aside class="user_order_list">
+        <div class="user_order_list_div">
+            <span class="user_order_list_info_title">
+                <label>주문내역</label>
+            </span>
+            <span class="user_order_list_info">
+                <ul>
+                    <li>상품/옵션 정보</li>
+                    <li>수량</li>
+                    <li>상품금액</li>
+                    <li>할인/적립</li>
+                    <li>합계금액</li>
+                    <li>배송비</li>
+                </ul>
+                <ul>
+                    <li>
+                        <span id="order_img">
+                            <img src="" onclick="img_popup()">
+                        </span>
+                        <span>
+                            <label id="order_pnm"></label>
+                            <label id="order_option"></label>
+                        </span>
+                    </li>
+                    <li>
+                        <label id="order_ea"></label>
+                    </li>
+                    <li>
+                        <label id="order_price"></label>
+                    </li>
+                    <li>
+                        <label>-</label>
+                    </li>
+                    <li>
+                        <label id="order_total_price"></label>
+                    </li>
+                    <li>
+                        <span>
+                            <label>기본-금액별 뱅송비</label>
+                            <label>2,500원</label>
+                        </span>
+                    </li>
+                </ul>
+            </span>
+            <span class="user_order_list_payment_title">
+                <label></label>
+                <label>장바구니 가기</label>
+            </span>
+            <span class="user_order_list_payment">
+                <span>
+                    <ul>
+                        <li>총 상품액</li>
+                        <li id="total__price"></li>
+                        <li>
+                            <span>
+                                <img src="./order/plus.png">
+                            </span>
+                        </li>
+                        <li>
+                            <span>배송비</span>
+                            <span>2,500 원</span>
+                        </li>
+                        <li>
+                            <span>
+                                <img src="./order/total.png">
+                            </span>
+                        </li>
+                        <li id="total_all_price"></li>
+                    </ul>
+                </span>
+                <span>
+                    <ul>
+                        <li>적립예정 마일리지 : </li>
+                        <li>0원</li>
+                    </ul>
+                </span>
+            </span>
+        </div>
+    </aside>
+    <aside class="user_order_info">
+        <div class="user_order_info_div">
+            <span>
+                주문자 정보 (*은 필수 입력사항입니다.)
+            </span>
+            <ul>
+                <li>
+                    <span>주문자명 *</span>
+                    <span>
+                        <input type="text" class="input1" name="buyername" id="buyername" value="">
+                    </span>
+                </li>
+                <li>
+                    <span>주소 *</span>
+                    <span>
+                        <input type="text" class="input2" name="order_post" id="order_post" value="">
+                        <input type="text" class="input1" name="order_addr1" id="order_addr1" value="">
+                        <input type="text" class="input1" name="order_addr2" id="order_addr2" value="">
+                    </span>
+                </li>
+                <li>
+                    <span>전화번호</span>
+                    <span>
+                        <input type="text" class="input1" name="buy_tel" id="buy_tel" maxlength="11">
+                    </span>
+                </li>
+                <li>
+                    <span>휴대폰 번호 *</span>
+                    <span>
+                        <input type="text" class="input1" name="buyertel" id="buy_hp" maxlength="11">
+                    </span>
+                </li>
+                <li>
+                    <span>이메일 *</span>
+                    <span>
+                        <input type="text" class="input1" id="buyeremail" name="buyeremail">
+                        <select class="selects" id="email_select">
+                            <option value="">직접입력</option>
+                            <option value="@naver.com">naver.com</option>
+                            <option value="@google.com">google.com</option>
+                            <option value="@daum.net">daum.net</option>
+                        </select>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    
+    <aside class="user_delivery_info">
+        <div class="user_delivery_info_div">
+            <span>
+                배송정보 (*은 필수 입력사항입니다.)
+            </span>
+            <ul>
+                <li>
+                    <span>배송지 확인</span>
+                    <span>
+                        <label>
+                            <input type="radio" name="delivery_radio" onchange="delivery(0)" checked> 기본 배송지
+                        </label>
+                        <label>
+                            <input type="radio" name="delivery_radio" onchange="delivery(1)"> 최근 배송지
+                        </label>
+                        <label>
+                            <input type="radio" name="delivery_radio" onchange="delivery(2)"> 신규 배송지
+                        </label>
+                        <label>
+                            <input type="radio" name="delivery_radio" onchange="delivery(3)"> 주문자정보와 동일
+                        </label>
+                        <button type="button" class="btn_css">배송지 관리</button>
+                    </span>
+                </li>
+                <li>
+                    <span>수령자명 *</span>
+                    <span>
+                        <input type="text" class="input1" name="receiver_name" id="receiver_name">
+                    </span>
+                </li>
+                <li>
+                    <span>수령 주소 *</span>
+                    <span>
+                        <label>
+                            <input type="text" class="input2 postcodify_postcode5" name="receiver_post" id="receiver_post" readonly>
+                            <button type="button" class="btn_css" id="addr_btn">우편번호 검색</button>
+                        </label>
+                        <label>
+                            <input type="text" class="input1 postcodify_address" name="receiver_addr" id="receiver_addr" readonly>
+                            <input type="text" class="input1" name="receiver_addr2" id="receiver_addr2">
+                        </label>
+                        <label>
+                            <input type="checkbox"> 나의 배송지에 추가
+                        </label>
+                    </span>
+                </li>
+                <li>
+                    <span>전화번호</span>
+                    <span>
+                        <input type="text" class="input3" name="receiver_tel" id="receiver_tel">
+                    </span>
+                </li>
+                <li>
+                    <span>휴대폰 번호 *</span>
+                    <span>
+                        <input type="text" class="input3" name="receiver_hp" id="receiver_hp">
+                    </span>
+                </li>
+                <li>
+                    <span>요청사항</span>
+                    <span>
+                        <input type="text" class="input4" name="receiver_say">
+                    </span>
+                </li>
+                <li>
+                    <span>회원정보 반영</span>
+                    <span>
+                        <label>
+                            <input type="checkbox" checked> 위 내용을 회원정보에 반영합니다.
+                        </label>
+                        <span>(주소/전화번호/휴대폰번호)</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    
+    <aside class="user_order_pay_method">
+        <div class="user_order_pay_method_div">
+            <span>
+                결제수단 선택 / 결제
+            </span>
+            <span>
+                <label>
+                    <input type="radio" name="gopaymethod" value="directbank" onclick="payment(0)"> 일반결제
+                </label>
+                <label>
+                    <input type="radio" name="gopaymethod" value="Card" onclick="payment(1)" checked> 신용카드 결제
+                </label>
+                <label>
+                    <input type="radio" name="gopaymethod" value="HPP" onclick="payment(2)"> 휴대폰 결제
+                </label>
+            </span>
+            <span>
+                <ul class="nomal_pay" id="pay_choice">
+                    <li>
+                        <label>
+                            <input type="radio" name="bank_step" value="Y"> 무통장 입금
+                        </label>
+                        <span>(무통장 입금의 경우 입금확인 후부터 배송단계가 진행됩니다.)</span>
+                    </li>
+                    <li>
+                        <span>
+                            <div>입금자명</div>
+                            <div>
+                                <input type="text" class="input3" name="banksend_name">
+                            </div>
+                        </span>
+                        <span>
+                            <div>입금은행</div>
+                            <div>
+                                <select class="selects_bank" name="bank_name">
+                                    <option value="">선택하세요</option>
+                                    <option value="신한">신한은행 123-45-78945</option>
+                                    <option value="국민">KB국민은행 110-123-456789</option>
+                                    <option value="기업">IBK기업은행 010-1234-7890</option>
+                                </select>
+                            </div>
+                        </span>
+                    </li>
+                </ul>
+                <ul class="credit_pay" id="pay_choice">
+                    <li>
+                        <label>
+                            <input type="radio"> 신용카드 결제
+                        </label>
+                        <span>(카드사마다 무이자 할부가 다릅니다.)</span>
+                    </li>
+                    <li>
+                        <span>
+                            <div>카드 번호</div>
+                            <div>
+                                <input type="text" class="input3">
+                            </div>
+                        </span>
+                        <span>
+                            <div>할부개월</div>
+                            <div>
+                                <select class="selects_bank">
+                                    <option value="">선택하세요</option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
+                                </select>
+                            </div>
+                        </span>
+                    </li>
+                </ul>
+                <ul class="phone_pay" id="pay_choice">
+                    <li>
+                        <label>
+                            <input type="radio"> 휴대폰 결제
+                        </label>
+                        <span>(핸드폰 통신사에 따라 할인률이 다릅니다.)</span>
+                    </li>
+                    <li>
+                        <span>
+                            <div>핸드폰 번호</div>
+                            <div>
+                                <input type="text" class="input3">
+                            </div>
+                        </span>
+                        <span>
+                            <div>통신사</div>
+                            <div>
+                                <select class="selects_bank">
+                                    <option value="">선택하세요</option>
+                                    <option></option>
+                                    <option></option>
+                                    <option></option>
+                                </select>
+                            </div>
+                        </span>
+                    </li>
+                </ul>
+            </span>
+            <span></span>
+        </div>
+    
+        <div class="user_order_cash_receipt">
+            <span>
+                <label>
+                    현금영수증/계산서 발행
+                </label>
+                <label>
+                    <input type="radio" name="choice_tax" value="N" onchange="cash_receipt(1)" value="1" checked> 신청안함
+                </label>
+                <label>
+                    <input type="radio" name="choice_tax" value="tax" onchange="cash_receipt(2)" value="2"> 세금 계산서
+                </label>
+                <div></div>
+            </span>
+            <span id="bill_open"></span>
+        </div>
+    </aside>
+    <aside class="final_payment">
+        <div>
+            <span>최종 결제금액</span>
+            <span id="last_total_price"></span>
+        </div>
+    </aside>
+    <aside class="pay_check_complete">
+        <div>
+            <span>
+                <label><input type="checkbox" name="ordercheck" value="Y"><span>(필수)</span>구매하실 상품의 결제정보를 확인하였으며, 구매진행에 동의합니다.</label>
+            </span>
+        </div>
+        <div>
+            <span onclick="pay_btn()">결제하기</span>
+        </div>
+    </aside>
+</form>

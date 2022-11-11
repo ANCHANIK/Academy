@@ -1,0 +1,33 @@
+<?php
+    $date = date("Ymdhis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>CSS3 2일차 @import image</title>
+        <link rel="shortcut icon" type="image/x-icon" href="./logo.ico">
+        <!--
+        파빌리온(파비콘) : 웹페이지 접속시 탭, url에 아이콘을 표시함
+        모바일 & pc 일 경우 아이콘을 출력할 수 있음 (바로가기)
+        -->
+        <link rel="stylesheet" type="text/css" href="./index8.css?v=<?php echo $date?>">
+    </head>
+    <body>
+        <span class="font1">WEB TEST</span>
+        <!--
+        <div class="imgs"></div>
+        -->
+        <dl class="quick">
+            <!-- 아이콘 35*35px-->
+            <dt>Quick Menu</dt>
+            <dd title="메인페이지"></dd>
+            <dd title="정보확인"></dd>
+            <dd title="배송현황"></dd>
+            <dd title="장바구니"></dd>
+            <dd title="결제내역"></dd>
+            <dd title="고객센터"></dd>
+        </dl>
+    </body>
+</html>

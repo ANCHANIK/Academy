@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <html>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 1일차 - Vue 핸들링2</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+        
+        </style>
+    </html>
+    <body>
+        <div id="vuebox">
+            <span id="msg">{{ dataview }}</span>
+            <button v-on:click="aaa">{{ btn }}</button>
+        </div>  
+    </body>
+    <script>
+        var data1 = 60;
+        var data2 = 222;
+        let a = new Vue({
+            el:"#vuebox",
+            data:{
+                dataview:"", // 최초 값에는 빈값을 적용함. "", null
+                // dataview:null, 써도 무방
+                btn:"출력클릭",
+                // val1:5, // 숫자로 인식
+                // val2:6
+                val1:data1, // 전역변수를 vue에 data 인스턴스 값으로 변환하여 사용함
+                val2:data2
+                },
+            methods:{
+                aaa:function(){
+                    // dataview라는 인스터스에 해당 값을 출력시킴
+                    this.dataview = this.val1 * this.val2;
+                    // this.dataview = "출력연습 입니다.";
+                }
+            }
+        });
+    </script>
+</html>

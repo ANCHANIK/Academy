@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+<style>
+
+</style>
+<script>
+    function serve_admin(){
+        frm.submit();
+    }
+</script>
+<form name="frm" onsubmit="return serve_admin()" method="POST" action="admin_make.php">
+    <div>
+        <input type="hidden" name="level" value="S">
+        <input type="text" name="m_admin_id" class="" placeholder="관리자 아이디">
+        <input type="password" name="m_admin_pw" class="" placeholder="관리자 패스워드">
+        <input type="text" name="m_admin_nm" class="" placeholder="관리자 이름">
+        <input type="submit" name="" class="">
+    </div>
+</form>

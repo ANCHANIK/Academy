@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML & CSS 3일차 중급 반응형 (transform3 + transition)</title>
+        <script src="../jq/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#box2").click(function(){
+                    $(this).css({
+                        "transform":"translate(500px,0)"
+                    })
+                });
+
+                $("#ck").click(function(){
+                    var $ck = $("#ck").is(":checked");
+                    if($ck == true){
+                        $("#box3").css({
+                            "width":"600px"
+                        });
+                    }
+                    else{
+                        $("#box3").css({
+                            "width":""
+                        });
+                    }
+                });
+
+            });
+        </script>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color:orange
+            }
+            .box:hover {
+                width: 200px;
+                height: 50px;
+                background-color: red;
+                transition-property: all;
+                /* property : 어떤 속성을 효과적으로 적용할 것인지 선택하는 사항. 기본 베이스는 all */
+                transition-duration: 3s;
+                /* duration : 효과 지속 시간을 설정 할 수 있다. */
+                
+                
+                /* transition: width 3s; 이것을 풀면
+                transition-property: width;
+                transition-duration: 3s; */
+                
+            }
+            .box2 {
+                width: 100px;
+                height: 100px;
+                background-color: hotpink;
+                transition-duration: 5s;
+                /* transition-timing-function: ease-in-out;
+                transition-timing-function: cubic-bezier(0,1,1,0)
+                (시작값,중간값,최대값,종료값) 0 : 빨라짐, 1 : 느려짐 */
+                transition-timing-function: steps(10);
+                
+                /* transition-timing-function : 진행 속도를 조절 할 수 있다.
+                ease : 처음과 끝에 속도가 느린 애니메이션. 기본 애니메이션 값(천천히 줄발해서 기본속도로 유지)
+                ease-in : 처음 속도만 느린 애니메이션. 점점 빨라짐
+                ease-out : 끝 속도만 느린 애니메이션. 점점 느려짐
+                ease-in-out : 느려졌다 빨라졌다 느려짐
+                linear : 동일한 속도의 애니메이션. 처음과 끝까지 속도가 똑같음 */
+                
+            }
+            .box3 {
+                width: 100px;
+                height: 100px;
+                background-color: orange;
+                transition-duration: 3s;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+        <br>
+        <div class="box2" id="box2"></div>
+        <br><br><br>
+        <input type="checkbox" id="ck">작동
+        <div class="box3" id="box3"></div>
+    </body>
+</html>

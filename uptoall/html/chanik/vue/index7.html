@@ -1,0 +1,44 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 3</title>
+        <link rel="stylesheet" text="text/css" href="./index7.css?v=<?=$data?>">
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <section id="box">
+            <input v-bind:type="input1" v-model="val" ref="mid">
+            <input v-bind:type="input2" v-model="val2" ref="mid2">
+            <input v-bind:type="btn" v-model="btn_val" @click="cl">
+        </section>
+    </body>
+    <script>
+        let vues = new Vue({
+            el:"#box",
+            data:{
+                input1:"text",
+                input2:"password",
+                btn:"button",
+                btn_val:"클릭",
+                val:"",
+                val2:""
+            },
+            methods:{
+                cl(){
+                    alert("eete")
+                }
+            },
+            components:{
+
+            },
+            computed:{
+
+            }
+        });
+    </script>
+</html>

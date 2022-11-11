@@ -1,0 +1,95 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../jq/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="index6.css?v=<?=$data?>">
+        <title>
+            Scss 3일차 - mixin 활용2(모바일) & flex 활용 & blackscreen & #태그 사용
+            & 확장함수 (targer,currentTarget)
+        </title>
+        <script>
+            $(function(){
+                /*
+                // var $a = window.location.search;  //파라미터 값 가져오기 : ?로 시작. 파라미터는 페이지가 바뀌는것
+                var $a = window.location.hash;  // hash : #으로 시작. 페이지가 새롭게 바뀌는게 아님. 닫기 버튼 눌렀을때 hash가 날라가야된다.
+                // JS에서도 똑같이 쓰임
+                console.log($a);
+                $("#menu").click(function(){
+                    alert("test");
+                });
+                $("#event").click(function(){
+                    $("#popup").css("display","block");
+                    location.href = "index6.html#event"; // hash
+                });
+                $("#popclose").click(function(){
+                    $("#popup").css("display","");
+                });
+                */
+            });
+        </script>
+    </head>
+    <body>
+        <!-- popup 파트 -->
+        <div class="popup" id="popup">
+            <span class="popico" id="popclose">
+                <img src="close.svg">
+            </span>
+        </div>
+        <header class="top">
+            <label id="menu"></label>
+            <label id="logo"></label>
+            <label id="event"></label>
+        </header>
+        <section class="main">
+
+        </section>
+        <footer class="bottom">
+
+        </footer>
+    </body>
+    <script>
+        //JS로 헨들링을 적용하라. 단, onclick 사용하지 말것. addEventListener 사용
+        //addEventListener : 즉시실행(인자값 O), 핸들링 실행(인자값X)
+        document.getElementById("menu").addEventListener("click", alltop);
+        document.getElementById("logo").addEventListener("click", alltop);
+        // top_event.addEventListener("click", alltop("test")); // 인자값을 넣으면 즉시 실행.
+        document.getElementById("event").addEventListener("click", alltop); // 인자값을 안넣으면 핸들링 함수
+        document.getElementById("popclose").addEventListener("click", alltop);
+
+        function alltop(){
+            function aaa(){
+
+            }
+            // var data = event.target.id;
+            // img가 있기 때문에 span에 있는 id값을 img에 써야 된다.
+            // 대신하기 위해선 background를 쓰면 가능함
+            var data = event.currentTarget.id;
+            // currentTarget : 엄마 태그의 id값부터 안에 태그 순으로 검사함
+            // target : 엄마기준의 자식의 태그를 검사함
+            console.log(data);
+            switch (data){
+                case "menu":
+                    alert("menu");
+                break;
+
+                case "logo":
+                    alert("loooogoooooo");
+                break;
+
+                case "event":
+                document.getElementById("popup").style.display = "block";
+                break;
+
+                case "popclose":
+                    document.getElementById("popup").style.display = "";
+                break;
+            }
+        }
+    </script>
+</html>

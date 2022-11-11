@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 1일차 - 중급 (Jquery-mobile(tap) 중요사항)</title>
+        <script src="./jquery-2.0.js"></script>
+        <script src="./jquery-ui.js"></script>
+        <script src="./jquery.mobile.js"></script>
+        <script>
+            $(function(){
+                // tap : click 헨들링과 동일한 기능을 가지고 있으며,
+                // mobile에서 정확한 핑거 클릭을 사용할때 이용된다.
+                /*
+                $("li").tap(function(){
+                    // var $node = $(this).index();
+                    // alert($node)
+                    $(this).addClass("bg");
+                });
+                // box3 번부터 터치하면 사라짐
+                */
+                $("li").taphold(function(){
+                    //taphold : tap과 다르게 시간 타임을 가지게 된다.
+                    $(this).addClass("bg");
+                });
+
+                // scrollstart : 페이지에서 스크롤 스왑을 시작할 때
+                // scrollstop : 페이지에서 스크롤을 자동으로 드롭될 때 중지하는 이벤트
+                $("html,body").scrollstop(function(){
+                    // 응용문제. tabs-3의 위치를 출력시켜라
+                    /*
+                    var $hh = $("#tabs-2").offset().top;
+                    $(this).stop().animate({
+                        "scrollTop":$hh + "px"
+                    })
+                    */
+                    $(this).stop().animate({
+                        "scrollTop":"1200px"
+                    },500);
+                })
+            })
+        </script>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .ulcss {
+                width: 100%;
+                height: 40px;
+                max-width: 620px;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .ulcss > li {
+                display: inline-block;
+                width: calc(100%/3.1);
+                /* clac : 해당 속성값을 계산하는 계산식 (+,-,*,/) */
+                height: inherit;
+                max-width: 200px;
+                background-color: pink;
+            }
+            .bg {
+                background-color:tomato !important;
+            }
+            #tabs-1 {
+                width: 200px;
+                height: 800px;
+                background-color: lightblue;
+            }
+            #tabs-2 {
+                width: 200px;
+                height: 800px;
+                background-color: hotpink;
+            }
+            #tabs-3 {
+                width: 200px;
+                height: 800px;
+                background-color: turquoise;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="ulcss" id="ulcss">
+            <li>box1</li>
+            <li>box2</li>
+            <li>box3</li>
+        </ul>
+        <div id="tabs-1"></div>
+        <div id="tabs-2"></div>
+        <div id="tabs-3"></div>
+    </body>
+</html>

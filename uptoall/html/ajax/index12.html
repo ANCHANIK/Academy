@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <title>Ajax 4일차 - Ajax POST 통신(패스워드 찾기)</title>
+        <script>
+            // ajax post 시작
+            function abc(){
+                var mn = "mname=" + document.getElementById("mname").value;
+                var mid = "&mid=" + document.getElementById("mid").value;
+                const user_data = mn + mid;
+                postajax(user_data);
+            }
+
+            let d;
+            function postajax(data){
+                function windowck(){
+                    if(window.XMLHttpRequest){
+                        return new XMLHttpRequest();
+                    }
+                }
+                function dataload(){
+                    if(d.readyState == XMLHttpRequest.DONE && d.status == 200){
+                        var result = this.response;
+                        if(result == "ok"){
+                            alert("패스워드를 변경해 주세요");
+                            // 사용자가 입력한 id 값을 form에 있는 userid 값으로 이관한다.
+                            // 그래야 백엔드가 어떤 아이디의 패스워드를 바꿀것인지 확인해야하기 때문
+                            document.getElementById("userid").value = document.getElementById("mid").value;
+                            // view가 변경됨
+                            document.getElementById("search").style.display = "none";
+                            document.getElementById("pass_modify").style.display = "block";
+                        }
+                        else if(result == "no"){
+                            alert("해당 사용자는 가입되지 않은 사용자 입니다.")
+                        }
+                        else{
+                            console.log("데이터 오류")
+                        }
+                    }
+                }
+                d = windowck();
+                d.onreadystatechange = dataload;
+                d.open("POST","./index12.php",true);
+                d.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                d.send(data);
+            }
+            // ajax post 종료
+
+            /* 패스워드 변경 파트 */
+            // 페이지 변경됨
+            function modify(){
+                // 다른 if문 다 입력했다 치고!
+                f.submit();
+            }
+        </script>
+        <style>
+            .pass_modify {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- ajax : name 값 mname,mid  (sample : 홍길동(이름), hong(아이디)) -->
+        <div class="search" id="search">
+            <input type="text" id="mname" placeholder="고객명">
+            <input type="text" id="mid" placeholder="가입 아이디">
+            <input type="button" value="패스워드 찾기" onclick="abc()">
+        </div>
+        <!-- form : passok.php  form에 사용하는 name값은 mpass -->
+        <form name="f" id="f" method="POST" action="passok.php" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="userid" id="userid" value="">
+            <div class="pass_modify" id="pass_modify">
+                <input type="password" name="mpass" id="mpass" placeholder="새로운 패스워드 입력"> <!--백엔드는 여기 name값만 필요함-->
+                <input type="password" name="mpass2" id="mpass2" placeholder="동일한 패스워드 입력">
+                <input type="button" value="패스워드 변경" onclick="modify()">
+            </div>
+        </form>
+    </body>
+</html>

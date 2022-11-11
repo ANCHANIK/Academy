@@ -1,0 +1,54 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>6일차 Vue + Ajax 응용</title>
+        <link rel="stylesheet" type="text/css" href="./index36_1.css?v=<?=$data?>">
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <section id="info">
+            {{aaa}}
+            <p class="info_length">{{info_leng}}</p>
+            <div class="info_title">
+                <span>번호</span>
+                <span>아이디</span>
+                <span>이름</span>
+                <span>이메일</span>
+                <span>지역</span>
+                <span>휴대폰 번호</span>
+            </div>
+        </section>
+    </body>
+    <script>
+        let vues = new Vue({
+            el:"#info",
+            data:{
+                info_leng:""
+            },
+            methods:{
+
+            },
+            components:{
+
+            },
+            computed:{
+                aaa(){
+                    fetch("./index5.json").then(function(response){
+                        return response.json();
+                    }).then(function(data){
+                        console.log(data);
+                    })
+                    .catch(function(error){
+                        console.log("DATA ERROR");
+                    })
+                }
+            }
+        });
+    </script>
+</html>

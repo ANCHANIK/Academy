@@ -1,0 +1,73 @@
+@charset "UTF-8";
+@import "./config.scss";
+
+.mdpick_product_title {
+    @include object(100%, auto, block, "");
+    & > .mdpick_product_title_img {
+        @include object(inherit, auto, block, "");
+    }
+}
+.mdpick_product_article {
+    @include object(100%, auto, block, "");
+    & > .mdpick_product_div {
+        @include object(1174px, inherit, block, relative);
+        margin: 0 auto;
+        & > .mdpick_product_img {
+            @include object(inherit, 319px, block, relative);
+            margin-top: 30px;
+            overflow: hidden;
+            & > ul {
+                @include object(2000px, inherit, block, absolute);
+                @extend %ulol;
+                & > li {
+                    @include object(234.8px, inherit, flex, "");
+                    float: left;
+                    justify-content: center;
+                    & > div {
+                        @include object(200px, inherit, block, "");
+                        & > span:nth-of-type(1){
+                            @include object(100%, 200px, block, relative);
+                            border-radius: 100%;
+                            overflow: hidden;
+                            cursor: pointer;
+                            & > img {
+                                position: absolute;
+                                top: -15px;
+                            }
+                        }
+                        & > span:nth-of-type(2){
+                            @include object(100%, 55px, block, "");
+                            @include fonts(18px, 500, black, 55px);
+                            text-align: center;
+                            cursor: pointer;
+                            line-height: 55px;
+                        }
+                        & > span:nth-of-type(3){
+                            @include object(100%, 24px, block, "");
+                            @include fonts(13px, 300, gray, 24px);
+                            text-align: center;
+                            cursor: pointer;
+                        }
+                        & > span:nth-of-type(4){
+                            @include object(100%, 40px, block, "");
+                            @include fonts(16px, 500, crimson, 44px);
+                            text-align: center;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+        & > .rl_button {
+            @include object(1174px, 50px, flex, absolute);
+            z-index: 10;
+            top: 50%;
+            margin-top: 25px;
+            justify-content: space-between;
+            & > div {
+                @include object(50px, inherit, block, "");
+                cursor: pointer;
+            }
+        }
+    }
+}

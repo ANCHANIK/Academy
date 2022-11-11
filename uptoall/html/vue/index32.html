@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>
+            Vue 5일차 - Vue 복습 및 응용 & 지역 component응용파트 & v-on:input
+            & $event.target.value
+        </title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <section id="box">
+            <btn v-bind:type="b" v-model="btn_name"></btn>
+            <mids v-bind:type="t" name="mid" id="mid" v-model="mid"></mids>
+        </section>
+    </body>
+    <script>
+        // 지역 component
+        let v = {
+            template:"<input @click='aaa'>",
+            methods:{
+                aaa(){
+                    a.abc();  // component상에서는 하위 Vue로 methods 핸들링을 조정할 수 있다
+                }
+            }
+        }
+        let i = {
+            template:"<input v-on:input='ups($event.target.value)'>",
+            // template:"<input v-on:change='ups($event.target.value)'>",
+            // $event.target.value : 사용자가 실시간으로 입력한 값을 가져옴
+            // v-on:input : 사용자가 키보드로 입력한 것을 지속적으로 체크함
+            // v-on:change도 가능하다. 단, 클릭 또는 아무곳을 눌렀을때 반응하고, input은 즉시 반응한다.
+            methods:{
+                ups(d){  // v-on 함수를 실행함
+                    a.mid = d;  // a에 있는 data 중에서 mid 값에 데이터를 적용함
+                }
+            }
+        }
+        // 두 개의 지역 component가 하나의 Vue와의 만남
+        // 단 ref가 안먹는다 
+
+
+        let a = new Vue({
+            el:"#box",
+            data:{
+                b:"button",
+                t:"text",
+                btn_name:"클릭",
+                mid:"" // [object HTMLUnknownElement] 이게 뜨면 해당 value가 선언되지 않았다는 것
+            },
+            methods:{
+                abc(){
+                    console.log(this.mid);
+                    if(this.mid == ""){
+                        alert("아이디를 입력하라");
+                        document.getElementById("mid").focus(); // ref를 못써서 이렇게 써야됨
+                    }
+                    else{
+                        // location.href = "http://naver.com"
+                    }
+                }
+            },
+            components:{
+                "btn":v,
+                "mids":i
+            },
+            computed:{
+
+            }
+        });
+    </script>
+</html>

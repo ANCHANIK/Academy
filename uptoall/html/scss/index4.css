@@ -1,0 +1,87 @@
+@charset "UTF-8";
+.ulcss {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  height: 30px;
+}
+
+.ulcss > li {
+  float: left;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.ulcss > li:nth-of-type(1) {
+  background-color: red;
+}
+
+.ulcss > li:nth-of-type(2) {
+  background-color: orange;
+}
+
+.ulcss > li:nth-of-type(3) {
+  background-color: yellow;
+}
+
+.ulcss > li:nth-of-type(4) {
+  background-color: green;
+}
+
+.ulcss > li:nth-of-type(5) {
+  background-color: blue;
+}
+
+.ulcss > li:nth-of-type(6) {
+  background-color: navy;
+}
+
+.ulcss > li:nth-of-type(7) {
+  background-color: purple;
+}
+
+/*
+응용문제2.
+label 형태의 태그를 이용해 대메뉴를 제작하라
+단, 폰트의 색상은 다음과 같다.
+skyblue, orange, springgreen, indigo, pink
+label의 크기는 400*30
+아웃라인 color : black
+*/
+.btn {
+  float: left;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid black;
+  width: 200px;
+  height: 30px;
+}
+
+.btn:nth-of-type(1) {
+  color: skyblue;
+}
+
+.btn:nth-of-type(2) {
+  color: orange;
+}
+
+.btn:nth-of-type(3) {
+  color: springgreen;
+}
+
+.btn:nth-of-type(4) {
+  color: indigo;
+}
+
+.btn:nth-of-type(5) {
+  color: pink;
+}
+
+.btn:hover {
+  background-color: #ccc;
+}
+/*# sourceMappingURL=index4.css.map */

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 6일차 - 중급 (메일 인증확인 페이지)</title>
+        <script src="./jquery.js"></script>
+        <!-- 메일 인증 시스템 -->
+        <script>
+            $(function(){
+                let $url_data = window.location.search;
+                var $mailck = $url_data.split("?mailid=");
+                console.log($mailck[1]);
+                if($mailck[1] == "cksdlr7446@naver.com"){
+                    $("#checks").text("메일 인증이 완료되었습니다.");
+                }
+                else{
+                    $("#checks").text("해당 인증정보는 확인 되지 않습니다.");
+                }
+            });
+        </script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="checks"></div>
+    </body>
+</html>

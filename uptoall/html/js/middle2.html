@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 1일차 (중급 - NODE + button 형태)</title>
+    </head>
+    <body>
+        <div id="box"></div>
+        
+    </body>
+    <script>
+        var a = document.getElementById("box");
+        var b = document.createElement("button");
+        // append = appendChild : 해당 아이디 기준으로 노드를 추가함
+        // b.innerHTML = "로그인";
+        // a.append(b); //모바일이든 웹이든 다 작동 가능
+        // a.prepend(b);  IE 에서는 작동 불능
+        // a.appendChild(b);
+        // a.appendChild(b);
+        
+        var c = document.createTextNode("로그인");   // 텍스트 매개값을 넣을 때 사용한다.
+        b.appendChild(c);
+        // a.appendChild(b);  //순서 뒤바뀌면 안돼
+        
+        
+        a.insertBefore(b,a.childNodes[0]);
+        // 삽입 할 노드 id값에 맨 앞에 기준으로 입력되도록 한다.
+        //  (생성할 태그) , (삽입할 노드 위치 번호)
+    </script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript - 팝업창 (middle30.html 연동) - cookie</title>
+        <style>
+        </style>
+        <script>
+            function getpopup(){
+                var c = "";  // 값이 없으면 기본 undefind가 설정 되므로 변수를 선언함
+                let cook = document.cookie;
+                var cook_data = cook.split(";");
+                    cook_data.forEach(function(a){
+                        a = a.replace(" ","")
+                        var b = a.split("=");
+                        if(b[0]=="popups"){ // 쿠키값을 생성한 값과 동일한 조건을 셋팅함
+                            c = b[1];  // 쿠키값 N 이 반환하게 된다.
+                            return true;
+                        }
+                    });
+                return c;  // "" or true 두가지의 값을 반환하게 된다.
+            }
+
+            function startpop(){
+                var pop = getpopup();
+                if(pop == ""){
+                    window.open("middle30.html","","width=400 height=400");
+                }
+            }
+        </script>
+    </head>
+    <body onload="startpop()"> <!-- onload: 웹페이지 실행시 해당 함수를 실행한다. -->
+        <!-- 응용문제. middle30.html을 가로 400 세로 400짜리 팝업창을 띄워라 -->
+        
+    </body>
+</html>

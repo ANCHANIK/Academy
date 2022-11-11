@@ -1,0 +1,97 @@
+@charset "UTF-8";
+@import url("./index8_1.css");
+/*
+CSS 파일을 분리하여 관리가 편하도록 설정을 할 수 있으며,
+또한 해당 파일만 수정할 수 있음
+*/
+body {
+  margin: 0;
+  padding: 0;
+}
+span,
+label,
+main {
+  display: block;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.font1 {
+  font-family: "Monoton", cursive;
+  font-size: 40px;
+  font-weight: 400;
+}
+.imgs {
+  width: 300px;
+  height: 300px;
+  border: 1px solid red;
+  background-image: url("../cat.jpg");
+  background-repeat: no-repeat;
+  /* 반복이미지가 나오지 않도록 함 */
+  /*
+  background-position-x: -150px;
+  background-position-y: -50px;
+*/
+  /* background-position : 배경 이미지 위치 조정 ( X : 가로축, Y : 세로축) */
+  /* background-position: -150px -50px; */
+  background-size: 200%;
+  /* background-size : 배경이미지 사이즈 조정
+  contain : 가로,세로 비율에 맞춰서 자동으로 최적화
+  cover : 가로, 세로를 1:1 비율로 맞추줌. 단, 이미지가 가려질 수 있음
+  */
+}
+.quick {
+  width: 250px;
+  height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.quick > dt {
+  width: 100%;
+  height: 30px;
+  border-bottom: 1px dashed #ccc;
+  line-height: 30px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  box-sizing: border-box;
+}
+.quick > dd {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  margin-top: 16px;
+  background-image: url(./shopico.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+.quick > dd:nth-child(3) {
+  /*  */
+  background-position: -33px 0;
+}
+.quick > dd:nth-child(4) {
+  background-position: -66px 0;
+}
+.quick > dd:nth-child(5) {
+  background-position: -99px 0;
+}
+.quick > dd:nth-child(6) {
+  background-position: -132px 0;
+}
+.quick > dd:nth-child(7) {
+  background-position: -165px 0;
+}

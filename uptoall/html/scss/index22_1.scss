@@ -1,0 +1,94 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+$font_ng:'Nanum Gothic', sans-serif; 
+
+@mixin base{
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+@mixin objectsize($w,$h,$display,$position){
+        width: $w;
+        height: $h;
+        display:$display;
+        position:$position;
+}
+
+body{
+    @include base;
+}
+
+.webmain { 
+    width: 1200px;
+    display: grid;
+    margin: 0 auto;
+    //grid-template-columns: 1200px;
+    grid-template: 
+    "h" 100px       //각각의 템플릿의 높이를 설정하는 부분
+    "s1" 100px
+    "s2" 200px
+    "s3" 250px
+    "f" 100px
+    ;
+    & > header{
+        grid-area: h; background-color: blue;
+    }
+    & > section{
+        background-color: rgb(115, 197, 115);
+    }
+
+    & > section:nth-of-type(1){
+        grid-area: s1; 
+        display: flex;
+        flex-direction: row;
+        & > aside{ 
+            @include objectsize(100%,100px,block,relative);
+        }
+        & > aside:nth-of-type(1){
+            background-color: pink;
+        } 
+        & > aside:nth-of-type(2){
+            background-color: skyblue;
+        } 
+        & > aside:nth-of-type(3){
+            background-color: yellow;
+        } 
+    }
+    & > section:nth-of-type(2){
+        grid-area: s2;
+        display: flex;
+        flex-direction: row;
+        & > article{
+            //@include objectsize(100%,200px,block,relative);
+            height: 200px;
+        }
+        & > article:nth-of-type(1){
+            width: 35%;
+            background-color: tomato;
+        }
+        & > article:nth-of-type(2){
+            width: 65%;
+            background-color: rgb(192, 71, 49);
+        }
+    }
+    & > section:nth-of-type(3){
+        grid-area: s3;
+        display: flex;
+        flex-direction: row;
+        & > aside{
+            //@include objectsize(100%,250px,block,relative);
+            height: 250px;
+        }
+        & > aside:nth-of-type(1){
+            width: 75%;
+            background-color: rgb(148, 182, 81);
+        }
+        & > aside:nth-of-type(2){
+            width: 25%;
+            background-color: rgb(100, 124, 51);
+        }
+    }
+    & > footer{
+        grid-area: f; background-color: black;
+    }
+}

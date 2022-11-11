@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="imagetoolbar" content="no">
+        <!--마우스 오버시 이미지 관련 툴바가 생성되지 않도록 한다.-->
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>HTML & CSS 1일차 중급</title>
+        <style>
+            .div {
+                width: 1200px;
+                height: 300px;
+                background-color: orange;
+                display: table-cell;
+                vertical-align: middle;
+            }
+            /* inherit : 부모의 속성을 가져올 때 사용 */
+            .span {
+                width: inherit;
+                height: 100px;
+                background-color: greenyellow;
+                display: table-cell;
+                vertical-align: inherit;
+                text-align: center;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="div">
+            <span class="span">test<br>test</span>
+        </div>
+
+        <br><br>
+        <!--
+            accept : file 기준에 사용되며,
+            audio, video, image
+            해당 부분을 전체 사용하고 싶을 경우 * 기호를 사용하면
+            해당 파일 속성 파트를 모두 사용 가능하다.
+        -->
+        <input type="file" accept="image/png, image/gif, image/jpeg">
+
+        <br><br>
+
+        <input type="file" accept=".doc, .docx, .txt">
+
+        <br><br>
+        
+        <!--
+            a 태그에 download 속성을 추가하면, 해당 파일을 다운로드 할 수 있다.
+        -->
+        <a href="../img/okay.jpg" download>
+            <img src="../img/okay.jpg">
+        </a>
+
+    </body>
+</html>

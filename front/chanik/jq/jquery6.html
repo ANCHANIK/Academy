@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge">
+        <title>그래프 연습</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js?v=1"></script>
+        <script>
+            $(document).ready(function(){
+                var $width = "320,200,50,160";
+                var $node = $("#gol > li").length;
+                var $s_width = $width.split(",");
+                var $time;
+                //console.log($s_width);
+                
+                $("#btn").click(function(){
+                    $.fn.time();
+                });
+                
+                var $start = 0;
+                $.fn.time = function(){
+                    $("#gol > li").eq($start).animate({
+                        "width": $s_width[$start] + "px"
+                    },1000)
+                    $time = setTimeout($.fn.time,1000);
+                    console.log($start)
+                    $start += 1;
+
+                    if($start >= $node){
+                        clearTimeout($time);
+                    }
+                    
+                }
+                
+                // var $w = 0;
+                // while($w < $node){
+                //     $w++;
+                // }
+                // $start = setTimeout()
+                // $w += 1;
+                // if($w > $node){
+                //     $start = 0;
+                // }
+
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            span,label,main { display: block; }
+            .box {
+                width: 600px;
+                height: 500px;
+                border: 1px solid #ccc;
+                margin: 0 auto;
+            }
+            .gol {
+                height: 400px;
+                
+            }
+            .gol > li {
+                width: 0;
+                height: 60px;
+                margin-bottom: 40px;
+            }
+            .gol > li:nth-child(1) {
+                background-color: cadetblue;
+            }
+            .gol > li:nth-child(2) {
+                background-color: chartreuse; 
+            }
+            .gol > li:nth-child(3) {
+                background-color: crimson ;
+            }
+            .gol > li:nth-child(4) {
+                background-color: coral;
+            }
+            .b_btn {
+                width: 100%;
+                height: 100px;
+                
+            }
+            .btn {
+                width: 180px;
+                height: 60px;
+                background-color: gray;
+                color: white;
+                font-size: 30px;
+                line-height: 60px;
+                text-align: center;
+                cursor: pointer;
+                border-radius: 7px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <ol class="gol" id="gol">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <label class="b_btn">
+                <span class="btn" id="btn">Check</span>
+            </label>
+        </div>
+    </body>
+</html>

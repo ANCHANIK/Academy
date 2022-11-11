@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 8일차 - 초급코드 시간(GET 파라이터 값으로 받아서 처리하기2)</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js?v=4"></script>
+        <script>
+            $(document).ready(function(){
+
+                var $url = location.search;  // url 정보 중 파라미터 부분만 가져오는 명령어
+                var $a = $url.split("?test="); // 구분짓는 것
+                //console.log($a[1]);
+                var $t = $url.split("&mid3="); // &mid3= 기준으로 뒤에가  노드 1, 앞이 통째로 노드 0
+                var $j = $url.split("&mname=");
+                var $k = $j[1].split("&");
+                var $p = $url.split("&memail=");
+                var $o = $p[1].replace("%40","@");
+                console.log($o);
+                //console.log($k[0]);
+                //console.log($t[1])
+                if($a[1] == "admin"){
+                    alert("관리자님 환영합니다.");
+                }
+                else{
+                    //alert("접근이 잘못되었습니다.");
+                    //location.href="index31.html";
+                }
+
+            });
+        </script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+    </body>
+</html>

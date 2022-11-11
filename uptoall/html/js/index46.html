@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>초급 종합 응용</title>
+        <script>
+            /*
+            응용문제2. start 버튼 클릭시 5~1까지 역순으로 숫자가 차례로 출력되게 하라.
+            1 초 마다 숫자가 변경되어야 한다. stop 버튼 클릭시 숫자가 더 이상 변경되지 않도록 할 것.
+            */
+            var aa = 5;
+            var time;
+            function start() {
+                aa = aa - 1;
+                document.getElementById("box").innerText = aa;
+                if(aa > 1){
+                    time = setTimeout(start,1000);
+                }
+                else{
+                    clearTimeout(time);
+                }
+            }
+            function stop() {
+                clearTimeout(time);
+            }
+        </script>
+        <style>
+            .box{
+                width: 100px;
+                height: 100px;
+                text-align: center;
+                line-height: 100px;
+                font-size: 40px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box">5</div>
+        <input type="button" value="start" onclick="start();">
+        <input type="button" value="stop" onclick="stop();">
+    </body>
+</html>

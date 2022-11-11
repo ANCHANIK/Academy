@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>Ajax (5일차) - Jquery Ajax-JSON(응용)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+
+                $.ajax({
+                    url:"./myinfo.json",
+                    cache:false,
+                    type:"GET",
+                    dataType:"JSON",
+                    success:function($node,$data){
+                        // split을 사용하는 경우 (location - 파라미터 가져올 때)
+                        // split보다 배열로 바꿔서 사용하는게 훨씬 빠름
+                        console.log($node["myinfo"][0]);
+                        var $title = "아이디 : ,이름 : ,이메일 : ,지역 : ,휴대폰번호 : ";
+                        // var $title = ["아이디","이름","이메일","지역","휴대폰번호"]; 차라리 이렇게 배열로 할 것.
+                        var $s_title = $title.split(",");
+                        // console.log($s_title[0]);
+                        var $w = 0;
+                        $.each($node["myinfo"][0],function($a,$b){
+                            // console.log($b);
+                            var $li_data = "<li>"+ $s_title[$w] +"</li><li>"+ $b +"</li>";  // data
+                            var $ul_list = "<ul>"+ $li_data +"</ul><br>";
+                            $("#field").append($ul_list);
+                                $w++;
+                            })
+                    },
+                    error:function(){
+                        alert("파일로드 실패");
+                    }
+                });
+            })
+            // $("#field").append($li_title);
+
+            // console.log($a)
+        </script>
+        <style>
+            body {
+                margin:0; padding: 0;
+            }
+            ul,ol { list-style:none; margin:0; padding: 0;}
+            .field {
+                width: 500px;
+                height: auto;
+            }
+            .field > legend {
+                text-align: center;
+            }
+            ul > li {
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <fieldset class="field" id="field">
+            <legend>MY INFO</legend>
+        </fieldset>
+    </body>
+</html>

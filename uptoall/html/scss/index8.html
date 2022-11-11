@@ -1,0 +1,98 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../jq/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="index8.css?v=<?=$data?>">
+        <title>
+            SCSS 3일차 - while문 & mixin 활용2(모바일)
+        </title>
+        <script>
+            $(function(){
+                let $w = 1;
+                while($w < 5){
+                    var $pro_img = "<li><img src='./product/product"+ $w +".gif'></li>";
+                    $(".pro_section > ul").eq($w-1).prepend($pro_img);
+                    $w++;
+                }
+                $("#pro_section > ul").click(function(){
+                    let $ul_node = $("#pro_section > ul").index();
+                    let $li_node = $("#pro_section > ul > li").index();
+                    console.log($ul_node);
+                    console.log($li_node);
+                    if($li_node == 0){
+                        //블랙스크린 출력
+                        $("#popup").css("display","flex");
+                        let $img_url = $("#pro_section > ul > li > img").attr("src");
+                        console.log($img_url);
+                    }
+                    else{
+                        // location.href = "http://m.naver.com";
+                    }
+                })
+                $("#popup").click(function(){
+                    $(this).css("display","");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="popup" id="popup">
+            <label class="zoom"></label>
+            <!-- 응용문제1. 
+                블랙스크린 전체 화면에 출력시키고,
+                블랙스크린 작동 외에 어떤 클릭이 작동되면 안됨
+            -->
+        </div>
+        <header class="pro_header"></header>
+        <main class="pro_main">
+            <section class="pro_section" id="pro_section">
+                <ul>
+                    <li class="pro_title">
+                        <ol>
+                            <li>착시현상 원피스</li>
+                            <li>49,000원</li>
+                        </ol>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="pro_title">
+                        <ol>
+                            <li>체스 한 판 스커트</li>
+                            <li>49,000원</li>
+                        </ol>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="pro_title">
+                        <ol>
+                            <li>인천 공항 접수 자켓</li>
+                            <li>59,000원</li>
+                        </ol>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="pro_title">
+                        <ol>
+                            <li>어머니 안녕하세요 자켓</li>
+                            <li>59,000원</li>
+                        </ol>
+                    </li>
+                </ul>
+                <!-- 선생님 pari 
+                    <ul class="pro_ul">
+                        <li>이미지</li>
+                        <li>상품명</li>
+                        <li>금약</li>
+                    </ul>
+                -->
+            </section>
+        </main>
+        <footer class="pro_footer"></footer>
+    </body>
+</html>

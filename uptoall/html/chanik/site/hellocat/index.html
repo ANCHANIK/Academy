@@ -1,0 +1,49 @@
+<?php
+    $date = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1.0">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./index.css?v=<?=$data?>">
+    <link rel="stylesheet" type="text/css" href="../coupang/jq/jquery-ui.css?v=<?=$data?>">
+    <link rel="stylesheet" type="text/css" href="./bottom.css?v=<?=$data?>">
+    <link rel="stylesheet" type="text/css" href="./gallery.css?v=<?=$data?>">
+    <link rel="stylesheet" type="text/css" href="./product.css?v=<?=$data?>">
+    <link rel="stylesheet" type="text/css" href="./menu.css?v=<?=$data?>">
+    <link rel="stylesheet" type="text/css" href="./top.css?v=<?=$data?>">
+    <script src="../coupang/jq/jquery.js?v=<?=$data?>"></script>
+    <script src="../coupang/jq/jquery-ui.js"></script>
+    <script src="./menu.js?v=<?=$data?>"></script>
+    <script src="./top.js?v=<?=$data?>"></script>
+    <title>HELLO PET</title>
+</head>
+<body>
+    <header class="pet_header">
+        <?php include "top.html";?>
+    </header>
+    <nav class="pet_nav">
+        <?php include "menu.html";?>
+    </nav>
+    <main class="pet_main">
+        <section class="pet_gallery">
+            <?php include "gallery.html";?>
+        </section>
+        <section class="pet_product">
+            <?php include "product.html";?>
+        </section>
+        <section class="pet_adv">
+            <?php include "adv.html";?>
+        </section>
+        <section class="pet_intro">
+            <?php include "intro.html";?>
+        </section>
+    </main>
+    <footer class="pet_footer">
+        <?php include "bottom.html";?>
+    </footer>
+</body>
+</html>

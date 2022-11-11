@@ -1,0 +1,44 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML 4.0 5일차 - 기본 레이아웃 + CSS 2.0</title>
+        <style>
+            body { margin: 0; padding: 0; }
+            /*  div 객체며, 사이즈 150*150 배경색상 파랑색 */
+            .a { width:100px; height:100px; background-color: blue; padding-left: 50px; padding-top: 50px;}
+            /*  padding : 안쪽 여백 공간을 만들 때 사용한다.  */
+            .b { width:65px; height:65px; background-color: green; padding-left: 35px; padding-top: 35px; }
+            /*  padding 사용시 주의사항 HTML 4.0 기준에서는 padding 사용시 width, height 높이가 추가됨
+                실제 width, height를 조정해야 함 */
+            .c { width:30px; height:30px; background-color: yellow; }
+            
+            /*  div 부모객체 크기는 200*200 배경색상 회색  */
+            /*  div 자식객체 크기는 50*50 배경색상 검정  */
+            .box { width:50px; height:50px; background-color: gray; padding: 150px 0 0 150px; }
+            /*  padding: 0 0 0 0; 시계방향으로 top, right, bottom, left  */
+            .sbox { width:50px; height:50px; background-color: black; }
+            .img { width:200px; height:200px; border: 1px solid black; }
+            .cat { width:100px; height:100px; }
+            .c2 { margin:-100px 0 0 100px; }
+        </style>
+    </head>
+
+    <body>
+        <div class="a"></div>
+        <div class="b">
+            <div class="c"></div>
+        </div>
+        <div class="box">
+            <div class="sbox"></div>
+        </div>
+        <div class="img">
+            <!--  class, name, id  -->
+            <!--  class : 여러개의 class를 사용할 수 있다. 또한 중복 사용 가능  -->
+            <a href="http://www.naver.com" target="_blank"><img src="./cat.jpg" class="cat"></a>
+            <a href="http://www.nate.com"><img src="./cat2.jpg" class="cat c2"></a>
+            <img src="./cat3.png" class="cat">
+            <img src="./cat4.jpg" class="cat c2">
+        </div>
+    </body>
+
+</html>

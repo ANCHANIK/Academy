@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html land="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jquery 3일차 - 중급코드 - 통신배열(front-back)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            // 백엔드에서 강제로 주는 데이터는 동기화
+            // form에서 method ,action 으로 주고 받는건 비동기화
+            var array_data="";  //backend에서 전달받은 값을 저장 전역변수
+            function products(array){//backend : data를 받고, 실행 작동
+            array_data = array;
+            console.log(array_data);
+            }
+            $(function(){
+                $.fn.abc = function(){
+                let $array = array_data;    
+                console.log($array)
+            //javascript에서 백엔드 데이터를 받은 전역변수값을 가져와서 출력시킴
+            let $total = 0;
+            $.each($array,function($a,$b){  //each문으로 해당 배열값을 출력
+                // console.log($b.money);
+                /*응용문제 : 
+                장바구니에 담겨 있는 상품의 총 합계 금액을
+                콘솔로 출력합니다.
+                */
+                $total += Number($b.money);
+                
+            });
+            console.log($total);
+
+            }
+            
+            $("#btn").click(function(){
+                $.fn.abc(); //이벤트 핸들링에서 확장 함수로 호출
+            });
+
+            });
+        </script>
+        <script src="http://lovertvtest.dothome.co.kr/jq/array.php"></script>
+    </head>
+    <body>
+        <input type="button" value="총합계" id="btn">
+    </body>
+</html>

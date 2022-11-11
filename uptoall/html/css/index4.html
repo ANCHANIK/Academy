@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>CSS3 1일차 추가속성 + 신규태그</title>
+        <link type="text/css" rel="stylesheet" href="./index4.css?v=3">
+    </head>
+    <body>
+        <div class="box"></div>
+        <ol class="olcss">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+        <div class="div1"></div>
+        <div class="div2">TEST</div>
+
+        <input type="text" class="mid" placeholder="아이디 입력하셈 ㅋ">
+        <!-- 100*100 노란색 원을 만드시오 -->
+        <span class="circle"></span>
+        <br><br>
+        <!-- ol, li 업그레이드 부분 -> dl -->
+        <dl class="menu">
+            <dt>IT분야</dt>  <!-- dt : 목록 중에서 제목 파트(그룹명) -->
+            <dd>WEB</dd>    <!-- dd : 분류파트(목록) -->
+            <dd>APP</dd>
+            <dd>DB</dd>
+            <dd>Server</dd>
+            <dd>Design</dd>
+        </dl>
+        <dl>  <!-- dl, dt, dd 각각 1번만 사용하는 것을 권장 -->
+            <dt>아이디</dt>
+            <dd style="margin: 0; padding: 0;"><input type="text" style="text-indent: 5px;"></dd>
+        </dl>
+        <dl>
+            <dt>패스워드</dt>
+            <dd style="margin: 0; padding: 0;"><input type="password" style="text-indent: 5px;"></dd>
+        </dl>
+    </body>
+</html>

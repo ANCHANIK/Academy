@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 6 일차 - 초급코드(객체(DOM) 사용하기)</title>
+        <script>
+            function abc(){
+                // innerText : 해당 태그기준으로 문자를 그대로 출력함
+                // innerHTML : 해당 태그기준으로 문자를 출력함(HTML 태그 포함)
+                // var user = "홍길동";
+                // document.getElementById("a").innerText = user;
+                // var user = "<font color='blue'>홍길동</font>"
+                // document.getElementById("a").innerHTML = user;
+            
+                // 출력시 주의사항 "" 안에는 무조건 '' (외따옴표)를 사용해라.
+            var aa;
+            var cc = "";
+            for(aa=1;aa<5;aa++){
+                var cn = "spancss"+aa;
+                var h = "<span class='"+cn+"'>"+aa+"</span>";
+                cc = cc + h;
+            }
+            document.getElementById("a").innerHTML = cc;
+        }
+        </script>
+        <style>
+            span {width:100px; height:30px; border:1px solid red; display: block;}
+            .spancss1 {background-color:aqua;}
+            .spancss2 {background-color:blueviolet;}
+            .spancss3 {background-color:pink;}
+            .spancss4 {background-color:greenyellow;}
+        </style>
+    </head>
+    <body>
+        <div id="a"></div>
+        <input type="button" value="클릭" onclick="abc();">
+    </body>
+</html>

@@ -1,0 +1,45 @@
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0 auto;
+    padding: 0;
+    width: 1200px;
+}
+ul,ol,dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+span,label,main {
+    display: block;
+}
+a { text-decoration: none; }
+.banner_header {
+    height: 130px;
+    background-color: green;
+}
+.banner_header_top {
+    height: 30px;
+    border: 1px solid red;
+}
+.banner_nav {
+    height: 40px;
+    background-color: blueviolet;
+}
+.banner_main {
+    height: 800px;
+    background-color: aqua;
+}
+.banner_section {
+    height: 400px;
+    background-color: brown;
+}
+.banner_span {
+    width: inherit;
+    height: inherit;
+}
+.banner_span > ol {
+    height: 400px;
+}

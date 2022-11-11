@@ -1,0 +1,33 @@
+{ "best_product":[
+    {
+        "product_nm":"PURINA Beneful",
+        "product_img":"./best_product/best_product1.jpg",
+        "product_sample":"알레르기에 민감한 반려견을 위한 프리미엄",
+        "product_money":"48,000"
+    },
+    {
+        "product_nm":"NUTRISH dish",
+        "product_img":"./best_product/best_product2.jpg",
+        "product_sample":"곡물 알레르기 반응을 최소화",
+        "product_money":"28,000"
+    },
+    {
+        "product_nm":"Meow Mix",
+        "product_img":"./best_product/best_product3.jpg",
+        "product_sample":"치아에 부담이 없는 소프트 타입",
+        "product_money":"22,000"
+    },
+    {
+        "product_nm":"Friskies 12Cans",
+        "product_img":"./best_product/best_product4.jpg",
+        "product_sample":"알레르기에 민감한 캣을 위한 프리미엄",
+        "product_money":"39,000"
+    },
+    {
+        "product_nm":"RACHAEL RAY NUTRISH",
+        "product_img":"./best_product/best_product5.jpg",
+        "product_sample":"특허받은 발효기술로 만든 소화력 향상",
+        "product_money":"40,900"
+    }
+    ]
+}

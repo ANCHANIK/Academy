@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 2일차 - Vue 반복문2 및 배열 응용(array)</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <!-- <span v-for="data,index in array">{{data}}</span> -->
+            <!-- <span v-for="data,index in array">{{data.text1}}</span> -->
+            <fieldset v-for="z,k,i in array">  <!--키 값을 확인-->
+                <span v-for="data,key,index in z.members">{{data}}</span>
+                <!-- 키 값 확인 후 데이터 갯수만큼 출력시킴 -->
+            </fieldset>
+        </section>
+    </body>
+    <script>
+        // const json1 = ["test1","test2","test3"];
+        // const json2 = [{"text1":"Vue 데이터 확인"},{"text1":"Vue 데이터 출력 확인"}]
+        const json3 = [{"members":["에이핑크","신곡발표"]}]  // key 값이 있는 배열
+
+        let a = new Vue({
+            el:"#box",
+            data:{
+                array: json3,
+                op:"홍길동"
+            },
+            methods:{
+
+            }
+        });
+
+        // JavaScript와 결합해 Vue에 있는 값을 JavaScript가 이용함
+        if(a.op == "홍길동1"){
+            console.log("동일한 사용자 입니다.");
+        }
+        else{
+            console.log("가입되지 않은 사용자 입니다.");
+        }
+        console.log(a.op);
+
+
+        console.log(a.array.length);
+        // a는 vue 전체의 값을 말한다.
+        // array는 data 안에 있는 vue 변수를 말하며,
+        // length 를 이용하여 배열의 총 개수를 파악할 수 있다.
+    </script>
+</html>

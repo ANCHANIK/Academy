@@ -1,0 +1,78 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>FAQ</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+<article class="faq_list_article">
+    <div class="faq_list_article_text">FAQ List | 게시판 수 : {{list_ea}} 개</div>
+</article>
+<form name="ffrm" @submit.prevent="faq_search">
+    {{faqdata}}
+    <aside class="faq_list_aside">
+        <div class="faq_list_search">
+            <span>
+                <input v-bind:type="tx" ref="sch" name="fnm" autocomplete="off" v-model="fword" placeholder="검색란을 입력해주세요">
+            </span>
+            <span>
+                <button v-bind:type="sb">{{sb_search}}</button>
+                <button v-bind:type="bt" @click="faq_all_list">{{bt_alllist}}</button>
+            </span>
+        </div>
+        <div class="cate_button">
+            <ul>
+                <li @click="catebtn('배송문의')">배송문의</li>
+                <li @click="catebtn('반품/교환/환불')">반품/교환/환불</li>
+                <li @click="catebtn('주문/결제')">주문/결제</li>
+                <li @click="catebtn('회원서비스')">회원서비스</li>
+                <li @click="catebtn('안전거래')">안전거래</li>
+            </ul>
+        </div>
+        
+        <div class="faq_list_table">
+            <table>
+                <thead class="faq_list_thead">
+                    <tr>
+                        <th>카테고리</th>
+                        <th>제목</th>
+                        <th>글쓴이</th>
+                        <th>입력날짜</th>
+                    </tr>
+                </thead>
+                <tbody class="faq_list_tbody" v-if="f_if==1" v-for="(fdata,index) in farray">
+                    <input v-bind:type="hd">
+                    <tr>
+                        <td>{{fdata.category}}</td>
+                        <td @click="faq_btn(index)">{{fdata.fqtext}}</td>
+                        <td @click="faq_view(fdata.fidx)">{{fdata.fwriter}}</td>
+                        <td>{{fdata.findate.substring(0,10)}}</td>
+                    </tr>
+                    <tr id="ans">
+                        <td>
+                            <img src="../image/outline_subdirectory_arrow_right_black_48dp.png">
+                        </td>
+                        <td v-html="fdata.fatext" colspan="3"></td>
+                    </tr>
+                </tbody>
+                <tbody class="faq_list_notbody" v-else-if="f_if==2">
+                    <tr>
+                        <td colspan="4">등록된 게시글이 없습니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="faq_page">
+            <ul>
+                <li v-for="f in fpaging" @click="fgopaging(f)">{{f}}</li>
+            </ul>
+        </div>
+        <div class="faq_list_btn">
+            <button v-bind:type="bt" @click="faq_insert">FAQ 등록</button>
+        </div>
+    </aside>
+</form>

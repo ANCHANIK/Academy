@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 5일차 - 초급코드 one drop page </title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                // window, document 차이?
+
+                $(window).scroll(function(){
+                    // 마우스에 스크롤 기능을 가져오는 함수
+                    // var $sc = $(this).scrollTop();
+                    // scrollTop(); : 상단 스크롤바 세로 값 
+                    // scrollLeft(); : 하단 스크롤바 가로 값
+                    // console.log($sc);
+
+                    
+                    // if($sc > 400){
+                    //     alert("더이상 스크롤을 사용할 수 없습니다.");
+                    //     $(window).scrollTop(0);
+                    //     // $(document).scrollTop(0);
+                    //     // html만 사용 : chrome, fireforx, safari (사용 가능) 
+                    //     // body만 사용 : IE, Edge, OP (사용가능)
+                    //     // html, body  공용사용 : 모든 브라우저에서 다 사용
+                    //     $("html,body").animate({
+                    //         scrollTop:0
+                    //     },1000)
+                    // }
+                        /* 응용 */
+                        var $sct = $(this).scrollTop();
+                        //console.log($sct)
+                        var $fm = $("#ud").offset().top;
+                        var $mv = 0;
+                        if($sct == 0){
+                            $mv = 130;
+                        }
+                        else{
+                            $mv = $sct + 130;
+                        }
+                        // 해당 if 범위에 한하여 animate를 해당 수치만큼 top을 움직이게 함
+                        $("#ud").stop().animate({
+                            "top": $mv + "px"
+                        },800);
+
+
+                });
+
+
+                $("#menu > li").click(function(){
+                    
+                    var $node = $(this).index();
+                    //console.log($m_index);
+                    var $id = $("#a" + $node).offset().top;  // 상단 정보만 가져옴
+                    // offset : top(상단 위치), left(좌, 우 위치)
+                    // 상단을 기점으로해서 얼마만큼 내려왔는지 알려주는 함수
+                    $("html,body").animate({
+                        scrollTop:$id + "px"
+                        },1000)
+
+                });
+
+                $("#up > li").click(function(){
+                    var $node = $(this).index();
+                    //console.log($node);
+                    if($node == 0){
+                        $("html,body").animate({
+                        scrollTop:"0px"
+                        },1000)
+                    }
+                    else{
+                        var $top = $("#a3").offset().top;
+                        $("html,body").animate({
+                        scrollTop: $top + "px"
+                        },1000)
+                    }
+                });
+
+
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            span,label,main { display: block; }
+            nav {
+                width : 100%;
+                height: 40px;
+            }
+            .menu {
+                width: 300px;
+                height: 100%;
+                text-align: center;
+                line-height: 40px;
+            }
+            .menu > li {
+                width: 100px;
+                height: 100%;
+                float: left;
+                box-sizing: border-box;
+                background-color: pink;
+                color: darkmagenta;
+                cursor: pointer;
+            }
+            main {
+                width: 100%;
+                height: 1800px;
+            }
+            .banner {
+                width : 100%;
+                height: 300px;
+                background-color: yellow;
+            }
+            .ud {
+                position: absolute;
+                right: 0;
+                float: right;
+                top: 130px;
+            }
+            .ud > ol {
+                width : 80px;
+                height: 60px;
+                text-align: center;
+                line-height: 30px;
+                margin: 10px;
+            }
+            .ud > ol > li{
+                width: 100%;
+                height: 30px;
+                background-color: gray;
+                color: white;
+                border: 1px solid white;
+                cursor: pointer;
+            }
+            section {
+                clear: both;
+                width: 100%;
+                height: 800px;
+                background-color: green;
+            }
+            article {
+                width: 100%;
+                height: 700px;
+                background-color: skyblue;
+            }
+            footer {
+                width: 100%;
+                height: 300px;
+                background-color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul class="menu" id="menu">
+                <li>메뉴1</li>
+                <li>메뉴2</li>
+                <li>메뉴3</li>
+            </ul>
+        </nav>
+        <span class="ud" id="ud">
+            <ol id="up">
+                <li id="up0">상단</li>
+                <li id="up1">하단</li>
+            </ol>
+        </span>
+        <main>
+            <div class="banner" id="a0"></div>
+            <section id="a1"></section>
+            <article id="a2"></article>
+        </main>
+        <footer id="a3"></footer>
+    </body>
+</html>

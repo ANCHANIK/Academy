@@ -1,0 +1,86 @@
+@charset "UTF-8";
+/*
+@mixin base {
+    margin: 0;
+    padding: 0;
+}
+@mixin page_ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 150px;
+    height: 25px;
+    margin: 0 auto;
+}
+@mixin page_li($size,$diplay) {
+    width: $size;
+    height: $size;
+    display: $diplay;
+    line-height: $size;
+    text-align: center;
+    background-color: darkblue;
+    color: white;
+    cursor: pointer;
+}
+@mixin page_li_hover {
+    background-color: red;
+}
+body {
+    @include base;
+}
+.ulcss {
+    @include page_ul;
+    & > li {
+        @include page_li(25px,inline-block);
+    }
+    & > li:hover {
+        @include page_li_hover;
+    }
+}
+*/
+.ulcss {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 30px;
+}
+
+.ulcss > li {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  background-color: darkblue;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  font-family: "돋움";
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.ulcss > li:hover {
+  background-color: #ccc;
+}
+
+.ulcss > li:nth-of-type(1) {
+  background-color: #920fa3;
+}
+
+.ulcss > li:nth-of-type(2) {
+  background-color: #ff1e2c;
+}
+
+.ulcss > li:nth-of-type(3) {
+  background-color: #114570;
+}
+
+.ulcss > li:nth-of-type(4) {
+  background-color: #4e5862;
+}
+
+.ulcss > li:nth-of-type(5) {
+  background-color: #ffff4a;
+}
+/*# sourceMappingURL=index7.css.map */

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>자바스크립트 기초 응용편5</title>
+        <script>
+            /*
+            응용문제 13.
+            switch + for문 을 이용해 다음에 맞게 출력하라.
+            "korea", "KOREA", "한국" 라고 검색하였을 경우
+            http://korea.com 으로 이동하며,
+
+            */
+            var a = "korea";
+            var b = "usa";
+            switch(a){
+                case "korea":
+                case "KOREA":
+                case "한국":
+                //location.href = "http://korea.com";
+                break;
+
+                case "usa":
+                case "us":
+                case "미국":
+                //location.href = "http://kr.usembassy.gov";
+                break;
+
+                default:
+                alert("정확한 나라명을 입력하세요.")
+            }
+
+            /*
+            응용문제 13.
+            switch + for문 을 이용해 다음에 맞게 출력하라.
+            구구단 5단으로 값을 입력하면 구구단 5*1 ~ 5*9=45까지 출력하며,
+            구구단 8단으로 값을 입력하면 구구단 8*1 ~ 8*9=72 를 출력하라.
+            단, for문은 한 번만 사용하라
+            */
+            var c = "8단";
+            var e;
+            switch(c){
+                case "5단":
+                j=5;
+                break;
+
+                case "8단":
+                j=8;
+                break;
+                }
+            var f;
+            var g;
+            for(h=1;h<=9;h++){
+                g = j * h;
+                //console.log(j + "*" + h + "=" + g);
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

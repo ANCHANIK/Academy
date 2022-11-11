@@ -1,0 +1,91 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>배너 리스트 관리</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+<article class="banner_list_article">
+    <div class="banner_list_article_text">메인 배너 리스트</div>
+</article>
+<form>
+    <aside class="banner_list_aside">
+        <div class="banner_check">
+            <span>메인배너 효과 :</span>
+            <span>
+                <label>
+                    <input type="radio" name="effect" id="effect0" value="R"> Rolling Banner
+                </label>
+            </span>
+            <span>
+                <label>
+                    <input type="radio" name="effect" id="effect1" value="F"> Fade Banner
+                </label>
+            </span>
+            <span>
+                <button type="button" class="banner_check_btn" onclick="banner_effect();">효과적용</button>
+            </span>
+        </div>
+        <span class="clear"></span>
+        <div class="banner_list">
+            <table>
+                <thead class="banner_list_table_thead">
+                    <tr>
+                        <td>번호</td>
+                        <td>이미지</td>
+                        <td>링크 주소</td>
+                        <td>배너명</td>
+                        <td>배너순서</td>
+                        <td>등록일지</td>
+                        <td>삭제</td>
+                    </tr>
+                </thead>
+                {{getajax}}
+                <tbody class="banner_list_table_tbody" id="banner_table">
+                    <tr v-for="data in array">
+                        <td id="b_idx" v-bind:value="data.no">{{data.no}}</td>
+                        <input type="hidden" v-bind:value="data.bidx">
+                        <td style="width: 120px;"><img v-bind:src="data.img" @click="popup_img(data.img)"></td>
+                        <td align="left" style="width: 400px; text-align: left; text-indent: 5px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                            <input type="text" class="link_urls" name="linkurls[]" v-bind:value="data.link">
+                        </td>
+                        <td>{{data.name}}</td>
+                        <td>
+                            <select id="output" class="output">
+                                <option v-bind:value="data.order" selected>{{data.order}}</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </td>
+                        <td>{{data.date}}</td>
+                        <td>
+                            <span @click="del_banner(data.bidx)">삭제</span>
+                        </td>
+                    </tr>
+                </tbody>
+                <!-- 배너가 없을 때 -->
+                <tbody class="banner_list_table_nodata" id="bannerlist_no">
+                    <tr>
+                        <td colspan="7">등록된 배너가 없습니다</td>
+                    </tr>
+                </tbody>
+            </table>
+            <span class="banner_btn_span">
+                <button type="button" class="banner_btn" onclick="banner_input();">배너수정</button>
+                <button type="button" class="banner_btn" style="margin-left: 10px;" onclick="banner_input();">배너등록</button>
+            </span>
+        </div>
+    </aside>
+</form>

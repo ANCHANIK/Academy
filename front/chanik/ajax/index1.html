@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <title>Ajax 2일차 - JavaScript (json - 회원가입)</title>
+        <style>
+            .survey {
+                width: 200px;
+                height: 300px;
+                border: 1px solid #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="survey" id="survey">
+            <!-- sample
+                <input type="radio" id="r0">HTML
+                <input type="radio" id="r1">CSS
+                <input type="radio" id="r2">JavaScript
+                <input type="radio" id="r3">jQuery
+                <input type="radio" id="r4">Ajax
+            -->
+        </div>
+        <input type="button" value="참여하기">
+    </body>
+    <script>
+        let hm;
+        function windowck(){
+            if(window.XMLHttpRequest){
+                return new XMLHttpRequest;
+            }
+        }
+        function fileopen(){
+            if(hm.readyState == XMLHttpRequest.DONE && hm.status == 200){
+                datasum(this);
+                // console.log(this)
+            }
+        }
+        hm = windowck();
+        hm.onreadystatechange = fileopen;
+        hm.open("GET","./index1.json",true);
+        hm.send();
+
+        function datasum(sum){
+            const data = JSON.parse(sum.responseText);
+            console.log(data)
+
+            /* forEach
+            let radio = document.getElementById("survey");
+            data.forEach(function(a,b,c){
+                console.log(a)
+                var input = "<input type='radio' name='aa' id='r'"+ b +">" + a + "<br>";
+                radio.innerHTML += input;
+            });
+            */
+            
+            /* for in */
+            let ff,radio;
+            for(ff in data){
+                console.log(data[ff])
+                var in_data = data[ff];
+                radio = document.getElementById("survey");
+                var input = "<input type='radio' name='aa' id='r'"+ ff +">" + in_data + "<br>";
+                radio.innerHTML += input;
+            }
+        }
+
+    </script>
+</html>

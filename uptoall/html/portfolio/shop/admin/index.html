@@ -1,0 +1,53 @@
+<?php
+    $v = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <title>쇼핑몰 관리자 페이지</title>
+        <script src="../../JS/jquery.js"></script>
+        <script src="./config.js"></script>
+        <link rel="stylesheet" type="text/css" href="./admin.css?v=<?=$v?>">
+        <script>
+            if(confirm("※본 페이지는 포트폴리오 사이트입니다!\n실제 삭제나 변경시 적용되므로\n해당 사항은 필히 참고 부탁드립니다!"));
+
+            // 관리자 신규등록
+            function admin_make(){
+                location.href = "./make_admin.html";
+            }
+        </script>
+    </head>
+    <body class="login_body">
+        <form name="adm" id="adm" method="POST" enctype="application/x-www-form-urlencoded" onsubmit="return checks();">
+            <input type="hidden" name="adm_login" value="1">
+            <input type="hidden" name="returnurl" value="cksdlr7446.dothome.co.kr">
+            <div class="login_box">
+                <span class="login_box_title">Administrator</span>
+                <ul class="login_box_ul">
+                    <li>
+                        <input type="text" class="login_value" name="a_id" id="a_id" placeholder="아이디를 입력하세요." autocomplete="off">
+                    </li>
+                    <li>
+                        <input type="password" class="login_value" name="a_pw" placeholder="비밀번호를 입력하세요.">
+                    </li>
+                    <li>
+                        <button type="submit" class="login_button">로그인</button>
+                    </li>
+                    <li>
+                        <span>
+                            <label><input type="checkbox" name="a_save" value="Y" onclick="id_save();"> 아이디 저장</label>
+                        </span>
+                        <span>
+                            <label onclick="admin_make()">관리자 신규등록</label>
+                        </span>
+                    </li>
+                    <li>※ 관리자의 로그인 기록은 모두 저장 됩니다.</li>
+                </ul>
+            </div>
+        </form>
+    </body>
+    <script src="cookie.js"></script>
+</html>

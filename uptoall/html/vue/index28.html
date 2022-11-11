@@ -1,0 +1,90 @@
+<?php
+    $v = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 4일차 - Vue components(응용) 로그인 제작</title>
+        <link rel="stylesheet" text="text/css" href="./index28.css?v=<?php echo $v?>"></link>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <p>Administrator</p>
+        <form id="fm" name="fm" onsubmit="a.abc()">
+            <hide></hide>
+            <key></key>
+            <section id="login_box" class="login_box">
+                <div class="e_box">
+                    <span>
+                        <input v-bind:type='tt' v-model="mem1" id='memails1'>
+                    </span>
+                    <span>{{center_code}}</span>
+                    <span>
+                        <input v-bind:type='tt' v-model="mem2" id='memails2'>
+                    </span>
+                </div>
+                <div class="p_box">
+                    <span>
+                        <input v-bind:type='pd' v-bind:name='mp' v-model="mpm" id='mpass' >
+                    </span>
+                </div>
+                <div>
+                    <go v-text="btn"></go>
+                </div>
+            </section>
+        </form>
+    </body>
+    <script>
+
+        let a = new Vue({
+            el:"#fm",
+            data:{
+                tt:"text",
+                mem1:"",
+                mem2:"",
+                pd:"password",
+                mp:"mpass",
+                mpm:"",
+                center_code:"@",
+                btn:"로그인",
+                mt:"POST",
+                at:"./loginok.php",
+                enc:"application/x-www-form-urlencoded"
+            },
+            components:{
+                "hide": {template:"<input type='hidden' name='memails' id='memails'>"},
+                "key": {template:"<input type='hidden' name='key' id='key' value='admaster'>"},
+                "go": {template:"<button type='submit'></button>"}
+            },
+            methods:{
+                abc:function(){
+                    let emid1 = document.querySelector("#memails1").value;
+                    let emid2 = document.querySelector("#memails2").value;
+                    let empass = document.querySelector("#mpass").value;
+                    if(emid1 == "" && emid2 == ""){
+                        alert("이메일을 입력해 주세요");
+                        return false;
+                    }
+                    else if(empass == ""){
+                        alert("비밀번호를 입력해 주세요.");
+                        return false;
+                    }
+                    else{
+
+                    }
+                }
+            }
+        });
+    </script>
+    <!--
+        name
+        이메일 : memails
+        패스워드 : mpass
+        hidden : key = admaster
+        post 전송 - login.php
+        실제  id : admin@gmail.com
+        pw : a12345
+    -->
+</html>

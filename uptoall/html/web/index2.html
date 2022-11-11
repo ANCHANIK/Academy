@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>오브젝트 위치선정 및 레이아웃2</title>
+        <style>
+            body { margin: 0; padding: 0; }
+            span { display: block }
+            .box {
+                width: 1000px;
+                height: 500px;
+                border: 1px solid black;
+                margin: 0 auto;
+                position: relative;
+            }
+            .left_box {
+                width: 50px;
+                height: 50px;
+                background-color: black;
+                position: absolute;
+                top: 50%;
+                margin-top: -25px; /* 이렇게 땡기면 됨 */
+            }
+            .right_box {
+                width: 50px;
+                height: 50px;
+                background-color: black;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin-top: -25px;
+            }
+            .disc {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                width: 100px;
+                text-align: center; /* text-align: center; 쓰려면 float:left ㄴㄴ */
+                margin: 0 auto;
+                position: relative; /* relative 쓰면 margin: 0 auto; 사용가능. 유일하게 absolute만 안먹음*/
+                top: 100%;
+                margin-top: -40px;
+            }
+            .disc > li {
+                width: 20px;
+                height: 20px;
+                border-radius: 100%;
+                background-color: black;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <span class="left_box"></span>
+            <span class="right_box"></span>
+            <ul class="disc">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </body>
+</html>

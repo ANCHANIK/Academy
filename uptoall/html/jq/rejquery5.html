@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 9일차 - 상세페이지</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js?v=4"></script>
+        <link rel="stylesheet" type="text/css" href="./jquery-ui.css?v=3">
+        <script>
+            $(document).ready(function(){
+                var $url = location.search;
+                var $data0,$data1,$data2;
+
+                //첫번째 값
+                var $a = $url.split("?ea=");
+                var $aa = $a[1].split("&");
+                var $data0 = Number($aa[0]);
+                
+                //두번째 값
+                var $b = $url.split("&cu=");
+                var $bb = $b[1].split("&");
+                var $data1 = $bb[0];
+                if($data1 == "x"){
+                    $data1 = 0.80;
+                }
+                else if($data1 == "y"){
+                    $data1 = 1;
+                }
+                
+                
+                //세번째값
+                var $c = $url.split("&pay=");
+                var $data2 = Number($c[1]);
+                
+                var $total = "<font color='red'>"+($data0 * $data1 * $data2)+"</font>"
+                
+                console.log($total);
+                
+                $("#ulcss > li").eq(0).html("고객님이 결제하실 최종 금액은 "+ $total +" 원 입니다.");
+
+                $("#datepicker").datepicker();
+
+
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            span,label,main { display: block; }
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .box { 
+                width: 1000px;
+                height: 300px;
+                margin: 0 auto;
+                border: 1px solid #ccc;
+
+            }
+            .ulcss > li:nth-child(1) {
+                width: 100%;
+                height: 100px;
+                margin: 0 auto;
+                font-weight: bold;
+                font-size: 30px;
+                text-align: center;
+                line-height: 100px;
+                margin-top: 60px;
+            }
+            .ulcss > li:nth-child(2){
+                width: 100%;
+                height: 70px;
+                font-size: 25px;
+                text-align: center;
+                line-height: 70px;
+            }
+            .cal {
+                width: 300px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 20px;
+                text-indent: 9px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box">
+            <ul class="ulcss" id="ulcss">
+                <li></li>
+                <li>
+                    배송 일자 선택 : <input type="text" id="datepicker" class="cal" placeholder="배송 날짜를 입력해 주세요.">
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

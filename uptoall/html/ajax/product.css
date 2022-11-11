@@ -1,0 +1,94 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+* {
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+ul,ol,dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+span,label,main {
+    display: block;
+}
+a {text-decoration: none;}
+.scss {
+    width: 1000px;
+    height: 630px;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content:space-around;
+    align-items: center;
+    align-content: center;
+}
+img {
+    width: 230px;
+    height: 330px;
+}
+.scss > div {
+    width: 230px;
+    height: 570px;
+    border: 1px solid #ccc;
+    position: relative;
+}
+.scss > div > label:nth-of-type(1) {
+    width: 230px;
+    height: 330px;
+    cursor: pointer;
+}
+.scss > div > label:nth-of-type(1) > span {
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    opacity: 0.3;
+    top: 10px;
+    left: 10px;
+    color: white;
+    text-align: center;
+    line-height: 24px;
+    border: 3px double rgb(235, 177, 31);
+}
+.scss > div > label:nth-of-type(2) > span:nth-of-type(1), .scss > div > label:nth-of-type(2) > span:nth-of-type(2) {
+    width: inherit;
+    height: 60px;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+}
+.scss > div > label:nth-of-type(2) > span:nth-of-type(1) {
+    font-weight:500;
+    font-size: 17px;
+}
+.scss > div > label:nth-of-type(2) > span:nth-of-type(3), .scss > div > label:nth-of-type(2) > span:nth-of-type(4), .scss > div > label:nth-of-type(2) > span:nth-of-type(5) {
+    width: inherit;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+}
+.scss > div > label:nth-of-type(2) > span:nth-of-type(4) {
+    font-weight: 400;
+    font-size: 15px;
+}

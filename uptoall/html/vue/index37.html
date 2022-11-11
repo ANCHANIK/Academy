@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>7일차 Vue + JavaScript + Jquery 통합 응용</title>
+        <script src="../jq/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+            .ulcss {
+                width: 300px;
+                height: auto;
+                border: 1px solid black;
+                display: none;
+            }
+            .ulcss > li {
+                width: inherit;
+                height: 30px;
+                line-height: 30px;
+            }
+        </style>
+    </head>
+    <script>
+        let list;
+        // JS
+        function handle(){
+            list = [
+                { seq:"0", name:"html", level:"1단계" },
+                { seq:"1", name:"css", level:"2단계" },
+                { seq:"2", name:"Javascript", level:"4단계" }
+            ]
+        }
+        
+        // JQ
+        $(function(){
+            // 변수값으로 사용하는 확장함수는 Vue에서 호출하지 못한다.
+            // $.fn은 호출 가능함
+            $.fn.abc = function(e){
+                if(e=="slide"){
+                    $("#ulcss").slideDown();
+                }
+                else if(e=="fade"){
+                    $("#ulcss").fadeToggle();
+                }
+            }
+
+            $.fn.ggg = function(){
+                let $a = function(){ // 확장함수 안에 변수 함수는 가능함!!
+
+                }
+                let $b = function(){
+
+                }
+            }
+        });
+
+        /*
+        [매우 중요사항 - 규칙]
+        1) id를 명확하게 구분해서 사용할 것. (Javascript,Jquery,Vue 에서 쓸 id를 명확히 구분할 것.)
+        2) 함수의 위치 및 선언형태를 명확하게 해서 코드를 작성할 것.
+        3) 핸들링 함수를 한 가지만 사용할 것. 즉, Vue를 사용해서 묶은 코드는 Vue 한해서 핸들링을 쓸 것 (언어를 한 가지만 적용).
+            ex) vue 코드 안에 JS 핸들링을 쓰지말고, vue에서 핸들링을 써라.
+        4) Ajax는 선언하고 싶은 언어를 사용하면 된다.
+        */
+        </script>
+    <body>
+        <section id="box">
+            {{abc}}
+            <ul class="ulcss" id="ulcss"> <!--여기에 쓰는 id는 JQ에서 쓰는 id-->
+                <rs v-bind:seq="sb.seq" v-bind:chan="sb.name" v-bind:c="sb.level" v-for="sb in arrays"></rs>
+            </ul>
+            <input type="button" value="클릭" @click="ani">
+        </section>
+    </body>
+    <script>
+        // Vue
+        Vue.component("rs",{
+            template:"<li>{{seq}}:{{chan}} - {{c}}</li>",
+            props:["seq","chan","c"]
+            // props는 1개 이상 사용 가능함. 단, bind가 빠진 상태에서 사용하면 100% 망가짐
+            // props의 값 "aaa"는 v-bindL:aaa 의 aaa 값과 template 안에 component값{{aaa}}과 같아야 한다.
+        });
+
+
+        //[frame-work를 쓰는 이유]
+        //- 일관성 있는 또는 규칙성 있는 코드 베이스를 사용하기 위해
+        let vues = new Vue({
+            el:"#box",
+            data:{
+                arrays:"",
+                effect:"fade"
+                // effect:"slide"
+            },
+            methods:{
+                ani(){
+                    // Vue에서 JQ를 사용할땐 이렇게 통으로 부분부분 가져와서 사용해야 된다. Vue는 JQ를 깔본다.
+                    // JQ에서는 변수로는 안먹는다. 즉, $.fn.함수명() 이렇게 써야된다.
+                    // $(function(){
+                    //     $("#ulcss").slideDown();
+                    // });
+                    $.fn.abc(this.effect);
+                }
+            },
+            components:{
+                
+            },
+            computed:{
+                /*
+                - computed를 쓰기 위해선 무조건 함수를 써서 사용해야 된다.
+                - 빈 코드같은거 하나 만들어서 쓰면 됨
+                */
+                abc(){
+                    handle();
+                    this.arrays = list; // Javascript에서 넘어온 배열 vue의 가상 변수로 전달
+                    console.log(this.arrays);
+                }
+            }
+        });
+    </script>
+</html>

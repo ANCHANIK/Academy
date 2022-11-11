@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 2일차 - Vue 다중체크 & 라디오 사용 [응용파트]</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <!--
+                같은 항목에 여러개를 사용시 v-model은 같아야 한다.
+            -->
+            <input v-bind:type="c" value="HTML5" v-model="checks">HTML
+            <input v-bind:type="c" value="CSS" v-model="checks">CSS
+            <input v-bind:type="c" value="Vue" v-model="checks">Vue
+            <span>{{checks}}</span>
+        </section>
+        <br><br><br>
+        <!--
+            checkbox 또는 radio 모두 value와 v-model을 같이 사용해야 한다.
+            단, checkbox와 radio 이 2가지 속성 외에는 v-model만 사용하는 경우가 많다.
+        -->
+        <section id="box2">
+            <input v-bind:type="r" v-bind:name="n" value="Y" v-model="agrees">동의함
+            <input v-bind:type="r" v-bind:name="n" value="N" v-model="agrees">동의안함
+            <input v-bind:type="b" v-model="btn" v-on:click="abc">
+            <span>{{agrees}}</span>
+        </section>
+        <br><br><br>
+
+        <!-- click 핸들링 함수를 사용하지 않고 값을 증가 또는 감소시킬 수 있다 -->
+        <section id="box3">
+            <input v-bind:type="bb" v-on:click="numbers--" v-model="btn1">
+            <input v-bind:type="bb" v-on:click="numbers++" v-model="btn2">
+            <span>{{numbers}}</span>
+        </section>
+    </body>
+    <script>
+        let c = new Vue({
+            el:"#box3",
+            data:{
+                bb:"button",
+                btn1:"-",
+                btn2:"+",
+                numbers:0
+            },
+            methods:{
+
+            }
+        });
+
+        let b = new Vue({
+            el:"#box2",
+            data:{
+                r:"radio",
+                n:"agree",
+                b:"button",
+                agrees:"N",
+                btn:"회원가입"
+            },
+            methods:{
+                abc:function(){
+                    if(this.agrees == "N"){
+                        alert("동의해주셔야 가입됩니다.");
+                    }
+                }
+            }
+        });
+        /*
+        radio 에서는 checkbox와 성질이 조금 다르다.
+        */
+
+        let a = new Vue({
+            el:"#box",
+            data:{
+                c:"checkbox",
+                checks:[]
+                // []을 쓰면 배열 형태로 구성하여 사용자가 체크한 항목 모두를 입력받을 수 있다.
+                // "" 를 쓰면 전체가 같이 체크되어 true false로 뜬다
+            },
+            methods:{
+
+            }
+        });
+    </script>
+</html>

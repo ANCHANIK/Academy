@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 2일차 - Vue 반복문</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <ul>
+                <!--
+                    반복을 하고자 하는 태그에 반복문 (v-for) 을 써야된다.
+                    Javascript의 for in 과 같은 역할이다.
+                -->
+                <li v-for="(user,index) in abc">{{user.names}}{{index}}</li>
+                <!-- 여기서 index는 노드 번호가 나온다 -->
+            </ul>
+        </section>
+
+        <section id="box2">
+            <ol>
+                <li v-for="test,key,index in abc">{{test}}{{key}}{{index}}</li>
+                <!-- 여기서 index는 그룹이기 때문에 key 이름이 나옴 -->
+                <!--
+                    test : abc 배열을 받는 값
+                    key : 배열에 등록된 각각의 키값
+                    index : 배열 키 번호
+                -->
+            </ol>
+        </section>
+    </body>
+    <script>
+        let a = new Vue({
+            el:"#box",
+            data:{
+                abc: [  // 배열로 인식. {} 그룹 형태의 names라는 key를 가지고 있음
+                    {names : "홍길동"},
+                    {names : "강감찬"},
+                    {names : "유관순"}
+                ]
+            }
+        });
+
+        // 대괄호와 중괄호를 잘 파악해서 쓸 것
+        // 둘 다 1차 배열인데 찍는 방식이 다름
+        
+        let b = new Vue({
+            el:"#box2",
+            data:{
+                abc:{  // 배열로 인식. 각각의 key로 구분하는 형태
+                    user_name:"김은진",
+                    user_test:"정보처리기사",
+                    user_score:"100점 합격!!!😁"
+                }
+            }
+        });
+
+    </script>
+</html>

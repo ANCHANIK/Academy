@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery - 중급 (배열 - each & map)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+                const $array = ["손나은","윤보미","박초롱","정은지","오하영","김남주"];
+                $.each($array,function($a,$b){
+                    var $li = "<li>"+ $b +"</li>";
+                    // console.log($b)
+                    
+                    // $("#ulid").append($li);
+                })
+
+                const $array2 = {
+                    "apink_members": ["손나은","윤보미","박초롱","정은지","오하영","김남주"]
+                };
+                $("#btn").click(function(){
+                    $($array2["apink_members"]).each(function($aa,$bb){
+                        console.log($bb)
+                        var $li = "<li>"+ $bb +"</li>";
+                        $("#ulid").append($li)
+                    })
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <ul id="ulid"></ul>
+        <button type="button" id="btn">데이터 출력</button>
+    </body>
+</html>

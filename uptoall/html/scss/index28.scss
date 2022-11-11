@@ -1,0 +1,39 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+$font_ng:'Nanum Gothic', sans-serif; 
+
+@mixin base{
+    margin: 0;
+    padding: 0;
+}
+@mixin objectsize($w,$h,$display,$position){
+        width: $w;
+        height: $h;
+        display:$display;
+        position:$position;
+}
+
+body{
+    @include base;
+}
+.ulcss{
+    @include objectsize(400px,60px,grid,relative);
+    list-style: none; margin: 0; padding: 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    grid-template-rows: 30px;
+    grid-template-columns: repeat(6,30px);
+    justify-content: center;
+    align-content: center;
+    grid-gap:20px;  // grid-gap : 오브젝트 사이 간격을 띄우는 것  == IE(x)
+    & > li {
+        background-color: rgb(176, 205, 216);
+        color: rgb(34, 63, 73);
+        text-align: center;
+        line-height: 30px;
+    }
+    & > li:first-of-type{
+        background-color: rgb(73, 121, 140);
+        color: white;
+    }
+}

@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML3일차 Form 태그 3.0 CSS 1.0</title>
+    </head>
+    <body>
+        <input type="text">
+        <form action="http://www.naver.com">
+            <!--
+                form 이란 데이터를 보내거나, 받을 때 사용함
+                action 이란 해당 데이터를 어느 곳에 보낼지를 설정하게 됨
+            -->
+            <input type="text">
+            <br>
+            <input type="checkbox">이용약관 동의
+            <br>
+            <input type="radio" name="1">동의 <input type="radio" name="1">비동의
+            <br>
+            <input type="submit" value="입력완료">
+            <input type="reset" value="입력초기화">
+        </form>
+        <!--
+            input type="button" 외에 submit, reset은 무조건 form 태그가 있어야만 작동되는 속성
+
+            submit : form에 action을 작동할 수 있도록 함
+            reset : 사용자가 입력한 값을 모두 초기화. 단, form 안에 있는 내용만 적용
+        -->
+        <br><br>
+        <!-- css 1.0 index8.html 참조 -->
+        <form>
+        <table border="1" width="500" height="90" cellspacing="0" cellpadding="0" style="font-size:12px;">
+            <tr>
+                <td>&nbsp;&nbsp;아이디</td>
+                <td width="250">
+                    &nbsp;<input type="text" style="width:150px; height:20px;">
+                </td>
+                <td  width="150" rowspan="2" align="center">
+                    <input type="button" value="로그인" style="width:100px; height:40px; background-color:black; color:white; font-size:12px; border:0;">
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;패스워드</td>
+                <td>
+                    &nbsp;<input type="password" style="width:150px; height:20px;">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">
+                    회원가입 | 아이디/비밀번호 찾기
+                </td>
+            </tr>
+        </table>
+        </form>
+    </body>
+</html>

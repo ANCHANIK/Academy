@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 9일차 - 시간 + 배너</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js?v=4"></script>
+        <link rel="stylesheet" type="text/css" href="./jquery-ui.css?v=3">
+        <script>
+            $(document).ready(function(){
+                var $b_width = $("#ol_b > li").eq(0).width();
+                var $node = $("#ol_b > li").length;
+                var $ol_width = $b_width * $node
+                console.log($node);
+                $("#ol_b").css("width",$ol_width + "px");
+                
+                
+                var timer;
+                var $n = 1;
+                $.fn.banner = function(){
+                    $("#ol_b").stop().animate({
+                        "left": - ($b_width * $n) + "px"
+                    },1000);
+                    $n += 1;
+                    if($n >= 3){
+                        $n = 0;
+                    }
+                    $timer = setTimeout($.fn.banner,5000);
+
+                }
+                
+                $timer = setTimeout($.fn.banner,5000);
+
+                $("#banner").mouseenter(function(){
+                    console.log($timer);
+                    clearTimeout($timer);
+                })
+                $("#banner").mouseleave(function(){
+                    $timer = setTimeout($.fn.banner,5000);
+                })
+                
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            span,label,main { display: block; }
+            .banner {
+                width: 1000px;
+                height: 490px;
+                border: 1px solid red;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+            .ol_b {
+                height: 490px;
+                position: relative;
+                }
+            .ol_b > li {
+                float: left;
+                width: 1000px;
+                height: 490px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            <div> : 1000 * 490
+            이미지 태그 : ol > li 형식으로 3개의 이미지 가로로 출력하라
+            단, 해당 div에 overflow 사용하라
+            ol의 width는 jq에서 계산되도록 하라
+        -->
+        <div class="banner" id="banner">
+            <ol class="ol_b" id="ol_b">
+                <li>
+                    <img src="../js/banners/banner0.png">
+                </li>
+                <li>
+                    <img src="../js/banners/banner1.png">
+                </li>
+                <li>
+                    <img src="../js/banners/banner2.png">
+                </li>
+            </ol>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 5일차 - 초급코드 함수 사용(슬라이드 메뉴)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                var $node = $("#u > li").length; //대메뉴 개수를 가져옴
+                var $width = $(".smenu > li").width(); // 소메뉴 한 개의 가로 크기
+                // console.log($node);
+                var $w = 0;
+                while($w < $node){
+                    // 해당 대메뉴의 소메뉴 개수를 가져옴
+                    var $snode = $("#u > li:eq(" + $w + ") > ol > li").length;
+                    // 해당 소메뉴 개수 * 소메뉴 한 개의 가로 크기
+                    var $olwidth = ($snode * $width) + ($snode * 2);
+                    // 소메뉴 전체 크기를 ol에 적용하여 가로 크기를 잡아줌
+                    // 2는 좌우 보더 2px 씩 들어가기 때문. (box-size 때문에)
+                    // (해당 소메뉴 개수 * 소메뉴 한 개의 가로크기) + (소메뉴 개수 * border 2px)
+                    $("#u > li:eq(" + $w + ") > ol").css("width",$olwidth + "px");
+                    $w++;
+                }
+
+                $("#u > li").mouseenter(function(){
+                    var $index = $(this).index();
+                    //console.log($index);
+                    $("#u > li:eq(" + $index + ") > ol").fadeIn(150);
+                });
+
+                $("#u > li").mouseleave(function(){
+                    var $index = $(this).index();
+                    //console.log($index);
+                    $("#u > li:eq(" + $index + ") > ol").fadeOut(150);
+                });
+
+
+
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            .box {
+                width: 100%;
+                height: auto;
+            }
+            .u {
+                width: 150px;
+                height: auto;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .u >li {
+                width: 100%;
+                height: 40px;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+                line-height: 40px;
+                text-align: center;
+                cursor: pointer;
+                position: relative;
+            }
+            .smenu {
+                height: 40px;
+                list-style: none;
+                margin: -1px 0 0 0;  /* 실무에서는 이런식으로 여기에 값을 넣어서 조정함 */
+                padding: 0;
+                position: absolute;
+                top: 0;               /* 되도록이면 여기 값을 건들지 않음 */
+                left: 100%;
+                display: none;
+            }
+            .smenu > li {
+                width: 150px;
+                height: 40px;
+                border: 1px solid plum;
+                background-color: lightsalmon;
+                /* box-sizing: border-box; jq에서 오히려 독이 됨. 그래서 위에 주석 확인할 것.*/
+                float: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <ul class="u" id="u">
+                <li>menu1
+                    <ol class="smenu" id="smenu0">
+                        <li>smenu1</li>
+                        <li>smenu2</li>
+                        <li>smenu3</li>
+                    </ol>
+                </li>
+                <li>menu2
+                    <ol class="smenu" id="smenu1">
+                        <li>smenu1</li>
+                        <li>smenu2</li>
+                    </ol>
+                </li>
+                <li>menu3
+                    <ol class="smenu" id="smenu2">
+                        <li>smenu1</li>
+                        <li>smenu2</li>
+                        <li>smenu3</li>
+                        <li>smenu4</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+        
+    </body>
+</html>

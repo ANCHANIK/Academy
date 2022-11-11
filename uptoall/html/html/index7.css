@@ -1,0 +1,98 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol,
+dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+span,
+label,
+main {
+  display: block;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+}
+/* pc-css */
+.pc {
+  width: 700px;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  text-align: center;
+  padding: 4px;
+}
+/* :placeholder 색상변경 : 크롬,사파리,엣지,오페라 (작동O) */
+::placeholder {
+  color: gray;
+}
+/* :-ms-input-placeholder 색상변경 : IE 전용(작동O) */
+:-ms-input-placeholder {
+  color: gray;
+  /* IE 전용 */
+}
+.id {
+  width: 200px;
+  height: 40px;
+  border: 1px solid gray;
+  text-indent: 5px;
+  background-color: #ccc;
+}
+.btn {
+  width: 100px;
+  height: 40px;
+  border: none;
+  background-color: #ccc;
+  color: gray;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+.olbox {
+  height: inherit;
+  display: inline-block;
+}
+.olbox > li {
+  float: left;
+  margin-left: 5px;
+}
+/* unset : IE (X. 작동안됨) */
+@media screen and (min-width: 320px) and (max-width: 560px) {
+  /* .pc {
+    display: none;
+  } */
+  /* 모바일-css */
+  .pc {
+    width: 98%;
+    height: 150px;
+    left: 1%;
+    top: 40%;
+    margin: 0;
+    padding-top: 10px;
+  }
+  .olbox {
+    width: inherit;
+    display: block;
+  }
+  .olbox > li {
+    float: none;
+    margin-left: 0;
+    margin-bottom: 5px;
+  }
+  .id,
+  .btn {
+    width: 95%;
+  }
+}

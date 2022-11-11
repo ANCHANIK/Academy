@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scaleable=no,minimum-scale=1.0,maximum-scale=1.0">
+    <title>문제7 - Jquery</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#ul_img > li").click(function(){
+                var $node = $(this).index();
+                console.log($node)
+                $("#img1 > span").css("display","none");
+                $("#face" + $node).fadeIn(1000);
+                
+                
+            });
+        });
+    </script>
+    
+<!--
+문제7
+게임 캐릭터 소개 페이지 입니다. 해당 페이지에서
+img2 부분에 작은 이미지를 클릭시 img1 오브젝트에 작은이미지와 맞는 이미지로 나와야 
+합니다. 나오는 형태는 서서히 변화 되는 형태로 나와야 하며, 시간은 1초 정도 소요되도록
+합니다.
+-->
+    <style>
+        * {box-sizing: border-box;}
+        body { margin: 0; padding: 0;}
+        .gallery { width: 630px; height:502px; border:1px solid #ccc;
+          }
+        .gallery > label { display: block; float: left;}
+        .img1 { width: 500px; height: 500px; display: block;
+        border:3px solid darkgoldenrod; position:relative;
+        }
+        #face0,#face1,#face2,#face3 { display: block; position: absolute;}
+        .img2 { width: 100px; height:500px;  margin-left: 10px;
+         }
+        .img2 > ul { width: 100px; list-style: none; margin: 0; padding: 0; 
+        height: auto;}
+        .img2 > ul > li { width: 100%; max-width: 100px;
+        max-height: 120px; margin-top: 4px; cursor: pointer;
+        overflow: hidden; border:1px solid darkgoldenrod;  }
+        img { width: 100%; }
+    </style>
+</head>
+
+<body>
+<div class="gallery">
+    <label class="img1" id="img1">
+        <span id="face0"><img src="./image/bface_1.png"></span>
+        <span id="face1"><img src="./image/bface_2.png"></span>
+        <span id="face2"><img src="./image/bface_3.png"></span>
+        <span id="face3"><img src="./image/bface_4.png"></span>
+    </label>
+    <label class="img2">
+        <ul id="ul_img">
+            <li><img src="./image/face_1.png"></li>
+            <li><img src="./image/face_2.png"></li>
+            <li><img src="./image/face_3.png"></li>
+            <li><img src="./image/face_4.png"></li>
+        </ul>
+    </label>
+</div>
+</body>
+</html>

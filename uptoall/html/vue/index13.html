@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 2일차 - Vue 상품 구매 페이지 [응용파트] & 금액 콤마(toLocaleString())</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <!-- 내 코드 -->
+        <section id="product">
+            <div>상품 분류 선택</div>
+            <select v-model="price">
+                <option value="167000">모니터</option>
+                <option value="18000">키보드</option>
+                <option value="37000">마우스</option>
+            </select>
+            <div>상품갯수</div>
+            <select v-model="ea">
+                <option value="1">1EA</option>
+                <option value="2">2EA</option>
+                <option value="3">3EA</option>
+            </select>
+            <div class="">총 결제금액</div>
+            <span>{{total=price*ea}}</span>
+        </section>
+
+        <br><br><br>
+
+        <!-- 쌤 코드 -->
+        <section id="product2">
+            <span>상품 분류 선택 :
+                <select v-on:change="abc" v-model="s">
+                    <option value="167000">모니터 - 167,000</option>
+                    <option value="18000">키보드 - 18,000</option>
+                    <option value="37000">마우스 - 37,000</option>
+                </select>
+            </span>
+            <span>상품갯수 : 
+                <select v-on:change="abc" v-model="ea">
+                    <option value="1">1EA</option>
+                    <option value="2">2EA</option>
+                    <option value="3">3EA</option>
+                </select>
+            </span>
+            <div>총 결제금액
+                <span>{{total_price}}</span>
+            </div>
+        </section>
+    </body>
+    <script>
+        // 쌤이 짠 코드
+        let product2 = new Vue({
+            el:"#product2",
+            data:{
+                s:null,
+                ea:null,
+                total_price:0
+            },
+            methods:{
+                abc:function(){ // select에 대한 핸들링 이벤트
+                    // 최종 금액 출력시 사용자가 보기 편하게 천단위 ,(콤마)를 적용
+                    this.total_price = (Number(this.s) * Number(this.ea)).toLocaleString();
+                }
+            }
+        });
+
+        // 내가 짠 코드
+        let product = new Vue({
+            el:"#product",
+            data:{
+                price:"",
+                ea:"",
+                total:null
+            },
+            methods:{
+                
+            }
+        });
+    </script>
+</html>

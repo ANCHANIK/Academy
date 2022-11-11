@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>Ajax (6일차) - 공지사항 list</title>
+        <script src="./jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="./notice_list.css?v=3">
+        <script>
+            $(function(){
+                $.ajax({
+                    url:"./notice.json",
+                    cache:false,
+                    data:"GET",
+                    dataType:"JSON",
+                    success:function($data){
+                        $.htmlcode($data)
+                    },
+                    error:function(){
+                        console.log("DATA ERROR");
+                    }
+                });
+
+                $.extend({  // 멀티 확장 함수
+                    htmlcode:function($data){
+
+                        let $no = $data.length;  // 공지사항 총 게시물 수
+                        var $html_code = "";
+
+                        $.map($data,function($name,$node){
+                            $html_code = "<tr nidx="+ $data[$node]["nidx"] +">";
+                            $html_code += "<td>"+ $no +"</td>";
+                            $.map($data[$node],function($n,$i){ //더블로 쓸 때는 두번째꺼는 안으로 들어와야함
+                                if($i == "ncount"){
+                                    $i = "nindate";
+                                }
+                                else if($i == "nindate"){
+                                    $i = "ncount";
+                                }
+                                switch($i){ // 해당 항목만 출력하기 위함
+                                    case "nsubject":  // 제목
+                                    if($n.length > 30){  // 50단어 넘어가면 '...'
+                                        $n = $n.substring(0,30) + "...";
+                                    }
+                                    $html_code += "<td title="+ $n +">"+ $n +"</td>";  // 프론트와 백이 통신하기 위해 만든 것
+                                    break;
+
+                                    case "nwriter":  // 글쓴이
+                                    $html_code += "<td>"+ $n +"</td>";
+                                    break;
+
+                                    case "ncount":  // 조회수
+                                    $html_code += "<td>"+ $data[$node]["ncount"] +"</td>";
+                                    break;
+
+                                    case "nindate":  //입력날짜
+                                    $html_code += "<td>"+ $data[$node]["nindate"].substring(0,10) +"</td>";
+                                    break;
+                                }
+                            });
+                            $html_code += "</tr>";
+                            $("#datas").append($html_code);
+                            $no--;
+                        });
+                        // 글 내용 확인  (Ajax로 html 출력시 해당 출력되는 함수 안에 이벤트 핸들링을 작성해야 된다.)
+                        $("#datas > tr").click(function(){
+                            var $nidx = $(this).index();
+                            var $v = $("#datas > tr").eq($nidx).attr("nidx");
+                            location.href='./notice_view.html?nidx='+$v;
+                            console.log($v);
+                        });
+                    }
+                });
+
+                // 글쓰기 버튼
+                $("#write_btn").click(()=>{
+                    location.href = 'notice_write.html';
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <p class="title">[공지사항 리스트]</p>
+        <table border="1" cellspacing="0" cellpadding="0">
+            <thead class="thead">
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>글쓴이</th>
+                    <th>날짜</th>
+                    <th>조회수</th>
+                </tr>
+            </thead>
+            <!-- 데이터 없을 경우 -->
+            <tbody id="notdata">
+                <tr>
+                    <td colspan="5" align="center">등록된 게시물이 없습니다.</td>
+                </tr>
+            </tbody>
+            <!-- 데이터 있을 경우 -->
+            <tbody id="datas" class="tbody">
+            </tbody>
+        </table>
+        <input type="button" value="글쓰기" id="write_btn" class="write_btn">
+    </body>
+</html>

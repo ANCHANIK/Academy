@@ -1,0 +1,381 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+ul, ol, dl {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+span, label, main {
+  display: block;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section {
+  height: auto;
+}
+
+.qna_list_aside {
+  width: 1000px;
+  height: 400px;
+  display: block;
+  position: "";
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.qna_list_aside > .qna_list_title {
+  width: 960px;
+  height: auto;
+  display: block;
+  position: "";
+}
+
+.qna_list_aside > .qna_list_title > span {
+  width: 400px;
+  height: 40px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
+  line-height: 40px;
+}
+
+.qna_list_aside > .qna_list_div {
+  width: 960px;
+  height: auto;
+  display: block;
+  position: "";
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_name {
+  width: inherit;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  background-color: #e0e0e0;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_name > label {
+  width: "";
+  height: 20px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: black;
+  line-height: 40px;
+  text-align: center;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_name > label:nth-of-type(1) {
+  width: 130px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_name > label:nth-of-type(2) {
+  width: 130px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_name > label:nth-of-type(3) {
+  width: 500px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_name > label:nth-of-type(4) {
+  width: 100px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_name > label:nth-of-type(5) {
+  width: 100px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data {
+  width: inherit;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  border-bottom: 1px solid gray;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data > li {
+  width: "";
+  height: 40px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: black;
+  line-height: 40px;
+  text-align: center;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data > li:nth-of-type(1) {
+  width: 130px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data > li:nth-of-type(2) {
+  width: 130px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data > li:nth-of-type(3) {
+  width: 500px;
+  text-align: left;
+  text-indent: 10px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data > li:nth-of-type(4) {
+  width: 100px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_data > li:nth-of-type(5) {
+  width: 100px;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_nodata {
+  width: inherit;
+  height: 40px;
+  display: block;
+  position: "";
+  border-bottom: 2px solid #cccccc;
+}
+
+.qna_list_aside > .qna_list_div > .qna_list_nodata > label {
+  width: inherit;
+  height: 40px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: black;
+  line-height: 40px;
+  text-align: center;
+}
+
+.qna_list_aside > .qna_list_button {
+  width: 960px;
+  height: 40px;
+  display: block;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.qna_list_aside > .qna_list_button > span {
+  width: 120px;
+  height: inherit;
+  display: block;
+  position: absolute;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+  background-color: #5e5e5e;
+  cursor: pointer;
+  text-align: center;
+  line-height: 40px;
+  right: 0;
+}
+
+.empty_box1 {
+  width: 30px;
+  height: 30px;
+  display: block;
+  position: "";
+}
+
+.empty_box2 {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: "";
+}
+
+.empty_box3 {
+  width: 10px;
+  height: 10px;
+  display: block;
+  position: "";
+}
+
+.QA_config {
+  width: 1000px;
+  height: 620px;
+  display: block;
+  position: "";
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+}
+
+.QA_config > .qna_input_div {
+  width: 960px;
+  height: auto;
+  display: block;
+  position: "";
+}
+
+.QA_config > .qna_input_div > .qna_input_ul {
+  width: inherit;
+  height: auto;
+  display: block;
+  position: "";
+}
+
+.QA_config > .qna_input_div > .qna_input_ul > li {
+  width: inherit;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.QA_config > .qna_input_div > .qna_input_ul > li > span:nth-of-type(1) {
+  width: 160px;
+  height: inherit;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: black;
+  line-height: 50px;
+  text-indent: 5px;
+  background-color: #e0e0e0;
+}
+
+.QA_config > .qna_input_div > .qna_input_ul > li > span:nth-of-type(2) {
+  width: 800px;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  padding-left: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.QA_config > .qna_input_div > .qna_input_ul > li:nth-of-type(1) {
+  border-top: 1px solid #CCCCCC;
+}
+
+.QA_config > .qna_input_div > .qna_input_ul > li:nth-of-type(6) {
+  width: inherit;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+}
+
+.QA_config > .qna_input_div > .qna_input_ul > li:nth-of-type(6) > span:nth-of-type(1) {
+  line-height: 200px;
+}
+
+.QA_config > .qna_input_div > .qna_input_ul > li:nth-of-type(6) > span:nth-of-type(2) > textarea {
+  width: 790px;
+  height: 180px;
+  display: blocl;
+  position: "";
+  resize: none;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.QA_config > .qna_input_btns {
+  width: 960px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.QA_config > .qna_input_btns > span {
+  width: 260px;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.QA_config > .qna_input_btns > span > button:nth-of-type(1) {
+  width: 120px;
+  height: 40px;
+  display: block;
+  position: "";
+  background-color: #5e5e5e;
+  border: 1px solid #5e5e5e;
+  font-size: 14px;
+  color: white;
+}
+
+.QA_config > .qna_input_btns > span > button:nth-of-type(2) {
+  width: 120px;
+  height: 40px;
+  display: block;
+  position: "";
+  background-color: white;
+  border: 1px solid #5e5e5e;
+}
+
+.qna_input_1 {
+  width: 500px;
+  height: 30px;
+  display: block;
+  position: "";
+  text-indent: 3px;
+}
+
+.qna_input_2 {
+  width: 200px;
+  height: 30px;
+  display: block;
+  position: "";
+  text-indent: 3px;
+}
+
+.qna_sel_2 {
+  width: 208px;
+  height: 36px;
+  display: block;
+  position: "";
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+/*# sourceMappingURL=QA.css.map */

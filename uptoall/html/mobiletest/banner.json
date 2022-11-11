@@ -1,0 +1,8 @@
+{
+    "banners" : [
+        {"help_info":"초고용량을 위한 S251-3O0 구축","banner_link":"https://www.gigabyte.com/kr/Press/News/1872","banner_img":"./img/shoshul1.png"},
+        {"help_info":"NVIDIA GeForce RTX 30 Series Laptop GPUs","banner_link":"https://www.gigabyte.com/kr/Press/News/1871","banner_img":"./img/shoshul2.png"},
+        {"help_info":"New Ryzen-powered Gaming Laptops","banner_link":"https://www.gigabyte.com/kr/Press/News/1876","banner_img":"./img/shoshul3.png"},
+        {"help_info":"GIGABYTE Launches GeForce RTX","banner_link":"https://www.gigabyte.com/kr/Press/News/1875","banner_img":"./img/shoshul4.png"}
+    ]
+}

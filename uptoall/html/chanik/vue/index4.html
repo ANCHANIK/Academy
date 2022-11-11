@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 3 - Vue if(true,false) & v-if</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <ul>
+                <li v-for="test in abc">{{test.names}}</li>
+            </ul>
+        </section>
+
+        <section id="box2">
+            <ul>
+                <li v-for="test in abc">{{test}}</li>
+            </ul>
+        </section>
+    </body>
+    <script>
+        let a = new Vue({
+            el:"#box",
+            data:{
+                abc:[
+                    {names:"안찬익"},
+                    {names:"이재경"},
+                    {names:"김학성"}
+                ]
+            },
+            methods:{
+
+            }
+        });
+
+        let b = new Vue({
+            el:"#box2",
+            data:{
+                abc:{
+                    user_name:"김은진",
+                    user_test:"정보처리기사",
+                    user_score:"100점 합격!!!😁"
+                }
+            },
+            methods:{
+
+            }
+        });
+    </script>
+</html>

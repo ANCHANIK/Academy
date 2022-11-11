@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 8일차 - 초급코드 시간(GET 파라이터 값으로 던지기1)</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js?v=3"></script>
+        <script>
+            // 1 : lee , 2 : si , 3 : woo 
+            $(document).ready(function(){
+
+                $("#btn").click(function(){
+                    var $a1 = Number($("#a0").val());
+                    var $a2 = Number($("#a1").val());
+                    var $a3 = Number($("#a2").val());
+                    if(isNaN($a1) == true || isNaN($a2) == true || isNaN($a3) == true){
+                        alert("숫자만 입력하세요.");
+                    }
+                    else{
+                        if($a1 < 100 || $a1 == ""){
+                            alert("최소 100 이상의 숫자를 입력하세요");
+                            $("#a0").focus();
+                        }
+                        else if($a2 < 100 || $a2 == ""){
+                            alert("최소 100 이상의 숫자를 입력하세요");
+                            $("#a1").focus();
+                        }
+                        else if($a3 < 100 || $a3 == ""){
+                            alert("최소 100 이상의 숫자를 입력하세요");
+                            $("#a2").focus();
+                        }
+                        else{
+                            // 데이터값을 전송할 때 if 문으로 묶어서 전송 할 것.
+                            if(confirm("데이터를 전송하시겠습니까?")){
+                                $("#fm").submit();
+                            }
+                            else{
+                                // 초기화
+                                $("#a0").val("");
+                                $("#a1").val("");
+                                $("#a2").val("");
+                            }
+                        }
+                    }
+                    
+
+                });
+                
+
+                // "height": eval("$data" + $node) + "px"
+                // eval : 변수 값을 바로 가져와서 숫자가 나올 수 있게 하는 속성(굳이 반복문을 안쓰고 할 수 있음)
+
+
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            ul,ol {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            span,label,main { display: block; }
+            .box {
+                width: 700px;
+                height: 400px;
+                background-color: black;
+                color: white;
+                margin: 0 auto;
+                border-radius: 25px;
+                font-size: 18px;
+            }
+            .t_span {
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+                position: relative;
+                top: 10px;
+            }
+            .ulcss {
+                text-align: center;
+                margin-top: 60px;
+                line-height: 60px;
+            }
+            .inpu_box {
+                width: 250px;
+                height: 30px;
+                margin-left: 70px;
+                text-indent: 5px;
+            }
+            .text {
+                text-align: center;
+                font-size: 12px;
+                margin-top: 30px;
+            }
+            .btn {
+                margin: 0 auto;
+                width: 180px;
+                height: 30px;
+                background-color: skyblue;
+                line-height: 30px;
+                font-size: 15px;
+                border-radius: 6px;
+                text-align: center;
+                margin-top: 40px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <span class="t_span">
+                [보이스피싱 현황 년도별 데이터 입력]
+            </span>
+            <form id="fm" method="GET" action="./data2.html">
+                <ul class="ulcss">
+                    <li>2018년도 사고건수
+                        <input type="text" maxlength="4" class="inpu_box" id="a0" name="lee" placeholder="최대 4자까지 입력">
+                    </li>
+                    <li>2019년도 사고건수
+                        <input type="text" maxlength="4" class="inpu_box" id="a1" name="si" placeholder="최대 4자까지 입력">
+                    </li>
+                    <li>2020년도 사고건수
+                        <input type="text" maxlength="4" class="inpu_box" id="a2" name="woo" placeholder="최대 4자까지 입력">
+                    </li>
+                </ul>
+                <span class="text">숫자만 입력하세요. 숫자 단위는 1000단위까지 입니다. (100~9999)</span>
+                <span class="btn" id="btn">데이터 입력완료</span>
+            </form>
+        </div>
+    </body>
+</html>

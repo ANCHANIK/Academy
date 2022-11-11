@@ -1,0 +1,159 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>과제1</title>
+        <link rel="stylesheet" type="text/css" href="homework.css?v=<?=$data?>">
+        <script src="homework.js"></script>
+    </head>
+    <body>
+        <!-- 사이트 이용정보 입력 -->
+        <section class="personal_idpw">
+            <aside class="personal_idpw_title">
+                <div class="title_icon">
+                    <img src="star_black_48dp.svg">
+                </div>
+                <div class="title">사이트 이용정보 입력</div>
+            </aside>
+            <aside class="personal_idpw_content">
+                <ul class="personal_idpw_content_ul">
+                    <li>
+                        <span class="input_title">아이디</span>
+                        <span class="inputs">
+                            <input type="text">
+                            <label class="memo1">영문자,숫자,_만 입력 가능. 최소 3자이상 입력하세요.</label>
+                        </span>
+                    </li>
+                    <li></li>
+                    <li>
+                        <span class="input_title">비밀번호</span>
+                        <span class="inputs">
+                            <input type="text">
+                        </span>
+                    </li>
+                    <li>
+                        <span class="input_title">비밀번호 확인</span>
+                        <span class="inputs">
+                            <input type="text">
+                        </span>
+                    </li>
+                </ul>
+            </aside>
+        </section>
+        <!-- 개인정보 입력 -->
+        <section class="personal_info">
+            <aside class="personal_info_title">
+                <div class="title_icon">
+                    <img src="person_black_48dp.svg">
+                </div>
+                <div class="title">개인정보 입력</div>
+            </aside>
+            <aside class="personal_info_content">
+                <ul class="personal_info_content_ul">
+                    <li>
+                        <span class="input_title">이름</span>
+                        <span class="inputs">
+                            <input type="text">
+                        </span>
+                    </li>
+                    <li>
+                        <span class="input_title">닉네임</span>
+                        <span class="inputs">
+                            <input type="text">
+                            <label class="memo1">공백없이 한글,영문,숫자만 입력 가능 (한글2자, 영문4자 이상) 닉네임을 바꾸시면 앞으로 60일 이내에는 변경할 수 없습니다.</label>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="input_title">E-mail</span>
+                        <span class="inputs">
+                            <input type="email" class="input_email">
+                        </span>
+                    </li>
+                    <li>
+                        <span class="input_title">전화번호</span>
+                        <span class="inputs">
+                            <input type="tel">
+                        </span>
+                    </li>
+                    <li>
+                        <span class="input_title">휴대폰번호</span>
+                        <span class="inputs">
+                            <input type="tel">
+                        </span>
+                    </li>
+                    <li>
+                        <span class="input_title">주소</span>
+                        <span class="inputs">
+                            <input type="text" class="input_addr"><button type="button">주소검색</button>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="inputs">
+                            <input type="text" class="input_addr_dtc1">
+                        </span>
+                    </li>
+                    <li>
+                        <span class="inputs">
+                            <input type="text" class="input_addr_dtc2">
+                        </span>
+                    </li>
+                </ul>
+            </aside>
+        </section>
+        <!-- 기타 개인설정 -->
+        <section class="personal_setting">
+            <aside class="personal_setting_title">
+                <div class="title_icon">
+                    <img src="settings_black_48dp.svg">
+                </div>
+                <div class="title">기타 개인 설정</div>
+            </aside>
+            <aside class="personal_setting_content">
+                <ul class="personal_setting_content_ul">
+                    <li>
+                        <span class="input_title">메일링 서비스</span>
+                        <span class="inputs_ck">
+                            <input type="checkbox">정보 메일을 받겠습니다.
+                        </span>
+                    </li>
+                    <li>
+                        <span class="input_title">SMS 수신여부</span>
+                        <span class="inputs_ck">
+                            <input type="checkbox">휴대폰 문자메세지를 받겠습니다.
+                        </span>
+                    </li>
+                    <li>
+                        <span class="input_title">정보공개</span>
+                        <span class="inputs_ck">
+                            <input type="checkbox">다른분들이 나의 정보를 볼 수 있도록 합니다.
+                            <label class="memo2">정보공개를 바꾸시면 앞으로 0일 이내에는 변경이 안됩니다.</label>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="input_title">자동등록방지</span>
+                        <span class="inputs_ck">
+                            <img src="code.php" id="codes">
+                            <label class="memo3">자동등록방지 숫자를 순서대로 입력하세요.</label>
+                        </span>
+                        <span class="refresh_btn" onclick="refresh_btn()">
+                            <img src="refresh_black_48dp.svg">
+                        </span>
+                        <span class="input_title">
+                            <input type="text" class="security_input">
+                        </span>
+                    </li>
+                </ul>
+            </aside>
+        </section>
+        <!-- 회원가입 버튼 -->
+        <section class="personal_join">
+            <div class="join_btn">회원가입</div>
+        </section>
+    </body>
+</html>

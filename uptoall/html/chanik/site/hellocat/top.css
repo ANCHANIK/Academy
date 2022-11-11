@@ -1,0 +1,50 @@
+@charset "UTF-8";
+*{box-sizing: border-box; font-family: 'Malgun Gothic';}
+body { margin: 0; padding: 0;}
+ul,ol { list-style: none; margin: 0; padding: 0;}
+span,label,main { display: block; }
+a { text-decoration: none; }
+
+.black { 
+position: relative; width: 100%; 
+box-shadow: 0 0 0 9000px rgba(0,0,0,0.6); /* 0 ~ 255 */
+z-index: 10; display: none; }
+
+.black_div1 > ul{
+z-index: 3; display: inline-block; float: left; text-align: left;
+border: 1px solid red;
+}
+
+.black_div2>ul{
+z-index: 3; display: inline-block; float: left; text-align: left;
+border: 1px solid red; }
+    
+
+.hamburger{position: absolute; float: left; width: 80px; text-align: center; z-index: 4;}
+
+.top_menu_top{position: absolute;}
+
+.top_menu{width: 1920px; height: 80px;  margin: 0 auto;
+    position: absolute; float: left; z-index: 2;}
+.top_menu>ul{float:right;}
+
+.top_menu>ul>li{ 
+list-style: none;text-align: center; line-height: 80px;
+border-right: 4px solid black; 
+display: inline-block; 
+margin-bottom: 10px; margin-right: 10px; 
+font-size: 20px; font-weight: bold;}
+
+.banners{width: 1920px; height: 600px;margin: 0 auto;
+position: relative;} 
+.mainbanner{width: 1920px; height: 600px; left: 0; height: inherit; position: relative;}
+.mainbanner > li { width: 1920px; height: 600px; position: absolute; display: none;} /*display none 왜 해야되는건데?*/
+.mainbanner > li:nth-of-type(1) { display: block;}
+.mainbanner > li > img { width: 1920px; height: 600px;} 
+
+/*butten*/
+.left{width: 46px; position: absolute; top: 50%; 
+    margin-top: -35px; margin-left: 100px; cursor: pointer;}
+.right{width: 46px; position: absolute; top: 50%;
+    margin-top: -35px; margin-right: 100px; right: 0; cursor: pointer;}
+img { width: 100%; }

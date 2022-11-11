@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 2일차 초급 (JavaScript & jQuery)</title>
+        <script src="../jq/jquery.js"></script>
+        <script>
+            //응용문제3. 공지사항 확인 버튼 클릭시 JS JQ DB FE의 목록을 순서되록 출력되게 하라
+            // 단, split 이용해서 사용
+            $(document).ready(function(){
+
+                //     var $cnt = "Javascript,JQuery,DataBase,Front-End";
+                //     var $s_cnt = $cnt.split(",");
+                //     var $l_cnt = $s_cnt.length;
+                // $("#btn").click(function(){
+                //     //console.log($s_cnt[0]);
+                //     var $a = 0
+                //     while($a < $l_cnt){
+                //         $("#notice").append("<li>"+ $s_cnt[$a] +"</li>");
+                //         $a++;
+                //     }
+                // });
+
+
+            });
+
+            function btn(){
+                var cnt = "Javascript,JQuery,DataBase,Front-End";
+                var s_cnt = cnt.split(",");
+                var l_cnt = s_cnt.length;
+                
+                var a = 0;
+                while(a < l_cnt){
+                    var s = document.createElement("li");
+                    s.innerHTML = s_cnt[a];
+                    document.getElementById("notice").appendChild(s);
+                    /*
+                    var s = document.createElement("li");
+                    var d = document.createTextNode(s_cnt[a]);
+                    a.appendChild(d);
+                    document.getElementById("notice").appendChild(s);
+                    */
+                    
+                    a++;
+
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <ol id="notice">
+            
+        </ol>
+        <input type="button" value="공지사항 확인" id="btn">
+        <input type="button" value="공지사항 확인" onclick="btn()">
+    </body>
+</html>

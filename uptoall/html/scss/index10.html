@@ -1,0 +1,36 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../jq/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="index10.css?v=<?=$data?>">
+        <title>
+            SCSS 4일차 - CSS 선택자(active, + , ~ ) 사용법 & target, hashk(#) & 동적 효과
+        </title>
+        <script>
+            $(function(){
+
+            });
+        </script>
+    </head>
+    <body>
+        <label class="btn">버튼클릭</label>
+        <input type="checkbox" class="ck">
+        <div class="box"></div>
+        <span class="boxspan"></span>
+        <div id="banner" class="banner">
+            MASTER CSS!!
+        </div>
+        <a href="#banner">
+            <input type="button" value="작동" class="sbtn">
+        </a>
+        <a href="">
+            <input type="button" value="중지" class="sbtn">
+        </a>
+    </body>
+</html>

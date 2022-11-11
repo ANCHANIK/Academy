@@ -1,0 +1,9 @@
+@charset "utf-8";
+a{text-decoration: none;}
+body{margin: 0; padding: 0;}
+ul,ol{list-style: none; margin: 0; padding: 0;}
+.top_border{width: 1200px; height: 35px;  margin: 0 auto;}
+.top>li>img{width: 80px; height: 35px; object-fit: cover;}
+.top{display: flex; justify-content: space-between; font-size: 14px;}
+.top_menu{height: 35px; display: flex; justify-content: space-around; align-items: center;}
+.top_menu>li{margin-left: 10px; color:gray !important;}

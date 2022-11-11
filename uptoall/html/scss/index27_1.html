@@ -1,0 +1,62 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="index27_1.css?v=<?=$data?>">
+        <script src="../jq/jquery.js"></script>
+        <title>
+            Scss 9일차 - 2D 동적 애니메이션 + jquery (쌤 풀이)
+        </title>
+        <script>
+            $(function(){
+                $("#top_menu > li").bind({
+                    "mouseenter":function(){
+                        var $node = $(this).index();
+                        $("#top_menu > li").eq($node).css({
+                            "transform":"rotateY(180deg)",
+                            "background":"pink"
+                        });
+                        $("#top_menu > li:eq("+ $node +") > .menus").css({
+                            "transform":"rotateY(180deg)",
+                            "color":"white"
+                        });
+                    },
+                    "mouseleave":function(){
+                        var $node = $(this).index();
+                        $("#top_menu > li").eq($node).css({
+                            "transform":"rotateY(0deg)",
+                            "background":""
+                        });
+                        $("#top_menu > li:eq("+ $node +") > .menus").css({
+                            "transform":"rotateY(0deg)",
+                            "color":""
+                        });
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <!--
+        응용문제 : 다음 오브젝트 적용하시오. 단, flex를 무조건 사용하셔야 합니다.
+        응용2: 메뉴 뒤집어 졌을땐 한글로 바뀌는거 
+    -->
+        <nav class="navcss">
+            <div class="top_div">
+                <ul class="top_menu" id="top_menu">
+                    <li><span class="menus">MENU1</span></li>
+                    <li><span class="menus">MENU2</span></li>
+                    <li><span class="menus">MENU3</span></li>
+                    <li><span class="menus">MENU4</span></li>
+                    <li><span class="menus">MENU5</span></li>
+                </ul>
+            </div>
+        </nav>
+    </body>
+</html>

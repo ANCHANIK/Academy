@@ -1,0 +1,78 @@
+@charset "UTF-8";
+@mixin base {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@mixin object ($xw,$h,$d) {
+    max-width: $xw;
+    height: $h;
+    display: $d;
+}
+@mixin fonts ($fs,$fw,$color) {
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+}
+%ulol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+img {
+    width: 100%;
+    object-fit: cover;
+}
+a {
+    text-decoration: none;
+}
+
+body {
+    @include base;
+}
+
+// 상단 알림창
+.notice {
+    @include object(480px, 60px, flex);
+    margin: 0 auto;
+    background-color: #484848;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 15px;
+    box-sizing: border-box;
+    & > span {
+        box-sizing: border-box;
+    }
+    & > .notice_text {
+        @include object(420px, 30px, block);
+        & > label {
+            @include object(inherit, 15px, block);
+            @include fonts(12px, bold, white);
+            font-family: "돋움체";
+            line-height: 10px;
+        }
+    }
+    & > .notice_close {
+        @include object(30px, 30px, block);
+        line-height: 40px;
+    }
+}
+
+// 상단 대메뉴
+.header {
+    @include object(480px, 60px, flex);
+    margin: 0 auto;
+    background-color: black;
+    padding: 15px;
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    & > .header_small {
+        @include object(30px, 30px, block);
+        margin-top: 3px;
+    }
+    & > .header_logo {
+        @include object(210px, 30px, block);
+    }
+}

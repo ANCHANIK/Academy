@@ -1,0 +1,92 @@
+@charset "UTF-8";
+@mixin base($w,$h) {
+    width: $w;
+    height: $h;
+}
+@mixin font($fs,$fw) {
+    font-size: $fs;
+    font-weight: $fw;
+    font-family: "Noto Sans KR", sans-serif;
+}
+.menus_css {
+    @include base(1200px, 150px);
+    margin: 0 auto;
+    & > label {
+        cursor: pointer;
+    }
+    // logo part
+    & > .logo_layout {
+        @include base(130px, 30px);
+        margin: 0 auto;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+    // search part
+    & > .search_layout {
+        @include base(700px, 30px);
+        margin: 0 auto;
+        margin-bottom: 15px;
+        & > ol {
+            @include base(100%, 30px);
+            & > li {
+                height: 30px;
+                float: left;;
+                & > .search {
+                    @include base(600px, 30px);
+                    @include font(15px, 400);
+                    box-sizing: border-box;
+                    text-indent: 5px;
+                }
+                & > .search_btn {
+                    @include base(100px, 30px);
+                    @include font(15px, 400);
+                    box-sizing: border-box;
+                    background-color: darkblue;
+                    color: white;
+                    border: 1px solid darkblue;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    // main menu part
+    & > .menu_layout {
+        @include base(100%, 40px);
+        background-color: skyblue;
+        position: relative;
+        & > ul {
+            @include base(100%, 40px);
+            & > li {
+                @include base(120px, 40px);
+                @include font(15px, 400);
+                color: darkblue;
+                text-align: center;
+                line-height: 40px;
+                float: left;
+            }
+            & > li:hover {
+                background-color: steelblue;
+            }
+            & > li:hover .somenu {
+                display: block;
+            }
+            & > li:nth-of-type(1) > ol {
+                @include base(120px, auto);
+                border: 1px solid #cccccc;
+                background-color:lightblue;
+                position: absolute;
+                z-index: 5;
+                box-sizing: border-box;
+                display: none;
+                & > li {
+                    @include base(100%, 30px);
+                    line-height: 30px;
+                }
+                & > li:hover {
+                    background-color:cornflowerblue;
+                }
+            }
+        }
+    }
+}

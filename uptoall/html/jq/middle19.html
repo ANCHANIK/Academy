@@ -1,0 +1,113 @@
+<?php
+    $v = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 6일차 - 중급 (Security Number)</title>
+        <script src="./jquery-2.0.js"></script>
+        <script src="./jquery-ui.js"></script>
+        <script src="./jquery.mobile.js?v=1"></script>
+        <script>
+            $(function(){
+                // 난수작업
+                // 응용 : 0~9까지 중 한가지 숫자가 나오도록 콘솔로 출력하라
+                let $w = 0;
+                var $random;
+                while($w < 4){
+                    $random = Math.floor(Math.random()*10);
+                    var $li = "./number/no" + $random + ".png";
+                    $("#ulcss > li:eq("+ $w +") > img").attr("src",$li);
+                    $w++;
+                }
+
+                $.fn.reloads = function(){
+                    let $w = 0;
+                    var $random;
+                        while($w < 4){
+                        $random = Math.floor(Math.random()*10);
+                        var $li = "./number/no" + $random + ".png";
+                        $("#ulcss > li:eq("+ $w +") > img").attr("src",$li);
+                        $w++;
+                    }
+                }
+
+                /* 가내수공업 -> 짧게 줄일 수 있어야 함
+                var $random1 = Math.floor(Math.random()*10);
+                var $random2 = Math.floor(Math.random()*10);
+                var $random3 = Math.floor(Math.random()*10);
+                var $random4 = Math.floor(Math.random()*10);
+                
+                var $li1 = "./number/no" + $random1 + ".png";
+                var $li2 = "./number/no" + $random2 + ".png";
+                var $li3 = "./number/no" + $random3 + ".png";
+                var $li4 = "./number/no" + $random4 + ".png";
+                
+                $("#ulcss > li:eq(0) > img").attr("src",$li1);
+                $("#ulcss > li:eq(1) > img").attr("src",$li2);
+                $("#ulcss > li:eq(2) > img").attr("src",$li3);
+                $("#ulcss > li:eq(3) > img").attr("src",$li4);
+                */
+
+                $("#reload").click(function(){
+                    // location.href = './middle19.html'; // 이렇게 쓰면 작성한 데이터 다 날라감
+                    $.fn.reloads();
+                    // 이렇게 확장함수로 호출해서 써야 데이터가 다 안날라가고 랜덤숫자만 바뀜
+                })
+
+                $("#fm").submit(function(){
+                    var $scnum = $("#scnum").val();
+                    if($scnum == ""){
+                        alert("보안코드 4자리를 입력하세요");
+                        return false;
+                    }
+                    else{
+                        $("#fm").submit();
+                    }
+                });
+            });
+        </script>
+    </head>
+    <style>
+        .security {
+            width: 200px;
+            height: 80px;
+            background: url("./number/security_back.png");
+        }
+        .security > ul {
+            width: inherit;
+            height: inherit;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .security > ul > li {
+            width: 50px;
+            height: inherit;
+            float: left;
+        }
+    </style>
+    <body>
+        <!--
+            보안코드 4자리를 아무것도 입력하지 않고 enter를 사용할 경우
+            "보안코드 4자리를 입력하세요" 라는 경고 메세지를 출력하라
+        -->
+        <form id="fm" name="f">
+            <div class="security">
+                <ul id="ulcss">
+                    <li><img src=""></li>
+                    <li><img src=""></li>
+                    <li><img src=""></li>
+                    <li><img src=""></li>
+                </ul>
+            </div>
+            <input type="tel" id="scnum" maxlength="4" placeholder="보안코드 4자리">
+            <input type="submit" value="확인" id="btn">
+            <input type="button" value="새로고침" id="reload">
+        </form>
+    </body>
+</html>

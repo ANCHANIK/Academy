@@ -1,0 +1,45 @@
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>HTML 4.0 6일차 - CSS 2.0 position </title>
+        <style>
+            body { margin: 0; padding: 0;}
+            /*  div 3개 객체 생성 후 각각의 크기 100*100 배경색상 blue red black  */
+            .box1 { width:100px; height:100px; background-color: blue; float:left; }
+            .box2 { width:100px; height:100px; background-color: red; float:left; }
+            .box3 { width:100px; height:100px; background-color: black; float:left; }
+            .box4 { width:100px; height:100px; background-color: green; clear: both; float:left; }
+            .box5 { width:100px; height:100px; background-color: gray; float:left; }
+            .ulcss { clear:both; list-style:none; margin:0; padding:0; }
+            .licss { width:100px; height:40px; border:1px solid black; float:left; text-align:center; line-height: 40px; }
+            /*  text-align : 텍스트, 이미지, 버튼 정렬할 때 사용 (left, right, conter)  */
+            /*  line-height : 줄 간격 높이. 단, 주의사항은 메뉴 사용시 한 줄에 적용할 시 문제가 없으나, 두 줄 이상일 경우 문제가 발생한다.  */
+            /*
+            float : 객체(DOM, Node)를 어떻게 배치 할 것인가?     옆으로 안붙이고 아래로 내리고 싶을 때 clear:both; (초기화)
+            left : 왼쪽 기준으로 객체를 배치
+            right : 오른쪽 기준으로 객체를 배치
+            center : 가운데 위치로 객체를 배치
+            clear:both : float을 초기화 시킬 때 사용한다.
+            clear (left, right, both)
+            */
+        </style>
+    </head>
+    <body>
+        <div class="box3"></div>
+        <div class="box2"></div>
+        <div class="box1"></div>
+        <div class="box4"></div>
+        <div class="box5"></div>
+
+        <br><br><br>
+
+        <ul class="ulcss">
+            <li class="licss">메뉴1</li>
+            <li class="licss">메뉴2</li>
+            <li class="licss">메뉴3</li>
+            <li class="licss">메뉴4</li>
+            <li class="licss">메뉴5</li>
+        </ul>
+    </body>
+</html>

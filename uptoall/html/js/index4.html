@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 1 일차 - 더블 조건문</title>
+        <script>
+            // 밖에 있는 조건문을 먼저 구축한 후 내부 조건문 구축할 것.
+            var a ="hong";
+            var b = "a12345a";
+            if(a=="hong"){
+                if(b=="a12345"){
+                    document.write("로그인 하셨습니다.");
+                }
+                else{
+                    document.write("패스워드가 틀립니다.");
+                }
+            }
+            else{
+                document.write("가입되지 않은 사용자입니다.");
+            }
+            
+
+            var url = "google";
+            //  location.href : 해당 페이지를 다른 페이지로 이동시킴
+            if(url=="naver"){
+                location.href = "http://www.naver.com";  
+            }
+            else if(url=="daum"){
+                location.href = "http://www.daum.net";
+            }
+            else if(url=="nate"){
+                location.href = "http://www.nate.com";
+            }
+            else{
+                document.write("이동할 url를 찾지 못했습니다.");
+            }
+
+            /*
+            응용문제4.
+            임의 숫자 1 ~ 30 까지 숫자를 입력합니다.
+            var a = 임의 숫자 입력
+            5단위 해당 숫자를 검토합니다.
+            5이하, 10이하, 15이하, 20이하, 25이하, 25이상 숫자
+            */
+            var aa = 12;
+            if(aa < 5){
+                document.write("해당 숫자는 5 미만입니다.");
+            }
+            else if(aa < 10){
+                document.write("해당 숫자는 10 미만입니다.");
+            }
+            else if(aa < 15){
+                document.write("해당 숫자는 15 미만입니다.");
+            }
+            else if(aa < 20){
+                document.write("해당 숫자는 20 미만입니다.");
+            }
+            else if(aa < 25){
+                document.write("해당 숫자는 25 미만입니다.");
+            }
+            else {
+                document.write("해당 숫자는 25 이상입니다.");
+            }
+            
+            /*
+            응용문제 5. 임의 숫자 1 ~ 130까지 입니다.
+            다음과 같이 출력하시오.
+            10 이하 숫자입니다.
+            10 이상 숫자입니다.
+            20 이상 숫자입니다.
+            42 이상 숫자입니다.
+            100 이상 숫자입니다.
+            임의 수를 입력하면 5가지 중 한가지가 출력되도록 조건문을 제작하시오.
+            (이상은 범위가 큰거부터 낮은걸로 내려가야함, 오름차순 내림차순 생각 잘해야 됨)
+            */
+            var n = 46;
+            if(n > 100){
+                document.write("100이상 숫자입니다.")
+            }
+            else if(n > 42){
+                document.write("42이상 숫자입니다.")
+            }
+            else if(n > 20){
+                document.write("20이상 숫자입니다.")
+            }
+            else if(n > 10){
+                document.write("10이상 숫자입니다.")
+            }
+            else{
+                document.write("10이하 숫자힙니다.")
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

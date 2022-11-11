@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 2일차 (중급 - 간편회원가입 + DB)</title>
+<style>
+    body{margin: 0; padding: 0;}
+    ul,ol{list-style: none; margin: 0; padding: 0;}
+    span{display: block;}
+
+    .bd{width:370px; height: auto; border: 0px solid red; margin: 0 auto; text-align: center;}
+    .bd >p{font-size: 20px; font-weight: bold;}
+    .inbd{ width: 350px; height: auto; border: 0px solid blue;margin: 0 auto;}
+    .ulcss>li>input{width: 350px; height: 35px; box-sizing: border-box;text-indent: 10px; border: 0;}
+    .ulcss>li{border-bottom: 2px solid black;}
+    .ulcss>li:last-child{border: 0;}
+    
+    .olcss>li{box-sizing: border-box;border-bottom: 2px solid black; float: left;}
+    .olcss>li:nth-of-type(2){border: 0; width: 20px; height: 35px; line-height: 35px;}
+    .olcss>li>input{height: 35px; box-sizing: border-box;text-indent: 10px;}
+    .olcss>li:first-child{width: 190px;}
+    .olcss>li:first-child>input{width: 190px; border: 0;}
+    .olcss>li:last-child{width: 140px;}
+    .olcss>li:last-child>input{width: 140px; border: 0;}
+    
+
+    .ck{clear: both;height: 50px; line-height: 50px; text-align: left; font-size: 13px;}
+    .btn >input{width: 150px; height: 35px; border-radius: 5px; background-color: black; color: white; border: 0; }
+</style>
+    </head>
+    <body>
+        <form id="fm" enctype="application/x-www-form-urlencoded"><!--암호화..-->
+            <input type="hidden" name="member_email" id="hd" value="">
+        <div class="bd">
+            <p>간편 회원가입</p>
+            <span class="inbd">
+                <ul class="ulcss">
+                    <li><input type="text" placeholder="아이디를 입력해주세요" name="member_id" id="mid"></li>
+                    <li><input type="text" placeholder="사용자명을 입력해주세요" name="member_user" id="muser"></li>
+                    <li><input type="password" placeholder="패스워드를 입력해주세요" name="member_pw" id="mpw"></li>
+                    <li>
+                        <ol class="olcss">
+                            <li><input type="text" placeholder="이메일 아이디" id="fmail"></li>
+                            <li>@</li>
+                            <li><input type="text" placeholder="이메일 주소" id="bmail"></li>
+                        </ol>              
+                    </li>
+                </ul>
+                <div class="ck"><input type="checkbox" id="mck" value="Y" name="member_agree">회원 이용약관에 동의</div>
+                <div class="btn"><input type="button" value="간편회원가입" onclick="join();"></div>
+            </span>
+        </div>
+    </form>
+    </body>
+    <script>
+                function join(){
+        var id = document.getElementById("mid").value;
+        var user = document.getElementById("muser").value;
+        var pw = document.getElementById("mpw").value;
+        var fmail = document.getElementById("fmail").value;
+        var bmail = document.getElementById("bmail").value;
+        var ck = document.getElementById("mck").checked;
+        
+        if(id==""){
+            alert("아이디를 입력해주세요");
+        }
+        else if(user==""){
+            alert("사용자 명을 입력하세요");
+        }
+        else if(pw==""){
+            alert("패스워드를 입력하세요");
+        }
+        else if(fmail==""||bmail==""){
+            alert("이메일을 입력하세요");
+        }
+        else if(ck==false){
+            alert("이용약관에 동의하셔야만 회원가입이 됩니다");
+        }
+        else{
+            document.getElementById("hd").value=fmail+"@"+bmail;
+            fm.method="POST";
+            fm.action="join.php";
+            fm.submit();
+        }//트러블슈팅? 강제로공격 어디로 넘길지를 숨기면 ..?
+    }
+    </script>
+</html>

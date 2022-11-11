@@ -1,0 +1,60 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+media 쿼리 종류 및 범위
+세가지로 사용할 경우 : (최소단위) 480px, 768x, 1200px
+다섯가지로 사용할 경우 : (최소단위) 320px, 640px, 1024px, 1230px
+
+예시)
+1000px = font-size : 40px;
+420px = font-size : 14, 16, 16.8px
+*/
+@media screen and (min-width: 340px) and (max-width: 561px) {
+  .headercss {
+    border: 1px solid red;
+  }
+}
+
+@media screen and (min-width: 562px) and (max-width: 1024px) {
+  .headercss {
+    border: 1px solid red;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  .headercss {
+    border: 1px solid red;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .headercss {
+    border: 1px solid red;
+  }
+}
+
+.headercss {
+  max-width: 1200px;
+  height: 60px;
+  background-color: purple;
+}
+
+@media screen and (min-width: 340px) and (max-width: 560px) {
+  .headercss {
+    max-width: 100%;
+    background-color: red;
+    height: 30px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .headercss {
+    background-color: #fbff00;
+  }
+}
+/*# sourceMappingURL=index14.css.map */

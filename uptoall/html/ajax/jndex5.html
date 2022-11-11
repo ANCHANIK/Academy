@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>Ajax (5일차) - Jquery Ajax-JSON(통계자료)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+                let $y = 0; // 1월달 value값이 0이므로 기본 전역변수 값은 0으로 처리함
+                
+
+                $("#sdate").change(function(){
+                    $y = $(this).val();
+                    // console.log($y);
+                    $.fn.graphs($y); // 체인지 될 때마다 확장함수 호출
+                    
+                });
+
+                // 확장함수 사용. 해당 값을 ajax로 체크함
+                $.fn.graphs = function($yy){
+                    
+                    $.ajax({
+                        url:"./front_data.json",
+                        cache:false,
+                        type:"GET",
+                        dataType:"JSON",
+                        success:function($data){  //success에다가 작성하면 로드가 심하기 때문에 매우 느리게 출력됨. 따라서 확장함수로 처리해야 빠름
+                            // console.log($yy);
+                            // console.log($data);
+                            // each가 한계라 map을 사용
+                            // $.map($data["datas"],function($node,$msg){
+                                // console.log($data["datas"][$yy]["seoul"]);
+                                $.fn.ani($data,$yy);
+
+                                /*
+                                $("#list > .chart").eq(0).delay(1000).animate({   // 로드가 걸리기 때문에 delay를 넣음
+                                    "width":$data["datas"][$yy]["seoul"] + "px"
+                                },500);
+                                */
+                            // });
+                        },
+                        error:function(){
+                            alert("Data error");
+                        }
+                    });
+                }
+                $.fn.graphs($y);
+
+                $.fn.ani = function($data,$yy){
+                    var $s1,$s2,$s3;
+                    // console.log($data,$yy);
+                    // 실제 데이터에서 10%만 적용되도록 함 (max 9999)
+                    // max(999) 데이터 1 = 1px or 1 = 0.5px
+                    // 가내수공업 -> 짧게 줄일 것
+                    $s1 = $data["datas"][$yy]["seoul"];
+                    $s2 = $data["datas"][$yy]["gyeonggi"];
+                    $s3 = $data["datas"][$yy]["allcity"];
+
+                    $("#list > .chart").eq(0).delay(1000).animate({
+                        "width":$s1 + "px"
+                    },500);
+
+                    $("#list > .chart").eq(1).delay(1000).animate({
+                        "width":$s2 + "px"
+                    },500);
+
+                    $("#list > .chart").eq(2).delay(1000).animate({
+                        "width":$s3 + "px"
+                    },500);
+                }
+
+            });
+        </script>
+        <style>
+            * {box-sizing:border-box;}
+            body { margin: 0; padding: 0; }
+            span,label,main {display: block;}
+            .mainlist {
+                width: 800px;
+                height: auto;
+                margin: 0 auto;
+            }
+            .mainlist > legend {
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+                font-family: "굴림";
+            }
+            .ymd {
+                width: inherit;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+            }
+            .sdate {
+                width: 170px;
+                height: 40px;
+                font-size: 17px;
+                font-weight: bold;
+            }
+            .list {
+                width: inherit;
+                height: 300px;
+                line-height: 300px;
+                display: table-cell;
+                vertical-align: middle;
+            }
+            .list > span, label {
+                float: left;
+            }
+            .local {
+                width: 110px;
+                height: 40px;
+                background-color:steelblue;
+                color: white;
+                text-align: center;
+                line-height: 40px;
+                font-size: 13px;
+                clear: both;
+            }
+            .local:nth-child(1){
+                margin-top: 0px;
+                
+            }
+            .chart {
+                width: 0px;
+                height: 30px;
+                background-color: tomato;
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="headercss">
+            <fieldset class="mainlist">
+                <legend>2020년도 월별 Front-End 취업현황</legend>
+                <div class="ymd">
+                    <select id="sdate" class="sdate">
+                        <option value="0">1월</option>
+                        <option value="1">2월</option>
+                        <option value="2">3월</option>
+                        <option value="3">4월</option>
+                        <option value="4">5월</option>
+                        <option value="5">6월</option>
+                        <option value="6">7월</option>
+                        <option value="7">8월</option>
+                        <option value="8">9월</option>
+                        <option value="9">10월</option>
+                        <option value="10">11월</option>
+                        <option value="11">12월</option>
+                    </select>
+                </div>
+                <div class="list" id="list">
+                    <span class="local">서울</span><label class="chart"></label>
+                    <span class="local">경기도</span><label class="chart"></label>
+                    <span class="local">지방광역시</span><label class="chart"></label>
+                </div>
+            </fieldset>
+        </header>
+    </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 1일차 - 중급 (Jquery-mobile 중요사항)</title>
+        <script src="./jquery-2.0.js"></script>
+        <script src="./jquery-ui.js"></script>
+        <script src="./jquery.mobile.js"></script>
+        <!-- 
+            jquery.mobile 엔진 사용시 jquery 본 엔진은 1.8 ~ 2.1 엔진만 사용 가능함
+            jquery 3.x 버전은 사용 못 함.
+            jquery.mobile 엔진과 충돌이 발생함
+        -->
+        <link rel="stylesheet" type="text/css" href="./jquery-ui.css">
+        <script>
+        $(function(){
+            $("#sdate").datepicker();
+            $("#edate").datepicker();
+            //swiperight : 왼쪽 > 오른쪽으로 스왑
+            $("#btn").swiperight(function(){
+                $(this).animate({
+                    "right":0
+            },800);
+        });
+        //swipeleft : 오른쪽 > 왼쪽으로 스왑
+        $("#btn").swipeleft(function(){
+            $(this).animate({
+                "left":0
+            },800,function(){
+                $(this).attr("style","");
+                //left,right를 모두 사용시 한번 이상은 애니메이션이 작동
+                //되지 않는다. 원인은 left:0px; right:0px; 모두
+                //style속성에 적용 되어짐. 해당 해결책은 attr을 이용하여
+                //초기화 작업을 해 주어야 한다.
+            });
+            
+        });
+
+        // swipe : swipeleft, swiferight 어느 방향이든 모두 작동되는 핸들링
+        // 
+        $("#btn2").swipe(function(){
+            $(this).animate({
+                "left":0
+            },800)
+        })
+
+    });
+        </script>
+        <style>
+    body { margin: 0; padding: 0; }
+    .search {
+        width: 500px;
+        height: 30px;
+        border:1px solid blue;
+        display: block;
+    }
+    .box {
+        width:95%; 
+        min-width:340px; 
+        max-width: 620px; 
+        height:50px;
+        border:1px solid red;
+        margin: 0 auto; 
+        position: relative;
+    }
+    .btn {
+        display: block;
+        width:15vw;
+        max-width:100px;
+        height: inherit;
+        background-color: blue;
+        position: absolute;
+    }
+    .box2 {
+        width:95%; 
+        min-width:340px; 
+        max-width: 620px; 
+        height:50px;
+        border:1px solid red;
+        margin: 0 auto; 
+        position: relative;
+    }
+    .center {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+        </style>
+    </head>
+    <body>
+        <!-- 
+            outline이 label로 하면 충돌일어남. div, span은 괜찮음
+            <div class="search">
+                <input type="text" name="sdate" id="sdate" readonly>-<input type="text" name="edate" id="edate" readonly>
+                <input type="button" value="검색">
+            </div>
+            
+        -->
+        <br><br>
+        <div class="box">
+            <span class="btn" id="btn"></span>
+        </div>
+        <br><br>
+        <div class="box2 center">
+            <span class="btn" id="btn2"></span>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 6 일차 - 초급코드</title>
+        <script>
+            // ===, !== : type도 확인하며, 결과값도 비교함
+        var a = "123456";
+        var b = "123";
+        if(a === 123456){
+            //console.log("동일함");
+        }
+        else{
+            //console.log("동일하지 않음");
+        }
+
+        function abc(){
+            var aa = Number(document.getElementById("bb").value);
+            console.log(aa);
+            // NaN : Not a Number,
+            // isNaN : true(문자), false(숫자) NaN만 쓰는 경우 없음. isNaN을 써야된다.
+            // isNaN 많이 쓰임. 중요!
+
+            if(isNaN(aa)==true){
+                alert("숫자만 입력하셈");
+                document.getElementById("bb").value = ""; // 값을 초기화 시킴
+            }
+            else if(aa==""){
+                alert("숫자를 입력하셈");
+                document.getElementById("bb").focus();
+            }
+            else{
+                alert("정상적인 숫자를 입력하셨셈!");
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <input type="text" id="bb" placeholder="숫자만 입력!!">
+        <button type="button" onclick="abc();">결과확인</button>
+        <!--
+            button : 기본 submit이며, type="button" 속성을 설정할 경우
+            onclick이 정확하게 작동을 한다.
+        -->
+    </body>
+</html>

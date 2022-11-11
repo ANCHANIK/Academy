@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 1 일차 - 반복문4</title>
+        <script>
+            // 1부터 5까지 더한 값이 짝수인지 홀수인지 검토하는 방법
+            var a = 1;
+            var b = 0;
+            do{  // 1 ~ 5 까지 합한 결과를 계산하는 부분
+                b = b + a;
+                a++;
+            }while(a <= 5)
+
+            var c = b % 2;  // 1 ~ 5 까지 합한 결과를 % 2 로 나누어서 나머지를 확인한다.
+            if(c==0){   // 나머지가 0 일때
+                //document.write("결과값은 짝수입니다.");
+            }
+            else{   // 나머지가  1 일때
+                //document.write("결과값은 홀수입니다.");
+            }
+
+
+            // 더블 while 문 (2 ~ 5 단까지 구구단)
+            var aa = 2;
+            var bb;
+            while(aa <= 5){
+                var cc = 1;   // 시작값(var cc = 1)이 밖에 있으면 한 번만 읽히고 끝남. 단 큰 while 문 안에 있으면 또 읽힐 수 있음. 시작값이 중요.
+                while(cc <= 9){   // 즉, 더블 while문을 쓸거면 작은 while문에 쓸 시작값이 큰 while문 안에 있어야 된다. do~while 문도 동일하다.
+                    bb = aa * cc;
+                    //document.write(aa + "*" + cc + "=" + bb + "<br>")
+                    cc++
+                }
+                aa++;
+            }
+
+            /*
+            응용문제5.
+            다음 문제를 while 문을 이용해서 출력하시오
+            */
+            var x = 1;
+            var z = "*";
+            while(x<=5){
+                var y = 1;
+                while(y <= x){
+                    //document.write("*");
+                    y++;
+                }
+                //document.write("<br>")
+                x++;
+            }
+
+            /*
+            응용문제 6 
+            do~while 문으로 다음 코드를 작성하시오.
+            **
+            ****
+            ******
+            ********
+            **********
+            */
+            var r = 1;
+            do{
+                if(r%2 == 0){   //  반복문 짝수 일 경우만 사용
+                    var h = 1;
+                    do{  //  짝수 일 경우만 작은  dp ~ while 문이 작동하도록 합니다.
+                        document.write("*");
+                        h++;
+                    }while(h <= r)
+                    document.write("<br>");
+                }
+                r++;
+            }while(r <= 10)
+
+            /*
+            반복문 법칙
+            1. 합계를 구하는 반복문은  document.write 반복문 밖에 출력
+            2. 순차적으로 결과를 출력해야 할 경우 반복문 안에 출력
+            3. 두 개의 반복문을 사용시 앞자리와 뒷자리 반복현상을 확인
+            4. ++, -- 상황을 파악
+            5. 반복문 () 안에 고정값이 적용 될 수도 있고 또는 변수값을 받아서 처리하는 사항도 있다.
+            6. 조건문을 반복문 안에 사용 또는 반복문 밖에 조건문을 사용할 수도 있다.
+            */
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

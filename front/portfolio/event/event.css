@@ -1,0 +1,111 @@
+@charset "UTF-8";
+@import url("../css/font.css");
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+}
+ul,
+ol,
+dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+span,
+label,
+main {
+  display: block;
+}
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+}
+button {
+  cursor: pointer;
+}
+select {
+  margin: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+}
+/* 타이틀 부분 */
+.title {
+  height: 50px;
+}
+.title > p {
+  text-align: center;
+  line-height: 50px;
+  height: inherit;
+  font-size: 20px;
+  font-weight: 500;
+}
+.container {
+  height: auto;
+}
+.game_bg {
+  width: 700px;
+  height: 900px;
+  margin: 0 auto;
+  background-image: url("./images/event_bk.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.board {
+  width: 500px;
+  height: 500px;
+  position: relative;
+  top: 90px;
+  transition-duration: 5s;
+  transition-property: all;
+}
+.marker {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 280px;
+  left: 50%;
+  margin-left: -15px;
+}
+.start_off {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 465px;
+  left: 50%;
+  margin-left: -75px;
+  cursor: pointer;
+}
+.msg {
+  width: 300px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 3px dashed chocolate;
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  margin-left: -150px;
+  top: 200px;
+  color: brown;
+  text-align: center;
+  line-height: 50px;
+  font-weight: bold;
+  font-size: 17px;
+  display: none;
+}

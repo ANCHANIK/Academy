@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 1 일차 - 반복문 + 반복문(double for문)</title>
+        <script>
+            var a;  // for문 사용되는 변수
+            var b = 2;  // 고정 변수
+            var c;  // 계산 결과 변수
+            for(a=1;a<=9;a++){
+                c = b * a;
+                //document.write(b + "*" + a + "=" + c +"<br>");
+            }
+
+            /*
+            응용문제 8.
+            구구단 8 단 역순으로 출력하시오.
+            */
+            var d = 8;
+            var e;
+            var f;
+            for(e=9;e>=1;e--){
+                f = d * e;
+                //document.write(d + "*" + e + "=" + f + "<br>");
+            }
+
+            /* 더블 반복문(더블 for문) */
+            var x;
+            var y;
+            var z;
+            for(x=2;x<=9;x++){  // 큰 반복문(작은 for문)
+                for(y=1;y<=9;y++){  // 작은 반복문(작은 for문) : 작은 for문의 값이 다 끝난 후에 큰 for문으로 감.
+                    z = x * y;
+                    //document.write(x + "*" + y + "=" + z + "<br>")
+                }
+            }
+            // 큰 반복문이 한 번 회전하면 작은 반복문은 자신의 범위가 끝날 때 까지
+            // 큰 반복문은 회전하지 않는다.
+            /*
+            응용문제 9.
+            구구단 7단부터 3단까지 역순으로 출력하시오
+            */
+            var aa;
+            var bb;
+            var cc;
+            for(aa=7;aa>=3;aa--){
+                for(bb=9;bb>=1;bb--){
+                    cc = aa * bb;
+                    //document.write(aa + "*" + bb + "=" + cc + "<br>")
+                }
+            }
+
+            /*
+            응용문제 10.
+            다음과 같이 더블 반복문으로 모양을 출력하시오.
+            */
+            var k1;
+            var k2;
+            var k3 = "*";
+            for(k1=1;k1<=5;k1++){  // for문엔 절대 숫자만 들어갈 수 있음
+                for(k2=1;k2<=k1;k2++){   //큰 for문에 있는 변수값을 가져와서 작은 for문에 범위로 설정하여 원하는 범위만큼 반복 시키게 된다.
+                //document.write(k3);
+                }
+                //document.write("<br>");
+            }
+
+            /*
+            응용문제11.
+            다음과 같이 쌍 for문으로 문자를 출력하시오.
+            */
+            var p1;
+            var p2;
+            var p3 = "*";
+            for( p1=5; p1>=1; p1-- ){
+                for( p2=1; p2<=p1; p2++ ){  //큰 for문에 있는 변수값을 작은 for문에 대입시켜서 범위 또는 초기값을 적용함.
+                    document.write(p3);
+                }
+                document.write("<br>");
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

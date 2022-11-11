@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
+*, body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+  font-family: 'Poor Story', cursive;
+}
+
+.h {
+  width: 100%;
+  height: 50px;
+  display: block;
+  background-color: none;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 50px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.boxs {
+  width: 100%;
+  height: auto;
+  display: block;
+  background-color: none;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.boxs > .tables {
+  width: 600px;
+  height: 400px;
+  background-color: black;
+  -webkit-box-shadow: 5px 8px 20px rgba(0, 0, 0, 0.3);
+          box-shadow: 5px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.boxs > .tables > tbody > tr {
+  height: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: white;
+}
+
+.boxs > .tables > tbody > tr > td {
+  text-indent: 10px;
+  font-size: 18px;
+  background-color: white;
+}
+
+.boxs > .tables > tbody > tr > td:nth-of-type(1) {
+  width: 150px;
+}
+
+.boxs > .tables > tbody > tr:first-of-type, .boxs > .tables > tbody > tr:last-of-type {
+  text-align: center;
+}
+
+.inp2 {
+  width: 300px;
+  height: 40px;
+  display: "";
+  background-color: none;
+  text-indent: 10px;
+  font-size: 16px;
+}
+
+.inp1 {
+  width: 200px;
+  height: 40px;
+  display: "";
+  background-color: none;
+  text-indent: 10px;
+  font-size: 16px;
+}
+
+.btn {
+  width: 100px;
+  height: 40px;
+  display: "";
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+
+.btn:hover {
+  background-color: darkgray;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 20px;
+  color: white;
+  -webkit-box-shadow: 5px 8px 20px rgba(0, 0, 0, 0.3);
+          box-shadow: 5px 8px 20px rgba(0, 0, 0, 0.3);
+}
+/*# sourceMappingURL=index30_2.css.map */

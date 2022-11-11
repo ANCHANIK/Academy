@@ -1,0 +1,46 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap");
+/* font-family: 'Noto Sans KR', sans-serif; (100,400,700,900) */
+/* link로 사용하기 보다는 @import 로 하는게 더 속도도 빠르고 좋음 */
+/*
+@import 또한 link와 같이 로드를 하는 부분이다.
+단, import는 link와 다르게 css 호출과 동시에 같이 로드가 되는 부분임.
+*/
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+/* font-family: 'Nanum Pen Script', cursive; (400) */
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+/* font-family: 'Monoton', cursive; */
+body {
+  margin: 0;
+  padding: 0;
+}
+span,
+label,
+main {
+  display: block;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+
+.font1 {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+}
+.font2 {
+  font-family: "Monoton", cursive;
+  font-weight: 400;
+  font-size: 40px;
+}
+.font3 {
+  font-family: "Nanum Pen Script", cursive;
+  font-weight: 400;
+  font-size: 20px;
+}

@@ -1,0 +1,81 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol,
+dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+span,
+label,
+main {
+  display: block;
+}
+.menus {
+  width: 100%;
+  max-width: 620px;
+  height: 640px;
+  background-color: yellow;
+  position: absolute;
+}
+.ulcss {
+  width: 100%;
+  height: auto;
+}
+.ulcss > li {
+  width: inherit;
+  height: auto;
+  background-color: powderblue;
+  line-height: 40px;
+  text-indent: 5px;
+  font-size: 14px;
+  color: white;
+}
+.olcss {
+  width: inherit;
+  height: auto;
+  display: none;
+}
+.olcss > li {
+  width: inherit;
+  height: 40px;
+  background-color: palevioletred;
+  color: white;
+  font-size: 13px;
+  text-indent: 15px;
+  line-height: 40px;
+}
+main {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  position: absolute;
+}
+.header {
+  height: 60px;
+}
+.top {
+  width: 100%;
+  height: inherit;
+  max-width: 620px;
+  background-color: black;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+}
+.tbtn {
+  width: 40px;
+  height: 40px;
+  background-color: orange;
+  margin-left: 10px;
+}
+.product {
+  width: 100%;
+  height: 600px;
+  background-color: gray;
+}

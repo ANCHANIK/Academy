@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tap 기능 부분 + css 창 표현 부분</title>
+        <style>
+            div { position: absolute; }
+            .popup1 { 
+                width: 300px; height: 300px; background-color: green;
+                left: 100px; top: 300px;
+                z-index: 2;
+                /*
+                z-index : absolute 에서만 작동됨.
+                숫자가 높을수록 상단으로 올라온다.
+                */
+            }
+            .popup2 { 
+                width: 300px; height: 300px; background-color: orange;
+                left: 150px; top: 350px;
+                z-index: 1;
+            }
+            .popup3 { 
+                width: 300px; height: 300px; background-color: black;
+                left: 200px; top: 350px;
+            }
+        </style>
+    </head>
+    <body>
+            <table border="1">
+                <!--
+                    tapindex : 키보드 tap키를 이용하여 이동할 때 편의성을 위해 사용
+                    숫자가 작을수록 먼저 커서가 이동함
+                -->
+                <tr>
+                    <td>아이디</td>
+                    <td><input type="text" tabindex="1"></td>
+                    <td rowspan="2">
+                        <input type="submit" value="로그인" tabindex="3">
+                    </td>
+                </tr>
+                <tr>
+                    <td>패스워드</td>
+                    <td>
+                        <input type="password" tabindex="2">
+                    </td>
+                </tr>
+            </table>
+            <div class="popup1"></div>
+            <div class="popup2"></div>
+            <div class="popup3"></div>
+    </body>
+</html>

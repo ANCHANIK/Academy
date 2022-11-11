@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <title>Ajax 1일차 - JavaScript (json)</title>
+        <!--JavaScript Object Notation (JSON)-->
+        <style>
+            .survey {
+                width: 200px;
+                height: 300px;
+                border: 1px solid #ccc;
+            }
+            </style>
+    </head>
+    <body>
+        <div class="survey" id="survey">
+            <!-- sample
+                <input type="radio" id="r0">HTML
+                <input type="radio" id="r1">CSS
+                <input type="radio" id="r2">JavaScript
+                <input type="radio" id="r3">jQuery
+                <input type="radio" id="r4">Ajax
+            -->
+        </div>
+        <input type="button" value="참여하기">
+    </body>
+    <script>
+        let jm;
+        function windowck(){
+            if(window.XMLHttpRequest){
+                return new XMLHttpRequest();
+            }
+        }
+        function fileopen(){
+            if(jm.readyState == XMLHttpRequest.DONE && jm.status == 200){
+                // console.log(this.response)
+                jsonfile(this)
+            }
+        }
+        jm = windowck();
+        jm.onreadystatechange = fileopen; // 콜백 함수라 ()를 안씀
+        jm.open("GET","index4.json",true);
+        jm.send();
+
+        function jsonfile(a){
+            // parsing(Backend - 분해), parse(Frontend - 조립)
+            let j = JSON.parse(a.response);
+            // console.log(j.length);
+            // console.log(j[0]);
+
+            var f;
+            var html1 = "";
+            var html2;
+            
+            // for(f in j){
+            //     console.log(j)
+            //     /* 단점, 정상 code이지만 IE에서는 작동 안됨
+            //     html = document.createElement("input");
+            //     html.id = "r" + f;
+            //     html.setAttribute("type","radio");
+            //     html.setAttribute("name","aa");
+            //     document.getElementById("survey").append(html);
+            //     */
+            //     var ids = "r" + f;
+            //     html += "<input type='radio' id='"+ ids +"' value='"+ j[f] +"' name='aa'>" + j[f] + "<br>";
+            //     // html = html.replace(/<\/input>/g,"");
+            //     // document.getElementById("survey").append(html);
+            //     // var h = document.createTextNode(j[f]);
+            // }
+            // document.getElementById("survey").innerHTML = html;
+
+            j.forEach(function(a,b,c){
+                console.log(a)
+                // var ids = "r" + b;
+                // html += "<input type='radio' id='"+ ids +"' value='"+ a +"' name='aa'>" + a + "<br>";
+                html2 = document.createElement("input");
+                html2.setAttribute("type","radio");
+                html2.setAttribute("name","aa");
+                html2.setAttribute("value",a);
+                html2.id = "r" + b;
+                html2.innerHTML = a;
+                document.getElementById("survey").append(html2);
+            });
+        }
+
+        /*
+        // var i = document.createElement("div"); // createElement 특성상 마크업으로 태그를 닫아버림
+        var i = document.createElement("input");
+        i.type = "checkbox";
+        i.id = "test";
+        i.textContent = "테스트";
+        document.getElementById("bodys").appendChild(i);
+        var aa = document.querySelector("#test");
+        console.log(aa)
+        // document.getElementById("test").innerText = "테스트";
+        // input은 태그가 닫혀버리면 내용 출력 안됨.
+        */
+
+    </script>
+</html>

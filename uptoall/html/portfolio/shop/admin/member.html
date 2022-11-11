@@ -1,0 +1,152 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>회원 관리</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+<!-- 전체목록 및 회원 수 -->
+<article class="member__admin">
+  <div class="member__listNo">
+    <span class="member__listTotal">
+      <ul>
+        <li>전체 회원수</li>
+        <li>|</li>
+        <li>{{allmember}}</li>
+        <li>명</li>
+      </ul>
+    </span>
+  </div>
+  <span class="emptybox"></span>
+  <!-- 회원아이디 검색  -->
+  <form name="sform" @submit.prevent="member_search">
+    <div class="idsearch_div">
+      <span class="member__idSearch">
+        <select name="search_part" id="search_part" v-bind:value="search_part" v-model="sea_pa">
+          <option value="sid">아이디</option>
+          <option value="sname">이름</option>
+          <option value="stel">전화번호</option>
+        </select>
+        <input v-bind:type="te" name="stext" id="stext" v-model="mem_search" placeholder="검색할 내용을 입력하세요" ref="memsea">
+        <button v-bind:type="sb" class="member__idSearchBtn">검색</button>
+      </span>
+    </div>
+  </form>
+  <!-- 메모 & 회원 추가버튼 -->
+  <span class="emptybox"></span>
+  <div class="member__memo">
+    <div>
+      <span>{{lawtext}}</span>
+      <button v-bind:type="bt" class="add_member" @click="add_member">회원 추가</button>
+    </div>
+  </div>
+  <span class="emptybox"></span>
+{{tableData}}
+  <form name="mfrm">
+    <table class="member__table" id="member_table">
+      <!-- 회원 리스트 테이블 제목 -->
+      <thead class="member__table_thead">
+        <tr>
+          <th rowspan="2">
+            <label>
+              <input v-bind:type="ch" name="allcheck" id="allcheck" @click="all_list">
+            </label>
+          </th>
+          <th rowspan="2">아이디</th>
+          <th>이름</th>
+          <th colspan="6">본인확인</th>
+          <th>휴대폰</th>
+          <th>상태/권한</th>
+          <th>최종접속</th>
+          <th rowspan="2">접근그룹</th>
+          <th rowspan="2">관리</th>
+        </tr>
+        <tr>
+          <th>닉네임</th>
+          <th><span>메일<br>인증</span></th>
+          <th><span>정보<br>공개</span></th>
+          <th><span>메일<br>수신</span></th>
+          <th><span>SMS<br>수신</span></th>
+          <th><span>성인<br>인증</span></th>
+          <th><span>접근<br>차단</span></th>
+          <th>전화번호</th>
+          <th>포인트</th>
+          <th>가입일</th>
+        </tr>
+      </thead>
+      <!-- 회원 리스트 -->
+      <tbody class="member__table_tbody" v-if="ml==1" v-for="(mdata,index) in marray">
+        <tr>
+          <td rowspan="2">
+            <label>
+              <input v-bind:type="ch" name="midx[]" v-bind:value="mdata.midx" class="memck" @click="userck(index)">
+            </label>
+          </td>
+          <td rowspan="2">{{mdata.user_id}}</td>
+          <td>{{mdata.user_name}}</td>
+          <td colspan="6">
+            <label>
+              <input v-bind:type="rd" name="identify[]" value="Y"> 아이핀
+            </label>
+            <label>
+              <input v-bind:type="rd" name="identify[]" value="Y"> 휴대폰
+            </label>
+          </td>
+          <td>{{mdata.user_hp}}</td>
+          <td>
+            그룹 <select name="mgroup[]" v-bind:value="mdata.user_group">
+              <option value="V">VIP</option>
+              <option value="G">GOLD</option>
+              <option value="S">SILVER</option>
+              <option value="N">NORMAL</option>
+            </select>
+          </td>
+          <td>{{mdata.user_lastlog.substring(0,10)}}</td>
+          <td rowspan="2">{{mdata.user_level}}</td>
+          <td rowspan="2">수정그룹</td>
+        </tr>
+        <!-- 데이터 출력 -->
+        <tr>
+          <td>{{mdata.user_nick}}</td>
+          <td><input v-bind:type="ch" name="mail_accept[]" v-model="accept_ck" v-bind:value="mdata.midx"></td>
+          <td><input v-bind:type="ch" disabled></td>
+          <td><input v-bind:type="ch" name="mail_agree[]" v-model="agree_ck" v-bind:value="mdata.midx"></td>
+          <td><input v-bind:type="ch" name="sms_agree[]" v-model="sms_ck" v-bind:value="mdata.midx"></td>
+          <td><input v-bind:type="ch" disabled></td>
+          <td><input v-bind:type="ch" disabled></td>
+          <td></td>
+          <td>{{Number(mdata.user_point).toLocaleString()}} P</td>
+          <td>{{mdata.user_indate.substring(0,10)}}</td>
+        </tr>
+      </tbody>
+      <!-- 가입 회원 없음 -->
+      <tbody class="member__table_notbody" v-if="ml==2">
+        <tr>
+          <td colspan="9">등록된 회원이 없습니다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+  <span class="emptybox"></span>
+  <!-- 테이블 하단 버튼 -->
+  <div class="member__tableBtns">
+    <span>
+      <button type="button" @click="modi_del(1)">선택수정</button>
+      <button type="button" @click="modi_del(2)">선택삭제</button>
+      <button type="button" @click="modi_del(3)">완전삭제</button>
+    </span>
+  </div>
+
+  <!-- 페이지 번호 -->
+  <div class="pageing_num">
+      <span>
+          <ul class="member__page">
+            <li v-for="m in mpaging" @click="mpagego(m)">{{m}}</li>
+          </ul>
+      </span>
+  </div>
+</article>

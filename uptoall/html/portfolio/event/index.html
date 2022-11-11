@@ -1,0 +1,37 @@
+<?php
+    $v = date("YmdHis");
+    include "device.php";
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="./event.css?v=<?php echo $v?>">
+        <title>롤렛 이벤트 페이지!</title>
+        <script src="../JS/jquery.js"></script>
+        <script src="./event.js?v=<?php echo $v?>"></script>
+    </head>
+    <body>
+        <input type="hidden" name="ct" id="ct" value="3">
+        <header class="title">
+            <p>[이벤트 룰렛 페이지]</p>
+        </header>
+        <section class="container">
+            <div class="game_bg">
+                <div class="msg" id="msg"></div>
+                <span class="board" id="board">
+                    <img src="./images/event_view.png">
+                </span>
+                <span class="marker">
+                    <img src="./images/event_pt.png">
+                </span>
+                <span class="start_off" id="game_btn">
+                    <img src="./images/event_start_off.png">
+                </span>
+            </div>
+        </section>
+    </body>
+</html>

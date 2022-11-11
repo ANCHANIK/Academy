@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript (중급) - 배열 총 복습2</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <ul id="ulcss"></ul>
+    </body>
+        <script>
+            const array = ["결제시스템 점검이 있습니다.","상품택배 배송 지연사항 공지","적립금 혜택 이벤트 종료 안내"]
+            var u = document.getElementById("ulcss");
+            var html1 = "";
+            array.forEach(function(a1,b1,c1){
+                console.log(array[b1])
+                html1 = html1 + "<li>"+ a1 +"</li>"
+            });
+            u.innerHTML = html1;
+
+            // 응용문제2.  console.log로 출력하라
+            // 해당 배열 값 중 짝수 배열값만 출력하라
+            const a = {"number":["12","26","33","47","60"] }
+            var dd,ee,ff;
+            Object.keys(a.number).forEach(function(aa,bb,cc){
+            //a.number.forEach(function(){})
+                // console.log(a.number[aa]);
+                var bb = a.number[aa];
+                var cc = Number(bb % 2);
+                if(cc == 0){
+                    console.log(bb);
+                }
+            })
+
+            // 해당 배열 값 중 홀수 배열값만 출력하라
+            for(ee in a.number){
+                // console.log(a.number[ee]);
+                ff = a.number[ee];
+                var tt = Number(ff % 2);
+                if(tt != 0){
+                    console.log(ff);
+                }
+            }
+            
+        </script>
+</html>

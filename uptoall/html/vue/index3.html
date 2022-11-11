@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <html>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 1일차 - Vue 핸들링 + 함수 & this의 뜻(JS,JQ,Vue)</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            .box2 {
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+                display: none;
+            }
+        </style>
+    </html>
+    <body>
+        <!--
+            JS의 this : 태그의 value 속성이 가진 값을 지칭. (자기의 있는 태그 범위내에서 쓰는 거)
+            JQ의 this : 핸들링 함수에 값을 받아서 쓰는 값을 지칭, (아이디 클래스 명을 자식 노드들이 핸들링 함수에서 사용하는거)
+            Vue의 this : 속해있는 인스턴스 data의 값을 지칭, (인스턴스 data의 this)
+        -->
+        <div id="box">
+            <!--
+                v-on : html의 onclick과 같다
+            -->
+            <input type="button" v-model="btn" v-on:click="bb">
+            <select v-on:change="cc">
+                <option>1</option>
+                <option>2</option>
+            </select>
+        </div>
+        <div id="box2" class="box2"></div>
+
+        <div id="box3">
+            <input v-bind:type="btn" v-model="btn_name" v-on:click="loginok">
+            <input v-bind:type="in1" v-model="input1" ref="mid"> 
+            <!-- ref : Vue에서 사용하는 임시 엘리먼트 이다.-->
+        </div>
+    </body>
+    <script>
+        var $ss = "test";
+        let aa = new Vue({
+            el:"#box3",
+            data:{
+                btn:"button",
+                in1:"text",
+                btn_name:"로그인",
+                input1:""
+            },
+            methods:{
+                loginok:function(){
+                    if(this.input1 == ""){ // 여기의 this는 현재 속해있는 data인스턴스의 input1 의 값을 지칭한다.
+                        alert("아이디를 입력하세요");
+                        this.$refs.mid.focus();
+                    }
+                    else{
+                        location.href = "http://naver.com";
+                    }
+                }
+            }
+
+        });
+
+
+
+        let a = new Vue({
+            el:"#box",
+            data:{
+                btn:"클릭"
+            },
+            methods:{ // vue에서 methods : 일반적으로 행동으로 역할. or 이벤트 처리
+                bb:function(){ // vue 이벤트 함수
+                    document.getElementById("box2").style.display = "block";
+                    // vue 부모 범위 밖에 있는 id값을 컨트롤 할 대 사용한다.
+                },
+                cc:function(){
+                    alert("test")
+                }
+            }
+        });
+    </script>
+</html>

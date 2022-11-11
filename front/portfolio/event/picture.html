@@ -1,0 +1,116 @@
+<?php
+    $v = date("Ymdhis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="imagetoolbar" content="ko">
+        <title>틀린그림찾기</title>
+        <link type="text/css" rel="stylesheet" href="./picture.css?v=<?php echo $v?>">
+        <script src="../JS/jquery.js"></script>
+        <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+        <script src="./picture.js"></script>
+    </head>
+    <body>
+        <aside class="picture_aside">
+            <!-- title -->
+            <div class="picture_title">2021 "저기압" 일땐 "고기앞" Coupon Event</div>
+            <!-- 틀린그림찾기 -->
+            <div class="picture_box">
+                <span class="picture_box_chance" id="picture_box_chance">
+                    <img src="game/no_5.png">
+                </span>
+                <span class="picture_box_img">
+                    <div class="dark" id="dark">
+                        <label>
+                            <span class="game_start1" id="wait">저기압</span>
+                            <span class="game_start2" id="start">고기앞</span>
+                        </label>
+                    </div>
+                    <label>
+                        <img src="game/game_poto2.png">
+                    </label>
+                    <label>
+                        <span class="aw"><img src=""></span>
+                        <span class="aw"><img src=""></span>
+                        <span class="aw"><img src=""></span>
+                        <span class="aw"><img src=""></span>
+                        <span class="aw"><img src=""></span>
+                        <img src="game/game_poto1.png" id="ca_aw">
+                    </label>
+                </span>
+                <span class="picture_box_text">
+                    <label>※ 2021년 8월 1일 ~ 31일까지 이벤트가 진행 됩니다.</label>
+                    <label>※ 숨은그림찾기 게임은 하루에 한번만 진행을 할 수 있습니다. 단, 회원에 한해서만 참여할 수 있습니다.</label>
+                    <label>※ 총 5번의 기회가 있으며, 틀린 그림은 총 5곳 입니다.</label>
+                    <label>※ 5번 모두 틀릴 경우 게임은 종료 됩니다.</label>
+                    <label>※ 틀린그림 총 5곳을 모두 찾으신 고객님은 자동으로 입력 사항이 나오며, 해당 정보 입력시 소정의 상품을 발송 합니다.</label>
+                </span>
+            </div>
+        </aside>
+        <form id="event_fm" name="event_fm" method="POST" action="../shop/eventok.php" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="e_id" value="hong"> <!--임의 아이디-->
+            <input type="hidden" value="" name="e_tel" id="e_tel"> <!--최대 11자리-->
+            <aside class="picture_event_join" id="event_join">
+                <div class="picture_event_policy">
+                    <span class="picture_event_policy_title">
+                        이벤트 경품 발송을 위해 개인정보 수집 방침에 동의해 주세요
+                    </span>
+                    <span class="picture_event_policy_content" id="policy_content"></span>
+                </div>
+                <div class="picture_event_policy_check">
+                    <span class="picture_event_policy_checkbox">
+                        <label id="e_agree">개인정보 수집 및 이용 약관에 모두 동의합니다.&nbsp;&nbsp;<input type="checkbox" name="e_agree" value="Y"></label>
+                    </span>
+                </div>
+                <div class="picture_event_input">
+                    <span class="picture_event_inputbox1">
+                        <ul class="picture_event_inputbox1_ul1">
+                            <li>고객명</li>
+                            <li>휴대폰 번호</li>
+                            <li>배송지 주소</li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </span>
+                    <span class="picture_event_inputbox2">
+                        <ul class="picture_event_inputbox1_ul2">
+                            <li>
+                                <input type="text" class="e_name" name="e_name" id="e_name">
+                            </li>
+                            <li>
+                                <input type="tel" class="e_tel" id="e_tel1">&nbsp;-&nbsp;<input type="tel" class="e_tel" id="e_tel2">&nbsp;-&nbsp;<input type="tel" class="e_tel" id="e_tel3">
+                            </li>
+                            <li>
+                                <input type="text" name="e_addr" id="e_addr" class="postcodify_postcode5 e_addr" readonly >&nbsp;&nbsp;<button type="button" id="addr_btn" class="addr_btn">주소찾기</button>
+                            </li>
+                            <li>
+                                <input type="text" readonly name="e_road" id="e_road" class="e_road postcodify_address">
+                            </li>
+                            <li>
+                                <input type="text" name="e_dtc" id="e_dtc" class="e_road">
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+                <div class="picture_event_btn">
+                    <span onclick="event_ck()">이벤트 참여</span>
+                </div>
+            </aside>
+        </form>
+    </body>
+    <script>
+        let policy = new XMLHttpRequest();
+        policy.open("GET","./event_agree.txt",true);
+        policy.onreadystatechange = function(){
+            if(policy.readyState == XMLHttpRequest.DONE && policy.status == 200){
+                const policy_text = policy.responseText;
+                document.getElementById("policy_content").innerText = policy_text;
+            }
+        }
+        policy.send();
+    </script>
+</html>

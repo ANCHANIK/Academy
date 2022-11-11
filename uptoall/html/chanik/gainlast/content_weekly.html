@@ -1,0 +1,56 @@
+<?php
+    $data = date("YMDHis");
+?>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="./css/content_weekly.css?v=<?=$data?>">
+<section class="content_new_outline" id="week">
+	{{weekproduct}}
+	<div class="new_outline">
+		<div class="new_title" id="a_mwtitle">
+			<ul id="pd_titles">
+				<li class="a_mwtli1">WEEKLY BEST 20</li>
+				<li class="a_mwtli2">한주간 가장 많이 팔린 베스트랭킹 20</li>
+			</ul>
+		</div>
+		<span class="emptybox"></span>
+		<div class="new_product_outline">
+        	<div class="new_outline_sol" id="productoutline">
+        		<div class="new_outline3" id="products">
+					<ul v-for="wdata in warray" id="products_ul">
+						<li>
+							<span>
+								<label>
+									<img v-bind:src="wdata.a_wkico">
+								</label>
+								<img v-bind:src="wdata.a_wkimg">
+							</span>
+							<span>
+								<label>{{wdata.a_wktitle}}</label>
+								<label><s>{{wdata.a_wkpd}}</s></label>
+								<label>
+									<span>{{wdata.a_wkdp}}</span>
+									<span>{{wdata.a_wkap}}</span>
+								</label>
+							</span>
+						</li>
+					</ul>
+        		</div>
+			</div>
+		</div>
+		<span class="emptybox"></span>
+		<div class="new_disk"> <!-- 하단 디스크 -->
+			<span class="a_mwdli" id="wlbtn">
+				<img v-bind:src="wimg1">
+			</span>
+			<ul id="weekdisc">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<span class="a_mwdli" id="wrbtn">
+				<img v-bind:src="wimg2">
+			</span>
+		</div>
+	</div>
+</section>

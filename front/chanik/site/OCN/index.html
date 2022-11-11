@@ -1,0 +1,34 @@
+<?php
+    $date = date("YmdHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCN- 대한민국 No.1 채널</title>
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./index.css?v=<?php echo $date?>">
+    <link rel="stylesheet" type="text/css" href="./jquery-ui.css?v=<?php echo $date?>">
+    <script src="jquery.js"></script>
+    <script src="index.js"></script>
+</head>
+<body class="all_body">
+    <label class="sidebanner_label" id="sidebanner_label">
+        <label class="sidebanner_btn" id="sidebanner_btn">
+            <div class="diccss">CH</div>
+        </label>
+        <div class="sidebanner_divcass" id="sidebanner_divcass">
+        </div>
+    </label>
+<header class="ocn_header"><?php include "top.html";?></header>
+<nav class="ocn_nav"><?php include "menu.html";?></nav>
+<main class="ocn_main">
+<section class="ocn_section1"><?php include "banner.html";?></section>
+<section class="ocn_section2"><?php include "video.html";?></section>
+<section class="ocn_section3"><?php include "newcontents.html";?></section>
+</main>
+<footer class="ocn_footer"><?php include "bottom.html";?></footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>es 4일차 최종복습 - 서클 버튼 + querySelectAll + Array.from + target + getAttribute</title>
+        <style>
+            .btn_bk {
+                width: 700px;
+                height: 30px;
+                background-color: black;
+                border-radius: 15px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                padding-left: 2px;
+                box-sizing: border-box;
+            }
+            .onoff {
+                display: block;
+                width: 26px;
+                height: 26px;
+                background-color: yellow;
+                border-radius: 100%;
+                position: absolute;
+                right: 2px;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="hidden" id="btn1" value="N">
+        <input type="hidden" id="btn2" value="N">
+        <input type="hidden" id="btn3" value="N">
+        <!-- 절대 일반 태그에 value값 절대 절대 안들어감. hidden값에 태워라. 단, li 태그엔 value값 넣을 수 있음 -->
+        <div class="btn_bk">
+            <span class="onoff" ids="btn1">1</span>
+        </div>
+        <br>
+        <div class="btn_bk">
+            <span class="onoff" ids="btn2">2</span>
+        </div>
+        <br>
+        <div class="btn_bk">
+            <span class="onoff" ids="btn3">3</span>
+        </div>
+    </body>
+    <script type="module">
+        import {a} from "./test2.js?v=1";
+    </script>
+</html>

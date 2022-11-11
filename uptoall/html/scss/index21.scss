@@ -1,0 +1,62 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+$font_ng:'Nanum Gothic', sans-serif; 
+
+@mixin base{
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
+@mixin objectsize($w,$h,$display,$position){
+        width: $w;
+        height: $h;
+        display:$display;
+        position:$position;
+}
+
+body{
+    @include base;
+}
+
+.maincss{
+    display: grid;  //flex처럼 justify, align모두 다 사용이 된다. 단, IE에는 절대 사용안된다.
+    justify-content: center;
+    align-content: center;
+/*  IE에서도 grid를 사용하여 표준화를 맞추려면 다음과 같은 코드를 이용해야 한다.
+    position: absolute;
+    height:  800px;
+    left: 50%;
+    margin-left: -600px;
+*/          
+    grid-template-rows: repeat(3,200px); //가로형의 구조형 (가로파트)
+    //(몇 칸 , 한 칸당 높이값)
+    grid-template-columns: repeat(3,400px); //세로형의 구조형 (세로파트)
+    //1fr : 남는 파트
+    //(몇 칸, 묶음 단위) // 묶음 단위 :  한 묶음에 얼마를 줄건지 설정
+    //총 가로길이 1200에서 두개를 800px,400px으로 나눠야한다면 (3,400px) 적어주면 된다.
+    
+    grid-template-areas:    //탬플릿 구성을 하는 형태
+    "h h h"     //1라인
+    "s s a"     //2라인
+    "f f f";    //3라인
+    & > header {
+        grid-area: h;   //grid 탬플릿에 대한 닉네임을 h로 설정한다.
+        background-color: darkseagreen;
+        display: block;
+    }
+    & > section {
+        grid-area: s;
+        background-color: steelblue;
+        display: block;
+    }
+    & > aside {
+        grid-area: a;
+        background-color: teal;
+        display: block;
+    }
+    & > footer {
+        grid-area: f;
+        background-color: tomato;
+        display: block;
+    }
+}

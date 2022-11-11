@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 3일차 - Vue return (확장)함수 & refs 사용</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <input v-bind:type="tt" id="mid" name="mid" v-model="mid" ref="mid">
+            <input v-bind:type="bb" v-model="btn" @click="checks">
+            <!-- v-on : 줄임말 = @(vue 2.x 버전에서부터 작동됨) -->
+        </section>
+    </body>
+    <script>
+        let a = new Vue({
+            el:"#box",
+            data:{
+                tt:"text",
+                bb:"button",
+                btn:"중복확인",
+                mid:""
+            },
+            methods:{
+                checks:function(){
+                    if(this.mid == ""){
+                        alert("아이디를 입력하세요");
+                        this.$refs.mid.focus();
+                    }
+                    else{
+                        // return으로 확장함수 사용
+                        let r = this.idcheck(this.mid);
+                        alert(r);
+                    }
+                },
+                idcheck:function(id_data){  // return 함수
+                    let msg = "";
+                    if(id_data == "hong"){
+                        msg = "중복된 아이디 입니다.";
+                    }
+                    else{
+                        msg = "사용가능한 아이디 입니다.";
+                        this.$refs.mid.readOnly = true;
+                        this.$refs.mid.style.backgroundColor = "red";  // refs 쌉 중요함
+                    }
+                    return msg;
+                    // return [msg,msg2];  // 한 개 이상의 값을 넘겨줄때는 대가로를 써서 넘긴다.
+                }
+            }
+        });
+    </script>
+</html>

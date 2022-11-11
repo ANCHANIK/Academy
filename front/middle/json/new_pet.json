@@ -1,0 +1,47 @@
+[
+    {
+     "pet_title":"퍼피 공주님",
+     "pet_img":"./product/product01.jpg",
+     "pet_part":"cat"
+    },
+    {
+     "pet_title":"소망이 터프가이",
+     "pet_img":"./product/product02.jpg",
+     "pet_part":"dog"
+    },
+    {
+     "pet_title":"멍이 왕자님",
+     "pet_img":"./product/product03.jpg",
+     "pet_part":"cat"
+    },
+    {
+     "pet_title":"애교 다롱이",
+     "pet_img":"./product/product04.jpg",
+     "pet_part":"cat"
+    },
+    {
+     "pet_title":"잠꾸러기 몽이",
+     "pet_img":"./product/product05.jpg",
+     "pet_part":"dog"
+    },
+    {
+     "pet_title":"둥이 공주님",
+     "pet_img":"./product/product06.jpg",
+     "pet_part":"cat"
+    },
+    {
+     "pet_title":"까칠한 새롬이",
+     "pet_img":"./product/product07.jpg",
+     "pet_part":"dog"
+    },
+    {
+     "pet_title":"얌전한 예삐",
+     "pet_img":"./product/product08.jpg",
+     "pet_part":"cat"
+    },
+    {
+     "pet_title":"소심한 사랑이",
+     "pet_img":"./product/product09.jpg",
+     "pet_part":"cat"
+    }
+]

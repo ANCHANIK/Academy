@@ -1,0 +1,56 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생활의 건강한 먹거리를 드리는 한우사랑 쇼핑몰 입니다.</title>
+    <link rel="stylesheet" type="text/css" href="./m_member.css?v=<?php echo $data?>">
+</head>
+<body>
+    <form name="frm" enctype="application/x-www-form-urlencoded" method="POST" action="./m_membership.php">
+    <input type="hidden" name="mlevel" id="mlevel" value="1">
+    <input type="hidden" name="mcerti" id="mcerti" value="">
+    <input type="hidden" name="magree1" id="magree1" value="">
+    <input type="hidden" name="magree2" id="magree2" value="">
+
+    <section class="total">
+        <p>MEMBER SHIP</p>
+        <input type="text" id="mid" name="mid" placeholder="아이디를 입력하세요">
+        <input type="password" id="mpass" name="mpass" placeholder="패스워드를 입력하세요" readonly>
+        <span class="mpass_span">
+        <div class="mpass_keybox">
+            <label>1</label>
+            <label>2</label>
+            <label>3</label>
+            <label>4</label>
+            <label>5</label>
+            <label>6</label>
+            <label>7</label>
+            <label>8</label>
+            <label>9</label>
+            <label>0</label>
+            <label>!</label>
+            <label>*</label>
+            <label>_</label>
+            <label>-</label>
+            <label>.</label>            
+        </div><br>
+        <input type="button" value="완료" id="mpass_btn"><br>
+    </span>
+    <input type="text" id="mname" name="mname" placeholder="고객명을 입력하세요">
+    <input type="email" id="memail" name="memail" placeholder="이메일을 입력하세요">
+    <input type="tel" id="mhp" name="mhp" placeholder="연락처를 입력하세요" maxlength="13">
+    <input type="text" id="mnick" name="mnick" placeholder="닉네임을 입력하세요">
+    <input type="button" value="회원가입" id="btn">
+</form>
+    </section>
+</body>
+<script type="module">
+    import {mpass,passkey,parameter} from "./m_member.js?v=<?php echo $data?>";
+    parameter();
+</script>
+</html>

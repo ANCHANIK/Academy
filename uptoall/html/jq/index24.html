@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 6일차 - 초급코드 1:1 문의하기 (메일 전송) </title>
+        <script src="./jquery.js"></script>
+        <!--abc.co.kr-->
+        <script>
+            $(document).ready(function(){
+                
+                /* submit 일때
+                $("#fm").submit(function(){
+                    var $name = $("#name").val();
+                    var $mail = $("#email").val();
+                    var $sel = $("#sel").val();
+                    var $con = $("#con").val(); // 사용자가 입력한 값을 가져올 때
+                    // var $con = $("#con").text();  미리 글 내용이 있을 경우(수정)
+                    console.log($con);
+
+                    if($name == "" ){
+                        alert("고객명을 입력해 주세요.");
+                        $("#name").focus;
+                    }
+                    else if($mail == "" ){
+                        alert("이메일을 입력해 주세요.");
+                        $("#email").focus;
+                    }
+                    else if($sel == "" ){
+                        alert("문의항목을 선택해 주세요.");
+                    }
+                    else if($con == ""){
+                        alert("최소한 10자 이상 입력해 주세요.")
+                            $("#con").focus;
+                    }
+                    else{
+                        if($con.length < 10){
+                            alert("최소한 10자 이상 입력해 주세요.")
+                            $("#con").focus;
+                        }
+                        else{
+                            return true;
+                        }
+                    }
+                    
+                    
+                    return false;
+                });
+                */
+
+                // button 일때
+                $("#btn").click(function(){
+                    $("#fm").submit(function(){
+                    var $name = $("#name").val();
+                    var $mail = $("#email").val();
+                    var $sel = $("#sel").val();
+                    var $con = $("#con").val(); // 사용자가 입력한 값을 가져올 때
+                    // var $con = $("#con").text();  미리 글 내용이 있을 경우(수정)
+
+                    if($name == "" ){
+                        alert("고객명을 입력해 주세요.");
+                        $("#name").focus;
+                    }
+                    else if($mail == "" ){
+                        alert("이메일을 입력해 주세요.");
+                        $("#email").focus;
+                    }
+                    else if($sel == "" ){
+                        alert("문의항목을 선택해 주세요.");
+                    }
+                    else if($con == ""){
+                        alert("최소한 10자 이상 입력해 주세요.")
+                            $("#con").focus;
+                    }
+                    else{
+                        if($con.length < 10){
+                            alert("최소한 10자 이상 입력해 주세요.")
+                            $("#con").focus;
+                        }
+                        else{
+                            $("#fm").submit();
+                        }
+                    }
+                    });
+                });
+            });
+
+        </script>
+        <style>
+            .text_box1 {
+                width: 150px;
+                height: 30px;
+            }
+            .text_box2 {
+                width: 250px;
+                height: 30px; 
+            }
+            .sel {
+                width: 200px;
+                height: 30px;
+            }
+            .con {
+                width: 600px;
+                height: 150px;
+            }
+            .btn {
+                width: 100px;
+                height: 30px;
+                border: none;
+                line-height: 30px;
+                text-align: center;
+                background-color: #ccc;
+                color: white;
+            }
+            .a { margin-top: 10px;}
+        </style>
+    </head>
+    <!--
+        name 명
+        1. mname
+        2. memail
+        3. mselect
+        4. mtext
+        5. mkey (value 도메인 입력) - hidden
+        6. mastermail
+        form action 경로 : http://reduck.dothome.co.kr/tomail.php
+    -->
+    <body>
+        <!--
+            enctype="application/x-www-form-urlencoded"
+            해당 form을 사용시 name에 대한 모든 정보값을 암호화하여
+            action에 있는 url로 전달하게 됨.
+            해당 암호화 코드를 사용하지 않을 경우 특히 한글을 인식하지 못해
+            오류나는 현상이 자주 발생함
+        -->
+            <p>[1:1 문의 고객센터]</p>
+            <form id="fm" method="POST" action="http://reduck.dothome.co.kr/tomail.php" enctype="application/x-www-form-urlencoded">
+                <input type="text" name="mname" placeholder="고객명을 입력하세요." class="text_box1" id="name"><br>
+                <input type="text" name="memail" placeholder="회신받을 주소를 입력하세요." class="text_box2 a" id="email"><br>
+                <select class="sel a" name="mselect" id="sel">
+                    <option value="">문의항목내용</option>
+                    <option value="가입/탈퇴">가입/탈퇴</option>
+                    <option value="상품문의">상품문의</option>
+                    <option value="결제오류">결제오류</option>
+                    <option value="반송,반품 문의">반송,반품 문의</option>
+                    <option value="기타 문의">기타 문의</option>
+                </select>
+                <br>
+                <textarea name="mtext" placeholder="문의하실 내용을 입력하세요" class="con a" id="con"></textarea><br>
+                <input type="button" value="문의하기" class="btn a" id="btn">
+                <input type="hidden" name="mastermail" value="cksdlr7446@naver.com">
+                <input type="hidden" name="mkey" value="http://cksdlr7446.dothome.co.kr/jq/index24.html">
+            </form>
+        
+    </body>
+</html>

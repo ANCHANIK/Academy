@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 3일차 - FAQ 응용하기</title>
+        <!-- FAQ : 자주하는 질문&답변 , Q&A : 고객이 질문, 관리자가 답변 -->
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                $("#ul_css > li").click(function(){
+                    // index() : 사용자가 마우스로 클릭시 해당 노드 번호를 확인할 때 사용
+                    var $node = $(this).index();
+                    //eq : 해당 노드를 실행할 때 사용
+                    //$("#ul_css > li:eq(" + $node + ") > .a").slideDown();
+                    $("#ul_css > li:eq(" + $node + ") > .a").slideToggle();
+
+                    //eq는 두 가지 특성을 가진다.
+                    //1. 해당 노드를 직접 컨트롤 할 수 있다. = .eq()
+                    //2. 해당 노드에서 자식 클래스 또는 아이디를 컨트롤 할 때 = :eq()
+                });
+
+
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; list-style: none;}
+            ul,ol { list-style: none; margin: 0; padding: 0; }
+            .faq {
+                width: 1000px;
+                height: 2400px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .faq_span {
+                width: 100%;
+                height: 40px;
+                display: block;
+                line-height: 40px;
+            }
+            .faq > span > label {
+                width: 100%;
+                font-size: 30px;
+                font-weight: bold;
+                font-family: "돋움체";
+            }
+            .list_box {
+                width: 100%;
+                height: auto;
+            }
+            .list_box > ul {
+                width: 100%;
+                height: 40px;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                line-height: 40px;
+                text-align: left;
+            }
+            .list_box > ul > li {
+                width: 1000px;
+                height: auto;
+                
+            }
+            .list_box > ul > li:nth-child(odd){
+                background-color: burlywood;
+            }
+            .list_box > ul > li:nth-child(even){
+                background-color: cornsilk;
+            }
+            .list_box > ul > li:last-child{
+                border-bottom: none;
+            }
+            .s1{
+                width: 90%;
+                height: 40px;
+                line-height: 40px;
+                font-family: "돋움체";
+                font-weight: bold;
+                font-size: 14px;
+                text-indent: 5px;
+                display: block;
+                float: left;
+            }
+            .s2 {
+                width: 10%;
+                height: 40px;
+                display: block;
+                float: left;
+                text-align: right;
+                margin-top: 5px;
+            }
+            .s2 > img {
+                width: 30px;
+                height: 30px;
+            }
+            .q {
+                width: 100%;
+                height: 40px;
+                border-bottom: 1px dashed black;
+                cursor: pointer;
+            }
+            .a {
+                width: 100%;
+                height: 100px;
+                background-color: pink;
+                text-indent: 5px;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="faq">
+            <span class="faq_span">
+                <label>자주 묻는 질문 (FAQ)</label>
+            </span>
+            <div class="list_box">
+                <ul id="ul_css">
+                    <li>
+                        <div class="q">
+                        <span class="s1">Q. [결제오류] 삼성카드 포인터로 결제 할 때 오류가 발생합니다.</span>
+                        <span class="s2"><img src="./more.svg"></span>
+                        </div>
+                        <div class="a">A.</div>
+                    </li>
+                    <li>
+                        <div class="q">
+                        <span class="s1">Q. [회원정보] SNS계정 연동 로그인이 되지 않습니다.</span>
+                        <span class="s2"><img src="./more.svg"></span>
+                        </div>
+                        <div class="a">A.</div>
+                    </li>
+                    <li>
+                        <div class="q">
+                        <span class="s1">Q. [이벤트] 이벤트 쿠폰 사용시 "기간오류" 발생 합니다.</span>
+                        <span class="s2"><img src="./more.svg"></span>
+                        </div>
+                        <div class="a">A.</div>
+                    </li>
+                    <li>
+                        <div class="q">
+                        <span class="s1">Q. [반송/취소] 물품을 반송하고 싶은데 어떻게 해야 하나요?</span>
+                        <span class="s2"><img src="./more.svg"></span>
+                        </div>
+                        <div class="a">A.</div>
+                    </li>
+                    <!--
+                    <li>Q. [회원정보] SNS계정 연동 로그인이 되지 않습니다.
+                        <img src="./more.svg">
+                    </li>
+                    <li>Q. [이벤트] 이벤트 쿠폰 사용시 "기간오류" 발생 합니다.
+                        <img src="./more.svg">
+                    </li>
+                    <li>Q. [반송/취소] 물품을 반송하고 싶은데 어떻게 해야 하나요?
+                        <img src="./more.svg">
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </section>
+
+    </body>
+</html>

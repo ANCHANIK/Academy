@@ -1,0 +1,579 @@
+
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap");
+/* font-family: 'Noto Sans KR', sans-serif; (100,400,700) */
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap");
+/* font-family: 'Nanum Gothic', sans-serif; (400,700) */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;500&display=swap");
+/* font-family: 'Raleway', sans-serif; (100,200,500) */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
+/* font-family: 'Gowun Batang', serif; (400,700) */
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500;600;700&display=swap');
+/* font-family: 'STIX Two Text', serif; */
+
+@import "media";    // media query
+
+* { 
+    margin: 0; padding: 0; 
+    box-sizing: border-box;
+}
+body,html,div,span,label,section,aside,footer,nav,video,table,tr,td,th {
+    margin: 0; padding: 0;
+    border: 0; font-size: 13px;
+    font-family: 'Noto Sans KR', sans-serif;
+    user-select: none;
+}
+a { background-color: transparent; text-decoration: none;}
+a:active, a:hover { outline: 0;}
+a:visited{text-decoration: none;}
+input,textarea { outline: 0; }
+input:focus,textarea:focus { outline: 0; }
+legend{border: 0; padding: 0;}
+textarea { overflow: auto;}
+table { border-collapse:collapse; border-spacing: 0;}
+img{ object-fit: cover; width: 100%; }
+ul,ol { margin: 0; padding: 0; list-style: none; }
+.clear { clear: both; }
+address,caption,cite,code,dfn,em,var {  font-style: normal; }
+span,label{display: block;}
+
+@mixin margin($top,$right,$bottom,$left){
+    margin: $top $right $bottom $left;
+}
+@mixin font($family,$size,$weight){
+    // $family:"";
+    @if($family=="notok"){
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    @else if($family=="noto"){
+        font-family: 'Noto Sans', sans-serif;
+    }
+    @else if($family=="go"){
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+    @else if($family=="robo"){
+        font-family: 'Roboto', sans-serif;
+    }
+    @else if($family=="gowun"){
+        font-family: 'Gowun Batang', serif;
+    }
+    @else if($family=="two"){
+        font-family: 'STIX Two Text', serif;
+    }
+    font-size: $size;
+    font-weight: $weight;
+}
+
+
+@mixin object($w,$h,$d,$p){
+    width: $w;
+    height: $h;
+    display: $d;
+    position: $p;
+}
+
+@mixin flex($part,$direct,$just,$itmes,$warp,$content){
+    display: flex;
+    flex-direction: $direct;
+    justify-content: $just;
+    align-items: $itmes;
+    flex-wrap: nowrap;
+    @if($part==1){
+        flex-wrap: wrap;
+        align-content: $content;
+    }
+}
+body {
+    position: relative;
+}
+
+.start_page {
+    @include object(100vw, 100vh, block, relative);
+    @include flex(0, row, "", center, "", "");
+    & > .start_page_text {
+        @include object(100%, auto, block, "");
+        & > span {
+            @include object(100%, 5vw, flex, "");
+            flex-flow: row wrap;
+            & > label {
+                @include font("gowun", 3vw, 500);
+                min-width: 340px;
+                padding-left: 30px;
+                box-sizing: border-box;
+                display: none;
+            }
+        }
+    }
+    & > .down_page {
+        @include object(100%, 3vw, flex, absolute);
+        justify-content: center;
+        bottom: 150px;
+        & > ul {
+            @include object(10vw, inherit, none, "");
+            min-width: 100px;
+            min-height: 30px;
+            & > .down_page_span {
+                @include object(10vw, inherit, flex, "");
+                @include font("gowun", 1.2vw, 500);
+                justify-content: center;
+                align-items: center;
+                min-width: 100px;
+                min-height: 30px;
+                border: 4px double #aaa;
+                transition: all 0.4s ease;
+                cursor: pointer;
+                &:hover {
+                    color: rgb(0, 0, 0);
+                    box-shadow: 1px 1px 5px 3px gray;
+                }
+            }
+        }
+    }
+}
+
+// 메뉴
+.menu_nav {
+    @include object(100%, 6vh, block, sticky);
+    top:0;
+    z-index: 50;
+    background-color: white;
+    & > div {
+        @include object(inherit, inherit, flex, "");
+        & > .main_menu_nav {
+            @include object(100%, inherit, flex, "");
+            & > ul {
+                @include object(100%, inherit, flex, "");
+                @include flex(0, row, space-around, center, "", "");
+                & > li {
+                    @include font("two", 2vw, 700);
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+                    &:hover {
+                        color: rgb(210, 22, 22);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mobile_header {
+    @include object(100%, 6vh, none, sticky);
+    top:0;
+    z-index: 50;
+    background-color: white;
+    & > div {
+        @include object(inherit, inherit, flex, "");
+        & > .mobile_main_menu_nav {
+            @include object(100%, inherit, flex, "");
+            & > ul {
+                @include object(100%, inherit, flex, "");
+                @include flex(0, row, space-around, center, "", "");
+                & > li {
+                    @include font("two", 2vw, 700);
+                    transition: all 0.3s ease;
+                    cursor: pointer;
+                    &:hover {
+                        color: rgb(210, 22, 22);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 소개
+.introduce {
+    @include object(100%, 100vh, flex, "");
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    & > .intro_t {
+        @include object(100%, 10vh, block, "");
+        @include font("gowun", 3.5vw, 600);
+        padding-left: 10vw;
+        box-sizing: border-box;
+    }
+    & > .intro_content {
+        @include object(90%, auto, flex, "");
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+        & > .introduce_pictur {
+            display: block;
+            min-width: 20vw;
+            max-width: 200px;
+            height: 30vw;
+            min-height: 200px;
+            border-radius: 50vh;
+            overflow: hidden;
+            & > img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        & > .introduce_text {
+            @include object(60vw, auto, block, "");
+            min-width: 300px;
+            flex-flow: row wrap;
+            & > ul {
+                @include object(60vw, auto, flex, "");
+                flex-flow: column nowrap;
+                justify-content: space-around;
+                align-items: center;
+                & > li:nth-of-type(1) {
+                    width: inherit;
+                    min-width: 400px;
+                    height: 15vh;
+                    @include font("two", 3vw, 700);
+                    line-height: 15vh;
+                    padding-left: 90px;
+                    box-sizing: border-box;
+                    margin-top: 20px;
+                }
+                & > li:nth-of-type(2) {
+                    width: inherit;
+                    min-width: 400px;
+                    height: auto;
+                    padding-left: 90px;
+                    box-sizing: border-box;
+                    @include font("gowun", 1vw, 500);
+                }
+            }
+        }
+    }
+}
+
+// 기술
+.skills {
+    @include object(100%, 100vh, flex, "");
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    & > .skills_title {
+        @include object(100%, 10vh, block, "");
+        @include font("gowun", 3.5vw, 600);
+        line-height: 10vh;
+        padding-left: 10vw;
+        box-sizing: border-box;
+    }
+    & > .skills_content {
+        @include object(90%, auto, flex, "");
+        min-height: 70vh;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+        & > .skills_list {
+            display: block;
+            max-width: 550px;
+            min-width: 330px;
+            min-height: 300px;
+            & > ul {
+                @include object(inherit, inherit, flex, "");
+                min-width: 330px;
+                min-height: 300px;
+                flex-flow: row wrap;
+                justify-content: space-around;
+                align-items: center;
+                & > li {
+                    @include object(30vw, 15vw, flex, "");
+                    @include font("gowun", 1vw, 600);
+                    border: 4px double #ccc;
+                    max-width: 120px;
+                    max-height: 50px;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    transition: all 0.4s ease;
+                    cursor: pointer;
+                    margin-bottom: 10px;
+                    &:hover {
+                        box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.6);
+                    }
+                }
+            }
+        }
+        & > .skills_load {
+            display: flex;
+            position: relative;
+            width: 600px;
+            min-width: 330px;
+            min-height: 300px;
+            max-height: 500px;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            & > div {
+                @include object(90vw, 60vw, none, absolute);
+                max-width: 500px;
+                max-height: 300px;
+                perspective: 200px;
+                transform-style: preserve-3d;
+                transition: all 0.8s ease-in-out;
+                &:hover {
+                    transform: rotateY(180deg)
+                }
+                & > .turn_on {
+                    @include object(100%, 100%, flex, absolute);
+                    @include font("two", 1.8vw, 700);
+                    border: 4px double #aaa;
+                    align-items: center;
+                    justify-content: center;
+                    box-sizing: border-box;
+                }
+                & > .turn_off {
+                    transform: rotateY(180deg);
+                    @include object(100%, 100%, flex, absolute);
+                    @include font("gowun", 1vw, 600);
+                    line-height: 150%;
+                    align-items: center;
+                    border: 4px double #aaa;
+                    text-align: center;
+                    padding: 15px;
+                    box-sizing: border-box;
+                }
+                & > .views {
+                    backface-visibility: hidden;
+                }
+            }
+        }
+    }
+}
+
+// 포트폴리오
+.portfolio {
+    @include object(100%, 100vh, flex, "");
+    justify-content: center;
+    flex-flow: column nowrap;
+    & > .pofol_t {
+        @include object(100%, 10vh, block, "");
+        @include font("gowun", 3.5vw, 600);
+        line-height: 10vh;
+        padding-left: 10vw;
+        box-sizing: border-box;
+    }
+    & > .pofol_imp {
+        @include object(90%, 80vh, flex, "");
+        margin: 0 auto;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        & > .pofol_imp_fade {
+            @include object(100%, 60vh, block, relative);
+            & > .pofol_imp_div {
+                @include object(100%, 60vh, none, absolute);
+                flex-flow: row wrap;
+                & > .pofol_imp_ul {
+                    @include object(100%, 60vh, flex, "");
+                    flex-flow: row wrap;
+                    justify-content: space-around;
+                    align-items: center;
+                    & > li:nth-of-type(1) {
+                        max-width: 40vw;
+                        min-width: 300px;
+                        max-height: 25vw;
+                        min-height: 250px;
+                        cursor: pointer;
+                        overflow: hidden;
+                        & > img {
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    & > li:nth-of-type(2) {
+                        @include object(50%, 30vw, block, "");
+                        min-width: 300px;
+                        min-height: 200px;
+                        & > ul {
+                            @include object(100%, 30vw, flex, "");
+                            min-width: 300px;
+                            min-height: 200px;
+                            flex-flow: column nowrap;
+                            justify-content: space-around;
+                            align-items: space-around;
+                            & > li {
+                                height: auto;
+                                @include font("two", 1vw, 500);
+                                box-sizing: border-box;
+                                list-style: disc;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        & > .pofol_imp_btn {
+            @include object(100%, 10vh, flex, "");
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            & > ul {
+                @include object(15%, 6vh, flex, "");
+                min-width: 150px;
+                flex-flow: row nowrap;
+                justify-content: space-around;
+                align-items: center;
+                & > li {
+                    cursor: pointer;
+                    line-height: 1vh;
+                }
+            }
+        }
+    }
+}
+
+// INFORMATION
+.information {
+    @include object(100%, 100vh, flex, "");
+    justify-content: center;
+    flex-flow: column nowrap;
+    & > .infor_t {
+        @include object(100%, 10vh, block, "");
+        @include font("gowun", 3.5vw, 600);
+        line-height: 10vh;
+        padding-left: 10vw;
+        box-sizing: border-box;
+    }
+    & > .infor_c {
+        @include object(90%, 80vh, flex, "");
+        margin: 0 auto;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+        & > .infor_map {
+            @include object(40%, 30vw, flex, "");
+            border-radius: 3px;
+            max-width: 40vw;
+            min-width: 300px;
+            max-height: 25vw;
+            min-height: 250px;
+        }
+        & > .infor_text {
+            // border: 1px solid red;
+            @include object(50%, 30vw, block, "");
+            min-width: 300px;
+            min-height: 200px;
+            & > ul {
+                @include object(100%, 30vw, flex, "");
+                min-width: 300px;
+                min-height: 200px;
+                flex-flow: column nowrap;
+                justify-content: space-around;
+                align-items: space-around;
+                & > li {
+                    width: auto;
+                    height: 5vw;
+                    line-height: 5vw;
+                    @include font("two", 1.4vw, 500);
+                }
+            }
+        }
+    }
+}
+
+// CONTACT
+.contact {
+    @include object(100%, 100vh, flex, "");
+    flex-flow: column nowrap;
+    justify-content: center;
+    & > .contact_title {
+        @include object(100%, 10vh, block, "");
+        @include font("gowun", 3.5vw, 600);
+        line-height: 10vh;
+        padding-left: 10vw;
+        box-sizing: border-box;
+    }
+    & > .contact_input {
+        @include object(100%, 80vh, flex, "");
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        & > .contact_input_box {
+            @include object(30vw, 60vh, flex, "");
+            flex-flow: column nowrap;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0 auto;
+            min-width: 300px;
+            & > .per_input {
+                @include object(30vw, 5vh, block, "");
+                @include font("gowun", 1.5vw, 600);
+                border: none;
+                border-bottom: 1px solid rgb(162, 162, 162);
+                box-sizing: border-box;
+                text-indent: 10px;
+                min-width: 300px;
+                min-height: 40px;
+            }
+            & > .per_text {
+                @include object(30vw, 20vh, block, "");
+                @include font("gowun", 1.5vw, 600);
+                border: 1px solid rgb(162, 162, 162);
+                resize: none;
+                box-sizing: border-box;
+                padding: 10px;
+                min-width: 300px;
+            }
+            & > .contact_btn {
+                @include object(15vw, 5vh, block, "");
+                @include font("gowun", 1.5vw, 700);
+                min-width: 150px;
+                border: 4px double rgb(162, 162, 162);
+                background-color: white;
+                margin: 0 auto;
+                transition: all 0.4s ease;
+                cursor: pointer;
+                &:hover {
+                    box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.6);
+                }
+            }
+        }
+    }
+}
+
+// 플롯 배너
+.social_go_site {
+    @include object(auto, auto, none, absolute);
+    right: 10px;
+    opacity: 1;
+    z-index: 10;
+    top:0;
+    & > ul {
+        @include object(auto, 150px, none, "");
+        margin-bottom: 40px;
+        & > li {
+            width: 35px;
+            height: 35px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            &:nth-of-type(3){
+                margin-bottom: 0px;
+            }
+        }
+    }
+    & > span {
+        @include object(35px, 35px, block, "");
+        cursor: pointer;
+        margin-bottom: 10px;
+        transform: rotate(90deg);
+    }
+}
+
+// copyright
+.copyright {
+    @include object(100%, 10vh, flex, "");
+    @include font("gowun", 1.2vw, 700);
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    background-color: gray;
+}
+
+
+
+// 반응형
+@include pc1;
+@include pc2;
+@include tab1;
+@include mobile1;

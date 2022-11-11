@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 7 일차 - 초급코드(문장처리 방식)</title>
+        <script>
+            function abc(){
+                var a = "abcdefg";
+                var b = a.substring(2,4);  // substring(노드 번호, 글자 번호)
+                // var b = a.substr(5,1);   // substr(노드번호, 글자 개수)
+                console.log(b);
+            }
+
+            function bbb(){
+                var a = "010-1234-1004";
+                var b = a.split("-"); //split("") : 특정 문자를 기준으로 배열화 하여 문자를 구분처리 함.
+                var c = b[0] + b[1] + b[2];
+                //console.log(c);
+                // [1,2,3] = 배열
+                var aa = "홍길동,이순신,강감찬"
+                var bb = aa.split(",").length;
+                var cc = bb[0] + bb[1] + bb[2];
+                console.log(bb);
+            }
+        </script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <ul></ul>
+        <input type="button" value="click" onclick="bbb();">
+    </body>
+</html>

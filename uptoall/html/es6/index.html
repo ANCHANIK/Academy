@@ -1,0 +1,19 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>es6 연습</title>
+        <link rel="stylesheet" type="text/css" href="main.css?v=<?php echo $data?>">
+    </head>
+    <body>
+        <h1>안녕하세요 ES6 연습중입니다.</h1>
+        <p>Hello World</p>
+        <script src="main.js?v=<?php echo $data?>"></script>
+    </body>
+</html>

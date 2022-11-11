@@ -1,0 +1,57 @@
+@charset "UTF-8";
+* { font-size: 12px; font-family: "돋움"; margin: 0; padding: 0;}
+body {
+    margin: 0; padding: 0;
+}
+span,label,main {
+    display: block;
+}
+.title {
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+table {
+    width: 1000px;
+    margin: 0 auto;
+}
+.thead > tr {
+    height: 30px;
+}
+.thead > tr > th:nth-of-type(1), .thead > tr > th:nth-of-type(5) {
+    width: 100px;
+}
+.thead > tr > th:nth-of-type(3) {
+    width: 150px;
+}
+.thead > tr > th:nth-of-type(4) {
+    width: 200px;
+}
+.tbody > tr {
+    height: 40px;
+}
+.tbody > tr > td {
+    text-align: center;
+    width: 200px;
+}
+.tbody > tr > td:nth-of-type(2) {
+    text-align: left;
+    text-indent: 5px;
+}
+.spancss {
+    width: 500px;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 10px;
+    font-size: 12px;
+    font-family: "돋움체";
+}
+.spancss2 {
+    width: 800px;
+    height: 500px;
+    padding-left: 10px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}

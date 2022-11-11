@@ -1,0 +1,108 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dfluid Coding Test</title>
+        <link rel="stylesheet" type="text/css" href="./index.css?v=<?php echo $data?>">
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <section class="Screen" id="Screen">
+            {{imageload}}
+            <article class="Snap_photos_title">{{Snap_photos_title}}</article>
+            <article class="Section_card" id="Section_card">
+                    <div class="Group"></div>
+                    <div class="Group"></div>
+                    <div class="Group"></div>
+            </article>
+            <article class="Section_img">
+                <div class="Section_background_img">
+                    <img v-bind:src="ranimg" id="imgload">
+                </div>
+                <div class="Section_img_text">
+                    <span class="Section_img_title">{{Section_img_title}}</span>
+                    <span class="Section_img_content">{{Section_img_content}}</span>
+                    <span class="Section_img_line"></span>
+                    <span class="Section_img_bottom">{{Section_img_bottom}}</span>
+                </div>
+            </article>
+        </section>
+    </body>
+    <script>
+        let screen = new Vue({
+            el:"#Screen",
+            data:{
+                ranimg:"",
+                Snap_photos_title:"Snap photos and share like never before",
+                Section_img_title:"Sed ut perspiciatis unde omnis",
+                Section_img_content:"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
+                Section_img_bottom:"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore."
+            },
+            methods:{
+
+            },
+            computed:{
+                imageload(){
+                    fetch("https://api.unsplash.com/photos/?client_id=RfZSbn_rdvEPrnhslq8HRwmCwyayZg3DBo_LDcXXaTM").then((ed) => {
+                        return ed.json();
+                    }).then((img) => {
+                        const data = img[0];
+                        let url = data["urls"]["full"];
+                        this.ranimg = url;
+                    })
+                    .catch((error) => {
+                        console.log("DATA ERROR");
+                    })
+                }
+            }
+        });
+    </script>
+    <script>
+        function randoming(){
+            const ran = [];
+            let rannum;
+            let check;
+            
+            // random number
+            var num = 0;
+            while(num < 3){
+                ran.push(num);
+                num++;
+            }            
+            for(let r=0; r<ran.length; r++){
+                rannum = Math.floor(Math.random()*3);
+                check = ran[r];
+                ran[r] = ran[rannum];
+                ran[rannum] = check;
+            }
+            var card0 = `
+                    <img src="./image/Ellipse_woman.png" srcset="./image/Ellipse@2x_woman.png, ./image/Ellipse@3x_woman.png" class="woman">
+                    <span>Sed ut perspiciatis</span>
+                    <span>Nemo enim ipsam voluptatem quia voluptas sit<br>aspernatur aut odit fugit, sed quia consequuntur<br>magni dolores eos qui ratione voluptatem</span>
+                    <span>LEARN MORE</span>
+            `;
+            var card1 = `
+                    <img src="./image/Ellipse_man.png" srcset="./image/Ellipse@2x_man.png, ./image/Ellipse@3x_man.png" class="man">
+                    <span>Lorem ipsum dolor</span>
+                    <span>Amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore magna aliqua. Ut<br>enim ad minim veniam, quis</span>
+                    <span>LEARN MORE</span>
+            `;
+            var card2 = `
+                    <img src="./image/Ellipse_cat.png" srcset="./image/Ellipse@2x_cat.png, ./image/Ellipse@3x_cat.png" class="cat">
+                    <span>Nemo enim ipsam</span>
+                    <span>Consequuntur magni dolores eos qui ratione<br>voluptatem sequi nesciunt. Neque porro quisquam est,<br>qui dolorem ipaum quia dolor</span>
+                    <span>LEARN MORE</span>
+            `;
+            document.querySelectorAll("#Section_card > div")[ran[0]].innerHTML = card0;
+            document.querySelectorAll("#Section_card > div")[ran[1]].innerHTML = card1;
+            document.querySelectorAll("#Section_card > div")[ran[2]].innerHTML = card2;
+        }
+        randoming();
+    </script>
+</html>

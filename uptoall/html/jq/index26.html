@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 7일차 - 초급코드 오브젝트 연결하기(jquery-ui) - DOM 사용법</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js"></script>  <!-- Jquery-ui 엔진 -->
+        <script>
+            $(document).ready(function(){
+
+                // draggable : 마우스를 클릭한 상태에서 드래그를 할 경우 사용되는 이벤트
+                
+                $("#box").draggable().click(function(){ // 더블 이벤트 핸들링
+                    $(this).animate({
+                        "width":"200px",
+                        "height":"200px"
+                    },800)
+                });
+
+                $("#box2").draggable().mouseover(function(){
+                    $(this).css("background-color","yellow");
+                });
+
+                $("#box2").mouseout(function(){
+                    $(this).css("background-color","");
+                });
+
+                $("#mm").draggable().click(function(){
+                    $(this).css("border-radius","100%");
+                });
+
+
+                var $color = "";  //컬러 전역변수
+                $(".span").draggable().mouseenter(function(){   //find 랑 children 은 자식 노드 찾는 법이 완전히 다름
+                    //var $node = $(this).index();
+                    $color = $(this).css("background-color");
+                    // 해당 클래스에 있는 컬러를 가져와서 전역변수에 적용함
+                });
+                
+                $("#big").droppable({ // 오브젝트 기준으로 사용되는 이벤트
+                    // click, submit, change , mouseover,leave, enter, out 만 작동
+                    "over":function(){ // 오브젝트 기준으로 1/4 이상 들어왔을 경우 작동
+                    // over :  오브젝트 over (O) 임. mouseover (X)
+                        //$(this).css("background-color","red");
+                    },
+                    "out":function(){ // 오브젝트 기준으로 1/4 이상 빠졌을 경우 작동
+                        // leave 도 가능 단, 마우스 핸들링이랑 헷갈리지 말것.
+                        $(this).css("background-color","");
+                    },
+                    "drop":function(){ // 해당 오브젝트 안에 다른 오브젝트가 들어온 상태
+                        $(this).css("background-color",$color);
+                        var $color = $(document).eq($node).css("background-color");
+                        console.log($color)
+                        //전역변수 $color를 가져와서 해당 오브젝트에 적용함
+                    }
+                });
+                
+
+            });
+        </script>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: navy;
+            }
+            .mm {
+                width: 50px;
+                height: 50px;
+                background-color: black;
+            }
+            .big {
+                width: 200px;
+                height: 200px;
+                border: 1px solid black;
+            }
+            .span{
+                width: 50px;
+                height: 50px;
+                background-color: red;
+                display: block;
+            }
+            .span:last-child{
+                width: 50px;
+                height: 50px;
+                background-color: green;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box"></div>
+        <div class="box" id="box2"></div>
+        <div class="mm" id="mm"></div>
+        <br><br>
+        <div class="big" id="big"></div>
+        <span class="span" id="span"></span>
+        <span class="span" id="span2"></span>
+    </body>
+</html>

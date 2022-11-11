@@ -1,0 +1,45 @@
+{ "week":[
+    {
+        "product_nm":"이자벨 벽결이 무드 조명",
+        "product_img":"./product/week/product_01.jpg",
+        "product_sample":"북유럽 감성을 담은 디자인 가양한 각도에서 은은하게 빛나다",
+        "product_money":25000,
+        "sale_money":20000
+    },
+    {
+        "product_nm":"패브릭 스페인 카라 조명",
+        "product_img":"./product/week/product_02.jpg",
+        "product_sample":"감각적이고 가벼운 느낌의 갓 조명 제품이며, 원목과 잘 어울립니다",
+        "product_money":85000,
+        "sale_money":60000
+    },
+    {
+        "product_nm":"LERGRYN 레그그륀 다이아몬드",
+        "product_img":"./product/week/product_03.jpg",
+        "product_sample":"펜던트 형태의 무드조명으로 높이 조절이 가능합니다",
+        "product_money":75000,
+        "sale_money":44900
+    },
+    {
+        "product_nm":"FRIHULT 프리훌트",
+        "product_img":"./product/week/product_04.jpg",
+        "product_sample":"다양하게 꾸밀수 있는 프리 훌트 조명입니다",
+        "product_money":39900,
+        "sale_money":0
+    },
+    {
+        "product_nm":"SIMRISHAMN 밀집모자 전등",
+        "product_img":"./product/week/product_05.jpg",
+        "product_sample":"특허받은 기술 세련된 디자인 조명 입니다",
+        "product_money":80000,
+        "sale_money":70000
+    },
+    {
+        "product_nm":"샤론 5W 무광 블랙 브론즈",
+        "product_img":"./product/week/product_06.jpg",
+        "product_sample":"벽 공간의 생기를 불어 넣다",
+        "product_money":37500,
+        "sale_money":0
+    }
+    ]
+}

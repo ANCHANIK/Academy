@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 7 일차 - 초급코드(타이머 사용법)</title>
+        <script>
+            var qq = 0;  
+            var timer;
+            // 전역변수는 최초 실행 후 해당 값을 각각의 함수에 반영하며, 변경될 수 있다.
+            function aa(){
+                qq += 1;
+                document.getElementById("box").innerText = qq;
+                timer = setTimeout(aa,5000); // 5초마다 aa라는 함수를 지속적으로 호출하라
+                // 1000 = 1초 
+            }
+            function bb(){
+                clearTimeout(timer);  // 해당 setTimeout 을 정지 시킬때 사용
+
+                // qq = qq - 1;
+                // document.getElementById("box").innerText = qq;
+            }
+        </script>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                border: 1px solid red;
+                font-size: 50px;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box" class="box"></div>
+        <input type="button" value="start" onclick="aa();">
+        <input type="button" value="stop" onclick="bb();"
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 7 일차 - 초급코드(타이머 사용법)</title>
+        <script>
+            var p = 0;
+            var timer;
+            // function aa(){
+            //     var b = document.getElementById("box");
+            //     p += 10;
+            //     b.style.left = p + "px";
+            //     timer = setTimeout(aa,10);
+            //     if(p > 1000){
+            //         clearTimeout(timer);
+            //     }
+            // }
+            function aa(){
+                var b = document.getElementById("box");  // 움직일 오브젝트 id
+                timer = setTimeout(aa,10);    // 0.01초 동안 aa 함수를 지속적으로 호출
+                p += 1;    // +1 씩 계속 증가
+                b.style.left = p + "px";   // left 방향으로 px을 움직임
+                if(p >= 1000){    // 1000px 되었을 경우 타이머를 정지시킴
+                    clearTimeout(timer);
+                }
+            }
+            function bb(){
+                var b = document.getElementById("box");
+                timer = setTimeout(bb,10);
+                p -= 1;
+                b.style.left = p + "px";
+                if(p <= 0){
+                    clearTimeout(timer);
+                }
+            }
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: aqua;
+                position: absolute;
+                top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box"></div>
+        <input type="button" value="작동" onclick="aa();">
+    </body>
+</html>

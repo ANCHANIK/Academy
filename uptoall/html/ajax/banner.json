@@ -1,0 +1,9 @@
+
+{
+    "mainbanner":[
+        ["./ajaxbanner/banner0.png","http://www.xenics.co.kr/goods/goods_view.php?goodsNo=1000000214","1","yes"],
+        ["./ajaxbanner/banner1.png","http://www.xenics.co.kr/goods/goods_view.php?goodsNo=1000000254","2","yes"],
+        ["./ajaxbanner/banner20.png","http://www.xenics.co.kr/goods/goods_list.php?cateCd=035004","3","yes"],
+        ["./ajaxbanner/banner30.png","http://www.xenics.co.kr/goods/goods_view.php?goodsNo=1000000243","4","yes"]
+    ]
+}

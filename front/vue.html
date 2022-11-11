@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 1일차 - Vue 엔진 및 기본 Basic 부분</title>
+        <!--
+            Vue 엔진
+            http://cdn.jsdelivr.net/npm/vue > min.js : 수정이 불가능한 엔진
+            http://cdn.jsdelivr.net/npm/vue/dist/vue.js : 수정이 가능한 커스텀 엔진. 개발자가 쓸 수 있음. google과 결합되어잇음
+            Safari 3.X 사용해야 Vue가 정상 작동됨
+
+            CDN 설치 : url로 해당 코드를 로드해서 출력하는 형태. WEP 개발시 CDN 사용
+            CLI 설치 : APP 개발시 CLI로 제작
+
+            * Vue의 최고의 장점 *
+            JS와 JQ를 쉽게 적용할 수 있음`
+            
+            - Nuxt.js 는 Vue.js 와 Node.js를 기반으로 작성한다. 어플을 만들때 Vue.js 보완해줌
+        -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <aside id="ccc" class="ccc">
+            <div id="abc">{{test}}</div> <!--{{}} 가상의 변수 값을 출력해주는 기능-->
+            <div id="bbb">{{test1}}</div>
+        </aside>
+    </body>
+    <script>
+        // ccc vue 안에서만 놀아야됨. bbb는 작동 안됨. 즉 가장 큰 아웃라인에 vue를 씀
+        let a = new Vue({  // Vue 실행 부분. let a 변수 제거해도 작동 된다. 단, 변수를 써서 쓰는 이유는 다른 변수의 Vue가 작살나도 본인건 괜찮음
+                            // 그리고 
+            el:"#ccc",  // el : 해당 태그 id, class ".ccc" 도 가능. elemeny의 약자
+            data:{      // data : 인스턴스 (가상의 변수를 만들어서 출력하는 파트)
+                test:"Vue 메세지 출력 연습",
+                test1:"메세지 추가 연습 2"
+            }
+        })
+        let b = new Vue({
+            el:"#bbb",
+            data:{
+                test1:"확장 Vue2 메세지 출력 연습입네당"
+            }
+        })
+    </script>
+</html>

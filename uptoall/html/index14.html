@@ -1,0 +1,54 @@
+<html lang="ko">
+    <head>
+        <!--  W3C : meta (웹표준에 포함 X)  -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <!--  해당 페이지가 정확하게 인식하는 브라우저 권고 입력 부분  -->
+        <title>HTML 5일차 - 기본 레이아웃 + CSS 2.0 </title>
+        <style>
+            body { margin: 0; padding: 0; }
+            .font { font-family: "궁서체"; }
+            /*  font-family : 글자체 속성  */
+            .ulcss { list-style:none; margin:0; padding:0; }
+            /*
+                list-style:none; : 디스크, 숫자 등을 삭제할 때 사용. ul, ol에 사용 
+                none : 아무 표시 X (여백 공간 필수로 제거해야 함)
+                disc : 디스크 모양
+                square : 사각형 모양
+                circle : 원형 모양
+                upper-alpha : 대문자 알파벳
+                lower-alpha : 소문자 알파벳
+                decimal : 1~10 숫자
+                lower-roman : 소문자 로마 숫자
+                upper-roman : 대문자 로마 숫자
+            */
+            #etc { display:none; }
+        </style>
+        <script>
+            function test(){
+                var a = document.getElementById("etc");
+                a.style.display="block";
+            }
+        </script>
+    </head>
+    <body>
+        <span class="font">프론트 엔드</span>
+        A<sup>1</sup>  <!-- sup : 윗첨자, sub : 아래첨자 -->
+        B<sub>2</sub>
+        <!-- file : 파일 첨부 기능 -->
+        <input type="file">
+        <br><br><br>
+        <!--
+            응용문제1. 다음 설문조사에 관련된 사항을 html로 작성하시오
+        -->
+        <p>[설문조사 - 현재 사용하고 있는 통신사는?]</p>
+        <ul class="ulcss">
+        <li><input type="radio" name="a">SKT</li>
+        <li><input type="radio" name="a">LGT</li>
+        <li><input type="radio" name="a">KT</li>
+        <li><input type="radio" name="a">알뜰폰</li>
+        <li><input type="radio" name="a" onclick="test();">기타</li>
+        <li><input type="text" id="etc"></li>
+        </ul>
+    </body>
+</html>

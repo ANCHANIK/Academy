@@ -1,0 +1,1 @@
+d:\cksdlr7446\html\javascript2.js

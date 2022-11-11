@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 2일차 - 애니메이션 핸들링(배너 응용)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#S20").fadeIn(1500);
+                $("#text1").delay(500).animate({
+                    "left":"55px"
+                },1500);
+                $("#btn").delay(800).animate({
+                    "top":"200px",
+                    "opacity":"1"
+                },1000)
+
+                $("#btn").click(function(){
+                    location.href="http://samsung.com";
+                });
+            });
+        </script>
+        <style>
+            body { margin: 0; padding: 0; }
+            span { display: block; }
+            .box {
+                width: 1000px;
+                height: 500px;
+                background-color: black;
+                margin: 0 auto;
+                overflow: hidden;
+                position: relative;
+            }
+            .S20 {
+                width: 800px;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                margin-right: -150px;
+                display: none;
+            }
+            .S20 > img { 
+                width: 100%;
+            }
+            .text1 {
+                font-family: "고딕체";
+                font-size: 40px;
+                font-weight:bold;
+                color: white;
+                display: inline;
+                position: relative;
+                top:155px;
+                left: -1000px;
+                z-index: 10;
+            }
+            .text2 { 
+                width:150px;
+                height:40px;
+                text-align: center;
+                border-radius: 20px;
+                background-color: white;
+                color: black;
+                font-family: "고딕체";
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 40px;
+                position: relative;
+                top:100px;
+                left: 55px;
+                z-index: 11;
+                cursor: pointer;
+                opacity: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <!--문구-->
+            <span class="text1" id="text1">Galaxy S21 | S21+5G</span>
+            <span class="text2" id="btn">구매혜택보기</span>
+            <!--이미지-->
+            <span class="S20" id="S20">
+            <img src="./s20.jpg">
+            </span>
+        </div>
+    </body>
+</html>

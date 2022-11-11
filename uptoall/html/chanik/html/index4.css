@@ -1,0 +1,15 @@
+.box {
+  max-width: 400px;
+  height: 50vh;
+  background-color: salmon;
+  font-size: 40px;
+}
+
+@media screen and (min-width: 340px) and (max-width: 560px) {
+  .box {
+    width: 400px;
+    height: 300px;
+    font-size: 20px;
+  }
+}
+/*# sourceMappingURL=index4.css.map */

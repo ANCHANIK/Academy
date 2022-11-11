@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 8 일차 - 초급코드(함수연결)</title>
+        <script>
+            function abc(){
+                var aa = Number(document.getElementById("a").value);
+                var bb = Number(document.getElementById("b").value);
+                var cc = "-";
+                if(cc=="+"){
+                    bbb(aa,bb); // bbb 이름을 가진 함수로 값을 전달 함
+                }
+                else if(cc=="-"){
+                    ccc(aa,bb); // ccc 이름을 가진 함수로 값을 전달 함
+                }
+                // 주의사항. 단, 값을 던질 때 해당 변수값이 전역변수, 지역변수인지
+                // 확인하고 함수를 연결하게 된다.
+                else if(cc=="*"){
+                    zzz(aa,bb);
+                }
+            }
+            function bbb(a,b){
+                var cc = a + b;
+                console.log(cc);
+            }
+            function ccc(a,b){
+                var cc = a - b;
+                console.log(cc);
+            }
+            /*
+            두 값을 받은 후 구구단을 출력하는 함수를 제작하여 결과를 출력하라.
+            */
+            function zzz(){
+                var a = document.getElementById("a").value;
+                var b = document.getElementById("b").value;
+                gugu(a,b);
+            }
+            
+            function gugu(c,d){
+                var h = 1;
+                while(h <= d){
+                    var k = c * h;
+                    console.log(c + "*" + h + "=" + k);
+                    h++;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="text" id="a" placeholder="구구단 숫자">
+        <input type="text" id="b" placeholder="계산 숫자">
+        <input type="button" value="결과확인" onclick="abc()">
+        <input type="button" value="계산하기" onclick="bbb(30,20)">
+        <input type="button" value="구구단" onclick="zzz()">
+    </body>
+</html>

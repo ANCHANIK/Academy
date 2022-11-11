@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <title>Javascript&jquey 재시험</title>
+    <script src="../jq/jquery.js"></script>
+    <link rel="stylesheet" href="./join.css">
+    <script>
+        function join(){
+            var mid = document.getElementById("m_id").value;
+            console.log(mid)
+            var mid_length = mid.length;
+            var mpass = document.getElementById("m_pass").value;
+            console.log(mpass)
+            var mpass_ck = document.getElementById("m_pass_ck").value;
+            var mname = document.getElementById("m_name").value;
+            console.log(mname)
+            var mnick = document.getElementById("m_nick").value;
+            console.log(mnick)
+            var memail = document.getElementById("m_email").value;
+            console.log(memail)
+            var memail_match = memail.match(/@/g);
+            var mtel1 = document.getElementById("m_tel1").value;
+            var mtel2 = document.getElementById("m_tel2").value;
+            var mtel3 = document.getElementById("m_tel3").value;
+            var mtel = document.getElementById("m_tel").value = mtel1 + mtel2 + mtel3;
+            console.log(mtel)
+            var mtel_length = mtel.length;
+            console.log(mtel_length)
+            var mhp1 = document.getElementById("m_hp1").value;
+            var mhp2 = document.getElementById("m_hp2").value;
+            var mhp3 = document.getElementById("m_hp3").value;
+            var mhp = document.getElementById("m_hp").value = mhp1 + mhp2 + mhp3;
+            console.log(mhp)
+            var mhp_length = mhp.length;
+            var mpost = document.getElementById("m_post").value;
+            console.log(mpost)
+            var maddr = document.getElementById("m_addr").value;
+            console.log(maddr)
+            var maddr_dtc = document.getElementById("m_addr_dtc").value;
+            console.log(maddr_dtc)
+            console.log(mtel_length)
+            // 아이디
+            if(mid == ""){
+                alert("아이디를 입력하세요");
+            }
+            else if(mid_length < 4){
+                alert("4자 이상 아이디를 입력하세요");
+            }
+            // 비밀번호
+            else if(mpass==""){
+                alert("비밀번호를 입력하세요");
+            }
+            else if(mpass != mpass_ck){
+                alert("동일한 비밀번호가 입력되어야 합니다.");
+            }
+            // 이름
+            else if(mname == ""){
+                alert("이름을 입력하세요");
+            }
+            // 닉네임
+            else if(mnick == ""){
+                alert("사용할 닉네임을 입력하세요");
+            }
+            // 이메일
+            else if(memail == ""){
+                alert("이메일을 입력하세요");
+            }
+            else if(memail_match == null){
+                alert("정확한 이메일을 입력하세요");
+            }
+            // 전화번호
+            else if(mtel_length < 10 && mtel_length > 11){
+                alert("전화번호는 10~11자까지 입력해야 됩니다.");
+            }
+            else if(isNaN(mtel1)==true || isNaN(mtel2)==true || isNaN(mtel3)==true){
+                alert("정확한 연락처를 입력하세요");
+            }
+            else if(mtel_length < 10 && mtel_length > 11){
+                alert("휴대폰번호는 10~11자까지 입력해야 됩니다.");
+            }
+            else if(isNaN(mtel1)==true || isNaN(mtel2)==true || isNaN(mtel3)==true){
+                alert("정확한 연락처를 입력하세요");
+            }
+            else if(mpost == "" || maddr == "" || maddr_dtc == ""){
+                alert("주소를 입력하세요");
+            }
+            else{
+                fm.method = "POST";
+                fm.action = "http://lovertvtest.dothome.co.kr/jretest/memberok.php";
+                fm.submit();
+            }
+        }
+
+        $(function(){
+            $("#post_btn").click(function(){
+                window.open("./addpopup.html","","width=500 height=300");
+            })
+        });
+    </script>
+</head>
+<!--
+    문제1.
+    회원가입 버튼을 클릭시 해당 입력 사항에 맞게 체크 되는 자바스크립트를 작성합니다.
+    - 아이디는 4자 이상 16자 이하로만 입력이 되어야 하며,
+4자 이하일 경우 "4자 이상 아이디를 입력하세요" 라는 
+경고 메세지가 출력 되도록 합니다. (index39.html)
+
+
+- 비밀번호, 비밀번호 확인 시 동일한 비밀번호가 입력 되어야 합니다.
+동일한 비밀번호가 입력되지 않을 경우 "동일한 비밀번호가 입력되어야 합니다."
+라는 경고 메세지를 출력합니다.
+
+- 전화번호, 휴대폰 번호는 숫자만 입력이 가능해야 합니다. 숫자 이외에 입력시 "정확한 연락처를 입력하세요"
+라는 경고 메세지를 출력 합니다. (최소 10자 최대 11자의 숫자를 입력할 것)
+
+문제2. (jquery로 작성) - 주소검색 버튼을 클릭시 addpopup.html 팝업창이 나와야 하며,
+팝업창 크기는 500*300 입니다.
+해당 팝업창에서 주소 리스트를 클릭시 우편번호 및 도로명 주소가 입력 되어야만 합니다.
+
+
+문제3.
+입력폼에 따른 name값은 다음과 같습니다.
+
+보안키 : security(o)
+아이디 : m_id(o)
+비밀번호 : m_pass() 비밀번호 확인 값이랑 확인할 것
+이름 : m_name(o)
+닉네임 : m_nick(o)
+이메일 : m_email(o)
+전화번호 : m_tel()
+휴대폰 번호 : m_hp()
+우편번호 : m_post(o)
+도로명 : m_addr(o)
+상세주소 : m_addr_dtc(o)
+
+문제4.
+모든 입력이 완료 되면 form action이 작동 되도록 합니다.
+form 경로는 http://lovertvtest.dothome.co.kr/jretest/memberok.php 이며,
+POST형태로 전송 되도록 합니다.
+
+취소 버튼 클릭시 입력된 사항이 모두 초기화 되어야 합니다.
+
+문제5~6번은 팝업창에 있습니다.
+모든 문제 완료 후 mekeyace@gmail.com으로 압축파일을 보내 주시면 됩니다.
+-->
+<body>
+    <form id="fm" name="fm" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="security" value="memberok">
+        <input type="hidden" id="m_tel" name="m_tel">
+        <input type="hidden" id="m_hp" name="m_hp">
+        <div class="joinContainer">
+            <h2 class="joinTit">회원가입</h2>
+            <div class="joinWarp">
+                <dl>
+                    <dt>아이디</dt>
+                    <dd class="input_st1">
+                        <input type="text" placeholder="4~16자 영문, 숫자 조합" minlength="4" maxlength="16" id="m_id" name="m_id">
+                        <span class="joinID"></span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>비밀번호</dt>
+                    <dd class="input_st1">
+                        <input type="password" placeholder="4~16자 영문, 숫자 조합" minlength="4" maxlength="16" id="m_pass" name="m_pass">
+                        <span class="joinPw1"></span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>비밀번호확인</dt>
+                    <dd class="input_st1">
+                        <input type="password" minlength="4" maxlength="16" placeholder="동일한 비밀번호를 입력하세요" id="m_pass_ck">
+                        <span class="joinPw2"></span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>이름</dt>
+                    <dd class="input_st1">
+                        <input type="text" minlength="3" maxlength="20" id="m_name" name="m_name">
+                        <span class="joinName"></span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>닉네임</dt>
+                    <dd class="input_st1">
+                        <input type="text" minlength="4" maxlength="16" placeholder="사용할 닉네임을 입력하세요" id="m_nick" name="m_nick">
+                        <span class="joinNic"></span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>E-mail</dt>
+                    <dd class="input_st1">
+                        <input type="text" maxlength="50" placeholder="예) example@naver.com" id="m_email" name="m_email">
+                        <span class="joinEmail"></span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>전화번호</dt>
+                    <dd class="input_st2">
+                        <input type="text" maxlength="3" id="m_tel1"><span>-
+                        </span><input type="text" maxlength="4" id="m_tel2"><span>-
+                        </span><input type="text" maxlength="4" id="m_tel3">
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>휴대폰번호</dt>
+                    <dd class="input_st2">
+                        <input type="text" maxlength="3" id="m_hp1"><span>-
+                        </span><input type="text" maxlength="4" id="m_hp2"><span>-
+                        </span><input type="text" maxlength="4" id="m_hp3">
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>주소</dt>
+                    <dd class="input_st3">
+                        <input type="text" placeholder="우편번호" maxlength="5" readonly id="m_post" name="m_post">
+                        <span class="joinHome"></span>
+                        <input type="button" value="주소 검색" id="post_btn">
+                    </dd>
+                    <dd class="input_st1">
+                        <input type="text" maxlength="60" placeholder="도로명주소" readonly id="m_addr" name="m_addr">
+                    </dd>
+                    <dd class="input_st1">
+                        <input type="text" maxlength="60" placeholder="상세주소" id="m_addr_dtc" name="m_addr_dtc">
+                    </dd>
+                    <dd class="input_st1 refer">
+                        <input type="text" placeholder="참고항목" disabled>
+                    </dd>
+                </dl>
+            </div>
+            <div class="buttonBox">                   
+                    <input class="joinBtn" type="button" value="회원가입" onclick="join();">
+                    <input class="cancelBtn" type="reset" value="취소">
+            </div>
+        </div>  
+    </form>
+
+</body>
+</html>

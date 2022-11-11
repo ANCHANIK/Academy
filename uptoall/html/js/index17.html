@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Javascript 3일차 - 함수호출(HTML 결합)</title>
+        <script>
+            /*
+            응용문제4.
+            두 개의 입력된 값을 더한 후
+            결과값이 홀수인지 짝수인지 출력하라.
+            */
+            function cal(){
+                var aa = Number(document.getElementById("a").value);
+                var bb = Number(document.getElementById("b").value);
+                var cc = (aa + bb) % 2;
+                if(cc==1){
+                    alert("결과값은 홀수입니다.");
+                }
+                else{
+                    alert("결과값은 짝수입니다.");
+                }
+            }
+            function idcheck(){
+                var aa = document.getElementById("c").value   //html에 사용자가 입력한 값
+
+                if(aa==""){  // 사용자가 html에 아무것도 입력하지 않은 경우
+                    alert("아이디를 입력해 주세요");
+                }
+                else{  // 사용자가 한 글자라도 입력되었을 경우
+                    if(aa=="test"){  // 작은 if 문 : 사용자가 "test" 라는 단어를 입력했을 경우
+                        alert("사용중인 아이디 입니다.");
+                    }
+                    else{  // "test" 라는 단어 외에 입력을 했을 경우
+                        alert("사용할 수 있는 아이디 입니다.");
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <input type="text" id="a"> 
+        <input type="text" id="b"> <!-- input에 있는 value 값은 백엔드에게 보내는 정보 값 -->
+        <input type="button" value="계산" onClick="cal();"> <!-- 버튼에 있는 value 값은 그냥 보여지는 거임 -->
+        
+        <br>
+        <br>
+
+        <input tpye="text" id="c">
+        <input type="button" value="중복체크" onclick="idcheck()">
+
+
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<meta charset="UTF-8">
+    <div class="p_title"><img src="./titles/main_tit_1.jpg"></div>
+    {{products}}
+      <div class="p_box">
+      <span class="p_btn pl" @click="left" id="btnl"><img src="./btnico/btn_prev.png"></span>
+      <span class="p_btn pr" @click="right" id="btnr"><img src="./btnico/btn_next.png"></span>
+      <span class="p_main">
+          <ul id="p_list">
+            <li v-for="p in array"><img :src="p.product_img"></li>
+          </ul>
+      </span>
+    </div>
+    <div class="p_title"><img src="./titles/main_tit_2.jpg"></div>
+    {{products2}}
+    <div class="p_week">
+        <ul>
+            <li v-for="p2 in array2">
+                <label><img :src="p2.p_img"></label>
+                <label>
+                    <span><img src="./product/goods_new.gif"></span>
+                    <span><img src="./product/goods_made.gif"></span>
+                </label>
+                <label>{{p2.p_nm}}</label>
+                <label>{{p2.p_sample}}</label>
+                <label>{{p2.p_money}}</label>
+                <label>{{p2.p_sale}}원</label>
+            </li>
+        </ul>
+    </div>
+    <div class="p_title"><img src="./titles/main_tit_3.jpg"></div>
+    <div class="p_insta">
+        
+        <ul id="p_insta_ul">
+            <li><img src="./insta/insta_01.jpg"></li>
+            <li><img src="./insta/insta_02.jpg"></li>
+            <li><img src="./insta/insta_03.jpg"></li>
+            <li><img src="./insta/insta_04.jpg"></li>
+            <li><img src="./insta/insta_05.jpg"></li>
+            <li><img src="./insta/insta_06.jpg"></li>
+            <li><img src="./insta/insta_07.jpg"></li>
+            <li><img src="./insta/insta_08.jpg"></li>
+        </ul>
+
+    </div>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 7일차 - 초급코드 오브젝트 연결하기(jquery-ui) - NODE 사용법</title>
+        <script src="./jquery.js"></script>
+        <script src="./jquery-ui.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                var $node = 0;
+                $(".span").draggable().mouseover(function(){
+                    $node = Number($(this).attr("ann"));  // attr : 속성을 가져오는 함수
+                    console.log($node);
+                });
+                $("#box").droppable({
+                    "drop":function(){
+                        var $color = $(".span").eq($node).css("background-color");
+                        $(this).css("background-color",$color);
+                    },
+                    "out":function(){
+                        $(this).css("background-color","");
+                    }
+                })
+
+
+            });
+        </script>
+        <style>
+            .box {
+                width: 200px;
+                height: 200px;
+                border: 1px solid black;
+            }
+            .span {
+                width: 50px;
+                height: 50px;
+                display: block;
+            }
+            .span:nth-of-type(1) { background-color: red; }
+            .span:nth-of-type(2) { background-color: blue; }
+            .span:nth-of-type(3) { background-color: green; }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box"></div>
+        <!--
+            data(or ann 등다른단어로 써도 됨) : html에 임의 속성을 말함.
+            (JS, JQ에서 쓰기 위해)
+            임의 속성은 사용하고자 하는 단어를 입력해도 된다.
+        -->
+        <span class="span" ann="0"></span>
+        <span class="span" ann="1"></span>
+        <span class="span" ann="2"></span>
+        <br><br>
+        
+    </body>
+</html>

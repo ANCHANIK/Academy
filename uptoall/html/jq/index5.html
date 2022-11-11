@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>Jquery 1일차 - 애니메이션2</title>
+        <script src="./jquery.js"></script>
+        <script>
+            // $, id, class 무조건 체크
+            $(document).ready(function(){
+
+                $("#btn").click(function(){
+                    $("#box").delay(5000).animate(
+                        // 상하좌우 제약없이 애니메이션을 사용할 수 있는 Jquery에 가장 강력한 함수
+                        // delay(시간). : 해당 오브젝트 호출 후 해당 시간동안 대기 후 작동
+                        {
+                        "width":"500px",
+                        "opacity":"0" // 사라지게 함
+                        // "background-color : red;" 이거 작동 안되는 거임
+                        }
+                    ),1000; // 시간
+                });
+
+                // 그래프 그리기
+                $("#g_btn").click(function(){
+                    /*
+                    $("#b1").animate({"width":"220px"},1000);
+                    $("#b2").delay(500).animate({"width":"160px"},1000);
+                    $("#b3").delay(1000).animate({"width":"200px"},1000);
+                    $("#b4").delay(1500).animate({"width":"85px"},1000);
+                    $("#b5").delay(2000).animate({"width":"30px"},1000);
+                    */
+                    var $w = 1;
+                    var $d = 500;
+                    var $width = "320px,20px,190px,95px,420px";
+                    var $sw = $width.split(",");
+                    while($w<6){
+                        var $v = "#b" + $w;
+                        var $dl = $d * $w;
+                        $($v).delay($dl).animate({"width":$sw[$w-1]},1000);
+                        $w++;
+                    }
+                });
+
+            });
+        </script>
+        <style>
+            .box {
+                width: 0px; height: 40px; background-color: orange;
+            }
+            .gbox {
+                width: 500px;
+                height: auto;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            .gbox > li {
+                width: 0px;
+                margin-bottom: 20px;
+                height: 30px;
+            }
+            .gbox > li:nth-child(1){
+                background-color: blue;
+            }
+            .gbox > li:nth-child(2){
+                background-color: yellow;
+            }
+            .gbox > li:nth-child(3){
+                background-color: red;
+            }
+            .gbox > li:nth-child(4){
+                background-color: violet;
+            }
+            .gbox > li:nth-child(5){
+                background-color: black;
+                margin-bottom: none;
+            }
+            .g_btn {
+                width: 100px;
+                height: 50px;
+                background-color: gray;
+                color: white;
+                border: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box" id="box"></div>
+        <input type="button" value="start" id="btn">
+
+        <br><br><br>
+
+        <div>
+            <ul class="gbox">
+                <li id="b1"></li>
+                <li id="b2"></li>
+                <li id="b3"></li>
+                <li id="b4"></li>
+                <li id="b5"></li>
+            </ul>
+            <input type="button" value="결과확인★" id="g_btn" class="g_btn">
+        </div>
+    </body>
+</html>

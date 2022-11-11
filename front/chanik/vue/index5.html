@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue </title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <input v-bind:type="ttt" v-model="qqq" ref="in">
+            <input v-bind:type="bbb" v-model="zxc" @click="star">
+        </section>
+    </body>
+    <script>
+        let vues = new Vue({
+            el:"#box",
+            data:{
+                ttt:"text",
+                qqq:"",
+                bbb:"button",
+                zxc:"클릭"
+            },
+            methods:{
+                star(){
+                    if(this.qqq == ""){
+                        alert("아이디를 입력하세요.");
+                        this.$refs.in.focus();
+                    }
+                    else{
+                        location.href = "http://cksdlr7446.dothome.co.kr/chanik/vue/index5.html"+"?name=";
+                    }
+                }
+            },
+            components:{
+
+            },
+            computed:{
+                
+            }
+        });
+    </script>
+</html>

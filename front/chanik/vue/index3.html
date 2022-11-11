@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 3 - Vue if(true,false) & v-if</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <input v-bind:type="btn" v-model="vbtn" v-on:click="ccc">
+            <span v-if="tf">{{msg}}</span>
+            <span v-else>{{msg2}}</span>
+            <span v-if="tt">{{msg}}</span>
+        </section>
+    </body>
+    <script>
+        let a = new Vue({
+            el:"#box",
+            data:{
+                btn:"button",
+                vbtn:"확인",
+                msg:"메세지 출력",
+                msg2:"메세지 변경",
+                tf:false,
+                tt:true
+            },
+            methods:{
+                ccc:function(){
+                    this.tt != this.tt
+                    if(this.tf == false){
+                        this.tf = true;
+                    }
+                    else{
+                        this.tf = false;
+                    }
+                }
+            }
+        });
+    </script>
+</html>

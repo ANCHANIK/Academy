@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap : http://cksdlr7446.dothome.co.kr/portfolio/shop/sitemap.xml

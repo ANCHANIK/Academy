@@ -1,0 +1,148 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="./jq/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="./index.css?v=<?php echo $data?>">
+    <title>waynehills</title>
+</head>
+<body>
+    <aside class="Terms-of-Use-popup" id="popup">
+        <div class="Terms-of-Use-popup-set">
+            <div class="popup">
+                <span class="popup-title">Terms of Use</span>
+                <span class="popup-title-Shutterstock">Shutterstock</span>
+                <p>
+                    ● Content is for digital use within Wayne Hills Ventures only and may not be used for printing.
+                    <br>
+                    ● You may not use the content as a trademark for a business.
+                    <br>
+                    ● You may not portray a person in a way that may be offensive, including: in connection with adult-oriented services or ads for dating services;
+                    <br>
+                    in connection with the promotion of tobacco products; in connection with political endorsements; with pornographic, defamatory, unlawful, offensive or immoral content; and as suffering from, or being treated for, a physical or mental ailment.
+                    <br>
+                    ● You may only use the content in campaigns and content created on Wayne Hills Ventures, and not with other website or content services.
+                    <br>
+                </p>
+                <span class="popup-title-Got-it">
+                    <button type="button" id="gotit">Got it!</button>
+                </span>
+            </div>
+        </div>
+    </aside>
+    <header>
+        <div>
+            <span id="mainpage">WAYNE HILLS. VENTURES</span>
+            <span>
+                <button type="button" onclick="logingo();">Sign in</button>
+            </span>
+        </div>
+    </header>
+    <main>
+        <article>
+            <div class="Text-To-Video">
+                <span class="Text-To-Video-title" id="TTVt">
+                    <label>Text</label>
+                    <label>To</label>
+                    <label>Video</label>
+                    <div id="under_line"></div>
+                </span>
+                <span class="image-roll">
+                    <ul id="rolling_img">
+                        <li>
+                            <img src="./image/outline_text_snippet_black_48dp.png" alt="text">
+                        </li>
+                        <li>
+                            <img src="./image/outline_east_black_48dp.png" alt="next arrow">
+                        </li>
+                        <li>
+                            <img src="./image/outline_movie_black_48dp.png" alt="video">
+                        </li>
+                    </ul>
+                </span>
+            </div>
+            <div class="Border-Line"></div>
+            <div class="The-easiest-way-to-make-videos">
+                The easiest way to make videos
+            </div>
+        </article>
+        <section id="vues">
+            <div class="top-circle"></div>
+            <aside class="middle">
+                <div class="contents">
+                    <div class="Scripting-Matching-Video">
+                        <span class="con_header" @click="check(0)">
+                            <div>1</div>
+                            <div>{{title1}}</div>
+                        </span>
+                        <span class="Scripting-Matching-Video-text" v-if="content1">
+                            <ul>
+                                <li><textarea placeholder="Put your script here 500~5,000 letters" v-model="textcount" ref="A"></textarea></li>
+                                <li><div class="letter-count"><span>{{textcount.length}}</span><span>letters</span></div></li>
+                                <convert v-bind:wayne="AN"></convert>
+                            </ul>
+                        </span>
+                    </div>
+                    <div class="Scripting-Matching-Video">
+                        <span class="con_header" @click="check(1)">
+                            <div>2</div>
+                            <div>{{title2}}</div>
+                        </span>
+                        <span class="Scripting-Matching-Video-text" v-if="content2">
+                            <ul>
+                                <li><textarea placeholder="Put your script here 500~5,000 letters" v-model="videodata" ref="C"></textarea></li>
+                                <li><div class="letter-count"><span>{{videodata.length}}</span><span>letters</span></div></li>
+                                <making v-bind:hills="CHAN"></making>
+                            </ul>
+                        </span>
+                    </div>
+                    <div class="Scripting-Matching-Video">
+                        <span class="con_header" @click="check(2)">
+                            <div>3</div>
+                            <div>{{title3}}</div>
+                        </span>
+                        <span class="Scripting-Matching-Video-text" v-if="content3">
+                            <ul>
+                                <li><textarea placeholder="Put your script here 500~5,000 letters" v-model="coding" ref="I"></textarea></li>
+                                <li><div class="letter-count"><span>{{coding.length}}</span><span>letters</span></div></li>
+                                <encoding v-bind:ventures="IK"></encoding>
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+            </aside>
+            <div class="bottom-circle"></div>
+        </section>
+    </main>
+    <footer>
+        <section class="shutterstock">
+            <div class="shutterstock-logo">
+                <span class="powered-by">powered by</span>
+                <span class="shutterstock-logo-img">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Shutterstock_logo.svg" alt="shutter stock" title="shutterstock">
+                </span>
+            </div>
+        </section>
+        <section class="bottom-content">
+            <div class="bottom-content-text">
+                <span class="Terms-of-Use" id="TOU">Terms of Use</span>
+                <span class="Contact-info">
+                    <ul>
+                        <li>B1, E10Dong, 70, Magokjungang 10-ro, Gangseo-gu, Seoul, Republic of Korea</li>
+                        <li>Founder : John (Yi.su.min)</li>
+                        <li>Email : waynehills.ventures@gmail.com</li>
+                    </ul>
+                </span>
+            </div>
+        </section>
+    </footer>
+</body>
+<script src="./index.js?v=<?php echo $data?>"></script>
+</html>

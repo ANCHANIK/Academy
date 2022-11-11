@@ -1,0 +1,784 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+.product_detail_aside > .product_detail_imgpart > span:nth-of-type(2) > ul, .product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+}
+
+html, body, header, main, section, article, aside, footer, table, tr, td, dl, dd, dt, span, label {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: black;
+  line-height: "";
+  display: block;
+}
+
+header {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+}
+
+nav {
+  width: "";
+  height: 50px;
+  display: block;
+  position: "";
+  background-color: black;
+}
+
+section {
+  width: "";
+  height: auto;
+  display: block;
+  position: relative;
+}
+
+main {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+main > section {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+main > article {
+  width: "";
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+}
+
+footer {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.product_detail_aside {
+  width: 1174px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  margin: 0 auto;
+  margin-top: 50px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+.product_detail_aside > .product_detail_imgpart {
+  width: 50%;
+  height: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.product_detail_aside > .product_detail_imgpart > span:nth-of-type(1) {
+  width: 400px;
+  height: auto;
+  display: block;
+  position: "";
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.product_detail_aside > .product_detail_imgpart > span:nth-of-type(1) > img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.product_detail_aside > .product_detail_imgpart > span:nth-of-type(2) {
+  width: 450px;
+  height: auto;
+  display: block;
+  position: "";
+}
+
+.product_detail_aside > .product_detail_imgpart > span:nth-of-type(2) > ul {
+  width: inherit;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.product_detail_aside > .product_detail_imgpart > span:nth-of-type(2) > ul > li {
+  width: 100px;
+  height: 80px;
+  display: block;
+  position: "";
+  cursor: pointer;
+  border: 1px solid #aaa;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.product_detail_aside > .product_detail_imgpart > span:nth-of-type(2) > ul > li > img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.product_detail_aside > .product_detail_imgpart > span:nth-of-type(2) > ul > li:nth-of-type(1) {
+  height: 100px;
+}
+
+.product_detail_aside > .product_detail_textpart {
+  width: 40%;
+  height: 600px;
+  display: block;
+  position: "";
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) {
+  width: 100%;
+  height: 500px;
+  display: block;
+  position: "";
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul {
+  width: inherit;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li {
+  width: inherit;
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li > span {
+  width: "";
+  height: inherit;
+  display: block;
+  position: "";
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li > span:nth-of-type(1) {
+  width: 110px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  line-height: 35px;
+  text-align: left;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li > span:nth-of-type(2) {
+  width: 340px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: black;
+  line-height: 35px;
+  text-align: left;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li:nth-of-type(1) {
+  height: 55px;
+  border-bottom: 1px solid #aaa;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li:nth-of-type(1) > label {
+  width: 100%;
+  height: 55px;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
+  line-height: 55px;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li:nth-of-type(5) > span:nth-of-type(2) {
+  font-weight: 500;
+  color: crimson;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li:nth-of-type(6) {
+  border-top: 1px solid #aaa;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li:nth-of-type(8) > span > select {
+  width: 100px;
+  height: inherit;
+  display: block;
+  position: "";
+  border: none;
+  border-bottom: 1px solid dimgray;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li:nth-of-type(9) > span:nth-of-type(2) {
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li:nth-of-type(9) > span:nth-of-type(2) > .goods_buy {
+  width: 40px;
+  height: 35px;
+  display: block;
+  position: "";
+  text-align: center;
+  border: none;
+  border: 1px solid dimgray;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li:nth-of-type(10) {
+  height: 35px;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li:nth-of-type(10) > span:nth-of-type(1) {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: black;
+  line-height: 35px;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(1) > ul > li:nth-of-type(10) > span:nth-of-type(2) {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: crimson;
+  line-height: 35px;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(2) {
+  width: 100%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(2) > label {
+  width: 100%;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(2) > label > span {
+  width: 130px;
+  height: inherit;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.product_detail_aside > .product_detail_textpart > span:nth-of-type(2) > label > span:hover {
+  border: none;
+  background-color: #1a1a29;
+  color: white;
+}
+
+.product_page_change {
+  width: 1174px;
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.product_page_change > div:nth-of-type(1) {
+  width: inherit;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.product_page_change > div:nth-of-type(1) > span {
+  width: 25%;
+  height: inherit;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  border-left: none;
+  background-color: #e4e4e4;
+}
+
+.product_page_change > div:nth-of-type(2) {
+  width: inherit;
+  height: auto;
+  display: block;
+  position: relative;
+}
+
+.product_page_change > div:nth-of-type(2) > span {
+  width: inherit;
+  height: auto;
+  display: none;
+  position: "";
+  border: 1px solid #a7a7a7;
+  border-top: none;
+  background-color: white;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(1) {
+  height: auto;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) {
+  height: auto;
+  border: 1px solid #a7a7a7;
+  border-top: 1px solid white;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre {
+  width: 90%;
+  height: auto;
+  display: block;
+  position: "";
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul {
+  width: 100%;
+  height: inherit;
+  display: block;
+  position: "";
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li {
+  margin-bottom: 20px;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(1) {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(1) > span:nth-of-type(1) {
+  width: 20%;
+  height: inherit;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+  line-height: 120px;
+  text-align: center;
+  background-color: #d2d2d2;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(1) > span:nth-of-type(2) {
+  width: 80%;
+  height: inherit;
+  display: block;
+  position: "";
+  border: 1px solid #d2d2d2;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(1) > span:nth-of-type(2) > ul {
+  width: 80%;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  margin-left: 20px;
+  padding: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(1) > span:nth-of-type(2) > ul > li {
+  margin-top: 10px;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(1) > span:nth-of-type(2) > ul > li:nth-of-type(4) {
+  margin-bottom: 10px;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(2) {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(2) > span:nth-of-type(1) {
+  width: 20%;
+  height: inherit;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+  line-height: 150px;
+  text-align: center;
+  background-color: #d2d2d2;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(2) > span:nth-of-type(2) {
+  width: 80%;
+  height: inherit;
+  display: block;
+  position: "";
+  border: 1px solid #d2d2d2;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(2) > span:nth-of-type(2) > ul {
+  width: 80%;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  margin-left: 20px;
+  padding: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(2) > span:nth-of-type(2) > ul > li {
+  margin-top: 10px;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(2) > span:nth-of-type(2) > ul > li:nth-of-type(4) {
+  margin-bottom: 10px;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(3) {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(3) > span:nth-of-type(1) {
+  width: 20%;
+  height: inherit;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+  line-height: 150px;
+  text-align: center;
+  background-color: #d2d2d2;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(3) > span:nth-of-type(2) {
+  width: 80%;
+  height: inherit;
+  display: block;
+  position: "";
+  border: 1px solid #d2d2d2;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(3) > span:nth-of-type(2) > ul {
+  width: 80%;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  margin-left: 20px;
+  padding: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(3) > span:nth-of-type(2) > ul > li {
+  margin-top: 10px;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(3) > span:nth-of-type(2) > ul > li:nth-of-type(3) {
+  margin-bottom: 10px;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(4) {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(4) > span:nth-of-type(1) {
+  width: 20%;
+  height: inherit;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+  line-height: 150px;
+  text-align: center;
+  background-color: #d2d2d2;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(4) > span:nth-of-type(2) {
+  width: 80%;
+  height: inherit;
+  display: block;
+  position: "";
+  border: 1px solid #d2d2d2;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(4) > span:nth-of-type(2) > ul {
+  width: 80%;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  margin-left: 20px;
+  padding: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(4) > span:nth-of-type(2) > ul > li {
+  margin-top: 10px;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(4) > span:nth-of-type(2) > ul > li:nth-of-type(3) {
+  margin-bottom: 10px;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(5) {
+  width: 100%;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(5) > span:nth-of-type(1) {
+  width: 20%;
+  height: inherit;
+  display: block;
+  position: "";
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+  line-height: 150px;
+  text-align: center;
+  background-color: #d2d2d2;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(5) > span:nth-of-type(2) {
+  width: 80%;
+  height: inherit;
+  display: block;
+  position: "";
+  border: 1px solid #d2d2d2;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(5) > span:nth-of-type(2) > ul {
+  width: 80%;
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: "";
+  margin-left: 20px;
+  padding: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(5) > span:nth-of-type(2) > ul > li {
+  margin-top: 10px;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(2) > .delchre > ul > li:nth-of-type(5) > span:nth-of-type(2) > ul > li:nth-of-type(3) {
+  margin-bottom: 10px;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(3) {
+  height: 100px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+  line-height: 100px;
+  text-align: center;
+}
+
+.product_page_change > div:nth-of-type(2) > span:nth-of-type(4) {
+  height: 100px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: black;
+  line-height: 100px;
+  text-align: center;
+}
+/*# sourceMappingURL=product.css.map */

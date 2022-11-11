@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git test 페이지</title>
+    <script>
+        function abc(){
+            alert("test 메세지");
+            if(confirm("테스트 연습입니다.")){
+                alert("확인")
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                $("#box").stop().animate({
+                    "left":"700px"
+                },700,function(){
+                    $("#box").fadeOut();
+                });
+            });
+        })
+    </script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="클릭" onclick="abc()">
+    <input type="button" value="애니메이션" id="btn">
+    <div class="box" id="box"></div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>jquery 연습1</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                var $admin = $("#admin").val();
+                $("#select_email").change(function(){
+                    var $e = $(this).val();
+                    $("#email").val($e);
+                });
+                if($admin == ""){
+                    //alert("이메일을 입력해 주세요.");
+                }
+                else if($e == ""){
+                    //alert("이메일을 선택해 주세요.");
+                }
+                else{
+                    //alert("땡큐 ㅎㅎ");
+                }
+
+                $("#a").click(function(){
+                    $(this).css("float","left");
+                });
+
+                $("#b").click(function(){
+                    $(this).hide(1000);
+                });
+
+                $("#c").click(function(){
+                    $("#b").show(1500);
+                })
+
+
+
+
+
+            });
+        </script>
+        <style>
+            .a {
+                width: 100px;
+                height: 100px;
+                background-color: black;
+            }
+            .b {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+            }
+            .c {
+                width: 100px;
+                height: 100px;
+                background-color: yellow;
+            }
+            .d {
+                width: 100px;
+                height: 100px;
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="admin"> @
+        <input type="text" id="email">
+        <select id="select_email">
+            <option value="">[email 선택]</option>
+            <option value="naver.com">naver.com</option>
+            <option value="nate.com">nate.com</option>
+            <option value="google.com">google.com</option>
+        </select>
+        <div class="a" id="a"></div>
+        <div class="b" id="b"></div>
+        <div class="c" id="c"></div>
+        <div class="d" id="d"></div>
+    </body>
+</html>

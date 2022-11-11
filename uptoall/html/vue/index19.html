@@ -1,0 +1,82 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1.0">
+        <title>Vue 3일차 - Vue 배열 응용 부분</title>
+        <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+        <link rel="stylesheet" type="text/css" href="index19.css?v=<?=$data?>">
+        <style>
+        </style>
+    </head>
+    <body>
+        <section id="box">
+            <p class="title">{{text}}</p>
+            <ol class="tlist">
+                <li>출발</li>
+                <li>도착</li>
+                <li>시간</li>
+            </ol>
+            <!-- 응용문제1, 현재 도로상황 버튼 클릭시 해당 배열 값을 출력하라 -->
+            <ol class="tlist tlist2" v-for="(z,index) in array">
+                <li>서울</li>
+                <li>{{z.city}}</li>
+                <li>{{z.distance}}</li>
+            </ol>
+            <button type="button" class="bt1" v-if="p" v-text="btn1" v-on:click="prev_btn"></button>
+            <button type="button" class="bt1" v-if="n" v-text="btn2" v-on:click="next_btn"></button>
+        </section>
+    </body>
+    <script>
+        const trave = {
+            "travel_list":[
+                {"city":"수원","distance":"차로 1시간"},
+                {"city":"대전","distance":"차로 1시간 40분"},
+                {"city":"광주","distance":"차로 3시간 40분"},
+                {"city":"강릉","distance":"차로 2시간 30분"},
+                {"city":"부산","distance":"차로 5시간"},
+                {"city":"여수","distance":"차로 7시간"},
+                {"city":"전주","distance":"차로 2시간 30분"}
+            ]
+        }
+        
+        var s = 0;
+        var e = 3;
+        let a = new Vue({
+            el:"#box",
+            data:{
+                text:"현재 도로교통 상황",
+                btn1:"이전",
+                btn2:"다음",
+                times:false,
+                array:trave.travel_list.slice(s,e),
+                ea:trave.travel_list.length,
+                p:false,
+                n:true
+            },
+            methods:{
+                prev_btn:function(){  // 이전 버튼
+                    this.n = true; // 이전버튼 한 번이라도 클릭시 다음 버튼을 출력시키는 부분
+                    s -= 3;
+                    e -= 3;
+                    if(s == 0){  // 배열값이 처음값일 경우 이전 버튼을 출력하지 않음
+                        this.p = false;
+                    }
+                    this.array = trave.travel_list.slice(s,e);
+                },
+                next_btn:function(){  // 다음 버튼
+                    this.p = true;  // 다음 버튼 한 번이라도 클릭시 이전버튼 block
+                    s += 3;
+                    e += 3;
+                    if(e >= this.ea){  // 배열의 마지막 데이터일 경우
+                        this.n = false;  // 다음 버튼을 출력하지 않음
+                    }
+                    this.array = trave.travel_list.slice(s,e);
+                }
+            }
+        });
+    </script>
+</html>

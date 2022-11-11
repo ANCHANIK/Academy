@@ -1,0 +1,44 @@
+@charset "UTF-8";
+* { font-size: 12px; font-family: "돋움"; margin: 0; padding: 0;}
+#notdata { display: none; }
+body {
+    margin: 0; padding: 0;
+}
+.title {
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+table {
+    width: 1000px;
+    margin: 0 auto;
+}
+.thead > tr {
+    height: 30px;
+}
+.thead > tr > th:nth-of-type(1), .thead > tr > th:nth-of-type(5) {
+    width: 100px;
+}
+.thead > tr > th:nth-of-type(3) {
+    width: 150px;
+}
+.thead > tr > th:nth-of-type(4) {
+    width: 200px;
+}
+.tbody > tr {
+    height: 30px;
+    cursor: pointer;
+}
+.tbody > tr > td { text-align: center; }
+.tbody > tr > td:nth-of-type(2) {
+    text-align: left;
+    text-indent: 5px;
+}
+.write_btn {
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 80px;
+    height: 30px;
+}

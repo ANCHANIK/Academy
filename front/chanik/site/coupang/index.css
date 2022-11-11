@@ -1,0 +1,48 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; font-weight: 100,300,400,500,700,900 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+/* font-family: 'Nanum Gothic', sans-serif; font-weight: 400,700,800 */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0 auto;
+    padding: 0;
+    width: 1020px;
+}
+ul,ol,dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+span,label,main {
+    display: block;
+}
+a {
+    text-decoration: none;
+}
+.cou_header {
+    height: 130px;
+    background-color: red;
+}
+.cou_nav {
+    height: 40px;
+    background-color:green;
+}
+.cou_main {
+    height: 1540px;
+    background-color: black;
+}
+.cou_banner {
+    height: 500px;
+    border: 1px solid blue;
+}
+.cou_product {
+    height: 1040px;
+    background-color: violet;
+}
+.cou_footer {
+    height: 300px;
+    background-color: gray;
+}

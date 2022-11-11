@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Javascript 2일차 초급 (JavaScript & jQuery)</title>
+        <script src="../jq/jquery.js"></script>
+        <script>
+            //JS
+            /*
+            function abc(){
+                // while문으로 검수 가능
+                var f = 0;
+                var sign = "yes";
+                while(f < 3){
+                    var ck = document.getElementById("num" + f).value;
+                    if(ck == ""){
+                        sign = "no";
+                    }
+                    f++;
+                }
+
+                if(sign == "no"){
+                    alert("사업자 번호를 입력해 주세요.");
+                    return false;
+                }
+                else if(document.getElementById("sa_name").value == ""){
+                    alert("회사명을 입력해 주세요.");
+                    return false;
+                }
+                else{
+                    var snumber = document.getElementById("num0").value + "-" + document.getElementById("num1").value + "-" + document.getElementById("num2").value;
+                    document.getElementById("t_num").value = snumber;
+                    return true;
+                }
+            }
+            */
+            
+            //JQ
+            $(document).ready(function(){
+
+                
+                $("#btn").submit(function(){
+                    
+                    var $num0 = Number($("#num0").val());
+                    var $num1 = Number($("#num1").val());
+                    var $num2 = Number($("#num2").val());
+                    var $sa_name = $("#sa_name").val();
+                    var $t_num = $num0 + "-" + $num1 + "-" + $num2;
+                    console.log($num0,$num1,$num2)
+                    
+                    if(isNaN($num0) == true || isNaN($num1) == true || isNaN($num2) == true){
+                        alert("사업자 번호를 입력해 주세요.");
+                        return false;
+                    }
+                    else if($sa_name == ""){
+                        alert("화사명을 입력해 주세요.");
+                        return false;
+                    }
+                    else{
+                        $("#t_num").val($t_num);
+                        return true;
+                    }
+
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <!--
+            응용문제4.
+            개인사업자 로그인 페이지 제작하라.
+            1. 사업자 번호와 회사명을 입력  후 로그인 버튼을 누르면
+            rejava.php 로 전송시킨다.
+            형태는 POST로 전송하고 name값은 다음과 같다.
+            사업자 번호 : sanum
+            회사명 : sa_name
+            두 값을 해당 php 파일로 전송시켜라
+        -->
+        <!-- <form method="POST" action="./rejava4.php" enctype="application/x-www-form-urlencoded" onsubmit="return abc()">
+        <input type="hidden" name="sanum" value="" id="t_num">
+        <input type="text" maxlength="3" id="num0">-<input type="text" maxlength="2" id="num1">-<input type="text" maxlength="5" id="num2"><br>
+        <input type="text" name="sa_name" id="sa_name">
+        <input type="submit" value="로그인" id="btn">
+        </form> -->
+
+        <form method="POST" action="./rejava4.php" enctype="application/x-www-form-urlencoded" id="btn">
+            <input type="hidden" name="sanum" value="" id="t_num">
+            <input type="text" maxlength="3" id="num0">-<input type="text" maxlength="2" id="num1">-<input type="text" maxlength="5" id="num2"><br>
+            <input type="text" name="sa_name" id="sa_name">
+            <input type="submit" value="로그인">
+        </form>
+    </body>
+</html>

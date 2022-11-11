@@ -1,0 +1,146 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+/* font-family: 'Nanum Gothic', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* font-family: 'Gothic A1', sans-serif; */
+* {
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #ccc;
+}
+span,label,main {
+    display: block;
+}
+ul,ol,dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+img {
+    width: 100%;
+    object-fit: cover;
+}
+.pet_header {
+    width: 1920px;
+    height: 600px;
+    background-color: red;
+    margin: 0 auto;
+}
+.pet_nav {
+    width: 1920px;
+    height: 60px;
+    background-color: blue;
+    margin: 0 auto;
+}
+.pet_main {
+    width: 1920px;
+    height: auto;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+.pet_gallery {
+    width: 1920px;
+    height: 650px;
+    background-color: purple;
+    margin: 0 auto;
+}
+.pet_product {
+    width: 1920px;
+    height: 650px;
+    background-color: yellow;
+    margin: 0 auto;
+}
+.pet_adv {
+    width: 1920px;
+    height: 700px;
+    background-color: red;
+    margin: 0 auto;
+}
+.pet_intro {
+    width: 1920px;
+    height: 700px;
+    background-color: green;
+    margin: 0 auto;
+}
+.pet_footer {
+    width: 1920px;
+    height: 300px;
+    background-color: white;
+    margin: 0 auto;
+}
+/* bottom */
+/* bottom - nav */
+.bottom_nav_box {
+    width: 1280px;
+    height: 50px;
+    border: 1px solid #ccc;
+    margin: 0 auto;
+}
+.bottom_nav_box > ul {
+    width: 700px;
+    height: inherit;
+    line-height: 50px;
+    margin-left: 15px;
+}
+.bottom_nav_box > ul > li {
+    display: inline-block;
+    color: dimgray;
+    font-family: 'Gothic A1', sans-serif;
+    margin-right: 15px;
+    cursor: pointer;
+}
+/* bottom - copy */
+.botoom_copy_box {
+    width: 1280px;
+    height: 250px;
+    border: 1px solid #ccc;
+    border-top: none;
+    margin: 0 auto;
+}
+.botoom_copy_box > ul {
+    width: inherit;
+    height: inherit;
+}
+.botoom_copy_box > ul > li {
+    height: inherit;
+    float: left;
+    color: gray;
+}
+.botoom_copy_box > ul > li:nth-of-type(1) {
+    width: 50%;
+    border: 1px solid red;
+}
+.botoom_copy_box > ul > li:nth-of-type(2), .botoom_copy_box > ul > li:nth-of-type(3) {
+    width: 25%;
+    border: 1px solid red;
+}
+.bottom_logo {
+    width: 300px;
+    margin-top: 30px;
+}
+.botoom_copy_box_ol {
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.cpno {
+    font-weight: 700;
+    color: dimgray;
+    cursor: pointer;
+}
+.botoom_copy_box_ol > li:nth-of-type(1) {
+    margin-bottom: 10px;
+}
+.botoom_copy_box_ol > li > label,span {
+    display: inline;
+}

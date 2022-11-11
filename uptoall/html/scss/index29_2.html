@@ -1,0 +1,128 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index29_2.css?v=<?=$data?>">
+    <title>Scss 10일차 - Step 회원가입 페이지 만들기</title>
+    <script src="../jq/jquery.js"></script>
+    <script>
+        // 전체 -> 세분 식으로 코드를 짜고 들어가야 된다.
+        // 전체동의
+        function allchk(){
+            // class가 다 똑같다
+            var ck_ea = document.getElementsByClassName("ckea").length;
+            let on_off = document.getElementById("allchk").checked;
+            console.log(ck_ea);
+            
+            var w = 0;
+            do{
+                document.getElementById("c" + w).checked = on_off;
+                w++;
+            }while(w < ck_ea);
+        }
+
+        // 하나라도 비동의시 전체동의 해제
+        function agree_f(){
+            var ck_ea = document.getElementsByClassName("ckea").length;
+            var w = 0;
+            var ct = 0;
+            do{
+                var use_ck = document.getElementById("c" + w).checked;
+                if(use_ck == false){
+                    document.getElementById("allchk").checked = false;
+                }
+                else if(use_ck == true){
+                    ct++;  // 사용자가 클릭한 카운터
+                }
+                w++;
+            }while(w < ck_ea);
+            if(ct == ck_ea){
+                document.getElementById("allchk").checked = true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <main class="join_wrap">
+        <h2>간편회원가입</h2>
+        <section class="join sec1">
+            <div class="chkbox_wrap">
+                <span>전체 동의하기</span>
+                <label onclick="allchk()">
+                    <input type="checkbox" id="allchk">동의
+                </label>
+            </div>
+        </section>
+
+        <section class="join sec2">
+            <p class="tit">이용약관</p>
+            <!-- 이용약관 -->
+            <div class="policy" id="policy"></div>
+            <div class="chkbox_wrap">
+                <label class="ckea" onclick="agree_f()"><input type="checkbox" id="c0" value="Y">동의</label>
+            </div>
+        </section>
+        <section class="join sec3">
+            <p class="tit">서비스 수신여부</p>
+            <div class="chkbox_wrap">
+                <span>문자광고 수신</span>
+                <label class="ckea" onclick="agree_f()"><input type="checkbox" id="c1" value="Y">동의</label>
+            </div>
+            <div class="chkbox_wrap">
+                <span>메일광고 수신</span>
+                <label class="ckea" onclick="agree_f()"><input type="checkbox" id="c2" value="Y">동의</label>
+            </div>
+            <div class="chkbox_wrap">
+                <span>카카오톡 수신</span>
+                <label class="ckea" onclick="agree_f()"><input type="checkbox" id="c3" value="Y">동의</label>
+            </div>                    
+        </section>
+        <div class="btn_wrap">
+            <button type="button" class="btn_join" id="submit_btn">회원가입</button>
+        </div>
+    </main>
+</body>
+<script>
+    let agree = new XMLHttpRequest();
+    agree.open("GET","./agree.txt",true);
+    agree.onreadystatechange = function(){
+        if(agree.readyState == XMLHttpRequest.DONE && agree.status == 200){
+            const agree_txt = agree.responseText;
+            document.getElementById("policy").innerText = agree_txt;
+        }
+    }
+    agree.send();
+
+    let post = document.getElementById("submit_btn").addEventListener("click",post_page);
+    function post_page(){
+        var ck_ea = document.getElementsByClassName("ckea").length;
+        var w = 0;
+        var agree2 = "";
+        var agree3 = "";
+        var agree4 = "";
+        do{
+            var use_ck = document.getElementById("c" + w).checked;
+            if(w == 0 && use_ck == false){
+                document.getElementById("c" + w).checked = true;
+                alert("이용약관에 동의해 주세요.");
+            }
+            else if(w == 1 && use_ck == true){
+                agree2 = "&sms_av=Y";
+            }
+            else if(w == 2 && use_ck == true){
+                agree3 = "&email_av=Y";
+            }
+            else if(w == 3 && use_ck == true){
+                agree4 = "&kako_av=Y";
+            }
+            w++;
+        }while(w<ck_ea);
+        location.href = './index30_2.html?agree=Y'+agree2+agree3+agree4;
+    }
+</script>
+</html>

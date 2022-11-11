@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1.0">
+        <title>Ajax 1일차 - JavaScript (XMLHttpRequest 통신형태 + XML)</title>
+        <!--
+            XML : HTML 사촌
+            X(extension)
+            <?//xml version="1.0" encoding="UTF-8"?> xml 처음 시작 코드
+            - version="1.0"  =  content="IE=Edge, chrome=1.0"
+            - encoding="UTF-8"  =  charset="UTF-8"
+            - 백엔드와 정한 태그명이 key값이 됨
+        -->
+        <style>
+            .piz_product {
+                width: 550px;
+                height: 30px;
+                /*
+                height: auto; 일때
+                float: left 하면 부모의 auto가 안먹는다. px로 높이를 잡아줘야됨
+                */
+                background-color: tomato;
+                color: black;
+            }
+            .piz_product > label, .product_list > label {
+                display: block;
+                float: left;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                font-size: 12px;
+            }
+            .piz_product > label:nth-of-type(1), .product_list > .li0 {
+                width: 30%;
+            }
+            .piz_product > label:nth-of-type(2), .product_list > .li1 {
+                width: 35%;
+            }
+            .piz_product > label:nth-of-type(3), .product_list > .li2 {
+                width: 35%;
+            }
+
+            .product_list {
+                width: 550px;
+                height: auto;
+                background-color: crimson;
+                color: white;
+            }
+            .product_list  > label {
+                background-color: crimson;
+            }
+        </style>
+        <script>
+            let pm; // ajax에서 데이터를 가지고 올 변수명
+            function ajax(){
+                function windowck(){  //현재 적용되어있는 브라우저
+                    if(window.XMLHttpRequest){  //모든 종류의 데이터를 받아서 사용한다는 뜻 
+                        return new XMLHttpRequest();
+                    }
+                }
+                function fileopen(){ // 파일을 가져오는 함수
+                    if(pm.readyState == XMLHttpRequest.DONE && pm.status == 200){
+                        // console.log(this.responseXML)
+                        xmlfile(this);
+                        // xmlfile 함수로 넘긴다는 의미
+                        // this : 파일로 가져온 배열 데이터
+                    }
+                }
+                pm = windowck();
+                // 데이터를 받아오기 위한 통신 연결 준비상태
+                pm.onreadystatechange = fileopen;
+                // 해당 파일 상태가 올바른지를 파악 함
+                pm.open("GET","index2.xml?v=3",true);
+                // POST, GET, PUT, Delete를 사용할 수 있음(method형태로)
+                // open: 해당 method를 어떤 파일 및 형태로 사용할 것인지 정하는 부분
+                // PUT: 데이터를 강제로 집어 넣을 때
+                // Delete는 데이터를 지울 때
+                pm.send();
+                // 해당 통신 파일을 체크하여 적용함 = send : 비동기
+            }
+
+            function xmlfile(a){ // a = fileopen 함수에서 던진 값을 받은 아무 변수 값
+                const data = a.responseXML; // xml, json (태그, 배열시에 사용)
+                // const x = a.responseText; 태그, 배열이 아닐 경우 사용
+                var test = data.getElementsByTagName("success"); // XML일 경우, 태그를 사용함. 내용이 들어있는 부모 태그를 가져와야 한다.
+                console.log(test)
+                // foreach로 해볼것
+                
+                data.success.forEach(function(a,b,c){
+                    console.log(b)
+                });
+                /*
+                var productnm,productop,productsp;
+                var html1,html2,html3;
+                var ea = test.length;
+                var f;
+                for(f=0;f<ea;f++){
+                    productnm = test[f].getElementsByTagName("pizza")[0].childNodes[0].nodeValue;
+                    productop = test[f].getElementsByTagName("chicken")[0].childNodes[0].nodeValue;
+                    productsp = test[f].getElementsByTagName("pasta")[0].childNodes[0].nodeValue;
+                    html1 = document.createElement("label");
+                    html1.className = "li0";
+                    html1.innerHTML = productnm;
+
+                    html2 = document.createElement("label");
+                    html2.className = "li1";
+                    html2.innerHTML = productop;
+
+                    html3 = document.createElement("label");
+                    html3.className = "li2";
+                    html3.innerHTML = productsp;
+
+                    document.getElementById("product_list").appendChild(html1);
+                    document.getElementById("product_list").appendChild(html2);
+                    document.getElementById("product_list").appendChild(html3);
+                }
+                */
+                // 또한 XML 은 태그를 가져와야 한다.
+                // console.log(test.length);
+                // console.log(test[0].getElementsByTagName("pizza")[0].childNodes[0].nodeValue);
+
+                /*
+                for(f in test){
+                    // console.log(f);
+                    // console.log(test.item(0).getElementsByTagName("pizza")[0].childNodes[0].nodeValue); // console.log로 확인하는 습관 키울 것
+                    // console.log(test.namedItem("pizza")); // namedItem은 태그에 id가 들어가 있어야 사용할 수 있음
+                    if(isNaN(f)==false){
+                        productnm = test[f].getElementsByTagName("pizza")[0].childNodes[0].nodeValue;
+                        productop = test[f].getElementsByTagName("chicken")[0].childNodes[0].nodeValue;
+                        productsp = test[f].getElementsByTagName("pasta")[0].childNodes[0].nodeValue;
+                        html1 = document.createElement("label");
+                        html1.className = "li0";
+                        html1.innerHTML = productnm;
+
+                        html2 = document.createElement("label");
+                        html2.className = "li1";
+                        html2.innerHTML = productop;
+
+                        html3 = document.createElement("label");
+                        html3.className = "li2";
+                        html3.innerHTML = productsp;
+
+                        document.getElementById("product_list").append(html1,html2,html3);
+                    }
+                }
+                */
+
+            }
+        </script>
+    </head>
+    <body>
+        <div class="piz_product">
+            <label>피자회사</label>
+            <label>상품옵션</label>
+            <label>추가옵션</label>
+        </div>
+        <div class="product_list" id="product_list">
+            <!-- 샘플 code
+                <label class="li0">회사명</label>
+                <label class="li1">상품명</label>
+                <label class="li2">옵션명</label>
+            -->
+        </div>
+        <span style="clear: both; display: block;"></span>
+        <input type="button" value="회사별 현황" onclick="ajax()">
+    </body>
+</html>

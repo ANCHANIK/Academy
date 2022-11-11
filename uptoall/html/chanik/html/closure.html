@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function makeFunc() {
+        var name = "Mozilla";
+        function displayName() {
+            alert(name);
+        }
+        return displayName;
+    }
+
+    var myFunc = makeFunc();
+    //myFunc변수에 displayName을 리턴함
+    //유효범위의 어휘적 환경을 유지
+    myFunc();
+    //리턴된 displayName 함수를 실행(name 변수에 접근)
+</script>
+</html>

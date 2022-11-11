@@ -1,0 +1,39 @@
+<?php
+    $data = date("YMDHis");
+?>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="./css/content_side.css?v=<?=$data?>">
+<span class="emptybox"></span>
+<section class="content_side_outline" id="side">
+	{{eventajax}}
+	{{noticeajax}}
+	<div class="sidebanner_b">
+        <img src="" id="sidebanners">
+    </div>
+	<span class="emptybox"></span>
+	<aside>
+		<div class="tab_b">
+			<div class="tab_title_b">
+				<span class="tab_normal_b" @click="eventbtn">이벤트</span>
+				<span class="tab_active_b" @click="notice">공지사항</span>
+			</div>
+			<div class="tab_list_b" v-if="sf1">
+				<ul id="tab_list_b">
+					<li v-for="edata in earr">◾  {{edata.title}}</li>
+				</ul>
+			</div>
+			<div class="tab_list_b" v-if="sf2">
+				<ul id="tab_list_b">
+					<li v-for="ndata in narr">◾  {{ndata.title}}</li>
+				</ul>
+			</div>
+			<div class="tab_button">
+				<button @click="totalopen">전체보기</button>
+			</div>
+		</div>
+	</aside>
+	<span class="emptybox"></span>
+	<div class="sidebanner_b">
+        <img src="" id="sidebanners2">
+    </div>
+</section>

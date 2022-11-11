@@ -1,0 +1,84 @@
+%body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+}
+%none {
+    text-decoration: none;
+    color: black;
+}
+%ulol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+%clear {
+    clear: both;
+}
+%pointer {
+    cursor: pointer;
+}
+*,body {
+    @extend %body;
+}
+a:link, a:visited, a:hover, a:active {
+    @extend %none;
+}
+section,label,span,footer,main,aside,article,nav,header {
+    display: block;
+}
+ul,ol {
+    @extend %ulol;
+}
+@mixin font($family,$weight,$size,$color) {
+    @if($family == "noto"){
+        //100,300,400,500,700,900
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    @else if($family == "nanum"){
+        // 400,700,800
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+    @else if($family == "sans"){
+        // 400,700
+        font-family: 'Noto Sans', sans-serif;
+    }
+    font-weight: $weight;
+    font-size: $size;
+    color: $color;
+}
+@mixin flex($just,$direct,$warp,$items,$content,$part) {
+    display: flex;
+    justify-content: $just;
+    flex-flow: $direct $warp;
+    align-items: $items;
+    @if($part==2){
+        align-content: $content;
+    }
+}
+@mixin div($w,$h,$display,$max) {
+    @if($max == "max"){
+        max-width: $w;
+    }
+    @else{
+        width: $w;
+    }
+    height: $h;
+    display: $display;
+}
+@mixin bg($ap,$bgcolor,$bgurl) {
+    @if($ap == 0){
+        background-color: $bgcolor;
+    }
+    @else if($ap == 1) {
+        background-color: "#"+$bgcolor;
+    }
+    @else if($ap == 2){
+        background-color: url($bgurl);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+}

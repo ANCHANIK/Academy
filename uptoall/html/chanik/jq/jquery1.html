@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>jquery 연습1</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                $("#btn").click(function(){
+                    var $a = Number($("#text").val());
+                    if($a == "" || $a > 10){
+                        alert("숫자 또는 10 밑으로 입력해라 뒤지기 싫으면");
+                    }
+                    else{
+                        while($a > 0){
+                            console.log($a);
+                            $a --;
+                        }
+                    }
+                });
+
+                $("#tel").change(function(){
+                    var $aa = $(this).val();
+                    console.log($aa);
+                });
+
+                $("#yes").click(function(){
+                    var $bb = $("#agree").is(":checked");
+                    if($bb == false){
+                        if(confirm("동의하시겠습니까?")){
+                            $("#agree").attr("checked",true);
+                        }
+                    }
+                
+                });
+
+                $("#button").click(function(){
+                    var $agree_check = $("#ccc1").is(":checked")
+                    if($agree_check == true){
+                        location.href="http://www.naver.com";
+                    }
+                    else{
+                        alert("동의함에 체크되어야만 진행됩니다.");
+                    }
+                });
+
+
+
+
+
+            });
+        </script>
+        <style>
+            .btn {
+                width: 100px;
+                height: 40px;
+                background-color: aqua;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="text">
+        <div class="btn" id="btn"></div>
+
+        <br><br><br>
+
+        <select id="tel">
+            <option value="">[통신사 선택]</option>
+            <option value="SKT">STK</option>
+            <option value="KT">KT</option>
+            <option value="LGT">LGT</option>
+            <option value="알뜰폰">알뜰폰</option>
+            <option value="기타폰">기타폰</option>
+        </select>
+
+        <br><br><br>
+
+        <input type="checkbox" id="agree">동의함
+        <input type="button" value="가입완료" id="yes">
+
+        <br><br><br>
+
+        <input type="radio" name="ck" id="ccc1">
+        <input type="radio" name="ck" id="ccc2" checked>
+        <button type="button" id="button">확인</button>
+    </body>
+</html>

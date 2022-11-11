@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS (media + JavaScript)</title>
+    </head>
+    <style>
+        #box {
+            width: 200px;
+            height: 40px;
+            border: 1px solid #ccc;
+        }
+        </style>
+    <body>
+        <div id="box"></div>
+        <input type="button" value="연습" onclick="abc()">
+    </body>
+    <script>
+        // 확인하기 위해서 reload를 해줘야 함
+        var md = matchMedia("screen and (min-width:560px)");
+        // matchMedia : JavaScript media쿼리
+        if(md.matches){  // matches : 해당 쿼리 범위를 말함
+            document.write("<script src='./javascript1.js'><"+"/script>");
+        }
+        else{  // 해당 쿼리 범위보다 작을 경우 작동함
+            document.write("<script src='./javascript2.js'><"+"/script>");
+        }
+    </script>
+</html>

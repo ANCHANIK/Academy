@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.btn {
+  width: 100px;
+  height: 30px;
+  display: block;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.btn:hover + .ck + .box + .boxspan {
+  width: 100px;
+  height: 100px;
+  display: block;
+  background-color: pink;
+}
+
+.btn:active + .ck + .box + .boxspan {
+  width: 100px;
+  height: 100px;
+  display: block;
+  background-color: yellow;
+}
+
+.btn ~ .boxspan {
+  background-color: red;
+  display: block;
+}
+
+.ck:checked + .box {
+  background-color: pink;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  display: block;
+  background-color: darkblue;
+}
+
+.boxspan {
+  width: 20px;
+  height: 20px;
+  display: block;
+  background-color: black;
+}
+
+.banner {
+  color: white;
+  position: relative;
+  width: 600px;
+  height: 100px;
+  background-color: black;
+  top: 0px;
+  left: 0%;
+  padding-left: 0px;
+  -webkit-transition-duration: 2s;
+          transition-duration: 2s;
+  -webkit-transition-property: padding-left;
+  transition-property: padding-left;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.banner:target {
+  background-color: black;
+  width: 600px;
+  height: 100px;
+  top: 0px;
+  left: 0%;
+  padding-left: 400px;
+}
+/*# sourceMappingURL=index10.css.map */

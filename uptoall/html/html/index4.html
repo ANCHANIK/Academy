@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale-1.0">
+        <title>HTML & CSS 1일차 중급 모바일 전용 형태</title>
+        <style>
+            body { margin: 0; padding: 0; }
+            .box {
+                width: 1200px;
+                height: 60px;
+                background-color: hotpink;
+                text-align: right;
+            }
+            /*
+            @media : 디바이스의 크기를 제어하는 css 속성 (반응형 웹사이트 )
+            screen : 모니터, 휴대폰 화면, TV 기준을 의미
+            print : 웹 인쇄용으로 사용
+            all : screen + print 다 사용하는 형태
+            and : 최소 사이즈(min-width), 최대 사이즈(max-width)
+            */
+            @media screen and (min-width: 320px) and (max-width: 580px){
+                .box {
+                    width: 100%;
+                    background-color: orange;
+                }
+            }
+            @media screen and (min-width: 581px) and (max-width: 799px){
+                .box {
+                    width: 100%;
+                    background-color: gray;
+                }
+            }
+            @media screen and (min-width: 800px) and (max-width: 1000px){
+                /* 800~1200 사이즈의 모니터는 yellowgreen으로 보이게 함 */
+                .box {
+                    width: 800px;
+                    background-color: yellowgreen;
+                }
+            }
+            /*
+                모바일 세로 사이즈 : 320 ~ 580
+                모바일 가로 사이즈 : 581 ~ 780
+                모바일 테블릿 사이즈 : 781 ~ 860
+                노트북 사이즈 : 861 ~ 1280
+                PC 사이즈 : 1281 ~ 1920
+            */
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            test
+        </div>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <title>Jquery 2일차 - 중급 (2차 배열 - each & map)</title>
+        <script src="./jquery.js"></script>
+        <script>
+            $(function(){
+                const $array = {
+                    "members":[
+                        {
+                            "id":"ravi",
+                            "name":"박예준",
+                            "email":"ravi@gmail.com",
+                            "area":"서울",
+                            "phone":"010-1234-5678"
+                        }
+                        // {
+                        //     "id":"ravi",
+                        //     "name":"박예준",
+                        //     "email":"ravi@gmail.com",
+                        //     "area":"서울",
+                        //     "phone":"010-1234-5678"
+                        // },
+                        // {
+                        //     "id":"ravi",
+                        //     "name":"박예준",
+                        //     "email":"ravi@gmail.com",
+                        //     "area":"서울",
+                        //     "phone":"010-1234-5678"
+                        // }
+                    ]
+                }
+                // console.log($array["members"][0]["name"]);
+                /*
+                // 기본 key가 있는 배열에서 세부 key가 있는 경우 다음과 같이 출력 못 함
+                $($array["members"]).each(function($a,$b){  // key가 1개 있고 그 안에 배열이 나올 때 사용
+                    console.log($b["id"])
+                    $("#mid").html($b["id"]);
+                    $("#mname").html($b["name"]);
+                    $("#memail").html($b["email"]);
+                    $("#marea").html($b["area"]);
+                    $("#mtel").html($b["phone"]);
+                })
+                */
+                // 기본 key가 있고, 세부 key가 있을 경우 each 함수 문구는 다음과 같이 수정된다.
+                $.each($array["members"][0],function($a,$b){  // key가 나오고 그 안에 여러개의 key가 있을 때 사용
+                    console.log($b) // $a : 세부 key,  $b : data 값
+                    var $ids = "#" + $a;
+                    $($ids).append($b);
+                })
+            })
+        </script>
+        <style>
+            .datas {
+                width: 500px;
+                height: auto;
+            }
+            .data_title {
+                margin: 0 auto;
+            }
+            .data_title > label {
+                display: inline-block;
+                width:100px;
+                height:30px;
+                background-color: black;
+                color: white;
+                text-align: center;
+            }
+            .datas > span {
+                display: block;
+                width: 100%;
+                height: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 
+            fieldset : 여러 label을 묶어서 그룹화 하는 형태의 태그
+            legend : fieldset 타이틀 파트 해당 태그는 한 번만 사용 가능함
+        -->
+        <fieldset class="datas">
+            <legend class="data_title">
+                <label>MY INFO</label>
+                <label>MY SERVICE</label>
+            </legend>
+            아이디 : <span id="id"></span>
+            이름 : <span id="name"></span>
+            이메일 : <span id="email"></span>
+            지역 : <span id="area"></span>
+            전화번호 : <span id="tel"></span>
+        </fieldset>
+    </body>
+</html>

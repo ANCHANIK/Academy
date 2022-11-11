@@ -1,0 +1,41 @@
+<?php
+    $data = date("YMDHis");
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="IE=Edge, chrome=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../jq/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="index17.css?v=<?=$data?>">
+        <title>
+            SCSS 8일차 - HTML ~ SCSS & 쇼핑몰 상품 출력 응용
+        </title>
+    </head>
+    <body>
+        <section class="product_box">
+            <div class="product_list">
+                <label class="product_label">
+                    <!-- 앞면 -->
+                    <span class="product_view views">
+                        <label class="product_img">
+                            <img src="product/product1.gif">
+                        </label>
+                    </span>
+                    <!-- 뒷면 -->
+                    <span class="product_view views">
+                        <div class="blackscreen"></div>
+                        <label class="product_img">
+                            <img src="product/product1.gif">
+                        </label>
+                    </span>
+                </label>
+                <label class="product_title">
+                    <span class="product_nm">어머 이게 나야? 원피스</span>
+                    <span class="product_pic">59,000원</span>
+                </label>
+            </div>
+        </section>
+    </body>
+</html>

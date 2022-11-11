@@ -1,0 +1,47 @@
+<meta charset="UTF-8">
+<div class="admin_main">
+    <span>배너 리스트 관리</span>
+    <span>
+        <ul class="admin_main_ul">
+            <li onclick="fontclass('1')"><img src="../image/ts01.gif" alt="../image/ts01.gif" title="보통"></li>
+            <li onclick="fontclass('2')"><img src="../image/ts02.gif" alt="../image/ts02.gif" title="크게"></li>
+            <li onclick="fontclass('3')"><img src="../image/ts03.gif" alt="../image/ts03.gif" title="더 크게"></li>
+        </ul>
+    </span>
+</div>
+<form name="banner_register" id="banner_register">
+    <input type="hidden" name="banner_url" v-model="myurl" id="banner_url">
+    <input type="hidden" id="effect0" disabled>
+    <input type="hidden" id="effect1" disabled>
+    <article class="banner_list_article">
+        <div class="banner_list_article_text">신규 배너 등록</div>
+    </article>
+    <aside class="banner_new_register">
+        <div class="banner_new_register_div">
+            <span class="banner_new_register_span">
+                <ul>
+                    <li>배너명</li>
+                    <li>
+                        <input v-bind:type="tx" ref="fn" name="bname" id="bname" v-model="bname" class="banner_new_register_title">
+                    </li>
+                </ul>
+                <ul>
+                    <li>링크주소</li>
+                    <li>
+                        <input v-bind:type="tx" ref="fb" name="blink" id="blink" v-model="blink" class="banner_new_register_link">
+                    </li>
+                </ul>
+                <ul>
+                    <li>배너 이미지</li>
+                    <li>
+                        <input v-bind:type="fl" accept="image/png, image/gif, image/jpeg" name="bimg" id="bimg" v-model="bimg"><span class="upload_memo">{{basic_text}}{{upload_text}}</span>
+                    </li>
+                </ul>
+                <span class="banner_new_register_btn">
+                    <button v-bind:type="bt" class="register_btn" @click="banner_register">배너등록</button>
+                    <button v-bind:type="bt" class="register_btn" onclick="banner_register_back()">목록</button>
+                </span>
+            </span>
+        </div>
+    </aside>
+</form>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>자바스크립트 기초 응용편5</title>
+        <script>
+            /*
+            응용문제16
+        입력값과 버튼이 있다. 해당 입력값에 사용자가 원하는 값을 입력하고자 한다.
+        단, "인증하기" 버튼을 클릭하지 않을 경우 사용자가 값을 입력하지 못한다.
+        해당 문법을 제작하라.
+            */
+            function btn(){
+                //var a = document.getElementById("t1").readOnly = false;
+            }
+        
+            /*
+            응용문제17.
+            제목 : [해당 사이트 중 가장 인상 깊은 이벤트는?]
+            해당 이벤트를 진행하며, 설문조사를 하는 프로그램을 제작하라
+            설문조사 선택은 무조건 1가지만 선택하게 하라.
+            1. 여름 특집 오싹오싹 30% 할인
+            2. 어버이날 감사의 50% 할인
+            3. 퇴사 걸고 40% 할인
+            4. 얼리버드 1+1 기획전
+            5. 크리스마스 선물 30% 할인
+            "설문 조사 참여" 라는 버튼을 클릭할 수 있도록 하라.
+            단, 1가지도 선택하지 않고, "설문조사 참여" 버튼 클릭시
+            "한가지를 선택해 주셔야 합니다." 라는 메세지를 출력하라
+            한가지 선택 후 "설문조사 참여"
+            버튼 클릭시 "설문조사에 응해주셔서 감사합니다." 라는 메세지를 출력하라.
+            */
+
+            function sbtn(){
+                var a = 0;
+                var c = "";
+                while(a<5){
+                    var b = fm.rr[a].checked;
+                    if(b==true){
+                        c = "ok";
+                    }
+                    a++;
+                }
+                if(c=="ok"){
+                    alert("설문조사에 응해주셔서 감사합니다.");
+                }
+                else{
+                    alert("한가지를 선택해 주셔야 합니다.");
+                }
+            }
+                /*
+                var a = fm.rr[0].checked;
+                var b = fm.rr[1].checked;
+                var c = fm.rr[2].checked;
+                var d = fm.rr[3].checked;
+                var e = fm.rr[4].checked;
+                
+                if(a==true || b==true || c==true || d==true || e==true){
+                alert("설문조사에 응해주셔서 감사합니다.");
+                }
+                else{
+                    alert("한가지를 선택해 주셔야 합니다.");
+                }
+            }
+            */
+
+        </script>
+    </head>
+    <body>
+            <input type="text" id="t1" readonly>
+            <input type="button" value="인증하기" onclick="btn();">
+
+            <br><br><br><br><br>
+
+            <p>[해당 사이트 중 가장 인상 깊은 이벤트는?]</p>
+            <form name="fm" id="fm">
+            <input type="radio" id=tt0 name="rr">1. 여름 특집 오싹오싹 30% 할인<br>
+            <input type="radio" id=tt1 name="rr">2. 어버이날 효놈의 감사 50% 할인<br>
+            <input type="radio" id=tt2 name="rr">3. 퇴사 걸고 40% 할인<br>
+            <input type="radio" id=tt3 name="rr">4. 얼리버드 1+1 기획전<br>
+            <input type="radio" id=tt4 name="rr">5. 크리스마스(깨져라) 선물 30% 할인<br>
+
+            <input type="button" value="설문 조사 참여" onclick="sbtn();">
+            </form>
+
+    </body>
+</html>

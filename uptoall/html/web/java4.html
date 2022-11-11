@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <title>자바스크립트 기초 - 응용편4(더블 반복문)</title>
+        <script>
+            /*
+            응용문제10.
+            아무 반복문 사용할 것.
+            다음과 같이 출력시켜라
+            5,4,3,2,1
+            */
+            var a = 5,b=1,c="";
+            while(a>=1){
+                if(a>1){
+                    b = a + ",";
+                }
+                else{
+                    b = a;
+                }
+                c = c + b;
+                a--;
+            }
+            //console.log(c);
+
+            /*
+            응용문제 11.
+            다음 반복문 2개를 이용하여 다음과 같이 출력하라.
+            5단 ~ 7단이며, 뒷자리 숫자는 4까지만 출력되는 구구단을 작성하라
+            */
+            var d = 5;
+            var f;
+            while(d<=7){
+                var e = 1;
+                while(e<=4){
+                    f = d * e;
+                    //console.log(d + "*" + e + "=" + f );
+                    e++;
+                }
+                d++;
+            }
+
+            /*
+            응용문제 12.
+            구구단 2~9단까지 중에서 결과 값이 60이상 숫가 몇 개가 있는지 출력하라
+            double 반복문, if 문
+            */
+            var g = 2
+            var i;
+            var j = 0;
+            var k;
+            while(g <= 9){
+                var h = 1;
+                while(h <= 9){
+                    i = g * h
+                    if(i >= 60){
+
+                        j = j + 1;
+                        console.log(g + "*" + h + "=" + i + "이기 때문에 60을 넘을 수 있는 수는" + j + "개 이다.")
+                    }
+                    h++;
+                }
+                g++;
+            }
+            console.log(j);
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

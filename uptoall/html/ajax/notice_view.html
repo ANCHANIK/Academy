@@ -1,0 +1,98 @@
+<?php
+    include "notice_view.php";  //백엔드 파일
+?>
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+        <title>Ajax (6일차) - 공지사항 내용확인</title>
+        <script src="./jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="./notice_view.css?v=6">
+        <script>
+            $(function(){
+                // <?=$view?> 백엔드가 주는 코드명
+                // const $data = $.parseJSON('<?=$view?>');
+                // $.parseJSON : Jquery 엔진 1.X version
+                const $data = JSON.parse('<?=$view?>');
+                // JSON.parse : Jquery 엔진 3.X version
+                // console.log($data);
+                // console.log($data[0]);
+                // console.log($data[0]["nsubject"]);
+
+                $("#wsubject").html($data[0]["nsubject"]);
+                $("#wname").html($data[0]["nwriter"]);
+                $("#wtext").html($data[0]["ntext"]);
+
+                /*
+                응용문제.
+                해당 페이지 파라미터 값 중 nidx값을 글 삭제 버튼 클릭시,
+                같은 파라미터 값으로 태워서 페이지를 이동시켜라
+                */
+                $("#del_btn").click(()=>{
+                    if(confirm("해당 게시물을 삭제하시겠습니까?")){
+                        var $p = location.search;
+                        var $split = $p.split("?nidx=");
+                        location.href = "notice_del.php?nidx=" + $split[1];
+                    }
+                });
+
+                $("#list_btn").click(()=>{
+                    location.href = "notice_list.html";
+                });
+
+                $("#sub_btn").click(()=>{
+                    if(confirm("해당 게시물을 수정하시겠습니까?")){
+                        var $p = location.search;
+                        var $split = $p.split("?nidx=");
+
+                    }
+                    location.href = "notice_modify.html?nidx=" + $split[1];
+                });
+
+
+            });
+        </script>
+    </head>
+    <body>
+            <input type="hidden" name="domain" value="http://cksdlr7446.dothome.co.kr">
+            <section class="notice">
+                <div class="notice_box">
+                    <table cellspacing="0" cellpadding="0" border="1">
+                        <thead class="thead">
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <p>[공지사항 게시판 - 글쓰기]</p>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+                            <tr>
+                                <td>제목</td>
+                                <td>
+                                    <span id="wsubject" class="spancss"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>글쓴이</td>
+                                <td>
+                                    <span id="wname" class="spancss"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>내용</td>
+                                <td><!-- 게시글 확인시에는 textarea를 사용하지 않음 -->
+                                    <span id="wtext" class="spancss2"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn_box">
+                        <button type="button" class="sub_btn" id="sub_btn">글 수정</button>
+                        <button type="button" class="sub_btn" id="list_btn">목록</button>
+                        <button type="button" class="sub_btn" id="del_btn">글 삭제</button>
+                    </div>
+                </div>
+            </section>
+    </body>
+</html>
